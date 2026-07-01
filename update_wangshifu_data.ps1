@@ -41,6 +41,7 @@ foreach ($archive in $response.data.archives) {
             food = "Not identified"
             foods = @()
             highlights = @()
+            evidence = @()
             summary = $archive.title.TrimEnd(".") + "."
         }
     }
@@ -49,6 +50,9 @@ foreach ($archive in $response.data.archives) {
     }
     if (-not $item.PSObject.Properties["highlights"]) {
         $item | Add-Member -NotePropertyName highlights -NotePropertyValue @()
+    }
+    if (-not $item.PSObject.Properties["evidence"]) {
+        $item | Add-Member -NotePropertyName evidence -NotePropertyValue @()
     }
     $item.title = $archive.title
     $item.date = $date
