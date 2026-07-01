@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>王师傅骑到哪了？</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root{--ink:#17211d;--muted:#718078;--paper:#f5f1e8;--card:#fffdf8;--line:#ded8cb;--orange:#ee642f;--green:#16806c;--dark:#1d342c}
+    *{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+    header{height:76px;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;background:var(--dark);color:white}
+    h1{font-size:23px;margin:0 0 3px}.eyebrow{font-size:11px;letter-spacing:.15em;color:#9fd5c7}.head-right{display:flex;align-items:center;gap:12px}.sync{font-size:12px;color:#bed1cb;text-align:right}.phone{display:none;color:#fff;text-decoration:none;font-size:11px;margin-top:4px}.head-actions{display:flex;gap:7px}.head-actions button{border:1px solid #ffffff55;background:#ffffff12;color:white;padding:7px 10px;border-radius:999px;cursor:pointer}.head-actions button:hover{background:#ffffff25}
+    main{display:grid;grid-template-columns:minmax(0,1fr) 430px;height:calc(100vh - 76px)}
+    .map-wrap{position:relative;min-width:0}#map{height:100%;width:100%;background:#dce6dc}
+    .hero{position:absolute;z-index:500;left:18px;top:18px;width:min(390px,calc(100% - 36px));padding:17px 18px;background:rgba(255,253,248,.94);border:1px solid #d8d1c3;border-radius:16px;box-shadow:0 12px 32px #1d342c25;backdrop-filter:blur(8px)}
+    .hero .label{font-size:11px;color:var(--orange);letter-spacing:.16em;font-weight:800}.hero h2{font-size:26px;line-height:1.18;margin:5px 0 7px}.hero p{margin:0;color:#5d6c64;font-size:13px;line-height:1.55}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.stat{border-top:1px solid var(--line);padding-top:8px}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}
+    aside{background:var(--card);border-left:1px solid var(--line);overflow:auto}.controls{position:sticky;top:0;z-index:5;padding:14px 16px 11px;background:rgba(255,253,248,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+    .tabs{display:flex;gap:7px}.tabs button{border:1px solid var(--line);background:white;padding:7px 12px;border-radius:999px;color:#526058;cursor:pointer}.tabs button.active{background:var(--dark);border-color:var(--dark);color:#fff}
+    .note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.note a{color:#c84d21;text-decoration:none}.timeline{padding:14px 14px 30px}
+    .day{position:relative;margin:0 0 10px;padding:13px 13px 12px 18px;border:1px solid var(--line);border-radius:13px;background:#fff;transition:.18s;cursor:pointer}.day:hover,.day.active{border-color:#f2a287;box-shadow:0 7px 18px #382d2412;transform:translateY(-1px)}.day.active{background:#fff8ed;box-shadow:0 0 0 2px #f3a66e,0 8px 22px #382d2420}
+    .day:before{content:"";position:absolute;left:0;top:13px;bottom:13px;width:4px;border-radius:0 4px 4px 0;background:var(--orange)}.day.infer:before{background:var(--green)}.day.rest:before{background:#a9b0ac}
+    .topline{display:flex;justify-content:space-between;gap:8px}.date{font-size:12px;color:var(--muted)}.km{font-size:12px;font-weight:800;color:var(--orange)}
+    .place{font-size:16px;font-weight:800;margin:4px 0}.summary{font-size:12px;color:#536159;line-height:1.55;margin:5px 0}.food{font-size:12px;background:#f4efe5;border-radius:8px;padding:7px 8px;margin-top:7px}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.tag{font-size:10px;color:#6c7771;border:1px solid #dfe1dd;border-radius:999px;padding:3px 7px}.video{font-size:11px;color:#c84d21;text-decoration:none;font-weight:800}
+    .empty{padding:50px 20px;text-align:center;color:var(--muted)}.leaflet-popup-content{line-height:1.55}.leaflet-popup-content a{color:#c84d21}
+    dialog{width:min(560px,calc(100% - 28px));border:0;border-radius:18px;padding:0;box-shadow:0 22px 70px #0005;color:var(--ink)}dialog::backdrop{background:#10251e99;backdrop-filter:blur(3px)}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line)}.modal-head h3{margin:0}.close{border:0;background:#edf0ed;width:30px;height:30px;border-radius:50%;cursor:pointer}.form{padding:16px 20px 20px}.form-note{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:5px}.field.wide{grid-column:1/-1}.field label{font-size:11px;color:#617067}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;font:inherit;background:#fff}.field textarea{min-height:72px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.primary,.secondary{border:0;border-radius:9px;padding:9px 13px;cursor:pointer}.primary{background:var(--orange);color:white}.secondary{background:#e9eeea;color:var(--ink)}.origin{display:inline-block;margin-top:9px;color:#c84d21;font-size:11px;text-decoration:none}
+    @media(max-width:880px){header{height:auto;align-items:flex-start}.head-right{display:grid;justify-items:end}.sync{max-width:170px}.head-actions button{font-size:11px;padding:6px 8px}main{display:block;height:auto}.map-wrap{height:65vh;min-height:480px}aside{border-left:0;border-top:1px solid var(--line)}.hero{top:12px;left:12px}.hero h2{font-size:22px}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div><div class="eyebrow">PUBLIC VIDEO ROUTE · 东南亚篇</div><h1>王师傅骑到哪了？</h1></div>
+  <div class="head-right">
+    <div class="sync"><div id="sync">正在连接 B 站…</div><a class="phone" id="phoneLink" href="#"></a></div>
+    <div class="head-actions"><button id="shareBtn">分享</button><button id="contributeBtn">补路线点</button></div>
+  </div>
+</header>
+<main>
+  <section class="map-wrap">
+    <div id="map"></div>
+    <div class="hero">
+      <div class="label">最新公开视频落脚点</div>
+      <h2 id="latestPlace">载入中…</h2>
+      <p id="latestText"></p>
+      <div class="stats">
+        <div class="stat"><b id="episodeCount">—</b><span>合集期数</span></div>
+        <div class="stat"><b id="cumulative">—</b><span>标题披露累计</span></div>
+        <div class="stat"><b id="knownDistance">—</b><span>已披露日里程</span></div>
+      </div>
+    </div>
+  </section>
+  <aside>
+    <div class="controls">
+      <div class="tabs">
+        <button class="active" data-filter="all">全部</button>
+        <button data-filter="ride">骑行日</button>
+        <button data-filter="food">吃了什么</button>
+      </div>
+      <div class="note">地点来自公开视频标题与相邻行程。橙色=标题确认，绿色=路线推断，灰色=休息/支线；不是 GPS 实时定位。<br><a href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">项目发起与王师傅回复 ↗</a></div>
+    </div>
+    <div class="timeline" id="timeline"><div class="empty">正在整理每天的日记…</div></div>
+  </aside>
+</main>
+<dialog id="contributeDialog">
+  <div class="modal-head"><h3>补充 / 纠正路线点</h3><button class="close" id="closeDialog" aria-label="关闭">×</button></div>
+  <div class="form">
+    <div class="form-note"><b>只填你知道的一项就可以。</b>可提交美食、关键事件、地点、里程或视频时间点。公开后由观众 👍 投票，3 赞进入优先核验。</div>
+    <div class="grid">
+      <div class="field wide"><label for="contribEpisode">对应视频</label><select id="contribEpisode"></select></div>
+      <div class="field"><label for="contribCategory">内容类型</label><select id="contribCategory"><option>关键内容 / 事件</option><option>美食</option><option>地点 / 路线</option><option>当天里程</option><option>纠正现有信息</option><option>其他</option></select></div>
+      <div class="field"><label for="contribTimepoint">视频时间点（可选）</label><input id="contribTimepoint" placeholder="例如：12:35"></div>
+      <div class="field wide"><label for="contribNote">你发现了什么？</label><textarea id="contribNote" placeholder="例如：视频里说今天骑了40公里；或者这里的城市标错了。"></textarea></div>
+      <div class="field"><label for="contribPlace">地点 / 路段（可选）</label><input id="contribPlace" placeholder="例如：归仁 → 虬江"></div>
+      <div class="field"><label for="contribDistance">当天里程（可选）</label><input id="contribDistance" type="number" min="0" step="0.1"></div>
+      <div class="field wide"><label for="contribFood">吃了什么（可选）</label><input id="contribFood"></div>
+      <details class="field wide"><summary>更多信息：坐标和视频时间点（都可不填）</summary>
+        <div class="grid" style="margin-top:10px">
+          <div class="field"><label for="contribLat">纬度</label><input id="contribLat" type="number" step="0.0001"></div>
+          <div class="field"><label for="contribLng">经度</label><input id="contribLng" type="number" step="0.0001"></div>
+          <div class="field wide"><label for="contribSource">视频链接 / 时间点</label><input id="contribSource" placeholder="例如：视频 12:35"></div>
+        </div>
+      </details>
+    </div>
+    <a class="origin" href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">由 B 站用户“我是马哥老乡”发起，项目在王师傅 6 月 30 日视频评论区获得回应 ↗</a>
+    <div class="modal-actions"><button class="secondary" id="downloadContribution">下载 JSON</button><button class="primary" id="copyContribution">复制贡献内容</button></div>
+  </div>
+</dialog>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+let map, layers=[], allItems=[], markerByBvid={}, activeSegment=null, selectedBvid=null;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtDuration=s=>s?`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`:"";
+function bootMap(){
+  map=L.map("map",{zoomControl:false}).setView([17.5,106.8],6);
+  L.control.zoom({position:"bottomright"}).addTo(map);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(map);
+}
+const isInferred=x=>/推断|沿用|待核对|pending|auto-added/i.test(x.confidence||"");
+const hasFood=x=>x.food&&x.food!=="未明确提到"&&x.food!=="Not identified";
+function markerColor(x){return !x.ride?"#9ba49f":isInferred(x)?"#16806c":"#ee642f"}
+function draw(items){
+  layers.forEach(x=>map.removeLayer(x));layers=[];markerByBvid={};activeSegment=null;
+  const route=items.filter(x=>x.ride&&x.lat&&x.lng);
+  [...new Set(route.map(x=>x.phase))].forEach(phase=>{
+    const pts=route.filter(x=>x.phase===phase).map(x=>[x.lat,x.lng]);
+    if(pts.length>1){const line=L.polyline(pts,{color:phase==="第一段"?"#16806c":"#ee642f",weight:4,opacity:.78,dashArray:/自动新增|auto-added/i.test(phase)?"8 8":null}).addTo(map);layers.push(line)}
+  });
+  items.forEach((x,i)=>{
+    if(!x.lat||!x.lng)return;
+    const m=L.circleMarker([x.lat,x.lng],{radius:i===items.length-1?10:6,color:"#fff",weight:2,fillColor:markerColor(x),fillOpacity:.95}).addTo(map);
+    m.bindPopup(`<b>${esc(x.date)} · ${esc(x.place)}</b><br>${esc(x.summary)}<br><b>里程：</b>${x.distanceKm===null?"未披露":x.distanceKm+" km"}<br><b>吃：</b>${esc(x.food)}<br><a target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">打开视频</a>`);
+    m.on("click",()=>{
+      focusItem(x.bvid);
+      const el=document.querySelector(`[data-bvid="${x.bvid}"]`);
+      if(el)el.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+    layers.push(m);
+    markerByBvid[x.bvid]=m;
+  });
+  if(route.length)map.fitBounds(L.latLngBounds(route.map(x=>[x.lat,x.lng])).pad(.12));
+}
+function focusItem(bvid){
+  const item=allItems.find(x=>x.bvid===bvid),marker=markerByBvid[bvid];
+  if(!item||!marker)return;
+  Object.entries(markerByBvid).forEach(([id,m])=>{
+    const x=allItems.find(v=>v.bvid===id);
+    m.setStyle({radius:id===bvid?11:6,color:id===bvid?"#17211d":"#fff",weight:id===bvid?3:2,fillColor:markerColor(x),fillOpacity:1});
+  });
+  if(activeSegment){map.removeLayer(activeSegment);activeSegment=null}
+  if(item.ride){
+    const rides=allItems.filter(x=>x.ride&&x.phase===item.phase);
+    const index=rides.findIndex(x=>x.bvid===bvid);
+    if(index>0){
+      activeSegment=L.polyline([[rides[index-1].lat,rides[index-1].lng],[item.lat,item.lng]],{color:"#ffd43b",weight:10,opacity:.72}).addTo(map);
+      activeSegment.bringToBack();
+    }
+  }
+  marker.bringToFront();
+  map.flyTo([item.lat,item.lng],Math.max(map.getZoom(),8),{duration:.65});
+  marker.openPopup();
+  selectedBvid=bvid;
+  document.querySelectorAll(".day").forEach(el=>el.classList.toggle("active",el.dataset.bvid===bvid));
+}
+function render(filter="all"){
+  const filtered=allItems.filter(x=>filter==="all"||(filter==="ride"&&x.ride)||(filter==="food"&&hasFood(x)));
+  document.getElementById("timeline").innerHTML=filtered.slice().reverse().map(x=>{
+    const cls=!x.ride?"rest":(isInferred(x)?"infer":"");
+    const km=x.distanceKm===null?"里程未披露":x.distanceKm===0?"休息/支线":`${x.distanceKm} km`;
+    return `<article class="day ${cls}" data-bvid="${esc(x.bvid)}">
+      <div class="topline"><span class="date">${esc(x.date)} · ${fmtDuration(x.duration)}</span><span class="km">${km}</span></div>
+      <div class="place">${esc(x.place)}</div><div class="summary">${esc(x.summary)}</div>
+      <div class="food">🍜 ${esc(x.food)}</div>
+      <div class="meta"><span class="tag">${esc(x.confidence)}</span><a class="video" target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">看本期 ↗</a></div>
+    </article>`}).join("")||'<div class="empty">这个分类暂时没有内容</div>';
+  document.querySelectorAll(".day").forEach(card=>card.addEventListener("click",e=>{
+    if(e.target.closest("a"))return;
+    focusItem(card.dataset.bvid);
+  }));
+}
+async function getData(){
+  try{
+    const r=await fetch("/api/data",{cache:"no-store"});
+    if(!r.ok)throw new Error("api unavailable");
+    return await r.json();
+  }catch(e){
+    const r=await fetch("./wangshifu-data.json",{cache:"no-store"});
+    if(!r.ok)throw e;
+    return {status:"公开静态版 · 数据快照",items:await r.json()};
+  }
+}
+async function load(){
+  try{
+    const data=await getData();allItems=data.items;
+    const latest=allItems[allItems.length-1],known=allItems.reduce((n,x)=>n+(x.distanceKm||0),0);
+    const cumulative=[...allItems].reverse().find(x=>x.cumulativeKm)?.cumulativeKm;
+    document.getElementById("sync").textContent=data.status;
+    if(data.phoneUrl){
+      const phone=document.getElementById("phoneLink");
+      phone.textContent=`手机访问：${data.phoneUrl}`;
+      phone.href=data.phoneUrl;
+      phone.style.display="inline-block";
+    }
+    document.getElementById("latestPlace").textContent=latest.place;
+    document.getElementById("latestText").textContent=`${latest.date}：${latest.summary}（${latest.confidence}）`;
+    document.getElementById("episodeCount").textContent=allItems.length;
+    document.getElementById("cumulative").textContent=cumulative?`${cumulative} km`:"未披露";
+    document.getElementById("knownDistance").textContent=`${known} km`;
+    render();draw(allItems);populateContributions();
+  }catch(e){document.getElementById("sync").textContent="数据载入失败";document.getElementById("timeline").innerHTML='<div class="empty">请确认启动窗口仍在运行，然后刷新页面。</div>'}
+}
+const dialog=document.getElementById("contributeDialog");
+function populateContributions(){
+  const select=document.getElementById("contribEpisode");
+  select.innerHTML=allItems.slice().reverse().map(x=>`<option value="${esc(x.bvid)}">${esc(x.date)} · ${esc(x.place)}</option>`).join("");
+  select.value=selectedBvid||allItems[allItems.length-1]?.bvid||"";
+  fillContribution(select.value);
+}
+function fillContribution(bvid){
+  const x=allItems.find(v=>v.bvid===bvid);if(!x)return;
+  document.getElementById("contribNote").value="";
+  const place=document.getElementById("contribPlace");place.value="";place.placeholder=x.place?`当前：${x.place}`:"例如：归仁 → 虬江";
+  const distance=document.getElementById("contribDistance");distance.value="";distance.placeholder=x.distanceKm!=null?`当前：${x.distanceKm}`:"";
+  document.getElementById("contribLat").value="";
+  document.getElementById("contribLng").value="";
+  const food=document.getElementById("contribFood");food.value="";food.placeholder=hasFood(x)?`当前：${x.food}`:"";
+  document.getElementById("contribSource").value=`https://www.bilibili.com/video/${x.bvid}/`;
+}
+function contributionData(){
+  const bvid=document.getElementById("contribEpisode").value,x=allItems.find(v=>v.bvid===bvid);
+  return {date:x?.date,bvid,category:document.getElementById("contribCategory").value,timepoint:document.getElementById("contribTimepoint").value.trim()||null,place:document.getElementById("contribPlace").value.trim(),distanceKm:Number(document.getElementById("contribDistance").value)||null,lat:Number(document.getElementById("contribLat").value)||null,lng:Number(document.getElementById("contribLng").value)||null,food:document.getElementById("contribFood").value.trim()||null,source:document.getElementById("contribSource").value.trim(),note:document.getElementById("contribNote").value.trim(),voting:"GitHub Issue 👍; 3 likes = priority review",contributor:"待填写"};
+}
+async function copyText(text){
+  try{await navigator.clipboard.writeText(text)}catch(e){const t=document.createElement("textarea");t.value=text;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}
+}
+document.getElementById("shareBtn").addEventListener("click",async e=>{await copyText(location.href);const old=e.target.textContent;e.target.textContent="链接已复制";setTimeout(()=>e.target.textContent=old,1400)});
+document.getElementById("contributeBtn").addEventListener("click",()=>{populateContributions();dialog.showModal()});
+document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
+document.getElementById("contribEpisode").addEventListener("change",e=>fillContribution(e.target.value));
+document.getElementById("copyContribution").addEventListener("click",async e=>{await copyText(JSON.stringify(contributionData(),null,2));e.target.textContent="已复制";setTimeout(()=>e.target.textContent="复制贡献内容",1400)});
+document.getElementById("downloadContribution").addEventListener("click",()=>{const d=contributionData(),a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(d,null,2)],{type:"application/json"}));a.download=`route-${d.date||"suggestion"}-${d.bvid}.json`;a.click();URL.revokeObjectURL(a.href)});
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(b.dataset.filter)}));
+bootMap();load();
+</script>
+</body>
+</html>
