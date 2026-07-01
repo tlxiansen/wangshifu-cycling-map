@@ -27,7 +27,7 @@
     .topline{display:flex;justify-content:space-between;gap:8px}.date{font-size:12px;color:var(--muted)}.km{font-size:12px;font-weight:800;color:var(--orange)}
     .place{font-size:16px;font-weight:800;margin:4px 0}.summary{font-size:12px;color:#536159;line-height:1.55;margin:5px 0}.food{font-size:12px;background:#f4efe5;border-radius:8px;padding:7px 8px;margin-top:7px}
     .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:7px}.detail-box{padding:7px 8px;border-radius:8px;background:#f6f8f5;font-size:11px;color:#536159}.detail-box b{display:block;color:var(--ink);margin-bottom:3px}.detail-box ul{padding:0;margin:0;list-style:none}.detail-box li{margin:2px 0}.time{color:var(--orange);font-variant-numeric:tabular-nums;margin-right:4px}.missing{color:#9aa39e}.review-reasons{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}.review-reasons span{font-size:9px;padding:2px 6px;border-radius:999px;background:#fff2d8;color:#8a5a00}
-    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.tag{font-size:10px;color:#6c7771;border:1px solid #dfe1dd;border-radius:999px;padding:3px 7px}.video{font-size:11px;color:#c84d21;text-decoration:none;font-weight:800}
+    .evidence{margin-top:7px;padding:7px 8px;border-left:3px solid #78a89a;background:#edf5f1;border-radius:7px;font-size:10px;color:#52665e}.evidence a{color:#16705f;text-decoration:none;font-weight:800}.evidence a+a:before{content:" · ";color:#91a49c}.meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.tag{font-size:10px;color:#6c7771;border:1px solid #dfe1dd;border-radius:999px;padding:3px 7px}.video{font-size:11px;color:#c84d21;text-decoration:none;font-weight:800}
     .empty{padding:50px 20px;text-align:center;color:var(--muted)}.leaflet-popup-content{line-height:1.55}.leaflet-popup-content a{color:#c84d21}
     dialog{width:min(560px,calc(100% - 28px));border:0;border-radius:18px;padding:0;box-shadow:0 22px 70px #0005;color:var(--ink)}dialog::backdrop{background:#10251e99;backdrop-filter:blur(3px)}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line)}.modal-head h3{margin:0}.close{border:0;background:#edf0ed;width:30px;height:30px;border-radius:50%;cursor:pointer}.form{padding:16px 20px 20px}.form-note{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:5px}.field.wide{grid-column:1/-1}.field label{font-size:11px;color:#617067}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;font:inherit;background:#fff}.field textarea{min-height:72px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:14px}.primary,.secondary{border:0;border-radius:9px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:13px}.primary{background:var(--orange);color:white}.secondary{background:#e9eeea;color:var(--ink)}.origin{display:inline-block;margin-top:9px;color:#c84d21;font-size:11px;text-decoration:none}
     @media(max-width:880px){header{height:auto;align-items:flex-start}.head-right{display:grid;justify-items:end}.sync{max-width:170px}.head-actions button{font-size:11px;padding:6px 8px}main{display:block;height:auto}.map-wrap{height:65vh;min-height:480px}aside{border-left:0;border-top:1px solid var(--line)}.hero{top:12px;left:12px}.hero h2{font-size:22px}.tabs{overflow-x:auto;padding-bottom:2px}.tabs button{white-space:nowrap}.grid,.detail-grid{grid-template-columns:1fr}}
@@ -72,7 +72,7 @@
       </div>
     </div>
     <section class="community">
-      <div class="community-head"><b>社区建议与点赞</b><a href="https://github.com/tlxiansen/wangshifu-cycling-map/issues?q=is%3Aissue+is%3Aopen+label%3Aroute-data" target="_blank">查看全部 ↗</a></div>
+      <div class="community-head"><b>社区建议与点赞</b><a href="https://github.com/tlxiansen/wangshifu-cycling-map/blob/main/CONTRIBUTING.md#待核验如何通过" target="_blank">通过规则 ↗</a></div>
       <div class="suggestions" id="suggestions"><div class="community-empty">正在读取 GitHub 建议…</div></div>
     </section>
     <div class="timeline" id="timeline"><div class="empty">正在整理每天的日记…</div></div>
@@ -127,7 +127,7 @@ function bootMap(){
 const isInferred=x=>/推断|沿用|待核对|pending|auto-added/i.test(x.confidence||"");
 const hasFood=x=>x.food&&x.food!=="未明确提到"&&x.food!=="Not identified";
 const splitFoods=x=>x.foods?.length?x.foods:(hasFood(x)?String(x.food).split(/[、，,]/).map(v=>v.trim()).filter(Boolean):[]);
-const normalizeItem=x=>({...x,foods:splitFoods(x),highlights:Array.isArray(x.highlights)?x.highlights:[]});
+const normalizeItem=x=>({...x,foods:splitFoods(x),highlights:Array.isArray(x.highlights)?x.highlights:[],evidence:Array.isArray(x.evidence)?x.evidence:[]});
 const reviewReasons=x=>[
   isInferred(x)?"地点待核验":null,
   x.ride&&x.distanceKm==null?"里程待补":null,
@@ -237,10 +237,12 @@ function render(filter="all"){
     const foods=x.foods.length?`<ul>${x.foods.map(v=>`<li>🍜 ${esc(v)}</li>`).join("")}</ul>`:'<span class="missing">暂无，欢迎补充</span>';
     const highlights=x.highlights.length?`<ul>${x.highlights.map(v=>`<li><span class="time">${esc(v.time||"时间待补")}</span>${esc(v.text||v.label||"")}</li>`).join("")}</ul>`:'<span class="missing">暂无关键时间点</span>';
     const reasons=reviewReasons(x);
+    const evidence=x.evidence.length?`<div class="evidence">核验依据：${x.evidence.map((v,i)=>`<a href="${esc(v.url)}" target="_blank">${esc(v.type==="comment"?`评论${v.likes!=null?` 👍${v.likes}`:""}`:`视频${i+1}`)}</a>`).join("")}</div>`:"";
     return `<article class="day ${cls}" data-bvid="${esc(x.bvid)}">
       <div class="topline"><span class="date">${esc(x.date)} · ${fmtDuration(x.duration)}</span><span class="km">${km}</span></div>
       <div class="place">${esc(x.place)}</div><div class="summary">${esc(x.summary)}</div>
       <div class="detail-grid"><div class="detail-box"><b>美食清单</b>${foods}</div><div class="detail-box"><b>关键时间点</b>${highlights}</div></div>
+      ${evidence}
       ${reasons.length?`<div class="review-reasons">${reasons.map(v=>`<span>${v}</span>`).join("")}</div>`:""}
       <div class="meta"><span class="tag">${esc(x.confidence)}</span><a class="video" target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">看本期 ↗</a></div>
     </article>`}).join("")||'<div class="empty">这个分类暂时没有内容</div>';
@@ -290,13 +292,15 @@ function drawCumulativeChart(){
 function drawCharts(){drawDailyChart();drawCumulativeChart()}
 async function loadSuggestions(){
   const box=document.getElementById("suggestions");
-  try{
-    const r=await fetch("https://api.github.com/repos/tlxiansen/wangshifu-cycling-map/issues?state=open&labels=route-data&per_page=30",{headers:{Accept:"application/vnd.github+json"}});
-    if(!r.ok)throw new Error("GitHub API");
-    const issues=(await r.json()).filter(x=>!x.pull_request).sort((a,b)=>(b.reactions?.["+1"]||0)-(a.reactions?.["+1"]||0));
-    if(!issues.length){box.innerHTML='<div class="community-empty">暂无公开建议。你可以提交视频里的美食、地点或关键时间点，其他观众用 👍 投票。</div>';return}
-    box.innerHTML=issues.slice(0,6).map(x=>`<a class="suggestion" href="${esc(x.html_url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.title)}</span><span class="likes">👍 ${x.reactions?.["+1"]||0}</span></div><div class="suggestion-meta">#${x.number} · ${esc(x.user?.login||"观众")} · ${x.labels?.some(v=>v.name==="票选-优先")?"票选优先":"待投票"}</div></a>`).join("");
-  }catch(e){box.innerHTML='<div class="community-empty">暂时无法读取建议。<a href="https://github.com/tlxiansen/wangshifu-cycling-map/issues" target="_blank">前往 GitHub 查看 ↗</a></div>'}
+  const [githubResult,biliResult]=await Promise.allSettled([
+    fetch("https://api.github.com/repos/tlxiansen/wangshifu-cycling-map/issues?state=open&labels=route-data&per_page=30",{headers:{Accept:"application/vnd.github+json"}}).then(r=>{if(!r.ok)throw new Error("GitHub API");return r.json()}),
+    fetch("./bilibili-candidates.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("candidate data");return r.json()})
+  ]);
+  const issues=githubResult.status==="fulfilled"?githubResult.value.filter(x=>!x.pull_request).sort((a,b)=>(b.reactions?.["+1"]||0)-(a.reactions?.["+1"]||0)):[];
+  const candidates=biliResult.status==="fulfilled"?(biliResult.value.items||[]):[];
+  const candidateHtml=candidates.slice(0,4).map(x=>`<a class="suggestion" href="${esc(x.url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.date)} · ${esc(x.message)}</span><span class="likes">B站 👍 ${x.likes||0}</span></div><div class="suggestion-meta">${esc(x.user||"观众")} · ${esc(x.status||"待核验")} · ${esc(x.bvid)}</div></a>`).join("");
+  const issueHtml=issues.slice(0,4).map(x=>`<a class="suggestion" href="${esc(x.html_url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.title)}</span><span class="likes">GitHub 👍 ${x.reactions?.["+1"]||0}</span></div><div class="suggestion-meta">#${x.number} · ${esc(x.user?.login||"观众")} · ${x.labels?.some(v=>v.name==="票选-优先")?"票选优先":"待投票"}</div></a>`).join("");
+  box.innerHTML=candidateHtml+issueHtml||'<div class="community-empty">暂无公开建议。你可以提交视频里的美食、地点或关键时间点，其他观众用 👍 投票。</div>';
 }
 async function getData(){
   try{
