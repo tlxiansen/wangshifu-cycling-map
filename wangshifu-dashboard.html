@@ -21,7 +21,7 @@
     aside{background:var(--card);border-left:1px solid var(--line);overflow:auto}.controls{position:sticky;top:0;z-index:5;padding:14px 16px 11px;background:rgba(255,253,248,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
     .tabs{display:flex;gap:7px}.tabs button{border:1px solid var(--line);background:white;padding:7px 12px;border-radius:999px;color:#526058;cursor:pointer}.tabs button.active{background:var(--dark);border-color:var(--dark);color:#fff}
     .note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.note a{color:#c84d21;text-decoration:none}.timeline{padding:14px 14px 30px}
-    .analytics{margin-top:11px;border-top:1px solid var(--line);padding-top:10px}.chart-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;margin:7px 0 3px}.chart-title span{font-weight:400;color:var(--muted)}.chart{display:block;width:100%;height:92px;border-radius:8px;background:#faf8f2}
+    .analytics{margin-top:11px;border-top:1px solid var(--line);padding-top:10px}.chart-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;margin:7px 0 3px}.chart-title span{font-weight:400;color:var(--muted)}.chart{display:block;width:100%;height:92px;border-radius:8px;background:#faf8f2}.mileage-summary{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:5px 0;font-size:10px;color:var(--muted)}.mileage-links{display:flex;align-items:center;gap:5px;overflow-x:auto;padding:1px 0 5px}.mileage-links button{border:1px solid #ded8cb;background:#fff;border-radius:999px;padding:4px 7px;white-space:nowrap;font-size:9px;color:#58665f;cursor:pointer}.mileage-links button b{color:var(--orange)}.mileage-links .missing-chip{border:1px dashed #d7b77b;border-radius:999px;padding:4px 7px;white-space:nowrap;font-size:9px;color:#9a6a20;background:#fff9ed}.route-goal{margin:5px 0 2px}.goal-line{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#58665f}.goal-line b{color:var(--green)}.goal-track{height:7px;background:#e0e5e1;border-radius:999px;overflow:hidden;margin-top:4px}.goal-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#45a68e);border-radius:999px;transition:.4s}
     .community{margin:14px 14px 0;border:1px solid var(--line);border-radius:13px;background:#f8fbf9;overflow:hidden}.community-head{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-bottom:1px solid var(--line)}.community-head b{font-size:13px}.community-head a{font-size:11px;color:#c84d21;text-decoration:none}.suggestions{padding:8px}.suggestion{display:block;padding:9px 10px;margin-bottom:6px;border-radius:9px;background:white;color:var(--ink);text-decoration:none;border:1px solid #e6e9e5}.suggestion:last-child{margin-bottom:0}.suggestion-top{display:flex;justify-content:space-between;gap:8px;font-size:11px}.suggestion-title{font-weight:800}.likes{color:#c84d21;white-space:nowrap}.suggestion-meta{font-size:10px;color:var(--muted);margin-top:4px}.community-empty{padding:12px;color:var(--muted);font-size:11px;line-height:1.5}
     .day{position:relative;margin:0 0 10px;padding:13px 13px 12px 18px;border:1px solid var(--line);border-radius:13px;background:#fff;transition:.18s;cursor:pointer}.day:hover,.day.active{border-color:#f2a287;box-shadow:0 7px 18px #382d2412;transform:translateY(-1px)}.day.active{background:#fff8ed;box-shadow:0 0 0 2px #f3a66e,0 8px 22px #382d2420}
     .day:before{content:"";position:absolute;left:0;top:13px;bottom:13px;width:4px;border-radius:0 4px 4px 0;background:var(--orange)}.day.infer:before{background:var(--green)}.day.rest:before{background:#a9b0ac}
@@ -67,10 +67,13 @@
       </div>
       <div class="note">地点来自公开视频标题与相邻行程。橙色=标题确认，绿色=路线推断，灰色=休息/支线；不是 GPS 实时定位。道路拟合用于视觉参考，不代表实际骑行 GPS。<br><span id="roadStatus">正在加载公路拟合…</span> · <a href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">项目发起与王师傅回复 ↗</a></div>
       <div class="analytics">
-        <div class="chart-title">每日公开里程 <span>空缺表示未披露</span></div>
-        <canvas class="chart" id="dailyChart" width="390" height="92"></canvas>
-        <div class="chart-title">累计里程曲线 <span>虚线为路线比例估算</span></div>
+        <div class="chart-title">每日公开里程 <span>点柱子或日期可跳转</span></div>
+        <canvas class="chart" id="dailyChart" width="390" height="92" aria-label="每日公开骑行里程，可点击跳转对应日期"></canvas>
+        <div class="mileage-summary"><span id="dailyMileageSummary">正在统计…</span><span>灰色＝待补</span></div>
+        <div class="mileage-links" id="dailyMileageLinks"></div>
+        <div class="chart-title">越南到新加坡目标进度 <span>总目标 4386 km</span></div>
         <canvas class="chart" id="cumulativeChart" width="390" height="92"></canvas>
+        <div class="route-goal"><div class="goal-line"><span id="routeGoalText">正在计算…</span><b id="routeGoalPercent">—</b></div><div class="goal-track"><div class="goal-fill" id="routeGoalFill"></div></div></div>
       </div>
     </div>
     <section class="community">
@@ -121,7 +124,8 @@
 </dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-let map, layers=[], allItems=[], markerByBvid={}, activeSegment=null, selectedBvid=null, roadLayers=[], cityLabelMarkers=[];
+let map, layers=[], allItems=[], markerByBvid={}, activeSegment=null, selectedBvid=null, roadLayers=[], cityLabelMarkers=[], dailyChartHits=[];
+const routeTargetKm=4386;
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtDuration=s=>s?`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`:"";
 function bootMap(){
@@ -249,6 +253,16 @@ function focusItem(bvid){
   marker.openPopup();
   document.querySelectorAll(".day").forEach(el=>el.classList.toggle("active",el.dataset.bvid===bvid));
 }
+function jumpToItem(bvid){
+  focusItem(bvid);
+  let card=document.querySelector(`[data-bvid="${bvid}"]`);
+  if(!card){
+    document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("active",x.dataset.filter==="all"));
+    render("all");
+    card=document.querySelector(`[data-bvid="${bvid}"]`);
+  }
+  if(card)card.scrollIntoView({behavior:"smooth",block:"center"});
+}
 function render(filter="all"){
   const filtered=allItems.filter(x=>filter==="all"||(filter==="ride"&&x.ride)||(filter==="food"&&(x.foods.length||x.foodDetails.length))||(filter==="review"&&needsReview(x)));
   document.getElementById("timeline").innerHTML=filtered.slice().reverse().map(x=>{
@@ -318,14 +332,29 @@ function chartBase(canvas){
   return {ctx,w,h,left:28,right:6,top:8,bottom:18};
 }
 function drawDailyChart(){
-  const canvas=document.getElementById("dailyChart"),c=chartBase(canvas),items=allItems.filter(x=>x.ride).slice(-30);
+  const canvas=document.getElementById("dailyChart"),c=chartBase(canvas),items=allItems.filter(x=>x.ride);
   const max=Math.max(130,...items.map(x=>x.distanceKm||0)),space=(c.w-c.left-c.right)/Math.max(items.length,1),bar=Math.max(3,space*.62);
+  dailyChartHits=[];
   items.forEach((x,i)=>{
-    const value=x.distanceKm,px=c.left+i*space+(space-bar)/2;
+    const value=x.distanceKm,px=c.left+i*space+(space-bar)/2,columnX=c.left+i*space;
+    dailyChartHits.push({bvid:x.bvid,x0:columnX,x1:columnX+space});
     if(value==null){c.ctx.fillStyle="#c9cfcb";c.ctx.fillRect(px,c.h-c.bottom-3,bar,3)}
-    else{const bh=(c.h-c.top-c.bottom)*(value/max);c.ctx.fillStyle="#ee642f";c.ctx.fillRect(px,c.h-c.bottom-bh,bar,bh)}
+    else{
+      const bh=(c.h-c.top-c.bottom)*(value/max),y=c.h-c.bottom-bh;
+      c.ctx.fillStyle="#ee642f";c.ctx.fillRect(px,y,bar,bh);
+      c.ctx.fillStyle="#a74420";c.ctx.font="8px sans-serif";c.ctx.textAlign="center";c.ctx.fillText(`${value}`,px+bar/2,Math.max(c.top+8,y-2));
+    }
   });
-  c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.fillText(`${max} km`,2,11);c.ctx.fillText(items[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(items.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
+  c.ctx.textAlign="left";c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.fillText(`${max} km`,2,11);c.ctx.fillText(items[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(items.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
+  const known=items.filter(x=>x.distanceKm!=null&&x.distanceKm>0),missing=items.filter(x=>x.distanceKm==null);
+  document.getElementById("dailyMileageSummary").textContent=`已披露 ${known.length} / ${items.length} 个骑行日`;
+  document.getElementById("dailyMileageLinks").innerHTML=known.map(x=>`<button type="button" data-mileage-bvid="${esc(x.bvid)}">${esc(x.date.slice(5))} <b>${x.distanceKm} km</b></button>`).join("")+`<span class="missing-chip">${missing.length} 天待补</span>`;
+  document.querySelectorAll("[data-mileage-bvid]").forEach(button=>button.addEventListener("click",()=>jumpToItem(button.dataset.mileageBvid)));
+  canvas.onclick=e=>{
+    const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)*canvas.width/rect.width,hit=dailyChartHits.find(v=>x>=v.x0&&x<=v.x1);
+    if(hit)jumpToItem(hit.bvid);
+  };
+  canvas.onmousemove=e=>{const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)*canvas.width/rect.width;canvas.style.cursor=dailyChartHits.some(v=>x>=v.x0&&x<=v.x1)?"pointer":"default"};
 }
 function haversine(a,b){
   const r=6371,toRad=v=>v*Math.PI/180,dLat=toRad(b.lat-a.lat),dLng=toRad(b.lng-a.lng);
@@ -343,11 +372,19 @@ function cumulativeSeries(){
 }
 function drawCumulativeChart(){
   const canvas=document.getElementById("cumulativeChart"),c=chartBase(canvas),series=cumulativeSeries(),vals=series.values;
-  if(!vals.length)return;const max=Math.max(...vals,1),space=(c.w-c.left-c.right)/Math.max(vals.length-1,1);
+  if(!vals.length)return;const max=routeTargetKm,space=(c.w-c.left-c.right)/Math.max(vals.length-1,1);
+  c.ctx.strokeStyle="#c6cec9";c.ctx.lineWidth=1;c.ctx.setLineDash([3,3]);c.ctx.beginPath();c.ctx.moveTo(c.left,c.top);c.ctx.lineTo(c.w-c.right,c.top);c.ctx.stroke();
   c.ctx.strokeStyle="#16806c";c.ctx.lineWidth=2;c.ctx.setLineDash([5,4]);c.ctx.beginPath();
   vals.forEach((v,i)=>{const x=c.left+i*space,y=c.h-c.bottom-(c.h-c.top-c.bottom)*(v/max);i?c.ctx.lineTo(x,y):c.ctx.moveTo(x,y)});c.ctx.stroke();c.ctx.setLineDash([]);
   vals.forEach((v,i)=>{if(series.rides[i].cumulativeKm!=null){const x=c.left+i*space,y=c.h-c.bottom-(c.h-c.top-c.bottom)*(v/max);c.ctx.fillStyle="#ee642f";c.ctx.beginPath();c.ctx.arc(x,y,4,0,Math.PI*2);c.ctx.fill()}});
-  c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.fillText(`${Math.round(max)} km`,2,11);c.ctx.fillText(series.rides[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(series.rides.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
+  const lastValue=vals.at(-1),lastX=c.left+(vals.length-1)*space,lastY=c.h-c.bottom-(c.h-c.top-c.bottom)*(lastValue/max);
+  c.ctx.fillStyle="#16806c";c.ctx.beginPath();c.ctx.arc(lastX,lastY,3,0,Math.PI*2);c.ctx.fill();
+  c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.textAlign="left";c.ctx.fillText(`${routeTargetKm} km`,2,11);c.ctx.fillText(series.rides[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(series.rides.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
+  c.ctx.fillStyle="#16806c";c.ctx.textAlign="right";c.ctx.fillText(`估 ${Math.round(lastValue)} km`,c.w-c.right,lastY-4);
+  const disclosed=[...allItems].reverse().find(x=>x.cumulativeKm!=null)?.cumulativeKm||0,percent=Math.min(100,disclosed/routeTargetKm*100);
+  document.getElementById("routeGoalText").textContent=`已披露累计 ${disclosed} / ${routeTargetKm} km`;
+  document.getElementById("routeGoalPercent").textContent=`${percent.toFixed(1)}%`;
+  document.getElementById("routeGoalFill").style.width=`${percent}%`;
 }
 function drawCharts(){drawDailyChart();drawCumulativeChart()}
 async function loadSuggestions(){
