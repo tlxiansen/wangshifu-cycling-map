@@ -10,9 +10,7 @@ $headers = @{
 
 $items = @(Get-Content -Raw -Encoding UTF8 $dataPath | ConvertFrom-Json)
 $reviewPattern = "推断|沿用|待核对|pending|auto-added"
-$priority = @($items | Where-Object { $_.confidence -match $reviewPattern } | Select-Object -First 12)
-$recent = @($items | Select-Object -Last 8)
-$targets = @($priority + $recent | Sort-Object bvid -Unique)
+$targets = @($items | Sort-Object date)
 $contentPattern = "友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|吃了|早餐|午餐|晚餐|餐馆|酒店|河内|海防|下龙|谅山|宁平|清化|荣市|河静|洞海|顺化|岘港|会安|广义|归仁|绥和|芽庄|大叻|潘切|头顿|胡志明|芹苴"
 $results = @()
 
