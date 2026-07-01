@@ -63,6 +63,15 @@ jobs:
               const match = message.match(/(\d+(?:\.\d+)?)\s*(?:KM|公里)/i);
               return match ? `${match[1]} km` : "_No response_";
             };
+            const hotelFor = message => {
+              const match = message.match(/(?:酒店为|入住(?:的|了)?|住的酒店(?:是|为)?|名称[：:]?)\s*([A-Za-zÀ-ỹ\u4e00-\u9fff][A-Za-zÀ-ỹ\u4e00-\u9fff\s·.'-]{1,32}(?:Hotel|酒店|宾馆|旅馆|民宿))/i)
+                || message.match(/([A-Za-zÀ-ỹ\u4e00-\u9fff][A-Za-zÀ-ỹ\u4e00-\u9fff\s·.'-]{1,24}(?:Hotel|酒店|宾馆|旅馆|民宿))/i);
+              return match ? match[1].trim() : "_No response_";
+            };
+            const hotelPriceFor = message => {
+              const match = message.match(/(\d+(?:\.\d+)?)\s*(CNY|人民币|元|万?越南盾|VND)/i);
+              return match ? `${match[1]} ${match[2]}` : "_No response_";
+            };
             const short = (text, max = 46) => text.length > max ? `${text.slice(0, max)}…` : text;
             let created = 0;
             for (const candidate of candidates) {
@@ -107,6 +116,18 @@ jobs:
                 "### 视频里吃了什么（如有）",
                 "",
                 "_No response_",
+                "",
+                "### 酒店 / 民宿名称（如有）",
+                "",
+                category === "住宿" ? hotelFor(candidate.message || "") : "_No response_",
+                "",
+                "### 住宿所在区域（如有）",
+                "",
+                category === "住宿" ? (candidate.place || "_No response_") : "_No response_",
+                "",
+                "### 住宿价格与币种（如有）",
+                "",
+                category === "住宿" ? hotelPriceFor(candidate.message || "") : "_No response_",
                 "",
                 "### 更多依据（可选）",
                 "",
