@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   update:
@@ -20,6 +21,110 @@ jobs:
         shell: pwsh
         continue-on-error: true
         run: ./collect_bilibili_candidates.ps1
+      - name: Create GitHub Issues from new comment candidates
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const candidates = JSON.parse(fs.readFileSync("bilibili-candidates.json", "utf8").replace(/^\uFEFF/, "")).items || [];
+            const maxNewPerRun = 10;
+            const labels = [
+              {name: "route-data", color: "16806c", description: "路线、里程、饮食、住宿等数据建议"},
+              {name: "待核验", color: "d4a72c", description: "尚未由维护者核对视频内容"},
+              {name: "auto-bilibili", color: "6f42c1", description: "由B站公开高赞评论自动生成"}
+            ];
+            for (const label of labels) {
+              try {
+                await github.rest.issues.getLabel({owner, repo, name: label.name});
+              } catch {
+                await github.rest.issues.createLabel({owner, repo, ...label});
+              }
+            }
+
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: "all", labels: "auto-bilibili", per_page: 100
+            });
+            const knownRpids = new Set();
+            for (const issue of existing) {
+              const match = (issue.body || "").match(/<!--\s*bili-rpid:(\d+)\s*-->/);
+              if (match) knownRpids.add(match[1]);
+            }
+
+            const categoryFor = message => {
+              if (/酒店|住宿|入住|民宿|旅馆|宾馆|Hotel/i.test(message)) return "住宿";
+              if (/公里|里程|\bKM\b/i.test(message)) return "当天里程";
+              if (/吃|早餐|午餐|晚餐|粉|饭|餐厅|餐馆|小吃|水果|茶|咖啡|烧烤|烤肉|海鲜/i.test(message)) return "美食";
+              if (/起点|终点|出发|到达|口岸|海关|路线|路书|位置|地点|城市|村|县|省/i.test(message)) return "地点 / 路线";
+              return "关键内容 / 事件";
+            };
+            const distanceFor = message => {
+              const match = message.match(/(\d+(?:\.\d+)?)\s*(?:KM|公里)/i);
+              return match ? `${match[1]} km` : "_No response_";
+            };
+            const short = (text, max = 46) => text.length > max ? `${text.slice(0, max)}…` : text;
+            let created = 0;
+            for (const candidate of candidates) {
+              const rpid = String(candidate.rpid || "");
+              if (!rpid || knownRpids.has(rpid) || created >= maxNewPerRun) continue;
+              const category = categoryFor(candidate.message || "");
+              const issueBody = [
+                "> 此建议由系统从公开视频下方的高赞评论自动整理。请维护者核对视频后再添加“已采纳”；需要时可先编辑本 Issue，补全结构化字段。",
+                "",
+                "### B站视频链接或 BV 号",
+                "",
+                `https://www.bilibili.com/video/${candidate.bvid}/`,
+                "",
+                "### 内容类型",
+                "",
+                category,
+                "",
+                "### 视频日期（可选）",
+                "",
+                candidate.date || "_No response_",
+                "",
+                "### 你发现了什么？",
+                "",
+                candidate.message || "_No response_",
+                "",
+                "### 视频时间点（可选）",
+                "",
+                "_No response_",
+                "",
+                "### 地点或路段（可选）",
+                "",
+                "_No response_",
+                "",
+                "### 当天里程（如有）",
+                "",
+                distanceFor(candidate.message || ""),
+                "",
+                "### 经纬度（如有）",
+                "",
+                "_No response_",
+                "",
+                "### 视频里吃了什么（如有）",
+                "",
+                "_No response_",
+                "",
+                "### 更多依据（可选）",
+                "",
+                `B站评论作者：${candidate.user || "未知"}\n\nB站点赞：${candidate.likes || 0}\n\n原评论：${candidate.url}`,
+                "",
+                `<!-- bili-rpid:${rpid} -->`
+              ].join("\n");
+              await github.rest.issues.create({
+                owner,
+                repo,
+                title: `[B站评论 👍${candidate.likes || 0}] ${candidate.date || ""} · ${short(candidate.message || candidate.bvid)}`,
+                body: issueBody,
+                labels: ["route-data", "待核验", "auto-bilibili"]
+              });
+              knownRpids.add(rpid);
+              created++;
+            }
+            core.info(`Created ${created} new Issue(s) from ${candidates.length} candidate(s).`);
       - name: Commit changes
         shell: pwsh
         run: |
