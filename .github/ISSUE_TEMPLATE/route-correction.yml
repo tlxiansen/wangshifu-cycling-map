@@ -19,6 +19,9 @@ body:
       options:
         - 关键内容 / 事件
         - 美食
+        - 住宿
+        - 预算 / 花费
+        - 骑行 / 全天耗时
         - 地点 / 路线
         - 当天里程
         - 纠正现有信息
@@ -60,6 +63,19 @@ body:
     id: food
     attributes:
       label: 视频里吃了什么（如有）
+  - type: input
+    id: hotel
+    attributes:
+      label: 酒店 / 民宿名称（如有）
+  - type: input
+    id: hotel_area
+    attributes:
+      label: 住宿所在区域（如有）
+  - type: input
+    id: hotel_price
+    attributes:
+      label: 住宿价格与币种（如有）
+      placeholder: "例如：700 CNY；或 400000 VND"
   - type: textarea
     id: evidence
     attributes:
