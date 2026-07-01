@@ -140,7 +140,7 @@ async function roadGeometry(points){
   const coords=points.map(x=>`${x.lng},${x.lat}`).join(";");
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
   try{
-    const r=await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson&steps=false`,{signal:controller.signal});
+    const r=await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=simplified&geometries=geojson&steps=false`,{signal:controller.signal});
     if(!r.ok)throw new Error("road service");
     const data=await r.json();
     if(data.code!=="Ok"||!data.routes?.[0]?.geometry?.coordinates)throw new Error("no route");
