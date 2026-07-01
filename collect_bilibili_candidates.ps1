@@ -11,7 +11,7 @@ $headers = @{
 $items = @(Get-Content -Raw -Encoding UTF8 $dataPath | ConvertFrom-Json)
 $reviewPattern = "推断|沿用|待核对|pending|auto-added"
 $targets = @($items | Sort-Object date)
-$contentPattern = "友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|吃了|早餐|午餐|晚餐|餐馆|酒店|河内|海防|下龙|谅山|宁平|清化|荣市|河静|洞海|顺化|岘港|会安|广义|归仁|绥和|芽庄|大叻|潘切|头顿|胡志明|芹苴"
+$contentPattern = "路线图|路线|路书|骑行|地址|位置|友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|\bKM\b|酒店|住宿|入住|民宿|旅馆|宾馆|Hotel|早餐|午餐|晚餐|餐厅|餐馆|小吃|猪杂粉|海鲜|烤肉|烧烤|咖啡店|茶馆|\d+(?:\.\d+)?\s*(?:元|人民币|CNY|万?越南盾|VND)"
 $results = @()
 
 foreach ($episode in $targets) {
