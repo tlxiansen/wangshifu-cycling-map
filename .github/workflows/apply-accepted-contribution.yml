@@ -148,7 +148,7 @@ jobs:
               changes.push(`美食：${food}`);
             }
 
-            if (category === "住宿" || hotelName || hotelArea || hotelPriceText) {
+            if (hotelName || hotelArea || hotelPriceText) {
               const price = hotelPriceText ? Number(hotelPriceText.match(/\d+(?:\.\d+)?/)?.[0]) : null;
               const currency = /VND|越南盾/i.test(hotelPriceText || "") ? "VND" : /CNY|人民币|元/i.test(hotelPriceText || "") ? "CNY" : null;
               const lodging = {
