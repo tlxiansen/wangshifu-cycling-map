@@ -16,12 +16,16 @@ jobs:
       - name: Fetch latest public season data
         shell: pwsh
         run: ./update_wangshifu_data.ps1
+      - name: Collect high-like public comment candidates
+        shell: pwsh
+        continue-on-error: true
+        run: ./collect_bilibili_candidates.ps1
       - name: Commit changes
         shell: pwsh
         run: |
           git config user.name "route-update-bot"
           git config user.email "route-update-bot@users.noreply.github.com"
-          git add wangshifu-data.json
+          git add wangshifu-data.json bilibili-candidates.json
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m "data: update Bilibili route"
