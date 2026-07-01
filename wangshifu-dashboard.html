@@ -147,23 +147,41 @@ async function roadGeometry(points){
     return data.routes[0].geometry.coordinates.map(([lng,lat])=>[lat,lng]);
   }finally{clearTimeout(timer)}
 }
+async function runRoadQueue(jobs,limit=2){
+  let next=0;
+  const worker=async()=>{
+    while(next<jobs.length){
+      const job=jobs[next++];
+      await job();
+    }
+  };
+  await Promise.all(Array.from({length:Math.min(limit,jobs.length)},worker));
+}
 function draw(items){
   layers.forEach(x=>map.removeLayer(x));roadLayers.forEach(x=>map.removeLayer(x));layers=[];roadLayers=[];markerByBvid={};activeSegment=null;
   const route=items.filter(x=>x.ride&&x.lat&&x.lng);
   const phases=[...new Set(route.map(x=>x.phase))];
-  let roadSuccess=0,roadJobs=[];
+  let roadSuccess=0,roadTotal=0,roadJobs=[];
   for(const phase of phases){
     const phaseItems=route.filter(x=>x.phase===phase);
     const pts=phaseItems.map(x=>[x.lat,x.lng]);
     if(pts.length<2)continue;
     const fallback=L.polyline(pts,{color:phase==="第一段"?"#16806c":"#ee642f",weight:3,opacity:.55,dashArray:"7 7"}).addTo(map);layers.push(fallback);
-    roadJobs.push(roadGeometry(phaseItems).then(geometry=>{
-      map.removeLayer(fallback);
-      const road=L.polyline(geometry,{color:phase==="第一段"?"#16806c":"#ee642f",weight:5,opacity:.78}).addTo(map);
-      roadLayers.push(road);roadSuccess++;
-    }).catch(()=>{}));
+    for(let i=0;i<phaseItems.length-1;i+=8){
+      const batch=phaseItems.slice(i,Math.min(i+9,phaseItems.length));
+      roadTotal++;
+      roadJobs.push(async()=>{
+        try{
+          const geometry=await roadGeometry(batch);
+          const road=L.polyline(geometry,{color:phase==="第一段"?"#16806c":"#ee642f",weight:5,opacity:.78}).addTo(map);
+          roadLayers.push(road);roadSuccess++;
+          document.getElementById("roadStatus").textContent=`正在拟合公路 ${roadSuccess}/${roadTotal}`;
+        }catch(e){}
+      });
+    }
   }
-  Promise.allSettled(roadJobs).then(()=>{document.getElementById("roadStatus").textContent=roadSuccess?`已拟合 ${roadSuccess} 段公路（驾车道路模型）`:"公路服务暂不可用，显示推断连线"});
+  document.getElementById("roadStatus").textContent=roadTotal?`正在拟合公路 0/${roadTotal}`:"暂无连续骑行路线";
+  runRoadQueue(roadJobs).then(()=>{document.getElementById("roadStatus").textContent=roadSuccess?`已拟合 ${roadSuccess}/${roadTotal} 段公路（驾车道路模型）`:"公路服务暂不可用，显示推断连线"});
   items.forEach((x,i)=>{
     if(!x.lat||!x.lng)return;
     const m=L.circleMarker([x.lat,x.lng],{radius:i===items.length-1?10:6,color:"#fff",weight:2,fillColor:markerColor(x),fillOpacity:.95}).addTo(map);
