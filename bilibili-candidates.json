@@ -1,28 +1,61 @@
 {
-  "generatedAt": "2026-07-01T15:00:00Z",
+  "generatedAt": "2026-07-01T14:52:12.4403607+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
-      "bvid": "BV1xVLx6WECX",
-      "date": "2026-05-21",
-      "place": "友谊关口岸（中越边境）",
-      "user": "谷瑞秋哥",
-      "likes": 35,
-      "message": "主播在友谊关海关排队，并介绍友谊关的历史与陆路口岸体验。",
-      "rpid": "303082448544",
-      "url": "https://www.bilibili.com/video/BV1xVLx6WECX/#reply303082448544",
-      "status": "已用于交叉核验"
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "慕容孤傲",
+      "likes": 288,
+      "message": "我又来了，今天王师傅住的酒店Tra Linh Hotel在越南谅山省Hữu Lũng(有陇)县Ngọc thành(玉城)村，是一家三星级酒店",
+      "rpid": "303215412416",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply303215412416",
+      "status": "待核验"
     },
     {
-      "bvid": "BV1xVLx6WECX",
-      "date": "2026-05-21",
-      "place": "友谊关口岸（中越边境）",
-      "user": "阿皮是个阿斯塔特",
-      "likes": 28,
-      "message": "自称友谊关边检人员，留言表示未能偶遇王师傅。",
-      "rpid": "303390949409",
-      "url": "https://www.bilibili.com/video/BV1xVLx6WECX/#reply303390949409",
-      "status": "已用于交叉核验"
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "福州陈奕迅丶",
+      "likes": 177,
+      "message": "当日骑行67.2KM\n①路线图\n②第一天酒店和摩托车店铺位置\n③摩托车店谷歌街景\n④第二天酒店卫星图",
+      "rpid": "300211595105",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply300211595105",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1goTv6qEeZ",
+      "date": "2026-07-01",
+      "place": "归仁 → 虬江市社沿海",
+      "user": "闸北黄翔",
+      "likes": 93,
+      "message": "老婆十分推荐芽庄这家店，一定要我发出来。。。老王今天不知道到芽庄了吗，有缘的话可以去试试。。。",
+      "rpid": "307635996240",
+      "url": "https://www.bilibili.com/video/BV1goTv6qEeZ/#reply307635996240",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "InteAMD",
+      "likes": 79,
+      "message": "今天不报天气了，今天给大家看我2w越南盾买到的早餐-猪杂粉和1w买到的红毛丹[吃瓜]",
+      "rpid": "300197028081",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply300197028081",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "峰仓亚夜",
+      "likes": 22,
+      "message": "第二天60多公里，按弯路山路可能有70",
+      "rpid": "300220949185",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply300220949185",
+      "status": "待核验"
     }
   ]
 }
