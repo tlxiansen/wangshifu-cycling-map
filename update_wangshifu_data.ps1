@@ -40,8 +40,13 @@ foreach ($archive in $response.data.archives) {
             distanceKm = $distance
             food = "Not identified"
             foods = @()
+            foodDetails = @()
+            lodgings = @()
+            costs = @()
             highlights = @()
             evidence = @()
+            rideTimeHours = $null
+            dayTimeHours = $null
             summary = $archive.title.TrimEnd(".") + "."
         }
     }
@@ -50,6 +55,21 @@ foreach ($archive in $response.data.archives) {
     }
     if (-not $item.PSObject.Properties["highlights"]) {
         $item | Add-Member -NotePropertyName highlights -NotePropertyValue @()
+    }
+    if (-not $item.PSObject.Properties["foodDetails"]) {
+        $item | Add-Member -NotePropertyName foodDetails -NotePropertyValue @()
+    }
+    if (-not $item.PSObject.Properties["lodgings"]) {
+        $item | Add-Member -NotePropertyName lodgings -NotePropertyValue @()
+    }
+    if (-not $item.PSObject.Properties["costs"]) {
+        $item | Add-Member -NotePropertyName costs -NotePropertyValue @()
+    }
+    if (-not $item.PSObject.Properties["rideTimeHours"]) {
+        $item | Add-Member -NotePropertyName rideTimeHours -NotePropertyValue $null
+    }
+    if (-not $item.PSObject.Properties["dayTimeHours"]) {
+        $item | Add-Member -NotePropertyName dayTimeHours -NotePropertyValue $null
     }
     if (-not $item.PSObject.Properties["evidence"]) {
         $item | Add-Member -NotePropertyName evidence -NotePropertyValue @()
