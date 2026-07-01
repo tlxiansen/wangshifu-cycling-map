@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-07-01T15:00:00Z",
+  "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
+  "items": [
+    {
+      "bvid": "BV1xVLx6WECX",
+      "date": "2026-05-21",
+      "place": "友谊关口岸（中越边境）",
+      "user": "谷瑞秋哥",
+      "likes": 35,
+      "message": "主播在友谊关海关排队，并介绍友谊关的历史与陆路口岸体验。",
+      "rpid": "303082448544",
+      "url": "https://www.bilibili.com/video/BV1xVLx6WECX/#reply303082448544",
+      "status": "已用于交叉核验"
+    },
+    {
+      "bvid": "BV1xVLx6WECX",
+      "date": "2026-05-21",
+      "place": "友谊关口岸（中越边境）",
+      "user": "阿皮是个阿斯塔特",
+      "likes": 28,
+      "message": "自称友谊关边检人员，留言表示未能偶遇王师傅。",
+      "rpid": "303390949409",
+      "url": "https://www.bilibili.com/video/BV1xVLx6WECX/#reply303390949409",
+      "status": "已用于交叉核验"
+    }
+  ]
+}
