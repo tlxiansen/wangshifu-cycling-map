@@ -39,8 +39,16 @@ foreach ($archive in $response.data.archives) {
             ride = $true
             distanceKm = $distance
             food = "Not identified"
+            foods = @()
+            highlights = @()
             summary = $archive.title.TrimEnd(".") + "."
         }
+    }
+    if (-not $item.PSObject.Properties["foods"]) {
+        $item | Add-Member -NotePropertyName foods -NotePropertyValue @()
+    }
+    if (-not $item.PSObject.Properties["highlights"]) {
+        $item | Add-Member -NotePropertyName highlights -NotePropertyValue @()
     }
     $item.title = $archive.title
     $item.date = $date
