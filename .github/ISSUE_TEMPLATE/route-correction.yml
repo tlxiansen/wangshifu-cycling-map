@@ -1,0 +1,67 @@
+name: 补充或纠正路线点
+description: 提交视频中的地点、里程、饮食或路线依据
+title: "[路线] "
+labels: ["route-data"]
+body:
+  - type: markdown
+    attributes:
+      value: "提交后，其他观众可用 👍 投票；同一期视频的建议优先核验点赞较高者，达到 3 个 👍 会自动标记为“票选优先”。"
+  - type: input
+    id: video
+    attributes:
+      label: B站视频链接或 BV 号
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 内容类型
+      options:
+        - 关键内容 / 事件
+        - 美食
+        - 地点 / 路线
+        - 当天里程
+        - 纠正现有信息
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: 视频日期（可选）
+      placeholder: "2026-07-01"
+  - type: textarea
+    id: finding
+    attributes:
+      label: 你发现了什么？
+      description: 地点、里程、饮食、路线错误等，知道一项就可以。
+      placeholder: "例如：视频里路牌显示已经到归仁；或者 12:35 口播说今天骑了 40 公里。"
+    validations:
+      required: true
+  - type: input
+    id: timepoint
+    attributes:
+      label: 视频时间点（可选）
+      placeholder: "例如：12:35"
+  - type: input
+    id: place
+    attributes:
+      label: 地点或路段（可选）
+  - type: input
+    id: distance
+    attributes:
+      label: 当天里程（如有）
+  - type: input
+    id: coordinates
+    attributes:
+      label: 经纬度（如有）
+      placeholder: "13.4500, 109.2300"
+  - type: input
+    id: food
+    attributes:
+      label: 视频里吃了什么（如有）
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 更多依据（可选）
+      description: 如果方便，可附视频时间点、路牌、口播或地图画面。
