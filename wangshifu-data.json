@@ -3,10 +3,10 @@
         "date":  "2026-05-21",
         "bvid":  "BV1xVLx6WECX",
         "title":  "不用手机，骑自行车到新加坡！",
-        "place":  "越南北部（起点未公开）",
-        "lat":  21.45,
-        "lng":  107.75,
-        "confidence":  "推断",
+        "place":  "友谊关口岸（中越边境）",
+        "lat":  21.9763498,
+        "lng":  106.7121191,
+        "confidence":  "视频场景与高赞评论交叉确认",
         "phase":  "第一段",
         "ride":  true,
         "distanceKm":  null,
@@ -18,6 +18,25 @@
         "highlights":  [
 
                        ],
+        "evidence":  [
+                         {
+                             "type":  "video",
+                             "url":  "https://www.bilibili.com/video/BV1xVLx6WECX/",
+                             "note":  "首期视频中的中越陆路口岸场景"
+                         },
+                         {
+                             "type":  "comment",
+                             "url":  "https://www.bilibili.com/video/BV1xVLx6WECX/#reply303082448544",
+                             "note":  "公开评论提到主播在友谊关海关排队",
+                             "likes":  35
+                         },
+                         {
+                             "type":  "comment",
+                             "url":  "https://www.bilibili.com/video/BV1xVLx6WECX/#reply303390949409",
+                             "note":  "自称友谊关边检人员的公开评论",
+                             "likes":  28
+                         }
+                     ],
         "duration":  3249,
         "views":  668547,
         "cover":  "https://i1.hdslb.com/bfs/archive/f552a8216d768d22dd2b1ba97353bb59a190e7c4.jpg"
