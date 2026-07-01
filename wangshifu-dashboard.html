@@ -13,20 +13,24 @@
     h1{font-size:23px;margin:0 0 3px}.eyebrow{font-size:11px;letter-spacing:.15em;color:#9fd5c7}.head-right{display:flex;align-items:center;gap:12px}.sync{font-size:12px;color:#bed1cb;text-align:right}.phone{display:none;color:#fff;text-decoration:none;font-size:11px;margin-top:4px}.head-actions{display:flex;gap:7px}.head-actions button{border:1px solid #ffffff55;background:#ffffff12;color:white;padding:7px 10px;border-radius:999px;cursor:pointer}.head-actions button:hover{background:#ffffff25}
     main{display:grid;grid-template-columns:minmax(0,1fr) 430px;height:calc(100vh - 76px)}
     .map-wrap{position:relative;min-width:0}#map{height:100%;width:100%;background:#dce6dc}
+    .leaflet-tile-pane{filter:saturate(.7) brightness(1.04)}.city-label{background:transparent;border:0;color:#18382e;font-size:12px;font-weight:900;white-space:nowrap;text-align:center;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,0 2px 4px #fff}.city-label.major{font-size:14px;color:#a53b18}
     .hero{position:absolute;z-index:500;left:18px;top:18px;width:min(390px,calc(100% - 36px));padding:17px 18px;background:rgba(255,253,248,.94);border:1px solid #d8d1c3;border-radius:16px;box-shadow:0 12px 32px #1d342c25;backdrop-filter:blur(8px)}
     .hero .label{font-size:11px;color:var(--orange);letter-spacing:.16em;font-weight:800}.hero h2{font-size:26px;line-height:1.18;margin:5px 0 7px}.hero p{margin:0;color:#5d6c64;font-size:13px;line-height:1.55}
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.stat{border-top:1px solid var(--line);padding-top:8px}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}
     aside{background:var(--card);border-left:1px solid var(--line);overflow:auto}.controls{position:sticky;top:0;z-index:5;padding:14px 16px 11px;background:rgba(255,253,248,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
     .tabs{display:flex;gap:7px}.tabs button{border:1px solid var(--line);background:white;padding:7px 12px;border-radius:999px;color:#526058;cursor:pointer}.tabs button.active{background:var(--dark);border-color:var(--dark);color:#fff}
     .note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.note a{color:#c84d21;text-decoration:none}.timeline{padding:14px 14px 30px}
+    .analytics{margin-top:11px;border-top:1px solid var(--line);padding-top:10px}.chart-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;margin:7px 0 3px}.chart-title span{font-weight:400;color:var(--muted)}.chart{display:block;width:100%;height:92px;border-radius:8px;background:#faf8f2}
+    .community{margin:14px 14px 0;border:1px solid var(--line);border-radius:13px;background:#f8fbf9;overflow:hidden}.community-head{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-bottom:1px solid var(--line)}.community-head b{font-size:13px}.community-head a{font-size:11px;color:#c84d21;text-decoration:none}.suggestions{padding:8px}.suggestion{display:block;padding:9px 10px;margin-bottom:6px;border-radius:9px;background:white;color:var(--ink);text-decoration:none;border:1px solid #e6e9e5}.suggestion:last-child{margin-bottom:0}.suggestion-top{display:flex;justify-content:space-between;gap:8px;font-size:11px}.suggestion-title{font-weight:800}.likes{color:#c84d21;white-space:nowrap}.suggestion-meta{font-size:10px;color:var(--muted);margin-top:4px}.community-empty{padding:12px;color:var(--muted);font-size:11px;line-height:1.5}
     .day{position:relative;margin:0 0 10px;padding:13px 13px 12px 18px;border:1px solid var(--line);border-radius:13px;background:#fff;transition:.18s;cursor:pointer}.day:hover,.day.active{border-color:#f2a287;box-shadow:0 7px 18px #382d2412;transform:translateY(-1px)}.day.active{background:#fff8ed;box-shadow:0 0 0 2px #f3a66e,0 8px 22px #382d2420}
     .day:before{content:"";position:absolute;left:0;top:13px;bottom:13px;width:4px;border-radius:0 4px 4px 0;background:var(--orange)}.day.infer:before{background:var(--green)}.day.rest:before{background:#a9b0ac}
     .topline{display:flex;justify-content:space-between;gap:8px}.date{font-size:12px;color:var(--muted)}.km{font-size:12px;font-weight:800;color:var(--orange)}
     .place{font-size:16px;font-weight:800;margin:4px 0}.summary{font-size:12px;color:#536159;line-height:1.55;margin:5px 0}.food{font-size:12px;background:#f4efe5;border-radius:8px;padding:7px 8px;margin-top:7px}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:7px}.detail-box{padding:7px 8px;border-radius:8px;background:#f6f8f5;font-size:11px;color:#536159}.detail-box b{display:block;color:var(--ink);margin-bottom:3px}.detail-box ul{padding:0;margin:0;list-style:none}.detail-box li{margin:2px 0}.time{color:var(--orange);font-variant-numeric:tabular-nums;margin-right:4px}.missing{color:#9aa39e}.review-reasons{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}.review-reasons span{font-size:9px;padding:2px 6px;border-radius:999px;background:#fff2d8;color:#8a5a00}
     .meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.tag{font-size:10px;color:#6c7771;border:1px solid #dfe1dd;border-radius:999px;padding:3px 7px}.video{font-size:11px;color:#c84d21;text-decoration:none;font-weight:800}
     .empty{padding:50px 20px;text-align:center;color:var(--muted)}.leaflet-popup-content{line-height:1.55}.leaflet-popup-content a{color:#c84d21}
     dialog{width:min(560px,calc(100% - 28px));border:0;border-radius:18px;padding:0;box-shadow:0 22px 70px #0005;color:var(--ink)}dialog::backdrop{background:#10251e99;backdrop-filter:blur(3px)}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line)}.modal-head h3{margin:0}.close{border:0;background:#edf0ed;width:30px;height:30px;border-radius:50%;cursor:pointer}.form{padding:16px 20px 20px}.form-note{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:5px}.field.wide{grid-column:1/-1}.field label{font-size:11px;color:#617067}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;font:inherit;background:#fff}.field textarea{min-height:72px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:14px}.primary,.secondary{border:0;border-radius:9px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:13px}.primary{background:var(--orange);color:white}.secondary{background:#e9eeea;color:var(--ink)}.origin{display:inline-block;margin-top:9px;color:#c84d21;font-size:11px;text-decoration:none}
-    @media(max-width:880px){header{height:auto;align-items:flex-start}.head-right{display:grid;justify-items:end}.sync{max-width:170px}.head-actions button{font-size:11px;padding:6px 8px}main{display:block;height:auto}.map-wrap{height:65vh;min-height:480px}aside{border-left:0;border-top:1px solid var(--line)}.hero{top:12px;left:12px}.hero h2{font-size:22px}.grid{grid-template-columns:1fr}}
+    @media(max-width:880px){header{height:auto;align-items:flex-start}.head-right{display:grid;justify-items:end}.sync{max-width:170px}.head-actions button{font-size:11px;padding:6px 8px}main{display:block;height:auto}.map-wrap{height:65vh;min-height:480px}aside{border-left:0;border-top:1px solid var(--line)}.hero{top:12px;left:12px}.hero h2{font-size:22px}.tabs{overflow-x:auto;padding-bottom:2px}.tabs button{white-space:nowrap}.grid,.detail-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -57,9 +61,20 @@
         <button class="active" data-filter="all">全部</button>
         <button data-filter="ride">骑行日</button>
         <button data-filter="food">吃了什么</button>
+        <button data-filter="review">待核验 <span id="reviewCount"></span></button>
       </div>
-      <div class="note">地点来自公开视频标题与相邻行程。橙色=标题确认，绿色=路线推断，灰色=休息/支线；不是 GPS 实时定位。<br><a href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">项目发起与王师傅回复 ↗</a></div>
+      <div class="note">地点来自公开视频标题与相邻行程。橙色=标题确认，绿色=路线推断，灰色=休息/支线；不是 GPS 实时定位。道路拟合用于视觉参考，不代表实际骑行 GPS。<br><span id="roadStatus">正在加载公路拟合…</span> · <a href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">项目发起与王师傅回复 ↗</a></div>
+      <div class="analytics">
+        <div class="chart-title">每日公开里程 <span>空缺表示未披露</span></div>
+        <canvas class="chart" id="dailyChart" width="390" height="92"></canvas>
+        <div class="chart-title">累计里程曲线 <span>虚线为路线比例估算</span></div>
+        <canvas class="chart" id="cumulativeChart" width="390" height="92"></canvas>
+      </div>
     </div>
+    <section class="community">
+      <div class="community-head"><b>社区建议与点赞</b><a href="https://github.com/tlxiansen/wangshifu-cycling-map/issues?q=is%3Aissue+is%3Aopen+label%3Aroute-data" target="_blank">查看全部 ↗</a></div>
+      <div class="suggestions" id="suggestions"><div class="community-empty">正在读取 GitHub 建议…</div></div>
+    </section>
     <div class="timeline" id="timeline"><div class="empty">正在整理每天的日记…</div></div>
   </aside>
 </main>
@@ -89,24 +104,66 @@
 </dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-let map, layers=[], allItems=[], markerByBvid={}, activeSegment=null, selectedBvid=null;
+let map, layers=[], allItems=[], markerByBvid={}, activeSegment=null, selectedBvid=null, roadLayers=[], cityLabelMarkers=[];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtDuration=s=>s?`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`:"";
 function bootMap(){
   map=L.map("map",{zoomControl:false}).setView([17.5,106.8],6);
   L.control.zoom({position:"bottomright"}).addTo(map);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(map);
+  const cities=[
+    ["河内",21.0285,105.8542,5,true],["海防",20.8449,106.6881,6,false],["下龙",20.951,107.08,7,false],
+    ["宁平",20.25,105.974,7,false],["清化",19.807,105.776,7,false],["荣市",18.6796,105.6813,6,false],
+    ["河静",18.3559,105.8877,7,false],["洞海",17.4689,106.6223,6,false],["顺化",16.4637,107.5909,6,true],
+    ["岘港",16.0544,108.2022,5,true],["会安",15.8801,108.338,7,false],["广义",15.12,108.80,6,false],
+    ["蓬山",14.43,109.02,8,false],["归仁",13.782,109.219,5,true],["绥和",13.0955,109.3209,7,false],
+    ["芽庄",12.2388,109.1967,5,true],["大叻",11.9404,108.4583,6,false],["潘切",10.9289,108.102,7,false],
+    ["头顿",10.346,107.084,7,false],["胡志明市",10.8231,106.6297,5,true],["芹苴",10.0452,105.7469,6,false]
+  ];
+  cityLabelMarkers=cities.map(([name,lat,lng,minZoom,major])=>({minZoom,marker:L.marker([lat,lng],{interactive:false,icon:L.divIcon({className:`city-label${major?" major":""}`,html:name,iconSize:[80,20],iconAnchor:[40,10]})})}));
+  const updateLabels=()=>cityLabelMarkers.forEach(x=>{if(map.getZoom()>=x.minZoom){if(!map.hasLayer(x.marker))x.marker.addTo(map)}else if(map.hasLayer(x.marker))map.removeLayer(x.marker)});
+  map.on("zoomend",updateLabels);updateLabels();
 }
 const isInferred=x=>/推断|沿用|待核对|pending|auto-added/i.test(x.confidence||"");
 const hasFood=x=>x.food&&x.food!=="未明确提到"&&x.food!=="Not identified";
+const splitFoods=x=>x.foods?.length?x.foods:(hasFood(x)?String(x.food).split(/[、，,]/).map(v=>v.trim()).filter(Boolean):[]);
+const normalizeItem=x=>({...x,foods:splitFoods(x),highlights:Array.isArray(x.highlights)?x.highlights:[]});
+const reviewReasons=x=>[
+  isInferred(x)?"地点待核验":null,
+  x.ride&&x.distanceKm==null?"里程待补":null,
+  !x.foods.length?"美食待补":null,
+  !x.highlights.length?"时间点待补":null
+].filter(Boolean);
+const needsReview=x=>reviewReasons(x).length>0;
 function markerColor(x){return !x.ride?"#9ba49f":isInferred(x)?"#16806c":"#ee642f"}
+async function roadGeometry(points){
+  const coords=points.map(x=>`${x.lng},${x.lat}`).join(";");
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
+  try{
+    const r=await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson&steps=false`,{signal:controller.signal});
+    if(!r.ok)throw new Error("road service");
+    const data=await r.json();
+    if(data.code!=="Ok"||!data.routes?.[0]?.geometry?.coordinates)throw new Error("no route");
+    return data.routes[0].geometry.coordinates.map(([lng,lat])=>[lat,lng]);
+  }finally{clearTimeout(timer)}
+}
 function draw(items){
-  layers.forEach(x=>map.removeLayer(x));layers=[];markerByBvid={};activeSegment=null;
+  layers.forEach(x=>map.removeLayer(x));roadLayers.forEach(x=>map.removeLayer(x));layers=[];roadLayers=[];markerByBvid={};activeSegment=null;
   const route=items.filter(x=>x.ride&&x.lat&&x.lng);
-  [...new Set(route.map(x=>x.phase))].forEach(phase=>{
-    const pts=route.filter(x=>x.phase===phase).map(x=>[x.lat,x.lng]);
-    if(pts.length>1){const line=L.polyline(pts,{color:phase==="第一段"?"#16806c":"#ee642f",weight:4,opacity:.78,dashArray:/自动新增|auto-added/i.test(phase)?"8 8":null}).addTo(map);layers.push(line)}
-  });
+  const phases=[...new Set(route.map(x=>x.phase))];
+  let roadSuccess=0,roadJobs=[];
+  for(const phase of phases){
+    const phaseItems=route.filter(x=>x.phase===phase);
+    const pts=phaseItems.map(x=>[x.lat,x.lng]);
+    if(pts.length<2)continue;
+    const fallback=L.polyline(pts,{color:phase==="第一段"?"#16806c":"#ee642f",weight:3,opacity:.55,dashArray:"7 7"}).addTo(map);layers.push(fallback);
+    roadJobs.push(roadGeometry(phaseItems).then(geometry=>{
+      map.removeLayer(fallback);
+      const road=L.polyline(geometry,{color:phase==="第一段"?"#16806c":"#ee642f",weight:5,opacity:.78}).addTo(map);
+      roadLayers.push(road);roadSuccess++;
+    }).catch(()=>{}));
+  }
+  Promise.allSettled(roadJobs).then(()=>{document.getElementById("roadStatus").textContent=roadSuccess?`已拟合 ${roadSuccess} 段公路（驾车道路模型）`:"公路服务暂不可用，显示推断连线"});
   items.forEach((x,i)=>{
     if(!x.lat||!x.lng)return;
     const m=L.circleMarker([x.lat,x.lng],{radius:i===items.length-1?10:6,color:"#fff",weight:2,fillColor:markerColor(x),fillOpacity:.95}).addTo(map);
@@ -121,9 +178,20 @@ function draw(items){
   });
   if(route.length)map.fitBounds(L.latLngBounds(route.map(x=>[x.lat,x.lng])).pad(.12));
 }
+async function highlightRoadSegment(previous,item,bvid){
+  try{
+    const geometry=await roadGeometry([previous,item]);
+    if(selectedBvid!==bvid)return;
+    if(activeSegment)map.removeLayer(activeSegment);
+    activeSegment=L.polyline(geometry,{color:"#ffd43b",weight:10,opacity:.75}).addTo(map);
+    activeSegment.bringToBack();
+    markerByBvid[bvid]?.bringToFront();
+  }catch(e){}
+}
 function focusItem(bvid){
   const item=allItems.find(x=>x.bvid===bvid),marker=markerByBvid[bvid];
   if(!item||!marker)return;
+  selectedBvid=bvid;
   Object.entries(markerByBvid).forEach(([id,m])=>{
     const x=allItems.find(v=>v.bvid===id);
     m.setStyle({radius:id===bvid?11:6,color:id===bvid?"#17211d":"#fff",weight:id===bvid?3:2,fillColor:markerColor(x),fillOpacity:1});
@@ -135,29 +203,82 @@ function focusItem(bvid){
     if(index>0){
       activeSegment=L.polyline([[rides[index-1].lat,rides[index-1].lng],[item.lat,item.lng]],{color:"#ffd43b",weight:10,opacity:.72}).addTo(map);
       activeSegment.bringToBack();
+      highlightRoadSegment(rides[index-1],item,bvid);
     }
   }
   marker.bringToFront();
   map.flyTo([item.lat,item.lng],Math.max(map.getZoom(),8),{duration:.65});
   marker.openPopup();
-  selectedBvid=bvid;
   document.querySelectorAll(".day").forEach(el=>el.classList.toggle("active",el.dataset.bvid===bvid));
 }
 function render(filter="all"){
-  const filtered=allItems.filter(x=>filter==="all"||(filter==="ride"&&x.ride)||(filter==="food"&&hasFood(x)));
+  const filtered=allItems.filter(x=>filter==="all"||(filter==="ride"&&x.ride)||(filter==="food"&&x.foods.length)||(filter==="review"&&needsReview(x)));
   document.getElementById("timeline").innerHTML=filtered.slice().reverse().map(x=>{
     const cls=!x.ride?"rest":(isInferred(x)?"infer":"");
     const km=x.distanceKm===null?"里程未披露":x.distanceKm===0?"休息/支线":`${x.distanceKm} km`;
+    const foods=x.foods.length?`<ul>${x.foods.map(v=>`<li>🍜 ${esc(v)}</li>`).join("")}</ul>`:'<span class="missing">暂无，欢迎补充</span>';
+    const highlights=x.highlights.length?`<ul>${x.highlights.map(v=>`<li><span class="time">${esc(v.time||"时间待补")}</span>${esc(v.text||v.label||"")}</li>`).join("")}</ul>`:'<span class="missing">暂无关键时间点</span>';
+    const reasons=reviewReasons(x);
     return `<article class="day ${cls}" data-bvid="${esc(x.bvid)}">
       <div class="topline"><span class="date">${esc(x.date)} · ${fmtDuration(x.duration)}</span><span class="km">${km}</span></div>
       <div class="place">${esc(x.place)}</div><div class="summary">${esc(x.summary)}</div>
-      <div class="food">🍜 ${esc(x.food)}</div>
+      <div class="detail-grid"><div class="detail-box"><b>美食清单</b>${foods}</div><div class="detail-box"><b>关键时间点</b>${highlights}</div></div>
+      ${reasons.length?`<div class="review-reasons">${reasons.map(v=>`<span>${v}</span>`).join("")}</div>`:""}
       <div class="meta"><span class="tag">${esc(x.confidence)}</span><a class="video" target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">看本期 ↗</a></div>
     </article>`}).join("")||'<div class="empty">这个分类暂时没有内容</div>';
   document.querySelectorAll(".day").forEach(card=>card.addEventListener("click",e=>{
     if(e.target.closest("a"))return;
     focusItem(card.dataset.bvid);
   }));
+}
+function chartBase(canvas){
+  const ctx=canvas.getContext("2d"),w=canvas.width,h=canvas.height;
+  ctx.clearRect(0,0,w,h);ctx.fillStyle="#faf8f2";ctx.fillRect(0,0,w,h);
+  ctx.strokeStyle="#ded8cb";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(28,h-18);ctx.lineTo(w-6,h-18);ctx.stroke();
+  return {ctx,w,h,left:28,right:6,top:8,bottom:18};
+}
+function drawDailyChart(){
+  const canvas=document.getElementById("dailyChart"),c=chartBase(canvas),items=allItems.filter(x=>x.ride).slice(-30);
+  const max=Math.max(130,...items.map(x=>x.distanceKm||0)),space=(c.w-c.left-c.right)/Math.max(items.length,1),bar=Math.max(3,space*.62);
+  items.forEach((x,i)=>{
+    const value=x.distanceKm,px=c.left+i*space+(space-bar)/2;
+    if(value==null){c.ctx.fillStyle="#c9cfcb";c.ctx.fillRect(px,c.h-c.bottom-3,bar,3)}
+    else{const bh=(c.h-c.top-c.bottom)*(value/max);c.ctx.fillStyle="#ee642f";c.ctx.fillRect(px,c.h-c.bottom-bh,bar,bh)}
+  });
+  c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.fillText(`${max} km`,2,11);c.ctx.fillText(items[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(items.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
+}
+function haversine(a,b){
+  const r=6371,toRad=v=>v*Math.PI/180,dLat=toRad(b.lat-a.lat),dLng=toRad(b.lng-a.lng);
+  const q=Math.sin(dLat/2)**2+Math.cos(toRad(a.lat))*Math.cos(toRad(b.lat))*Math.sin(dLng/2)**2;
+  return 2*r*Math.asin(Math.sqrt(q));
+}
+function cumulativeSeries(){
+  const rides=allItems.filter(x=>x.ride&&x.lat&&x.lng),raw=[];let sum=0,lastByPhase={};
+  rides.forEach(x=>{const p=lastByPhase[x.phase];if(p)sum+=haversine(p,x);raw.push(sum);lastByPhase[x.phase]=x});
+  let checkpoint=-1;rides.forEach((x,i)=>{if(x.cumulativeKm!=null)checkpoint=i});
+  const scale=checkpoint>=0&&raw[checkpoint]>0?rides[checkpoint].cumulativeKm/raw[checkpoint]:1;
+  const values=raw.map(v=>v*scale);
+  if(checkpoint>=0){values[checkpoint]=rides[checkpoint].cumulativeKm;for(let i=checkpoint+1;i<rides.length;i++)values[i]=values[i-1]+(rides[i].distanceKm??Math.max(0,(raw[i]-raw[i-1])*scale))}
+  return {rides,values,checkpoint};
+}
+function drawCumulativeChart(){
+  const canvas=document.getElementById("cumulativeChart"),c=chartBase(canvas),series=cumulativeSeries(),vals=series.values;
+  if(!vals.length)return;const max=Math.max(...vals,1),space=(c.w-c.left-c.right)/Math.max(vals.length-1,1);
+  c.ctx.strokeStyle="#16806c";c.ctx.lineWidth=2;c.ctx.setLineDash([5,4]);c.ctx.beginPath();
+  vals.forEach((v,i)=>{const x=c.left+i*space,y=c.h-c.bottom-(c.h-c.top-c.bottom)*(v/max);i?c.ctx.lineTo(x,y):c.ctx.moveTo(x,y)});c.ctx.stroke();c.ctx.setLineDash([]);
+  vals.forEach((v,i)=>{if(series.rides[i].cumulativeKm!=null){const x=c.left+i*space,y=c.h-c.bottom-(c.h-c.top-c.bottom)*(v/max);c.ctx.fillStyle="#ee642f";c.ctx.beginPath();c.ctx.arc(x,y,4,0,Math.PI*2);c.ctx.fill()}});
+  c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.fillText(`${Math.round(max)} km`,2,11);c.ctx.fillText(series.rides[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(series.rides.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
+}
+function drawCharts(){drawDailyChart();drawCumulativeChart()}
+async function loadSuggestions(){
+  const box=document.getElementById("suggestions");
+  try{
+    const r=await fetch("https://api.github.com/repos/tlxiansen/wangshifu-cycling-map/issues?state=open&labels=route-data&per_page=30",{headers:{Accept:"application/vnd.github+json"}});
+    if(!r.ok)throw new Error("GitHub API");
+    const issues=(await r.json()).filter(x=>!x.pull_request).sort((a,b)=>(b.reactions?.["+1"]||0)-(a.reactions?.["+1"]||0));
+    if(!issues.length){box.innerHTML='<div class="community-empty">暂无公开建议。你可以提交视频里的美食、地点或关键时间点，其他观众用 👍 投票。</div>';return}
+    box.innerHTML=issues.slice(0,6).map(x=>`<a class="suggestion" href="${esc(x.html_url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.title)}</span><span class="likes">👍 ${x.reactions?.["+1"]||0}</span></div><div class="suggestion-meta">#${x.number} · ${esc(x.user?.login||"观众")} · ${x.labels?.some(v=>v.name==="票选-优先")?"票选优先":"待投票"}</div></a>`).join("");
+  }catch(e){box.innerHTML='<div class="community-empty">暂时无法读取建议。<a href="https://github.com/tlxiansen/wangshifu-cycling-map/issues" target="_blank">前往 GitHub 查看 ↗</a></div>'}
 }
 async function getData(){
   try{
@@ -172,7 +293,7 @@ async function getData(){
 }
 async function load(){
   try{
-    const data=await getData();allItems=data.items;
+    const data=await getData();allItems=data.items.map(normalizeItem);
     const latest=allItems[allItems.length-1],known=allItems.reduce((n,x)=>n+(x.distanceKm||0),0);
     const cumulative=[...allItems].reverse().find(x=>x.cumulativeKm)?.cumulativeKm;
     document.getElementById("sync").textContent=data.status;
@@ -187,7 +308,8 @@ async function load(){
     document.getElementById("episodeCount").textContent=allItems.length;
     document.getElementById("cumulative").textContent=cumulative?`${cumulative} km`:"未披露";
     document.getElementById("knownDistance").textContent=`${known} km`;
-    render();draw(allItems);populateContributions();
+    document.getElementById("reviewCount").textContent=allItems.filter(needsReview).length;
+    render();draw(allItems);drawCharts();loadSuggestions();populateContributions();
   }catch(e){document.getElementById("sync").textContent="数据载入失败";document.getElementById("timeline").innerHTML='<div class="empty">请确认启动窗口仍在运行，然后刷新页面。</div>'}
 }
 const dialog=document.getElementById("contributeDialog");
