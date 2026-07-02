@@ -28,7 +28,9 @@ jobs:
             const fs = require("fs");
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const candidates = JSON.parse(fs.readFileSync("bilibili-candidates.json", "utf8").replace(/^\uFEFF/, "")).items || [];
+            const rawCandidates = JSON.parse(fs.readFileSync("bilibili-candidates.json", "utf8").replace(/^\uFEFF/, "")).items || [];
+            const isRelevant = message => /路线图|路线|路书|骑行|地址|位置|友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|\bKM\b|酒店|住宿|入住|民宿|旅馆|宾馆|Hotel|早餐|午餐|晚餐|餐厅|餐馆|小吃|猪杂粉|海鲜|烤肉|烧烤|咖啡店|茶馆|\d+(?:\.\d+)?\s*(?:元|人民币|CNY|万?越南盾|VND)/i.test(message || "");
+            const candidates = rawCandidates.filter(candidate => Number(candidate.likes || 0) >= 10 && isRelevant(candidate.message));
             const maxNewPerRun = 10;
             const labels = [
               {name: "route-data", color: "16806c", description: "路线、里程、饮食、住宿等数据建议"},
