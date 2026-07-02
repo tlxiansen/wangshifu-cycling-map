@@ -390,12 +390,14 @@ function drawCharts(){drawDailyChart();drawCumulativeChart()}
 async function loadSuggestions(){
   const box=document.getElementById("suggestions");
   const [githubResult,biliResult]=await Promise.allSettled([
-    fetch("https://api.github.com/repos/tlxiansen/wangshifu-cycling-map/issues?state=open&labels=route-data&per_page=30",{headers:{Accept:"application/vnd.github+json"}}).then(r=>{if(!r.ok)throw new Error("GitHub API");return r.json()}),
+    fetch("https://api.github.com/repos/tlxiansen/wangshifu-cycling-map/issues?state=all&labels=route-data&per_page=100",{headers:{Accept:"application/vnd.github+json"}}).then(r=>{if(!r.ok)throw new Error("GitHub API");return r.json()}),
     fetch("./bilibili-candidates.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("candidate data");return r.json()})
   ]);
-  const issues=githubResult.status==="fulfilled"?githubResult.value.filter(x=>!x.pull_request).sort((a,b)=>(b.reactions?.["+1"]||0)-(a.reactions?.["+1"]||0)):[];
-  const convertedRpids=new Set(issues.map(x=>(x.body||"").match(/<!--\s*bili-rpid:(\d+)\s*-->/)?.[1]).filter(Boolean));
-  const candidates=biliResult.status==="fulfilled"?(biliResult.value.items||[]).filter(x=>!convertedRpids.has(String(x.rpid||""))):[];
+  const allIssues=githubResult.status==="fulfilled"?githubResult.value.filter(x=>!x.pull_request):[];
+  const convertedRpids=new Set(allIssues.map(x=>(x.body||"").match(/<!--\s*bili-rpid:(\d+)\s*-->/)?.[1]).filter(Boolean));
+  const issues=allIssues.filter(x=>x.state==="open").sort((a,b)=>(b.reactions?.["+1"]||0)-(a.reactions?.["+1"]||0));
+  const relevantCandidate=x=>Number(x.likes||0)>=10&&/路线图|路线|路书|骑行|地址|位置|友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|\bKM\b|酒店|住宿|入住|民宿|旅馆|宾馆|Hotel|早餐|午餐|晚餐|餐厅|餐馆|小吃|猪杂粉|海鲜|烤肉|烧烤|咖啡店|茶馆|\d+(?:\.\d+)?\s*(?:元|人民币|CNY|万?越南盾|VND)/i.test(x.message||"");
+  const candidates=biliResult.status==="fulfilled"?(biliResult.value.items||[]).filter(x=>relevantCandidate(x)&&!convertedRpids.has(String(x.rpid||""))):[];
   const candidateHtml=candidates.slice(0,4).map(x=>`<a class="suggestion" href="${esc(x.url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.date)} · ${esc(x.message)}</span><span class="likes">B站 👍 ${x.likes||0}</span></div><div class="suggestion-meta">${esc(x.user||"观众")} · ${esc(x.status||"待核验")} · ${esc(x.bvid)}</div></a>`).join("");
   const issueHtml=issues.slice(0,4).map(x=>`<a class="suggestion" href="${esc(x.html_url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.title)}</span><span class="likes">GitHub 👍 ${x.reactions?.["+1"]||0}</span></div><div class="suggestion-meta">#${x.number} · ${esc(x.user?.login||"观众")} · ${x.labels?.some(v=>v.name==="票选-优先")?"票选优先":"待投票"}</div></a>`).join("");
   box.innerHTML=candidateHtml+issueHtml||'<div class="community-empty">暂无公开建议。你可以提交视频里的美食、地点或关键时间点，其他观众用 👍 投票。</div>';
