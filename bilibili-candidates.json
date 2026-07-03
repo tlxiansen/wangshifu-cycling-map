@@ -1,28 +1,5 @@
 {
-  "generatedAt": "2026-07-03T14:33:18.3758995+00:00",
+  "generatedAt": "2026-07-03T17:49:09.7615841+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
-  "items": [
-    {
-      "bvid": "BV1HVGv6eEU7",
-      "date": "2026-05-23",
-      "place": "越南北部、河内方向",
-      "user": "福州陈奕迅丶",
-      "likes": 124,
-      "message": "第三天加上中间在美电村绕路应该有60KM。\n①全程\n②③早餐店\n④奶茶店\n⑤⑥躲雨的房子\n⑦王师傅口中的“华强北”美电村\n⑧⑨丽枫酒店",
-      "rpid": "300363838801",
-      "url": "https://www.bilibili.com/video/BV1HVGv6eEU7/#reply300363838801",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV1bnEX65Eoo",
-      "date": "2026-06-10",
-      "place": "回国支线",
-      "user": "静待花开qqq",
-      "likes": 50,
-      "message": "加油哇！！！新的开始 如果今晚不下雨 那我继续骑行 完成之前的点赞！！",
-      "rpid": "305278591856",
-      "url": "https://www.bilibili.com/video/BV1bnEX65Eoo/#reply305278591856",
-      "status": "待核验"
-    }
-  ]
+  "items": []
 }
