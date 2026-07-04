@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T13:59:46.4313308+00:00",
+  "generatedAt": "2026-07-04T17:20:30.3197816+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
@@ -47,14 +47,14 @@
       "status": "待核验"
     },
     {
-      "bvid": "BV1bnEX65Eoo",
-      "date": "2026-06-10",
-      "place": "回国支线",
-      "user": "静待花开qqq",
-      "likes": 50,
-      "message": "加油哇！！！新的开始 如果今晚不下雨 那我继续骑行 完成之前的点赞！！",
-      "rpid": "305278591856",
-      "url": "https://www.bilibili.com/video/BV1bnEX65Eoo/#reply305278591856",
+      "bvid": "BV1PiKd6mEyj",
+      "date": "2026-06-30",
+      "place": "归仁 Quy Nhơn 海边",
+      "user": "md又回来了",
+      "likes": 45,
+      "message": "焯，有个弹幕语不惊人死不休啊，居然说全世界大部分地方的菜是清淡的....先不说印度那个吃调料比我们都狠的，德国什么酸菜熏肉烤肠哪个清淡了，炸鱼薯条重油重盐，更别说那些什么斯坦俄罗斯这种吃肉的，清淡的烤肉么，咖喱 鱼露 哪个清淡了，真清淡的菜哪都有，但重油重盐肯定为主....一个国家工农肯定占多数，这个言论肯定违背现实生存规律的，就像日本高端日料一定没有拉面屋每日接待的客户多，高端西餐厅一定没有炸鸡汉堡店的日流量高一样....太夸张了",
+      "rpid": "304348595409",
+      "url": "https://www.bilibili.com/video/BV1PiKd6mEyj/#reply304348595409",
       "status": "待核验"
     },
     {
@@ -66,6 +66,28 @@
       "message": "第二天60多公里，按弯路山路可能有70",
       "rpid": "300220949185",
       "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply300220949185",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1pEEy6CEu2",
+      "date": "2026-06-12",
+      "place": "河内 Hanoi",
+      "user": "线索pig",
+      "likes": 15,
+      "message": "你鼎已经算把烂荔枝从自己身上洗干净了\n巨婴人设也骑行洗干净了\n庐山和djw的矛盾也已经黄金现开赛和解了\n你鼎想不被炉石区骂就差和神棍吃一顿饭了（）",
+      "rpid": "305561174912",
+      "url": "https://www.bilibili.com/video/BV1pEEy6CEu2/#reply305561174912",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1zb7b6oE2x",
+      "date": "2026-06-25",
+      "place": "岘港 Đà Nẵng",
+      "user": "哼哼歌歌",
+      "likes": 10,
+      "message": "受不了了，看了这么久能不能整顿真正海鲜大餐啊，天天家常厌倦了",
+      "rpid": "306951055072",
+      "url": "https://www.bilibili.com/video/BV1zb7b6oE2x/#reply306951055072",
       "status": "待核验"
     }
   ]
