@@ -9,14 +9,55 @@ permissions:
   contents: write
   issues: write
 
+concurrency:
+  group: wangshifu-route-update
+  cancel-in-progress: false
+
 jobs:
   update:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
       - name: Fetch latest public season data
         shell: pwsh
         run: ./update_wangshifu_data.ps1
+      - name: Check audio enrichment configuration
+        id: audio-config
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -n "$OPENAI_API_KEY" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "### 音频信息提取" >> "$GITHUB_STEP_SUMMARY"
+            echo "- 尚未配置 \`OPENAI_API_KEY\`，本次安全跳过。" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Install audio enrichment dependencies
+        if: steps.audio-config.outputs.enabled == 'true'
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-audio-enrichment.txt
+      - name: Enrich newest video from audio
+        if: steps.audio-config.outputs.enabled == 'true'
+        continue-on-error: true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TRANSCRIPTION_MODEL: whisper-1
+          OPENAI_EXTRACTION_MODEL: gpt-5-mini
+          BILIBILI_COOKIES_BASE64: ${{ secrets.BILIBILI_COOKIES_BASE64 }}
+          AI_LOOKBACK_EPISODES: "3"
+          MAX_AI_EPISODES: "1"
+        run: python scripts/enrich_latest_video.py
       - name: Collect high-like public comment candidates
         shell: pwsh
         continue-on-error: true
@@ -156,6 +197,6 @@ jobs:
           git add wangshifu-data.json bilibili-candidates.json
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
-            git commit -m "data: update Bilibili route"
+            git commit -m "data: update Bilibili route and audio insights"
             git push
           }
