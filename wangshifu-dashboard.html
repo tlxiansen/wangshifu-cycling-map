@@ -63,7 +63,7 @@
         <button class="active" data-filter="all">全部</button>
         <button data-filter="ride">骑行日</button>
         <button data-filter="food">吃了什么</button>
-        <button data-filter="review">待核验 <span id="reviewCount"></span></button>
+        <button data-filter="highlights">关键时间点 <span id="highlightCount"></span></button>
       </div>
       <div class="note">地点来自公开视频标题与相邻行程。橙色=标题确认，绿色=路线推断，灰色=休息/支线；不是 GPS 实时定位。道路拟合用于视觉参考，不代表实际骑行 GPS。<br><span id="roadStatus">正在加载公路拟合…</span> · <a href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">项目发起与王师傅回复 ↗</a></div>
       <div class="analytics">
@@ -77,8 +77,8 @@
       </div>
     </div>
     <section class="community">
-      <div class="community-head"><b>社区建议与点赞</b><a href="https://github.com/tlxiansen/wangshifu-cycling-map/blob/main/CONTRIBUTING.md#待核验如何通过" target="_blank">通过规则 ↗</a></div>
-      <div class="suggestions" id="suggestions"><div class="community-empty">正在读取 GitHub 建议…</div></div>
+      <div class="community-head"><b>近期关键时间点</b><span>点击直达视频</span></div>
+      <div class="suggestions" id="keyMoments"><div class="community-empty">正在整理关键时间点…</div></div>
     </section>
     <div class="timeline" id="timeline"><div class="empty">正在整理每天的日记…</div></div>
   </aside>
@@ -264,7 +264,7 @@ function jumpToItem(bvid){
   if(card)card.scrollIntoView({behavior:"smooth",block:"center"});
 }
 function render(filter="all"){
-  const filtered=allItems.filter(x=>filter==="all"||(filter==="ride"&&x.ride)||(filter==="food"&&(x.foods.length||x.foodDetails.length))||(filter==="review"&&needsReview(x)));
+  const filtered=allItems.filter(x=>filter==="all"||(filter==="ride"&&x.ride)||(filter==="food"&&(x.foods.length||x.foodDetails.length))||(filter==="highlights"&&x.highlights.length));
   document.getElementById("timeline").innerHTML=filtered.slice().reverse().map(x=>{
     const cls=!x.ride?"rest":(isInferred(x)?"infer":"");
     const km=x.distanceKm===null?"里程未披露":x.distanceKm===0?"休息/支线":`${x.distanceKm} km`;
@@ -387,20 +387,19 @@ function drawCumulativeChart(){
   document.getElementById("routeGoalFill").style.width=`${percent}%`;
 }
 function drawCharts(){drawDailyChart();drawCumulativeChart()}
-async function loadSuggestions(){
-  const box=document.getElementById("suggestions");
-  const [githubResult,biliResult]=await Promise.allSettled([
-    fetch("https://api.github.com/repos/tlxiansen/wangshifu-cycling-map/issues?state=all&labels=route-data&per_page=100",{headers:{Accept:"application/vnd.github+json"}}).then(r=>{if(!r.ok)throw new Error("GitHub API");return r.json()}),
-    fetch("./bilibili-candidates.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("candidate data");return r.json()})
-  ]);
-  const allIssues=githubResult.status==="fulfilled"?githubResult.value.filter(x=>!x.pull_request):[];
-  const convertedRpids=new Set(allIssues.map(x=>(x.body||"").match(/<!--\s*bili-rpid:(\d+)\s*-->/)?.[1]).filter(Boolean));
-  const issues=allIssues.filter(x=>x.state==="open").sort((a,b)=>(b.reactions?.["+1"]||0)-(a.reactions?.["+1"]||0));
-  const relevantCandidate=x=>Number(x.likes||0)>=10&&/路线图|路线|路书|骑行|地址|位置|友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|\bKM\b|酒店|住宿|入住|民宿|旅馆|宾馆|Hotel|早餐|午餐|晚餐|餐厅|餐馆|小吃|猪杂粉|海鲜|烤肉|烧烤|咖啡店|茶馆|\d+(?:\.\d+)?\s*(?:元|人民币|CNY|万?越南盾|VND)/i.test(x.message||"");
-  const candidates=biliResult.status==="fulfilled"?(biliResult.value.items||[]).filter(x=>relevantCandidate(x)&&!convertedRpids.has(String(x.rpid||""))):[];
-  const candidateHtml=candidates.slice(0,4).map(x=>`<a class="suggestion" href="${esc(x.url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.date)} · ${esc(x.message)}</span><span class="likes">B站 👍 ${x.likes||0}</span></div><div class="suggestion-meta">${esc(x.user||"观众")} · ${esc(x.status||"待核验")} · ${esc(x.bvid)}</div></a>`).join("");
-  const issueHtml=issues.slice(0,4).map(x=>`<a class="suggestion" href="${esc(x.html_url)}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(x.title)}</span><span class="likes">GitHub 👍 ${x.reactions?.["+1"]||0}</span></div><div class="suggestion-meta">#${x.number} · ${esc(x.user?.login||"观众")} · ${x.labels?.some(v=>v.name==="票选-优先")?"票选优先":"待投票"}</div></a>`).join("");
-  box.innerHTML=candidateHtml+issueHtml||'<div class="community-empty">暂无公开建议。你可以提交视频里的美食、地点或关键时间点，其他观众用 👍 投票。</div>';
+function timeToSeconds(value){
+  const parts=String(value||"").split(":").map(Number);
+  if(parts.some(Number.isNaN))return 0;
+  return parts.length===3?parts[0]*3600+parts[1]*60+parts[2]:parts.length===2?parts[0]*60+parts[1]:parts[0]||0;
+}
+function loadHighlights(){
+  const box=document.getElementById("keyMoments");
+  const moments=allItems.slice().reverse().flatMap(item=>(item.highlights||[]).slice().reverse().map(v=>({item,...v})));
+  box.innerHTML=moments.slice(0,8).map(v=>{
+    const seconds=timeToSeconds(v.time);
+    const url=`https://www.bilibili.com/video/${esc(v.item.bvid)}/${seconds?`?t=${seconds}`:""}`;
+    return `<a class="suggestion" href="${url}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(v.item.date)} · ${esc(v.text||v.label||"关键内容")}</span><span class="likes">${esc(v.time||"时间待补")}</span></div><div class="suggestion-meta">${esc(v.item.place)} · ${esc(v.status||"视频内容")}</div></a>`;
+  }).join("")||'<div class="community-empty">当前还没有关键时间点。</div>';
 }
 async function getData(){
   try{
@@ -431,8 +430,8 @@ async function load(){
     document.getElementById("cumulative").textContent=cumulative?`${cumulative} km`:"未披露";
     document.getElementById("knownDistance").textContent=`${known} km`;
     document.getElementById("reportedBudget").textContent=totalBudgetSummary(allItems);
-    document.getElementById("reviewCount").textContent=allItems.filter(needsReview).length;
-    render();draw(allItems);drawCharts();loadSuggestions();populateContributions();
+    document.getElementById("highlightCount").textContent=allItems.filter(x=>x.highlights.length).length;
+    render();draw(allItems);drawCharts();loadHighlights();populateContributions();
   }catch(e){document.getElementById("sync").textContent="数据载入失败";document.getElementById("timeline").innerHTML='<div class="empty">请确认启动窗口仍在运行，然后刷新页面。</div>'}
 }
 const dialog=document.getElementById("contributeDialog");
