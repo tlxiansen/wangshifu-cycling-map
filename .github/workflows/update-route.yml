@@ -29,12 +29,11 @@ jobs:
       - name: Check audio enrichment configuration
         id: audio-config
         env:
-          VOLC_ASR_APP_ID: ${{ secrets.VOLC_ASR_APP_ID }}
-          VOLC_ASR_ACCESS_TOKEN: ${{ secrets.VOLC_ASR_ACCESS_TOKEN }}
+          VOLC_ASR_API_KEY: ${{ secrets.VOLC_API_KEY }}
           ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
           ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
         run: |
-          if [ -n "$VOLC_ASR_APP_ID" ] && [ -n "$VOLC_ASR_ACCESS_TOKEN" ] && [ -n "$ARK_API_KEY" ] && [ -n "$ARK_MODEL_ID" ]; then
+          if [ -n "$VOLC_ASR_API_KEY" ] && [ -n "$ARK_API_KEY" ] && [ -n "$ARK_MODEL_ID" ]; then
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           else
             echo "enabled=false" >> "$GITHUB_OUTPUT"
@@ -56,9 +55,8 @@ jobs:
         env:
           ASR_PROVIDER: volcengine
           TEXT_AI_PROVIDER: volcengine
-          VOLC_ASR_APP_ID: ${{ secrets.VOLC_ASR_APP_ID }}
-          VOLC_ASR_ACCESS_TOKEN: ${{ secrets.VOLC_ASR_ACCESS_TOKEN }}
-          VOLC_ASR_RESOURCE_ID: volc.bigasr.auc
+          VOLC_ASR_API_KEY: ${{ secrets.VOLC_API_KEY }}
+          VOLC_ASR_RESOURCE_ID: volc.seedasr.auc
           ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
           ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
           BILIBILI_COOKIES_BASE64: ${{ secrets.BILIBILI_COOKIES_BASE64 }}
