@@ -29,14 +29,17 @@ jobs:
       - name: Check audio enrichment configuration
         id: audio-config
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          VOLC_ASR_APP_ID: ${{ secrets.VOLC_ASR_APP_ID }}
+          VOLC_ASR_ACCESS_TOKEN: ${{ secrets.VOLC_ASR_ACCESS_TOKEN }}
+          ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
+          ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
         run: |
-          if [ -n "$OPENAI_API_KEY" ]; then
+          if [ -n "$VOLC_ASR_APP_ID" ] && [ -n "$VOLC_ASR_ACCESS_TOKEN" ] && [ -n "$ARK_API_KEY" ] && [ -n "$ARK_MODEL_ID" ]; then
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           else
             echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "### 音频信息提取" >> "$GITHUB_STEP_SUMMARY"
-            echo "- 尚未配置 \`OPENAI_API_KEY\`，本次安全跳过。" >> "$GITHUB_STEP_SUMMARY"
+            echo "### 豆包音频信息提取" >> "$GITHUB_STEP_SUMMARY"
+            echo "- 尚未完整配置火山引擎凭证，本次安全跳过。" >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Install audio enrichment dependencies
         if: steps.audio-config.outputs.enabled == 'true'
@@ -51,9 +54,13 @@ jobs:
         if: steps.audio-config.outputs.enabled == 'true'
         continue-on-error: true
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_TRANSCRIPTION_MODEL: whisper-1
-          OPENAI_EXTRACTION_MODEL: gpt-5-mini
+          ASR_PROVIDER: volcengine
+          TEXT_AI_PROVIDER: volcengine
+          VOLC_ASR_APP_ID: ${{ secrets.VOLC_ASR_APP_ID }}
+          VOLC_ASR_ACCESS_TOKEN: ${{ secrets.VOLC_ASR_ACCESS_TOKEN }}
+          VOLC_ASR_RESOURCE_ID: volc.bigasr.auc
+          ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
+          ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
           BILIBILI_COOKIES_BASE64: ${{ secrets.BILIBILI_COOKIES_BASE64 }}
           AI_LOOKBACK_EPISODES: "3"
           MAX_AI_EPISODES: "1"
