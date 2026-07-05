@@ -23,6 +23,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-audio-enrichment.txt
       - name: Fetch latest public season data
         shell: pwsh
         run: ./update_wangshifu_data.ps1
