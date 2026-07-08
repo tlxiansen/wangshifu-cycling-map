@@ -62,6 +62,7 @@ jobs:
       - name: Enrich route facts from latest audio
         if: steps.audio-config.outputs.enabled == 'true'
         continue-on-error: true
+        timeout-minutes: 15
         env:
           ASR_PROVIDER: volcengine
           TEXT_AI_PROVIDER: volcengine
