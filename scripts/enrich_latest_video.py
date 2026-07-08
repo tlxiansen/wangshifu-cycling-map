@@ -24,7 +24,39 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_PATH = ROOT / "wangshifu-data.json"
 VIDEO_URL = "https://www.bilibili.com/video/{bvid}/"
 AUTO_PHASES = {"Auto-added", "自动添加"}
-AUTO_CONFIDENCE_MARKERS = ("auto-added", "pending review", "待核验", "ai提取")
+AUTO_CONFIDENCE_MARKERS = (
+    "auto-added",
+    "pending review",
+    "待核验",
+    "ai提取",
+    "ai音频提取",
+)
+AI_ENRICHMENT_VERSION = "route-auto-v2"
+PLACE_GAZETTEER = [
+    (("友谊关", "友誼關", "凭祥", "口岸"), "友谊关口岸（中越边境）", 21.9763498, 106.7121191),
+    (("河内", "Hanoi", "Ha Noi"), "河内 Hanoi", 21.0285, 105.8542),
+    (("海防", "Hải Phòng", "Hai Phong"), "海防 Hải Phòng", 20.8449, 106.6881),
+    (("下龙", "Hạ Long", "Ha Long"), "下龙 Hạ Long", 20.9510, 107.0800),
+    (("宁平", "Ninh Bình", "Ninh Binh"), "宁平 Ninh Bình", 20.2500, 105.9740),
+    (("清化", "Thanh Hóa", "Thanh Hoa"), "清化 Thanh Hóa", 19.8070, 105.7760),
+    (("荣市", "Vinh"), "荣市 Vinh", 18.6796, 105.6813),
+    (("河静", "Hà Tĩnh", "Ha Tinh"), "河静 Hà Tĩnh", 18.3559, 105.8877),
+    (("洞海", "Đồng Hới", "Dong Hoi"), "洞海 Đồng Hới", 17.4689, 106.6223),
+    (("顺化", "Huế", "Hue"), "顺化 Huế", 16.4637, 107.5909),
+    (("岘港", "Đà Nẵng", "Da Nang"), "岘港 Đà Nẵng", 16.0544, 108.2022),
+    (("会安", "Hội An", "Hoi An"), "会安 Hội An", 15.8801, 108.3380),
+    (("广义", "Quảng Ngãi", "Quang Ngai"), "广义 Quảng Ngãi", 15.1200, 108.8000),
+    (("蓬山", "Bồng Sơn", "Bong Son"), "蓬山 Bồng Sơn", 14.4300, 109.0200),
+    (("归仁", "Quy Nhơn", "Quy Nhon"), "归仁 Quy Nhơn", 13.7820, 109.2190),
+    (("虬江", "虬江市社", "Sông Cầu", "Song Cau"), "虬江市社 Sông Cầu", 13.4500, 109.2300),
+    (("绥和", "绥化", "Tuy Hòa", "Tuy Hoa"), "绥和 Tuy Hòa", 13.0955, 109.3209),
+    (("芽庄", "Nha Trang"), "芽庄 Nha Trang", 12.2388, 109.1967),
+    (("大叻", "Đà Lạt", "Da Lat"), "大叻 Đà Lạt", 11.9404, 108.4583),
+    (("潘切", "Phan Thiết", "Phan Thiet"), "潘切 Phan Thiết", 10.9289, 108.1020),
+    (("头顿", "Vũng Tàu", "Vung Tau"), "头顿 Vũng Tàu", 10.3460, 107.0840),
+    (("胡志明", "西贡", "Hồ Chí Minh", "Ho Chi Minh", "Saigon"), "胡志明市 Hồ Chí Minh", 10.8231, 106.6297),
+    (("芹苴", "Cần Thơ", "Can Tho"), "芹苴 Cần Thơ", 10.0452, 105.7469),
+]
 VOLC_ASR_SUBMIT_URL = (
     "https://openspeech.bytedance.com/api/v3/auc/bigmodel/submit"
 )
@@ -94,15 +126,61 @@ def is_auto_managed(entry: dict[str, Any]) -> bool:
     return any(marker in confidence for marker in AUTO_CONFIDENCE_MARKERS)
 
 
+def entry_quality_gaps(entry: dict[str, Any]) -> list[str]:
+    gaps: list[str] = []
+    confidence = str(entry.get("confidence", "")).lower()
+    risk_flags = [str(value) for value in entry.get("riskFlags") or []]
+    if any(marker in confidence for marker in ("pending", "auto-added", "待核验", "推断", "沿用")):
+        gaps.append("confidence_pending")
+    if entry.get("lat") is None or entry.get("lng") is None:
+        gaps.append("missing_coordinates")
+    if any("坐标沿用" in value or "地点需自动复核" in value for value in risk_flags):
+        gaps.append("coordinate_or_place_risk")
+    if bool(entry.get("ride")) and entry.get("distanceKm") is None:
+        gaps.append("missing_distance")
+    if not entry.get("highlights"):
+        gaps.append("missing_highlights")
+    if not entry.get("foodDetails") and (
+        not clean_text(entry.get("food"))
+        or str(entry.get("food")).lower() in {"not identified", "未明确提到"}
+    ):
+        gaps.append("missing_food")
+    if bool(entry.get("ride")) and not entry.get("lodgings"):
+        gaps.append("missing_lodging")
+    return gaps
+
+
+def enrichment_version(entry: dict[str, Any]) -> str:
+    meta = entry.get("aiEnrichment") or {}
+    return str(meta.get("version") or "")
+
+
+def needs_audio_enrichment(entry: dict[str, Any]) -> bool:
+    if not entry.get("bvid"):
+        return False
+    if not is_auto_managed(entry):
+        return False
+    if not has_audio_evidence(entry):
+        return True
+    return enrichment_version(entry) != AI_ENRICHMENT_VERSION and bool(
+        entry_quality_gaps(entry)
+    )
+
+
 def select_candidates(
     entries: list[dict[str, Any]], lookback: int, maximum: int
 ) -> list[dict[str, Any]]:
     recent = entries[-max(1, lookback) :]
-    candidates = [
-        item
-        for item in reversed(recent)
-        if item.get("bvid") and is_auto_managed(item) and not has_audio_evidence(item)
-    ]
+    candidates = [item for item in recent if needs_audio_enrichment(item)]
+    candidates.sort(
+        key=lambda item: (
+            0 if not has_audio_evidence(item) else 1,
+            0 if "coordinate_or_place_risk" in entry_quality_gaps(item) else 1,
+            0 if "missing_coordinates" in entry_quality_gaps(item) else 1,
+            0 if "missing_distance" in entry_quality_gaps(item) else 1,
+            str(item.get("date", "")),
+        )
+    )
     return candidates[: max(1, maximum)]
 
 
@@ -625,11 +703,89 @@ def clean_text(value: Any) -> str | None:
     return text or None
 
 
+def coordinate_from_text(*values: Any) -> dict[str, Any] | None:
+    raw_values = [str(value or "").strip() for value in values if str(value or "").strip()]
+    if not raw_values:
+        return None
+    # Earlier arguments are more authoritative. For route strings like "A → B",
+    # the day marker should normally land on B.
+    search_texts: list[str] = []
+    for raw in raw_values:
+        parts = [part.strip() for part in raw.replace("—", "→").replace("->", "→").split("→")]
+        search_texts.extend(list(reversed(parts)) if len(parts) > 1 else [raw])
+    text = " ".join(raw_values)
+    for candidate_text in search_texts:
+        for aliases, canonical, lat, lng in PLACE_GAZETTEER:
+            if any(alias and alias.lower() in candidate_text.lower() for alias in aliases):
+                return {
+                    "place": canonical,
+                    "lat": lat,
+                    "lng": lng,
+                    "source": "local-gazetteer",
+                }
+    for aliases, canonical, lat, lng in PLACE_GAZETTEER:
+        if any(alias and alias.lower() in text.lower() for alias in aliases):
+            return {
+                "place": canonical,
+                "lat": lat,
+                "lng": lng,
+                "source": "local-gazetteer",
+            }
+    return None
+
+
+def append_unique(values: list[Any], value: Any) -> None:
+    if value and value not in values:
+        values.append(value)
+
+
+def rebuild_quality_flags(entries: list[dict[str, Any]]) -> None:
+    previous_by_phase: dict[str, dict[str, Any]] = {}
+    for entry in entries:
+        flags: list[str] = []
+        phase = str(entry.get("phase") or "")
+        previous = previous_by_phase.get(phase)
+        if entry.get("lat") is None or entry.get("lng") is None:
+            flags.append("坐标缺失")
+        if bool(entry.get("ride")) and entry.get("distanceKm") is None:
+            flags.append("里程缺失")
+        if bool(entry.get("ride")) and previous:
+            if entry.get("lat") == previous.get("lat") and entry.get("lng") == previous.get("lng"):
+                flags.append("坐标沿用上一骑行日")
+        if not entry.get("highlights"):
+            flags.append("关键时间点缺失")
+        if bool(entry.get("ride")) and not entry.get("lodgings"):
+            flags.append("住宿缺失")
+        if entry_quality_gaps(entry):
+            flags.append("需要自动复核")
+        entry["riskFlags"] = list(dict.fromkeys(flags))
+        if entry.get("lat") is not None and entry.get("lng") is not None:
+            previous_by_phase[phase] = entry
+
+
+def confidence_score_for(entry: dict[str, Any], extraction: dict[str, Any]) -> float:
+    score = 0.45
+    if clean_text(extraction.get("place")):
+        score += 0.15
+    if entry.get("lat") is not None and entry.get("lng") is not None:
+        score += 0.10
+    if extraction.get("distance_km") is not None or entry.get("distanceKm") is not None:
+        score += 0.10
+    if extraction.get("highlights"):
+        score += 0.10
+    if extraction.get("food_details") or extraction.get("lodgings") or extraction.get("costs"):
+        score += 0.05
+    notes = clean_text(extraction.get("confidence_notes")) or ""
+    if any(word in notes for word in ("不确定", "待核验", "无法确认", "未识别")):
+        score -= 0.10
+    return round(max(0.05, min(0.98, score)), 2)
+
+
 def merge_extraction(
     entry: dict[str, Any], extraction: dict[str, Any], processed_at: str
 ) -> bool:
     """Merge only into an auto-managed episode and never erase existing facts."""
-    if not is_auto_managed(entry) or has_audio_evidence(entry):
+    if not needs_audio_enrichment(entry):
         return False
 
     bvid = str(entry["bvid"])
@@ -649,6 +805,22 @@ def merge_extraction(
     extracted_place = clean_text(extraction.get("place"))
     if extracted_place:
         entry["place"] = extracted_place
+        coordinate = coordinate_from_text(
+            extraction.get("end_place"),
+            extraction.get("place"),
+            extraction.get("start_place"),
+            entry.get("title"),
+        )
+        if coordinate:
+            entry["lat"] = coordinate["lat"]
+            entry["lng"] = coordinate["lng"]
+            entry["coordinateSource"] = coordinate["source"]
+    elif entry.get("lat") is None or entry.get("lng") is None:
+        coordinate = coordinate_from_text(entry.get("place"), entry.get("title"))
+        if coordinate:
+            entry["lat"] = coordinate["lat"]
+            entry["lng"] = coordinate["lng"]
+            entry["coordinateSource"] = coordinate["source"]
 
     if not entry.get("foods"):
         entry["foods"] = [
@@ -754,8 +926,10 @@ def merge_extraction(
     )
     entry["evidence"] = evidence
     entry["confidence"] = "AI音频提取，待维护者核验"
-    entry["phase"] = "AI enriched"
+    entry["confidenceScore"] = confidence_score_for(entry, extraction)
+    entry["automationStatus"] = "AI enriched"
     entry["aiEnrichment"] = {
+        "version": AI_ENRICHMENT_VERSION,
         "processedAt": processed_at,
         "transcriptionProvider": os.getenv("ASR_PROVIDER", "openai"),
         "transcriptionModel": (
@@ -769,7 +943,7 @@ def merge_extraction(
             if os.getenv("TEXT_AI_PROVIDER", "openai").lower() == "volcengine"
             else os.getenv("OPENAI_EXTRACTION_MODEL", "gpt-5-mini")
         ),
-        "status": "待核验",
+        "status": "auto-extracted",
     }
     return True
 
@@ -900,6 +1074,7 @@ def main() -> int:
             changed.append(bvid)
 
     if changed:
+        rebuild_quality_flags(entries)
         write_json(args.data, entries)
         log(f"Updated {args.data}: {', '.join(changed)}")
         append_step_summary(
