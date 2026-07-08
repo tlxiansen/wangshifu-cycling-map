@@ -61,8 +61,8 @@ jobs:
           ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
           ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
           BILIBILI_COOKIES_BASE64: ${{ secrets.BILIBILI_COOKIES_BASE64 }}
-          AI_LOOKBACK_EPISODES: "3"
-          MAX_AI_EPISODES: "1"
+          AI_LOOKBACK_EPISODES: "30"
+          MAX_AI_EPISODES: "3"
         run: python scripts/enrich_latest_video.py
       - name: Collect high-like public comment candidates
         shell: pwsh
