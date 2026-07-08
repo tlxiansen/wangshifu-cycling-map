@@ -45,7 +45,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 3249,
-    "views": 688829,
+    "views": 688831,
     "cover": "https://i1.hdslb.com/bfs/archive/f552a8216d768d22dd2b1ba97353bb59a190e7c4.jpg",
     "videoSource": "season"
   },
@@ -158,9 +158,9 @@
     "date": "2026-05-23",
     "bvid": "BV1HVGv6eEU7",
     "title": "和16岁的小男孩一起吃饭，暴雨中躲进当地人的5层大别墅——在越南的魔幻第三天。",
-    "place": "越南北部、河内方向",
-    "lat": 20.85,
-    "lng": 106.65,
+    "place": "河内 Ha Noi",
+    "lat": 21.0278,
+    "lng": 105.8342,
     "confidence": "推断",
     "phase": "第一段",
     "ride": true,
@@ -179,12 +179,13 @@
       "missing-distance",
       "missing-key-timepoints"
     ],
-    "confidenceScore": null,
+    "confidenceScore": 0.45,
     "automation": {},
     "duration": 3414,
-    "views": 1258550,
+    "views": 1258552,
     "cover": "https://i2.hdslb.com/bfs/archive/bc6bbf3344d7f0eb96efb6025f341700d7dec42d.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer"
   },
   {
     "date": "2026-05-24",
@@ -294,7 +295,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 1699,
-    "views": 280635,
+    "views": 280636,
     "cover": "https://i2.hdslb.com/bfs/archive/4c87a53ded30a08e36d340a9905e21cf9ebcf0b1.jpg",
     "videoSource": "season"
   },
@@ -302,9 +303,9 @@
     "date": "2026-05-27",
     "bvid": "BV1LkGC62Enf",
     "title": "越南公路第五日——失而复得的老摩托和越南版的KFC。",
-    "place": "河内以南",
-    "lat": 20.55,
-    "lng": 105.92,
+    "place": "河内 Ha Noi",
+    "lat": 21.0278,
+    "lng": 105.8342,
     "confidence": "推断",
     "phase": "第一段",
     "ride": true,
@@ -323,12 +324,13 @@
       "missing-distance",
       "missing-key-timepoints"
     ],
-    "confidenceScore": null,
+    "confidenceScore": 0.45,
     "automation": {},
     "duration": 3169,
-    "views": 447852,
+    "views": 447853,
     "cover": "https://i2.hdslb.com/bfs/archive/8de1006c5309f86004997487f5f7b1448ef3ddbc.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer"
   },
   {
     "date": "2026-05-28",
@@ -401,7 +403,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 9485,
-    "views": 356614,
+    "views": 356615,
     "cover": "https://i2.hdslb.com/bfs/archive/2d625888c311ea1c5271b3805775742ab0a7f16b.jpg",
     "videoSource": "season"
   },
@@ -569,7 +571,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 2266,
-    "views": 198042,
+    "views": 198043,
     "cover": "https://i2.hdslb.com/bfs/archive/63b9e5ba5e012b82a15b564d08cbd527e9d6767b.jpg",
     "videoSource": "season"
   },
@@ -598,7 +600,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 1262,
-    "views": 296847,
+    "views": 296849,
     "cover": "https://i0.hdslb.com/bfs/archive/fb7beb6461974a1a0b1b3dcbbebef8d4c7774001.jpg",
     "videoSource": "season"
   },
@@ -627,7 +629,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 691,
-    "views": 261351,
+    "views": 261352,
     "cover": "https://i2.hdslb.com/bfs/archive/180492a0648a564d200e8564e76c0b9ceeda7db2.jpg",
     "videoSource": "season"
   },
@@ -714,7 +716,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 1043,
-    "views": 339055,
+    "views": 339056,
     "cover": "https://i0.hdslb.com/bfs/archive/65d8f80e67fee465485229e5de0d9f7f973cdd63.jpg",
     "videoSource": "season"
   },
@@ -772,7 +774,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
-    "views": 624523,
+    "views": 624528,
     "cover": "https://i2.hdslb.com/bfs/archive/8fdff851d550ef3e54dca819798d512a39e5efee.jpg",
     "videoSource": "season"
   },
@@ -830,7 +832,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 3024,
-    "views": 415506,
+    "views": 415509,
     "cover": "https://i2.hdslb.com/bfs/archive/9a15b2d8f428fa6c9c9d8c80e8504341048cf7c2.jpg",
     "videoSource": "season"
   },
@@ -987,7 +989,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 3116,
-    "views": 451016,
+    "views": 451017,
     "cover": "https://i1.hdslb.com/bfs/archive/ff335c02fc994e6eddb5b2d5d0f8dddcaa9668fb.jpg",
     "videoSource": "season"
   },
@@ -1061,7 +1063,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 2770,
-    "views": 490337,
+    "views": 490339,
     "cover": "https://i0.hdslb.com/bfs/archive/386031fc923c82f8cd036c265ee5b0514209330c.jpg",
     "videoSource": "season"
   },
@@ -1148,7 +1150,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 128,
-    "views": 198264,
+    "views": 198265,
     "cover": "https://i1.hdslb.com/bfs/archive/20920759c455bd37e116cba7fe4743273aea50ab.jpg",
     "videoSource": "season"
   },
@@ -1177,7 +1179,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 3662,
-    "views": 774271,
+    "views": 774280,
     "cover": "https://i0.hdslb.com/bfs/archive/9b5f2b9a77ff4f177f9aba2fccba01bb503d4109.jpg",
     "videoSource": "season"
   },
@@ -1235,7 +1237,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 3157,
-    "views": 285966,
+    "views": 285968,
     "cover": "https://i2.hdslb.com/bfs/archive/95bc7186a79a625998bdad69a8d77e51de10dbc8.jpg",
     "videoSource": "season"
   },
@@ -1275,9 +1277,9 @@
     "date": "2026-06-27",
     "bvid": "BV1Q47E6EEHz",
     "title": "早起沿海一路暴晒骑行113公里到天黑！！中途和史师傅红脸…距离芽庄还有？？？公里",
-    "place": "广义 Quảng Ngãi 方向",
-    "lat": 15.12,
-    "lng": 108.8,
+    "place": "芽庄 (Nha Trang)",
+    "lat": 12.2388,
+    "lng": 109.1967,
     "confidence": "路线推断",
     "phase": "第二段",
     "ride": true,
@@ -1293,12 +1295,13 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": "missing-key-timepoints",
-    "confidenceScore": null,
+    "confidenceScore": 0.45,
     "automation": {},
     "duration": 3397,
     "views": 285762,
     "cover": "https://i0.hdslb.com/bfs/archive/d5ef795a4180db03b209301636003dd296bb5e8c.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer"
   },
   {
     "date": "2026-06-28",
@@ -1324,13 +1327,12 @@
     "evidence": [],
     "riskFlags": [
       "missing-distance",
-      "coordinates-copied-from-previous-ride",
       "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3015,
-    "views": 306873,
+    "views": 306874,
     "cover": "https://i2.hdslb.com/bfs/archive/e1e1e27dec729fa5f335f2c261859af080e20225.jpg",
     "videoSource": "season"
   },
@@ -1376,7 +1378,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 2615,
-    "views": 272501,
+    "views": 272503,
     "cover": "https://i2.hdslb.com/bfs/archive/bbf0a44816a60a76b92746e37aa06b77c71b26b3.jpg",
     "videoSource": "season"
   },
@@ -1405,7 +1407,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 2483,
-    "views": 287408,
+    "views": 287413,
     "cover": "https://i1.hdslb.com/bfs/archive/6ea9b178790a488516d9fe15d56454749867209d.jpg",
     "videoSource": "season"
   },
@@ -1413,9 +1415,9 @@
     "date": "2026-07-01",
     "bvid": "BV1goTv6qEeZ",
     "title": "震惊！一35岁男子在海边模仿C罗戏球...从归仁骑行40公里！距离芽庄只有？？",
-    "place": "归仁 → 虬江市社沿海",
-    "lat": 13.45,
-    "lng": 109.23,
+    "place": "芽庄 (Nha Trang)",
+    "lat": 12.2388,
+    "lng": 109.1967,
     "confidence": "起点与里程确认，终点推断",
     "phase": "第二段",
     "ride": true,
@@ -1431,12 +1433,13 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": "missing-key-timepoints",
-    "confidenceScore": null,
+    "confidenceScore": 0.45,
     "automation": {},
     "duration": 4522,
     "views": 332848,
     "cover": "https://i0.hdslb.com/bfs/archive/9cd6cd132082669f09285af77febaa4fc32265b1.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer"
   },
   {
     "date": "2026-07-02",
@@ -1467,7 +1470,7 @@
     "confidenceScore": 0.45,
     "automation": {},
     "duration": 3788,
-    "views": 317206,
+    "views": 317207,
     "cover": "https://i2.hdslb.com/bfs/archive/4d333fa716f6bd4e1af616d485ca390ed23ef93f.jpg",
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer"
@@ -1617,7 +1620,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 2822,
-    "views": 335836,
+    "views": 335838,
     "cover": "https://i2.hdslb.com/bfs/archive/caa04dee39d0ffe1a205b7bdb9df4779252b9667.jpg",
     "videoSource": "season"
   },
@@ -1738,7 +1741,7 @@
     "confidenceScore": null,
     "automation": {},
     "duration": 741,
-    "views": 204432,
+    "views": 204434,
     "cover": "https://i2.hdslb.com/bfs/archive/1dff9e1045abf24ad9cbd6c71960c6e651f1beea.jpg",
     "videoSource": "season"
   },
@@ -1881,19 +1884,19 @@
     "riskFlags": null,
     "confidenceScore": 0.45,
     "automation": {},
+    "coordinateSource": "title/place gazetteer",
     "duration": 2303,
-    "views": 216002,
+    "views": 216005,
     "cover": "https://i2.hdslb.com/bfs/archive/916a082fdd2786ea774d401089e6d11255bf98d4.jpg",
-    "videoSource": "season",
-    "coordinateSource": "title/place gazetteer"
+    "videoSource": "season"
   },
   {
     "date": "2026-07-06",
     "bvid": "BV1KKTm6FEVs",
     "title": "越南芽庄美食攻略——比巴掌大的龙虾肉蟹居然只要？？？美食博主鼎鼎推荐！！",
-    "place": "芽庄（Nha Trang）",
-    "lat": 13.0955,
-    "lng": 109.3209,
+    "place": "芽庄 (Nha Trang)",
+    "lat": 12.2388,
+    "lng": 109.1967,
     "confidence": "AI音频提取，待维护者核验",
     "phase": "AI enriched",
     "ride": false,
@@ -2162,12 +2165,13 @@
       "status": "待核验"
     },
     "riskFlags": null,
-    "confidenceScore": null,
+    "confidenceScore": 0.45,
     "automation": {},
     "duration": 2825,
-    "views": 290354,
+    "views": 290362,
     "cover": "https://i1.hdslb.com/bfs/archive/85e336638605b18448be8b8bae54fa06d03aa8a8.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer"
   },
   {
     "date": "2026-07-07",
@@ -2393,11 +2397,11 @@
     "riskFlags": null,
     "confidenceScore": 0.45,
     "automation": {},
+    "coordinateSource": "title/place gazetteer",
     "duration": 2870,
-    "views": 205212,
+    "views": 205219,
     "cover": "https://i1.hdslb.com/bfs/archive/cb971b543512f9072b34af73e28672a2ac18373a.jpg",
-    "videoSource": "season",
-    "coordinateSource": "title/place gazetteer"
+    "videoSource": "season"
   },
   {
     "date": "2026-07-08",
@@ -2573,10 +2577,10 @@
     "riskFlags": null,
     "confidenceScore": 0.45,
     "automation": {},
+    "coordinateSource": "title/place gazetteer",
     "duration": 2507,
-    "views": 144247,
+    "views": 144291,
     "cover": "https://i1.hdslb.com/bfs/archive/83f2cddb57eb2816c28295bbee2c6f74047ed44d.jpg",
-    "videoSource": "season",
-    "coordinateSource": "title/place gazetteer"
+    "videoSource": "season"
   }
 ]
