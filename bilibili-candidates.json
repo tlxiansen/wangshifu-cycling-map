@@ -1,5 +1,39 @@
 {
-  "generatedAt": "2026-07-07T21:41:08.3977440+00:00",
+  "generatedAt": "2026-07-08T03:53:30.7659371+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
-  "items": []
+  "items": [
+    {
+      "bvid": "BV1k7V36qEvt",
+      "date": "2026-05-30",
+      "place": "越南中北部南下途中",
+      "user": "福州陈奕迅丶",
+      "likes": 87,
+      "message": "骑行第十天，虽然出发的迟，但还是骑了45KM左右。\n①路线图，沿着QL1A公路骑\n②午餐店Lotteria+星巴克\n③晚餐Phở cồ tuấn anh\n④第十天公寓式酒店PSA condotel\n⑤偷摸喝了奶茶Legend\n⑥三四五的地图定位分布",
+      "rpid": "301122500689",
+      "url": "https://www.bilibili.com/video/BV1k7V36qEvt/#reply301122500689",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1k7V36qEvt",
+      "date": "2026-05-30",
+      "place": "越南中北部南下途中",
+      "user": "鹿乃kano",
+      "likes": 15,
+      "message": "看到这有些不解🤔一开始不是说要规避缅甸、柬埔寨，选择越南-老挝-泰国-马来西亚-新加坡的路线吗？要是要去老挝的话，不该在河内那里往西南边骑吗，现在靠着海往南骑，真骑到胡志明市的话，不是必须得经过柬埔寨，也错过老挝了么？",
+      "rpid": "301099510001",
+      "url": "https://www.bilibili.com/video/BV1k7V36qEvt/#reply301099510001",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1pEEy6CEu2",
+      "date": "2026-06-12",
+      "place": "河内 Hanoi",
+      "user": "线索pig",
+      "likes": 15,
+      "message": "你鼎已经算把烂荔枝从自己身上洗干净了\n巨婴人设也骑行洗干净了\n庐山和djw的矛盾也已经黄金现开赛和解了\n你鼎想不被炉石区骂就差和神棍吃一顿饭了（）",
+      "rpid": "305561174912",
+      "url": "https://www.bilibili.com/video/BV1pEEy6CEu2/#reply305561174912",
+      "status": "待核验"
+    }
+  ]
 }
