@@ -1,7 +1,18 @@
 {
-  "generatedAt": "2026-07-08T21:23:41.5949462+00:00",
+  "generatedAt": "2026-07-08T23:37:12.4759766+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
+    {
+      "bvid": "BV1xdVw6SEF1",
+      "date": "2026-05-26",
+      "place": "河内 Hanoi",
+      "user": "JosEvil",
+      "likes": 93,
+      "message": "有一点一定要提醒大家，户外的综合强度运动，一定是冷容易克服、热不容易克服。\n因为散热是最困难的，远远难于保温。\n这也是为什么，长跑和骑行都非常的注重热适应训练[doge]",
+      "rpid": "300660489153",
+      "url": "https://www.bilibili.com/video/BV1xdVw6SEF1/#reply300660489153",
+      "status": "待核验"
+    },
     {
       "bvid": "BV1k7V36qEvt",
       "date": "2026-05-30",
@@ -11,6 +22,17 @@
       "message": "骑行第十天，虽然出发的迟，但还是骑了45KM左右。\n①路线图，沿着QL1A公路骑\n②午餐店Lotteria+星巴克\n③晚餐Phở cồ tuấn anh\n④第十天公寓式酒店PSA condotel\n⑤偷摸喝了奶茶Legend\n⑥三四五的地图定位分布",
       "rpid": "301122500689",
       "url": "https://www.bilibili.com/video/BV1k7V36qEvt/#reply301122500689",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1xdVw6SEF1",
+      "date": "2026-05-26",
+      "place": "河内 Hanoi",
+      "user": "Louiszheng87",
+      "likes": 52,
+      "message": "史蒂夫夫妻两人带着王师傅宝宝👶去东南亚骑行🚲旅行✈️，目的地新加坡🇸🇬",
+      "rpid": "300665399153",
+      "url": "https://www.bilibili.com/video/BV1xdVw6SEF1/#reply300665399153",
       "status": "待核验"
     },
     {
@@ -25,14 +47,14 @@
       "status": "待核验"
     },
     {
-      "bvid": "BV1pEEy6CEu2",
-      "date": "2026-06-12",
-      "place": "河内 Hanoi",
-      "user": "线索pig",
-      "likes": 15,
-      "message": "你鼎已经算把烂荔枝从自己身上洗干净了\n巨婴人设也骑行洗干净了\n庐山和djw的矛盾也已经黄金现开赛和解了\n你鼎想不被炉石区骂就差和神棍吃一顿饭了（）",
-      "rpid": "305561174912",
-      "url": "https://www.bilibili.com/video/BV1pEEy6CEu2/#reply305561174912",
+      "bvid": "BV1F5E76aEfD",
+      "date": "2026-06-09",
+      "place": "回国支线",
+      "user": "贱之良品",
+      "likes": 12,
+      "message": "有人说莆田那晚在酒店的窗户倒影，是新的王阿姨。别的不说，这种日更状态，能维系住感情关系，真情圣",
+      "rpid": "305212474384",
+      "url": "https://www.bilibili.com/video/BV1F5E76aEfD/#reply305212474384",
       "status": "待核验"
     }
   ]

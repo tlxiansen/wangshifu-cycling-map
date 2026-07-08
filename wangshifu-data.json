@@ -39,8 +39,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -144,8 +146,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -176,8 +179,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -231,8 +236,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -262,7 +268,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3441,
@@ -291,7 +300,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1699,
@@ -321,8 +333,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -367,7 +381,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2938,
@@ -397,8 +414,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -429,8 +448,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -461,8 +482,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -493,8 +516,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -538,7 +563,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4183,
@@ -567,7 +595,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2266,
@@ -596,7 +627,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1262,
@@ -625,7 +659,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 691,
@@ -654,7 +691,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1002,
@@ -683,7 +723,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1542,
@@ -712,7 +755,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1043,
@@ -741,7 +787,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1142,
@@ -770,7 +819,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
@@ -799,7 +851,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2507,
@@ -828,7 +883,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3024,
@@ -858,8 +916,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -889,7 +949,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 697,
@@ -919,8 +982,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -951,8 +1016,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -983,8 +1050,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1057,8 +1126,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1088,7 +1158,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4841,
@@ -1117,7 +1190,11 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2777,
@@ -1146,7 +1223,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 128,
@@ -1175,7 +1255,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3662,
@@ -1204,7 +1287,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
@@ -1233,7 +1319,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3157,
@@ -1263,8 +1352,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1294,7 +1385,11 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": 0.45,
     "automation": {},
     "duration": 3397,
@@ -1326,8 +1421,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1372,8 +1469,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1403,7 +1501,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2483,
@@ -1432,7 +1533,11 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": 0.45,
     "automation": {},
     "duration": 4522,
@@ -1445,35 +1550,254 @@
     "date": "2026-07-02",
     "bvid": "BV1TQT66LE8n",
     "title": "无人机在海上突失控制，时师傅奋不顾身！！晚上海边两人交心对谈…都聊了点啥？？",
-    "place": "归仁 (Quy Nhon)",
+    "place": "归仁 (Quy Nhon) 海边民宿区域",
     "lat": 13.782,
     "lng": 109.219,
-    "confidence": "Auto-added; pending review",
+    "confidence": "AI音频提取，待维护者核验",
     "phase": "第二段",
-    "ride": true,
-    "distanceKm": null,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
-    "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
-    "rideTimeHours": null,
-    "dayTimeHours": null,
-    "summary": "无人机在海上突失控制，时师傅奋不顾身！！晚上海边两人交心对谈…都聊了点啥？？.",
-    "riskFlags": [
-      "place-needs-auto-review",
-      "missing-distance",
-      "missing-key-timepoints"
+    "ride": false,
+    "distanceKm": 0,
+    "food": "意大利面、卷饼、咖啡、Queen Nam（贵人）啤酒、蔬菜沙拉、黄瓜、越南咖喱鸡、烤土豆、粤式春卷、菠萝炒牛肉、香茅海鲜火锅（含虾、章鱼、鱼等海鲜）",
+    "foods": [
+      "意大利面",
+      "卷饼",
+      "咖啡",
+      "Queen Nam（贵人）啤酒",
+      "蔬菜沙拉",
+      "黄瓜",
+      "越南咖喱鸡",
+      "烤土豆",
+      "粤式春卷",
+      "菠萝炒牛肉",
+      "香茅海鲜火锅（含虾、章鱼、鱼等海鲜）"
     ],
-    "confidenceScore": 0.45,
+    "foodDetails": [
+      {
+        "name": "意大利面",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "早午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": "口味偏素，仅添加少量番茄",
+        "status": "AI音频提取 07:21",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=441"
+      },
+      {
+        "name": "卷饼",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "早午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 06:59",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=419"
+      },
+      {
+        "name": "咖啡",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "早午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 07:30",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=450"
+      },
+      {
+        "name": "Queen Nam（贵人）啤酒",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "休闲饮品",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 08:31",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=511"
+      },
+      {
+        "name": "蔬菜沙拉",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "早午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": "搭配的黄瓜味道发苦",
+        "status": "AI音频提取 13:41",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=821"
+      },
+      {
+        "name": "越南咖喱鸡",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "早午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": "带有泰式椰香味，水分偏多，整体不难吃",
+        "status": "AI音频提取 14:56",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=896"
+      },
+      {
+        "name": "烤土豆",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "早午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 15:41",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=941"
+      },
+      {
+        "name": "粤式春卷",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "距离上次吃粤式春卷是在越南河内",
+        "recommendation": null,
+        "status": "AI音频提取 31:10",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=1870"
+      },
+      {
+        "name": "菠萝炒牛肉",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "是旅行者在越南第一次吃到的炒菜",
+        "recommendation": "牛肉口感偏硬，菠萝不甜不酸，整体味道尚可",
+        "status": "AI音频提取 33:07",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=1987"
+      },
+      {
+        "name": "香茅海鲜火锅",
+        "venue": "归仁海边民宿餐厅",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "食材包含虾、章鱼、鱼等海鲜",
+        "recommendation": "香茅汤底口味偏甜，海鲜食材新鲜",
+        "status": "AI音频提取 34:13",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=2053"
+      }
+    ],
+    "lodgings": [
+      {
+        "name": "名称待核验",
+        "area": "归仁 (Quy Nhon) 海边",
+        "price": 1200000,
+        "currency": "VND",
+        "booking": "视频未说明",
+        "bikeStorage": "待核验",
+        "pros": "老板待人友善，环境舒适有度假感，游客较少，细节贴心（开关做了防雨处理、椰树设置防椰子坠落网兜）",
+        "cons": "位置偏僻，周边无商业配套，内部餐饮价格比外部偏高，房费不便宜",
+        "recommendation": "适合停留休整、度假放松",
+        "status": "AI音频提取 07:46",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=466"
+      }
+    ],
+    "costs": [
+      {
+        "category": "住宿",
+        "label": "海边民宿单房续住折扣价",
+        "amount": 1200000,
+        "currency": "VND",
+        "status": "AI音频提取 07:46",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=466"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "03:35",
+        "text": "因归仁海边风景极佳，决定当日休整不骑行，享受度假氛围",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=215"
+      },
+      {
+        "time": "06:47",
+        "text": "归仁海边受台风影响天气多变，易突发阵雨，天气预报准确度低",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=407"
+      },
+      {
+        "time": "07:46",
+        "text": "所住海边民宿老板友善，环境好游客少，细节贴心，但周边无商业配套、餐饮价格偏高，折扣房费约120万越南盾/间",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=466"
+      },
+      {
+        "time": "11:35",
+        "text": "归仁近岸海水干净可下海游泳，但需注意防范突发降雨、涨潮、雷电等风险",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=695"
+      },
+      {
+        "time": "19:43",
+        "text": "当地足球氛围浓厚，住宿点周边可遇到专业足球运动员",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=1183"
+      },
+      {
+        "time": "22:28",
+        "text": "海边飞无人机易出现断连故障，需注意检查电池安装、优先使用原厂电池，避免远飞至海面上方",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=1348"
+      },
+      {
+        "time": "31:41",
+        "text": "当日为农历十五，海边可见大月亮，潮汐力量强，观景氛围佳",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=1901"
+      },
+      {
+        "time": "35:11",
+        "text": "民宿餐厅提供多类餐食，香茅海鲜火锅食材新鲜、汤底偏甜，菠萝炒牛肉口感偏硬",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=2111"
+      },
+      {
+        "time": "35:57",
+        "text": "海边用餐可能遇到局部停电，搭配海浪声氛围感较强",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=2157"
+      },
+      {
+        "time": "01:03:01",
+        "text": "后续计划用两天时间从归仁骑行至芽庄，骑行压力较大",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1TQT66LE8n/?t=3781"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1TQT66LE8n/",
+        "note": "音频自动转写并结构化提取；未保存原始音频和完整字幕。1. 当日无骑行的判断仅基于对话中多次提及“休息一天”的表述，未发现明确骑行活动记录，不排除存在短距离步行或挪车类移动的可能；2. 所住民宿的具体名称、自行车存放条件未在字幕中提及，无法确认；3. 对话中提到的300万越南盾总账单包含的消费项目不明确，单份餐食的具体价格未单独说明，无法准确拆分统计；4. “Queen Nam啤酒”的中文译名为旅行者口头表述，准确性待核验；5. 后续两天骑行至芽庄为当日规划内容，实际执行情况无法从本期视频内容确认。"
+      }
+    ],
+    "rideTimeHours": 0,
+    "dayTimeHours": null,
+    "summary": "2026年7月2日，骑行者因归仁海边风景宜人，决定在当地海边民宿休整一日，当日未安排骑行。期间经历海边突发阵雨、下海游泳、无人机在海面上方断连后成功回收等事件，晚间在民宿用餐时围绕旅行意义、个人成长等话题深度交流，计划接下来两天骑行前往芽庄。",
+    "riskFlags": [],
+    "confidenceScore": 0.85,
     "automation": {},
     "duration": 3788,
     "views": 317207,
     "cover": "https://i2.hdslb.com/bfs/archive/4d333fa716f6bd4e1af616d485ca390ed23ef93f.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer"
+    "coordinateSource": "local-gazetteer",
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-08T23:25:28.170501+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "volcengine",
+      "extractionModel": "doubao-seed-evolving",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-03",
@@ -1616,7 +1940,7 @@
         "source": "https://www.bilibili.com/video/BV1vpTp63EwN/"
       }
     ],
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": null,
     "automation": {},
     "duration": 2822,
@@ -1737,7 +2061,9 @@
         "source": "https://www.bilibili.com/video/BV1P4TZ6xEya/"
       }
     ],
-    "riskFlags": null,
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 741,
@@ -1881,7 +2207,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -2164,7 +2490,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "duration": 2825,
@@ -2394,7 +2720,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -2574,7 +2900,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
