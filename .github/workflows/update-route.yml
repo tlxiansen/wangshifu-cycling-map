@@ -1,4 +1,4 @@
-name: Update Bilibili route data
+﻿name: Update Bilibili route data
 
 on:
   workflow_dispatch:
@@ -38,8 +38,8 @@ jobs:
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           else
             echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "### 豆包音频信息提取" >> "$GITHUB_STEP_SUMMARY"
-            echo "- 尚未完整配置火山引擎凭证，本次安全跳过。" >> "$GITHUB_STEP_SUMMARY"
+            echo "### 璞嗗寘闊抽淇℃伅鎻愬彇" >> "$GITHUB_STEP_SUMMARY"
+            echo "- 灏氭湭瀹屾暣閰嶇疆鐏北寮曟搸鍑瘉锛屾湰娆″畨鍏ㄨ烦杩囥€? >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Install audio enrichment dependencies
         if: steps.audio-config.outputs.enabled == 'true'
@@ -62,7 +62,7 @@ jobs:
           ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
           BILIBILI_COOKIES_BASE64: ${{ secrets.BILIBILI_COOKIES_BASE64 }}
           AI_LOOKBACK_EPISODES: "30"
-          MAX_AI_EPISODES: "3"
+          MAX_AI_EPISODES: "1"
         run: python scripts/enrich_latest_video.py
       - name: Collect high-like public comment candidates
         shell: pwsh
@@ -76,13 +76,13 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const rawCandidates = JSON.parse(fs.readFileSync("bilibili-candidates.json", "utf8").replace(/^\uFEFF/, "")).items || [];
-            const isRelevant = message => /路线图|路线|路书|骑行|地址|位置|友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|\bKM\b|酒店|住宿|入住|民宿|旅馆|宾馆|Hotel|早餐|午餐|晚餐|餐厅|餐馆|小吃|猪杂粉|海鲜|烤肉|烧烤|咖啡店|茶馆|\d+(?:\.\d+)?\s*(?:元|人民币|CNY|万?越南盾|VND)/i.test(message || "");
+            const isRelevant = message => /璺嚎鍥緗璺嚎|璺功|楠戣|鍦板潃|浣嶇疆|鍙嬭皧鍏硘鍙嬭闂渱鍑ゥ|鍙ｅ哺|娴峰叧|璧风偣|缁堢偣|鍑哄彂|鍒拌揪|鍏噷|閲岀▼|\bKM\b|閰掑簵|浣忓|鍏ヤ綇|姘戝|鏃呴|瀹鹃|Hotel|鏃╅|鍗堥|鏅氶|椁愬巺|椁愰|灏忓悆|鐚潅绮墊娴烽矞|鐑よ倝|鐑х儰|鍜栧暋搴梶鑼堕|\d+(?:\.\d+)?\s*(?:鍏億浜烘皯甯亅CNY|涓?瓒婂崡鐩緗VND)/i.test(message || "");
             const candidates = rawCandidates.filter(candidate => Number(candidate.likes || 0) >= 10 && isRelevant(candidate.message));
             const maxNewPerRun = 10;
             const labels = [
-              {name: "route-data", color: "16806c", description: "路线、里程、饮食、住宿等数据建议"},
-              {name: "待核验", color: "d4a72c", description: "尚未由维护者核对视频内容"},
-              {name: "auto-bilibili", color: "6f42c1", description: "由B站公开高赞评论自动生成"}
+              {name: "route-data", color: "16806c", description: "璺嚎銆侀噷绋嬨€侀ギ椋熴€佷綇瀹跨瓑鏁版嵁寤鸿"},
+              {name: "寰呮牳楠?, color: "d4a72c", description: "灏氭湭鐢辩淮鎶よ€呮牳瀵硅棰戝唴瀹?},
+              {name: "auto-bilibili", color: "6f42c1", description: "鐢盉绔欏叕寮€楂樿禐璇勮鑷姩鐢熸垚"}
             ];
             for (const label of labels) {
               try {
@@ -102,94 +102,94 @@ jobs:
             }
 
             const categoryFor = message => {
-              if (/酒店|住宿|入住|民宿|旅馆|宾馆|Hotel/i.test(message)) return "住宿";
-              if (/公里|里程|\bKM\b/i.test(message)) return "当天里程";
-              if (/吃|早餐|午餐|晚餐|粉|饭|餐厅|餐馆|小吃|水果|茶|咖啡|烧烤|烤肉|海鲜/i.test(message)) return "美食";
-              if (/起点|终点|出发|到达|口岸|海关|路线|路书|位置|地点|城市|村|县|省/i.test(message)) return "地点 / 路线";
-              return "关键内容 / 事件";
+              if (/閰掑簵|浣忓|鍏ヤ綇|姘戝|鏃呴|瀹鹃|Hotel/i.test(message)) return "浣忓";
+              if (/鍏噷|閲岀▼|\bKM\b/i.test(message)) return "褰撳ぉ閲岀▼";
+              if (/鍚億鏃╅|鍗堥|鏅氶|绮墊楗瓅椁愬巺|椁愰|灏忓悆|姘存灉|鑼秥鍜栧暋|鐑х儰|鐑よ倝|娴烽矞/i.test(message)) return "缇庨";
+              if (/璧风偣|缁堢偣|鍑哄彂|鍒拌揪|鍙ｅ哺|娴峰叧|璺嚎|璺功|浣嶇疆|鍦扮偣|鍩庡競|鏉憒鍘縷鐪?i.test(message)) return "鍦扮偣 / 璺嚎";
+              return "鍏抽敭鍐呭 / 浜嬩欢";
             };
             const distanceFor = message => {
-              const match = message.match(/(\d+(?:\.\d+)?)\s*(?:KM|公里)/i);
+              const match = message.match(/(\d+(?:\.\d+)?)\s*(?:KM|鍏噷)/i);
               return match ? `${match[1]} km` : "_No response_";
             };
             const hotelFor = message => {
-              const match = message.match(/(?:酒店为|入住(?:的|了)?|住的酒店(?:是|为)?|名称[：:]?)\s*([A-Za-zÀ-ỹ\u4e00-\u9fff][A-Za-zÀ-ỹ\u4e00-\u9fff\s·.'-]{1,32}(?:Hotel|酒店|宾馆|旅馆|民宿))/i)
-                || message.match(/([A-Za-zÀ-ỹ\u4e00-\u9fff][A-Za-zÀ-ỹ\u4e00-\u9fff\s·.'-]{1,24}(?:Hotel|酒店|宾馆|旅馆|民宿))/i);
+              const match = message.match(/(?:閰掑簵涓簗鍏ヤ綇(?:鐨剕浜??|浣忕殑閰掑簵(?:鏄瘄涓??|鍚嶇О[锛?]?)\s*([A-Za-z脌-峄筡u4e00-\u9fff][A-Za-z脌-峄筡u4e00-\u9fff\s路.'-]{1,32}(?:Hotel|閰掑簵|瀹鹃|鏃呴|姘戝))/i)
+                || message.match(/([A-Za-z脌-峄筡u4e00-\u9fff][A-Za-z脌-峄筡u4e00-\u9fff\s路.'-]{1,24}(?:Hotel|閰掑簵|瀹鹃|鏃呴|姘戝))/i);
               return match ? match[1].trim() : "_No response_";
             };
             const hotelPriceFor = message => {
-              const match = message.match(/(\d+(?:\.\d+)?)\s*(CNY|人民币|元|万?越南盾|VND)/i);
+              const match = message.match(/(\d+(?:\.\d+)?)\s*(CNY|浜烘皯甯亅鍏億涓?瓒婂崡鐩緗VND)/i);
               return match ? `${match[1]} ${match[2]}` : "_No response_";
             };
-            const short = (text, max = 46) => text.length > max ? `${text.slice(0, max)}…` : text;
+            const short = (text, max = 46) => text.length > max ? `${text.slice(0, max)}鈥 : text;
             let created = 0;
             for (const candidate of candidates) {
               const rpid = String(candidate.rpid || "");
               if (!rpid || knownRpids.has(rpid) || created >= maxNewPerRun) continue;
               const category = categoryFor(candidate.message || "");
               const issueBody = [
-                "> 此建议由系统从公开视频下方的高赞评论自动整理。请维护者核对视频后再添加“已采纳”；需要时可先编辑本 Issue，补全结构化字段。",
+                "> 姝ゅ缓璁敱绯荤粺浠庡叕寮€瑙嗛涓嬫柟鐨勯珮璧炶瘎璁鸿嚜鍔ㄦ暣鐞嗐€傝缁存姢鑰呮牳瀵硅棰戝悗鍐嶆坊鍔犫€滃凡閲囩撼鈥濓紱闇€瑕佹椂鍙厛缂栬緫鏈?Issue锛岃ˉ鍏ㄧ粨鏋勫寲瀛楁銆?,
                 "",
-                "### B站视频链接或 BV 号",
+                "### B绔欒棰戦摼鎺ユ垨 BV 鍙?,
                 "",
                 `https://www.bilibili.com/video/${candidate.bvid}/`,
                 "",
-                "### 内容类型",
+                "### 鍐呭绫诲瀷",
                 "",
                 category,
                 "",
-                "### 视频日期（可选）",
+                "### 瑙嗛鏃ユ湡锛堝彲閫夛級",
                 "",
                 candidate.date || "_No response_",
                 "",
-                "### 你发现了什么？",
+                "### 浣犲彂鐜颁簡浠€涔堬紵",
                 "",
                 candidate.message || "_No response_",
                 "",
-                "### 视频时间点（可选）",
+                "### 瑙嗛鏃堕棿鐐癸紙鍙€夛級",
                 "",
                 "_No response_",
                 "",
-                "### 地点或路段（可选）",
+                "### 鍦扮偣鎴栬矾娈碉紙鍙€夛級",
                 "",
                 "_No response_",
                 "",
-                "### 当天里程（如有）",
+                "### 褰撳ぉ閲岀▼锛堝鏈夛級",
                 "",
                 distanceFor(candidate.message || ""),
                 "",
-                "### 经纬度（如有）",
+                "### 缁忕含搴︼紙濡傛湁锛?,
                 "",
                 "_No response_",
                 "",
-                "### 视频里吃了什么（如有）",
+                "### 瑙嗛閲屽悆浜嗕粈涔堬紙濡傛湁锛?,
                 "",
                 "_No response_",
                 "",
-                "### 酒店 / 民宿名称（如有）",
+                "### 閰掑簵 / 姘戝鍚嶇О锛堝鏈夛級",
                 "",
-                category === "住宿" ? hotelFor(candidate.message || "") : "_No response_",
+                category === "浣忓" ? hotelFor(candidate.message || "") : "_No response_",
                 "",
-                "### 住宿所在区域（如有）",
+                "### 浣忓鎵€鍦ㄥ尯鍩燂紙濡傛湁锛?,
                 "",
-                category === "住宿" ? (candidate.place || "_No response_") : "_No response_",
+                category === "浣忓" ? (candidate.place || "_No response_") : "_No response_",
                 "",
-                "### 住宿价格与币种（如有）",
+                "### 浣忓浠锋牸涓庡竵绉嶏紙濡傛湁锛?,
                 "",
-                category === "住宿" ? hotelPriceFor(candidate.message || "") : "_No response_",
+                category === "浣忓" ? hotelPriceFor(candidate.message || "") : "_No response_",
                 "",
-                "### 更多依据（可选）",
+                "### 鏇村渚濇嵁锛堝彲閫夛級",
                 "",
-                `B站评论作者：${candidate.user || "未知"}\n\nB站点赞：${candidate.likes || 0}\n\n原评论：${candidate.url}`,
+                `B绔欒瘎璁轰綔鑰咃細${candidate.user || "鏈煡"}\n\nB绔欑偣璧烇細${candidate.likes || 0}\n\n鍘熻瘎璁猴細${candidate.url}`,
                 "",
                 `<!-- bili-rpid:${rpid} -->`
               ].join("\n");
               await github.rest.issues.create({
                 owner,
                 repo,
-                title: `[B站评论 👍${candidate.likes || 0}] ${candidate.date || ""} · ${short(candidate.message || candidate.bvid)}`,
+                title: `[B绔欒瘎璁?馃憤${candidate.likes || 0}] ${candidate.date || ""} 路 ${short(candidate.message || candidate.bvid)}`,
                 body: issueBody,
-                labels: ["route-data", "待核验", "auto-bilibili"]
+                labels: ["route-data", "寰呮牳楠?, "auto-bilibili"]
               });
               knownRpids.add(rpid);
               created++;
@@ -207,3 +207,4 @@ jobs:
             git pull --rebase origin main
             git push
           }
+
