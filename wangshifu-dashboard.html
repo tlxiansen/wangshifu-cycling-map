@@ -145,10 +145,18 @@ function bootMap(){
   const updateLabels=()=>cityLabelMarkers.forEach(x=>{if(map.getZoom()>=x.minZoom){if(!map.hasLayer(x.marker))x.marker.addTo(map)}else if(map.hasLayer(x.marker))map.removeLayer(x.marker)});
   map.on("zoomend",updateLabels);updateLabels();
 }
-const isInferred=x=>/推断|沿用|待核对|pending|auto-added/i.test(x.confidence||"");
+const isInferred=x=>/推断|沿用|待核对|待核验|pending|auto-added/i.test(x.confidence||"")||(x.riskFlags||[]).length>0;
 const hasFood=x=>x.food&&x.food!=="未明确提到"&&x.food!=="Not identified";
 const splitFoods=x=>x.foods?.length?x.foods:(hasFood(x)?String(x.food).split(/[、，,]/).map(v=>v.trim()).filter(Boolean):[]);
-const normalizeItem=x=>({...x,foods:splitFoods(x),foodDetails:Array.isArray(x.foodDetails)?x.foodDetails:[],lodgings:Array.isArray(x.lodgings)?x.lodgings:[],costs:Array.isArray(x.costs)?x.costs:[],highlights:Array.isArray(x.highlights)?x.highlights:[],evidence:Array.isArray(x.evidence)?x.evidence:[]});
+const normalizeItem=x=>({...x,foods:splitFoods(x),foodDetails:Array.isArray(x.foodDetails)?x.foodDetails:[],lodgings:Array.isArray(x.lodgings)?x.lodgings:[],costs:Array.isArray(x.costs)?x.costs:[],highlights:Array.isArray(x.highlights)?x.highlights:[],evidence:Array.isArray(x.evidence)?x.evidence:[],riskFlags:Array.isArray(x.riskFlags)?x.riskFlags:[]});
+const riskLabel=value=>({
+  "place-needs-auto-review":"地点需自动复核",
+  "missing-distance":"里程缺失",
+  "coordinates-copied-from-previous-ride":"坐标沿用上一骑行日",
+  "missing-key-timepoints":"关键时间点缺失",
+  "new-video-auto-added":"新视频自动加入",
+  "place-copied-from-previous":"地点沿用上一条"
+}[value]||value);
 const reviewReasons=x=>[
   isInferred(x)?"地点待核验":null,
   x.ride&&x.distanceKm==null?"里程待补":null,
@@ -156,7 +164,8 @@ const reviewReasons=x=>[
   x.ride&&!x.lodgings.length?"住宿待补":null,
   !x.costs.length?"预算待补":null,
   x.ride&&x.rideTimeHours==null?"耗时待核验":null,
-  !x.highlights.length?"时间点待补":null
+  !x.highlights.length?"时间点待补":null,
+  ...(x.riskFlags||[]).map(riskLabel)
 ].filter(Boolean);
 const needsReview=x=>reviewReasons(x).length>0;
 function markerColor(x){return !x.ride?"#9ba49f":isInferred(x)?"#16806c":"#ee642f"}
@@ -275,6 +284,7 @@ function render(filter="all"){
     const highlights=x.highlights.length?`<ul>${x.highlights.map(v=>`<li><span class="time">${esc(v.time||"时间待补")}</span>${esc(v.text||v.label||"")}</li>`).join("")}</ul>`:'<span class="missing">暂无关键时间点</span>';
     const reasons=reviewReasons(x);
     const evidence=x.evidence.length?`<div class="evidence">核验依据：${x.evidence.map((v,i)=>`<a href="${esc(v.url)}" target="_blank">${esc(v.type==="comment"?`评论${v.likes!=null?` 👍${v.likes}`:""}`:`视频${i+1}`)}</a>`).join("")}</div>`:"";
+    const confidence=x.confidenceScore!=null?`${esc(x.confidence)} · AI置信度 ${Math.round(Number(x.confidenceScore)*100)}%`:esc(x.confidence);
     return `<article class="day ${cls}" data-bvid="${esc(x.bvid)}">
       <div class="topline"><span class="date">${esc(x.date)} · ${fmtDuration(x.duration)}</span><span class="km">${km}</span></div>
       <div class="place">${esc(x.place)}</div><div class="summary">${esc(x.summary)}</div>
@@ -282,7 +292,7 @@ function render(filter="all"){
       <div class="detail-grid"><div class="detail-box"><b>🍜 美食</b>${foods}</div><div class="detail-box"><b>🏨 住宿</b>${lodgings}</div><div class="detail-box full"><b>⏱ 关键时间点</b>${highlights}</div></div>
       ${evidence}
       ${reasons.length?`<div class="review-reasons">${reasons.map(v=>`<span>${v}</span>`).join("")}</div>`:""}
-      <div class="meta"><span class="tag">${esc(x.confidence)}</span><a class="video" target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">看本期 ↗</a></div>
+      <div class="meta"><span class="tag">${confidence}</span><a class="video" target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">看本期 ↗</a></div>
     </article>`}).join("")||'<div class="empty">这个分类暂时没有内容</div>';
   document.querySelectorAll(".day").forEach(card=>card.addEventListener("click",e=>{
     if(e.target.closest("a"))return;
