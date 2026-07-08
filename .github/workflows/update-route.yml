@@ -1,4 +1,4 @@
-﻿name: Update Bilibili route data
+name: Update Bilibili route data
 
 on:
   workflow_dispatch:
@@ -19,30 +19,38 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: requirements-audio-enrichment.txt
-      - name: Fetch latest public season data
+
+      - name: Fetch latest Bilibili route data
         shell: pwsh
         run: ./update_wangshifu_data.ps1
+
       - name: Check audio enrichment configuration
         id: audio-config
+        shell: bash
         env:
           VOLC_ASR_API_KEY: ${{ secrets.VOLC_API_KEY }}
           ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
           ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
         run: |
-          if [ -n "$VOLC_ASR_API_KEY" ] && [ -n "$ARK_API_KEY" ] && [ -n "$ARK_MODEL_ID" ]; then
+          if [[ -n "${VOLC_ASR_API_KEY:-}" && -n "${ARK_API_KEY:-}" && -n "${ARK_MODEL_ID:-}" ]]; then
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           else
             echo "enabled=false" >> "$GITHUB_OUTPUT"
-            echo "### 璞嗗寘闊抽淇℃伅鎻愬彇" >> "$GITHUB_STEP_SUMMARY"
-            echo "- 灏氭湭瀹屾暣閰嶇疆鐏北寮曟搸鍑瘉锛屾湰娆″畨鍏ㄨ烦杩囥€? >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "### Audio enrichment"
+              echo "- Missing one or more required secrets; skipped safely."
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
+
       - name: Install audio enrichment dependencies
         if: steps.audio-config.outputs.enabled == 'true'
+        shell: bash
         run: |
           if ! command -v ffmpeg >/dev/null 2>&1; then
             sudo apt-get update
@@ -50,7 +58,8 @@ jobs:
           fi
           python -m pip install --upgrade pip
           python -m pip install -r requirements-audio-enrichment.txt
-      - name: Enrich newest video from audio
+
+      - name: Enrich route facts from latest audio
         if: steps.audio-config.outputs.enabled == 'true'
         continue-on-error: true
         env:
@@ -64,137 +73,19 @@ jobs:
           AI_LOOKBACK_EPISODES: "30"
           MAX_AI_EPISODES: "1"
         run: python scripts/enrich_latest_video.py
+
       - name: Collect high-like public comment candidates
         shell: pwsh
         continue-on-error: true
         run: ./collect_bilibili_candidates.ps1
+
       - name: Create GitHub Issues from new comment candidates
         uses: actions/github-script@v7
         with:
           script: |
-            const fs = require("fs");
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            const rawCandidates = JSON.parse(fs.readFileSync("bilibili-candidates.json", "utf8").replace(/^\uFEFF/, "")).items || [];
-            const isRelevant = message => /璺嚎鍥緗璺嚎|璺功|楠戣|鍦板潃|浣嶇疆|鍙嬭皧鍏硘鍙嬭闂渱鍑ゥ|鍙ｅ哺|娴峰叧|璧风偣|缁堢偣|鍑哄彂|鍒拌揪|鍏噷|閲岀▼|\bKM\b|閰掑簵|浣忓|鍏ヤ綇|姘戝|鏃呴|瀹鹃|Hotel|鏃╅|鍗堥|鏅氶|椁愬巺|椁愰|灏忓悆|鐚潅绮墊娴烽矞|鐑よ倝|鐑х儰|鍜栧暋搴梶鑼堕|\d+(?:\.\d+)?\s*(?:鍏億浜烘皯甯亅CNY|涓?瓒婂崡鐩緗VND)/i.test(message || "");
-            const candidates = rawCandidates.filter(candidate => Number(candidate.likes || 0) >= 10 && isRelevant(candidate.message));
-            const maxNewPerRun = 10;
-            const labels = [
-              {name: "route-data", color: "16806c", description: "璺嚎銆侀噷绋嬨€侀ギ椋熴€佷綇瀹跨瓑鏁版嵁寤鸿"},
-              {name: "寰呮牳楠?, color: "d4a72c", description: "灏氭湭鐢辩淮鎶よ€呮牳瀵硅棰戝唴瀹?},
-              {name: "auto-bilibili", color: "6f42c1", description: "鐢盉绔欏叕寮€楂樿禐璇勮鑷姩鐢熸垚"}
-            ];
-            for (const label of labels) {
-              try {
-                await github.rest.issues.getLabel({owner, repo, name: label.name});
-              } catch {
-                await github.rest.issues.createLabel({owner, repo, ...label});
-              }
-            }
+            const { run } = require("./scripts/create_bilibili_issues.js");
+            await run({ github, context, core });
 
-            const existing = await github.paginate(github.rest.issues.listForRepo, {
-              owner, repo, state: "all", labels: "auto-bilibili", per_page: 100
-            });
-            const knownRpids = new Set();
-            for (const issue of existing) {
-              const match = (issue.body || "").match(/<!--\s*bili-rpid:(\d+)\s*-->/);
-              if (match) knownRpids.add(match[1]);
-            }
-
-            const categoryFor = message => {
-              if (/閰掑簵|浣忓|鍏ヤ綇|姘戝|鏃呴|瀹鹃|Hotel/i.test(message)) return "浣忓";
-              if (/鍏噷|閲岀▼|\bKM\b/i.test(message)) return "褰撳ぉ閲岀▼";
-              if (/鍚億鏃╅|鍗堥|鏅氶|绮墊楗瓅椁愬巺|椁愰|灏忓悆|姘存灉|鑼秥鍜栧暋|鐑х儰|鐑よ倝|娴烽矞/i.test(message)) return "缇庨";
-              if (/璧风偣|缁堢偣|鍑哄彂|鍒拌揪|鍙ｅ哺|娴峰叧|璺嚎|璺功|浣嶇疆|鍦扮偣|鍩庡競|鏉憒鍘縷鐪?i.test(message)) return "鍦扮偣 / 璺嚎";
-              return "鍏抽敭鍐呭 / 浜嬩欢";
-            };
-            const distanceFor = message => {
-              const match = message.match(/(\d+(?:\.\d+)?)\s*(?:KM|鍏噷)/i);
-              return match ? `${match[1]} km` : "_No response_";
-            };
-            const hotelFor = message => {
-              const match = message.match(/(?:閰掑簵涓簗鍏ヤ綇(?:鐨剕浜??|浣忕殑閰掑簵(?:鏄瘄涓??|鍚嶇О[锛?]?)\s*([A-Za-z脌-峄筡u4e00-\u9fff][A-Za-z脌-峄筡u4e00-\u9fff\s路.'-]{1,32}(?:Hotel|閰掑簵|瀹鹃|鏃呴|姘戝))/i)
-                || message.match(/([A-Za-z脌-峄筡u4e00-\u9fff][A-Za-z脌-峄筡u4e00-\u9fff\s路.'-]{1,24}(?:Hotel|閰掑簵|瀹鹃|鏃呴|姘戝))/i);
-              return match ? match[1].trim() : "_No response_";
-            };
-            const hotelPriceFor = message => {
-              const match = message.match(/(\d+(?:\.\d+)?)\s*(CNY|浜烘皯甯亅鍏億涓?瓒婂崡鐩緗VND)/i);
-              return match ? `${match[1]} ${match[2]}` : "_No response_";
-            };
-            const short = (text, max = 46) => text.length > max ? `${text.slice(0, max)}鈥 : text;
-            let created = 0;
-            for (const candidate of candidates) {
-              const rpid = String(candidate.rpid || "");
-              if (!rpid || knownRpids.has(rpid) || created >= maxNewPerRun) continue;
-              const category = categoryFor(candidate.message || "");
-              const issueBody = [
-                "> 姝ゅ缓璁敱绯荤粺浠庡叕寮€瑙嗛涓嬫柟鐨勯珮璧炶瘎璁鸿嚜鍔ㄦ暣鐞嗐€傝缁存姢鑰呮牳瀵硅棰戝悗鍐嶆坊鍔犫€滃凡閲囩撼鈥濓紱闇€瑕佹椂鍙厛缂栬緫鏈?Issue锛岃ˉ鍏ㄧ粨鏋勫寲瀛楁銆?,
-                "",
-                "### B绔欒棰戦摼鎺ユ垨 BV 鍙?,
-                "",
-                `https://www.bilibili.com/video/${candidate.bvid}/`,
-                "",
-                "### 鍐呭绫诲瀷",
-                "",
-                category,
-                "",
-                "### 瑙嗛鏃ユ湡锛堝彲閫夛級",
-                "",
-                candidate.date || "_No response_",
-                "",
-                "### 浣犲彂鐜颁簡浠€涔堬紵",
-                "",
-                candidate.message || "_No response_",
-                "",
-                "### 瑙嗛鏃堕棿鐐癸紙鍙€夛級",
-                "",
-                "_No response_",
-                "",
-                "### 鍦扮偣鎴栬矾娈碉紙鍙€夛級",
-                "",
-                "_No response_",
-                "",
-                "### 褰撳ぉ閲岀▼锛堝鏈夛級",
-                "",
-                distanceFor(candidate.message || ""),
-                "",
-                "### 缁忕含搴︼紙濡傛湁锛?,
-                "",
-                "_No response_",
-                "",
-                "### 瑙嗛閲屽悆浜嗕粈涔堬紙濡傛湁锛?,
-                "",
-                "_No response_",
-                "",
-                "### 閰掑簵 / 姘戝鍚嶇О锛堝鏈夛級",
-                "",
-                category === "浣忓" ? hotelFor(candidate.message || "") : "_No response_",
-                "",
-                "### 浣忓鎵€鍦ㄥ尯鍩燂紙濡傛湁锛?,
-                "",
-                category === "浣忓" ? (candidate.place || "_No response_") : "_No response_",
-                "",
-                "### 浣忓浠锋牸涓庡竵绉嶏紙濡傛湁锛?,
-                "",
-                category === "浣忓" ? hotelPriceFor(candidate.message || "") : "_No response_",
-                "",
-                "### 鏇村渚濇嵁锛堝彲閫夛級",
-                "",
-                `B绔欒瘎璁轰綔鑰咃細${candidate.user || "鏈煡"}\n\nB绔欑偣璧烇細${candidate.likes || 0}\n\n鍘熻瘎璁猴細${candidate.url}`,
-                "",
-                `<!-- bili-rpid:${rpid} -->`
-              ].join("\n");
-              await github.rest.issues.create({
-                owner,
-                repo,
-                title: `[B绔欒瘎璁?馃憤${candidate.likes || 0}] ${candidate.date || ""} 路 ${short(candidate.message || candidate.bvid)}`,
-                body: issueBody,
-                labels: ["route-data", "寰呮牳楠?, "auto-bilibili"]
-              });
-              knownRpids.add(rpid);
-              created++;
-            }
-            core.info(`Created ${created} new Issue(s) from ${candidates.length} candidate(s).`);
       - name: Commit changes
         shell: pwsh
         run: |
@@ -207,4 +98,3 @@ jobs:
             git pull --rebase origin main
             git push
           }
-
