@@ -162,6 +162,11 @@ function Apply-GeoHint($item, $archive) {
     if ($flags -contains "coordinates-copied-from-previous-ride") { $shouldUpdate = $true }
     if ($flags -contains "place-copied-from-previous") { $shouldUpdate = $true }
     if ([string]$item.confidence -match "pending|auto-added") { $shouldUpdate = $true }
+    if ($null -ne $item.lat -and $null -ne $item.lng) {
+        $latDiff = [Math]::Abs(([double]$item.lat) - ([double]$geo.Lat))
+        $lngDiff = [Math]::Abs(([double]$item.lng) - ([double]$geo.Lng))
+        if ($latDiff -gt 0.15 -or $lngDiff -gt 0.15) { $shouldUpdate = $true }
+    }
 
     if ($shouldUpdate) {
         $item.lat = [double]$geo.Lat
