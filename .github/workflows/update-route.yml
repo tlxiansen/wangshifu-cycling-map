@@ -30,6 +30,19 @@ jobs:
         shell: pwsh
         run: ./update_wangshifu_data.ps1
 
+      - name: Commit route data before optional enrichment
+        shell: pwsh
+        run: |
+          git config user.name "route-update-bot"
+          git config user.email "route-update-bot@users.noreply.github.com"
+          git add wangshifu-data.json
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "data: update Bilibili route"
+            git pull --rebase origin main
+            git push
+          }
+
       - name: Check audio enrichment configuration
         id: audio-config
         shell: bash
