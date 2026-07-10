@@ -1,16 +1,38 @@
 {
-  "generatedAt": "2026-07-09T21:43:33.3362982+00:00",
+  "generatedAt": "2026-07-10T04:20:57.4096571+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
-      "bvid": "BV1HVGv6eEU7",
-      "date": "2026-05-23",
-      "place": "河内 Ha Noi",
+      "bvid": "BV1xdVw6SEF1",
+      "date": "2026-05-26",
+      "place": "河内 Hanoi",
+      "user": "JosEvil",
+      "likes": 93,
+      "message": "有一点一定要提醒大家，户外的综合强度运动，一定是冷容易克服、热不容易克服。\n因为散热是最困难的，远远难于保温。\n这也是为什么，长跑和骑行都非常的注重热适应训练[doge]",
+      "rpid": "300660489153",
+      "url": "https://www.bilibili.com/video/BV1xdVw6SEF1/#reply300660489153",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1xdVw6SEF1",
+      "date": "2026-05-26",
+      "place": "河内 Hanoi",
+      "user": "Louiszheng87",
+      "likes": 52,
+      "message": "史蒂夫夫妻两人带着王师傅宝宝👶去东南亚骑行🚲旅行✈️，目的地新加坡🇸🇬",
+      "rpid": "300665399153",
+      "url": "https://www.bilibili.com/video/BV1xdVw6SEF1/#reply300665399153",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1nNV26YE8C",
+      "date": "2026-06-03",
+      "place": "越南中北部",
       "user": "福州陈奕迅丶",
-      "likes": 124,
-      "message": "第三天加上中间在美电村绕路应该有60KM。\n①全程\n②③早餐店\n④奶茶店\n⑤⑥躲雨的房子\n⑦王师傅口中的“华强北”美电村\n⑧⑨丽枫酒店",
-      "rpid": "300363838801",
-      "url": "https://www.bilibili.com/video/BV1HVGv6eEU7/#reply300363838801",
+      "likes": 34,
+      "message": "第十四天：骑行第十二天。骑行总长17.7KM。\n①②路线图\n③便利店买水\n④酒店\n⑤晚餐",
+      "rpid": "301540078609",
+      "url": "https://www.bilibili.com/video/BV1nNV26YE8C/#reply301540078609",
       "status": "待核验"
     }
   ]

@@ -39,8 +39,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -144,8 +146,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -176,8 +179,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -231,8 +236,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -262,7 +268,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3441,
@@ -291,7 +300,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1699,
@@ -321,8 +333,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -367,7 +381,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2938,
@@ -397,8 +414,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -429,8 +448,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -461,8 +482,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -493,8 +516,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -538,7 +563,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4183,
@@ -567,7 +595,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2266,
@@ -596,7 +627,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1262,
@@ -625,7 +659,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 691,
@@ -654,7 +691,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1002,
@@ -683,7 +723,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1542,
@@ -712,7 +755,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1043,
@@ -741,7 +787,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1142,
@@ -770,7 +819,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
@@ -799,7 +851,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2507,
@@ -828,7 +883,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3024,
@@ -858,8 +916,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -889,7 +949,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 697,
@@ -919,8 +982,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -951,8 +1016,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -983,8 +1050,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1057,8 +1126,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1088,7 +1158,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4841,
@@ -1117,7 +1190,11 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2777,
@@ -1146,7 +1223,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 128,
@@ -1175,7 +1255,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3662,
@@ -1204,7 +1287,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
@@ -1233,7 +1319,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3157,
@@ -1263,8 +1352,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1294,7 +1385,11 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -1326,8 +1421,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1372,8 +1469,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1403,7 +1501,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2483,
@@ -1432,7 +1533,11 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
+    ],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -1675,7 +1780,7 @@
     "rideTimeHours": 0,
     "dayTimeHours": null,
     "summary": "2026年7月2日，骑行者因归仁海边风景宜人，决定在当地海边民宿休整一日，当日未安排骑行。期间经历海边突发阵雨、下海游泳、无人机在海面上方断连后成功回收等事件，晚间在民宿用餐时围绕旅行意义、个人成长等话题深度交流，计划接下来两天骑行前往芽庄。",
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.85,
     "automation": {},
     "coordinateSource": "local-gazetteer",
@@ -1835,7 +1940,7 @@
         "source": "https://www.bilibili.com/video/BV1vpTp63EwN/"
       }
     ],
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": null,
     "automation": {},
     "duration": 2822,
@@ -1961,7 +2066,7 @@
         "source": "https://www.bilibili.com/video/BV1P4TZ6xEya/"
       }
     ],
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.95,
     "automation": {},
     "coordinateSource": "local-gazetteer",
@@ -2116,7 +2221,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -2399,7 +2504,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -2629,7 +2734,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -2809,7 +2914,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -2827,7 +2932,9 @@
     "lng": 108.72,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.95,
-    "riskFlags": "coordinates-copied-from-previous-ride",
+    "riskFlags": [
+      "坐标沿用上一骑行日"
+    ],
     "phase": "AI enriched",
     "ride": true,
     "distanceKm": 60.0,
@@ -3057,35 +3164,145 @@
     "date": "2026-07-10",
     "bvid": "BV16cMp6JEsN",
     "title": "如果只在越南本地只看一场球的话，我会选择。。。。",
-    "place": "和多 Hoa Da (Binh Thuan)",
+    "place": "越南美奈",
     "lat": 11.18,
     "lng": 108.72,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
-    "riskFlags": [
-      "place-needs-auto-review",
-      "missing-distance",
-      "coordinates-copied-from-previous-ride",
-      "missing-key-timepoints"
-    ],
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.85,
+    "riskFlags": [],
     "phase": "AI enriched",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
+    "food": "原味乐事薯片、多力多滋（Doritos）、啤酒",
+    "foods": [
+      "原味乐事薯片",
+      "多力多滋（Doritos）",
+      "啤酒"
+    ],
+    "foodDetails": [
+      {
+        "name": "原味乐事薯片",
+        "venue": "美奈当地体育观赛酒吧",
+        "meal": "观赛零食",
+        "price": null,
+        "currency": null,
+        "priceNote": "酒吧内仅提供该款零食，无其他餐食选项",
+        "recommendation": null,
+        "status": "AI音频提取 19:54",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=1194"
+      },
+      {
+        "name": "多力多滋（Doritos）",
+        "venue": "美奈观赛酒吧周边商铺",
+        "meal": "观赛零食",
+        "price": null,
+        "currency": null,
+        "priceNote": "作者认为该款零食口味较好",
+        "recommendation": "推荐",
+        "status": "AI音频提取 20:25",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=1225"
+      },
+      {
+        "name": "啤酒",
+        "venue": "美奈当地体育观赛酒吧",
+        "meal": "观赛饮品",
+        "price": null,
+        "currency": null,
+        "priceNote": "酒单包含科罗娜、喜力等啤酒品类",
+        "recommendation": null,
+        "status": "AI音频提取 11:11",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=671"
+      }
+    ],
     "lodgings": [],
     "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "highlights": [
+      {
+        "time": "01:17",
+        "text": "当日美奈遭遇强降雨，原计划的户外游玩行程无法开展，临时调整为拍摄当地世界杯观赛体验内容",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=77"
+      },
+      {
+        "time": "01:26",
+        "text": "美奈是距离胡志明市高速车程约2小时的度假地，景观为一半沙漠一半大海，是胡志明本地人周末度假热门选择，当地外国游客以俄罗斯人、韩国人居多",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=86"
+      },
+      {
+        "time": "06:15",
+        "text": "作者骑行全程佩戴从上海携带至越南的头盔，强调需为观看视频的青少年做好骑行安全示范",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=375"
+      },
+      {
+        "time": "08:40",
+        "text": "当地租用的摩托车承载两人时震动剧烈、车况较差，计划次日先行维修车辆",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=520"
+      },
+      {
+        "time": "13:07",
+        "text": "美奈周中可供观赛的体育酒吧数量极少，搜索Sports Bar仅找到1家有观赛人群的场所，其余酒吧多为带驻唱的娱乐场所，无观赛电视设备",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=787"
+      },
+      {
+        "time": "13:12",
+        "text": "找到的观赛酒吧内仅有十余名观众，以来自俄罗斯等国的外籍常住居民为主，本地越南观众占比很低",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=792"
+      },
+      {
+        "time": "19:54",
+        "text": "该观赛酒吧内仅提供原味乐事薯片一款零食，无其他餐食供应",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=1194"
+      },
+      {
+        "time": "20:52",
+        "text": "酒吧周边商铺售卖的一款未提及名称的零食售价135k（约合30余元人民币），口感齁甜，性价比低，不推荐购买",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=1252"
+      },
+      {
+        "time": "27:28",
+        "text": "美奈周中户外看球的世界杯氛围较淡，外出观赛人群以外籍人士为主，本地人极少外出观赛，预计胡志明市的观赛氛围会更好",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=1648"
+      },
+      {
+        "time": "30:09",
+        "text": "当日因降雨未开展长途骑行，计划次日待天气转好后继续骑行旅程",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV16cMp6JEsN/?t=1809"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV16cMp6JEsN/",
+        "note": "音频自动转写并结构化提取；未保存原始音频和完整字幕。1. 当日因强降雨未开展计划中的长途骑行，仅在美奈当地短途骑摩托车往返观赛酒吧，无明确的实际骑行距离、骑行时长、骑行起终点记录；2. 中场休息购买的售价135k的零食未明确提及具体名称、计价货币，仅可知约合30余元人民币，口感齁甜；3. 当日入住的住宿场所具体信息、观赛酒吧的具体名称及整体消费价格、在酒吧点单的酒水具体品类和价格均未在字幕中明确提及；4. 字幕中提及的世界杯对阵双方为埃及对阵阿根廷，相关赛事内容需核验是否存在创作演绎成分。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "如果只在越南本地只看一场球的话，我会选择。。。。.",
+    "summary": "2026年7月10日，作者在越南美奈旅行时遭遇强降雨，原计划的美奈户外游玩行程无法开展，便临时决定骑摩托车在当地寻找体育酒吧，观看美加墨世界杯阿根廷对阵埃及的比赛。作者辗转找到当地唯一有观赛人群的体育酒吧，发现美奈周中外出观赛的群体以外籍常住居民为主，本地居民极少外出看球，整体户外观赛氛围较为平淡。当日因降雨未开展计划中的长途骑行，作者期待次日天气转好后继续骑行旅程。",
     "automation": {},
     "duration": 1826,
     "views": 31828,
     "cover": "https://i2.hdslb.com/bfs/archive/755b00137e7cca8c16fba94d0ea3dabf0ce274df.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer"
+    "coordinateSource": "title/place gazetteer",
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-10T04:13:11.215277+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "volcengine",
+      "extractionModel": "doubao-seed-evolving",
+      "status": "auto-extracted"
+    }
   }
 ]
