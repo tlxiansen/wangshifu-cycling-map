@@ -1,0 +1,66 @@
+{
+  "summary": "从测试起点骑到测试终点，途中吃粉并入住酒店。",
+  "ride": true,
+  "distance_km": 42,
+  "ride_time_hours": 3.5,
+  "day_time_hours": 7,
+  "start_place": "测试起点",
+  "end_place": "测试终点",
+  "place": "测试起点 → 测试终点",
+  "foods": [
+    "牛肉粉"
+  ],
+  "food_details": [
+    {
+      "name": "牛肉粉",
+      "venue": null,
+      "meal": "午餐",
+      "price": 30000,
+      "currency": "VND",
+      "price_note": null,
+      "recommendation": "适合骑行补给",
+      "seconds": 125
+    }
+  ],
+  "lodgings": [
+    {
+      "name": null,
+      "area": "测试终点",
+      "price": 250000,
+      "currency": "VND",
+      "booking": null,
+      "bike_storage": "可以",
+      "pros": "位置方便",
+      "cons": null,
+      "recommendation": "视频入住",
+      "seconds": 600
+    }
+  ],
+  "costs": [
+    {
+      "category": "餐饮",
+      "label": "牛肉粉",
+      "amount": 30000,
+      "currency": "VND",
+      "seconds": 125
+    }
+  ],
+  "highlights": [
+    {
+      "seconds": 15,
+      "text": "从测试起点出发。",
+      "confidence": "高"
+    },
+    {
+      "seconds": 125,
+      "text": "午餐吃牛肉粉。",
+      "confidence": "高"
+    },
+    {
+      "seconds": 600,
+      "text": "抵达测试终点并入住酒店。",
+      "confidence": "中"
+    }
+  ],
+  "confidence_notes": "酒店名称需要人工核验。"
+}

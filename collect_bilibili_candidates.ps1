@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 $root = $PSScriptRoot
 $dataPath = Join-Path $root "wangshifu-data.json"
 $outputPath = Join-Path $root "bilibili-candidates.json"
@@ -9,9 +9,9 @@ $headers = @{
 }
 
 $items = @(Get-Content -Raw -Encoding UTF8 $dataPath | ConvertFrom-Json)
-$reviewPattern = "??|??|???|pending|auto-added"
+$reviewPattern = "推断|沿用|待核对|pending|auto-added"
 $targets = @($items | Sort-Object date)
-$contentPattern = "???|??|??|??|??|??|???|???|??|??|??|??|??|??|??|??|??|\bKM\b|??|??|??|??|??|??|Hotel|??|??|??|??|??|??|???|??|??|??|???|??|\d+(?:\.\d+)?\s*(?:?|???|CNY|?????|VND)"
+$contentPattern = "路线图|路线|路书|骑行|地址|位置|友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|\bKM\b|酒店|住宿|入住|民宿|旅馆|宾馆|Hotel|早餐|午餐|晚餐|餐厅|餐馆|小吃|猪杂粉|海鲜|烤肉|烧烤|咖啡店|茶馆|\d+(?:\.\d+)?\s*(?:元|人民币|CNY|万?越南盾|VND)"
 $results = @()
 $successfulVideos = 0
 
@@ -36,7 +36,7 @@ foreach ($episode in $targets) {
                 message = $message
                 rpid = [string]$comment.rpid
                 url = "https://www.bilibili.com/video/$($episode.bvid)/#reply$($comment.rpid)"
-                status = "???"
+                status = "待核验"
             }
         }
         Start-Sleep -Milliseconds 180
@@ -61,7 +61,7 @@ if ($successfulVideos -gt 0) {
     }
     [pscustomobject]@{
         generatedAt = [DateTimeOffset]::UtcNow.ToString("o")
-        rule = "???????/??/???????? 10 ?????????????????"
+        rule = "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线"
         items = $results
     } | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 $outputPath
     Write-Host "Scanned $successfulVideos video(s) and collected $($results.Count) public comment candidates."

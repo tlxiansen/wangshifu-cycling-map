@@ -16,7 +16,7 @@ def episode(bvid, lat, lng, distance, *, visible=True):
     return {
         "date": "2026-07-11",
         "bvid": bvid,
-        "phase": "???",
+        "phase": "第二段",
         "ride": True,
         "lat": lat,
         "lng": lng,
