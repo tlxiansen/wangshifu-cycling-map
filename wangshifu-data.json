@@ -1354,16 +1354,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints",
-      "coordinate-corrected-from-next-day"
+      "missing-key-timepoints"
     ],
     "confidenceScore": 0.45,
     "automation": {},
     "duration": 3397,
     "views": 288727,
     "cover": "https://i0.hdslb.com/bfs/archive/d5ef795a4180db03b209301636003dd296bb5e8c.jpg",
-    "videoSource": "season",
     "coordinateSource": "next-day route context",
+    "videoSource": "season",
     "mapVisible": true
   },
   {
@@ -1390,6 +1389,7 @@
     "evidence": [],
     "riskFlags": [
       "missing-distance",
+      "coordinates-copied-from-previous-ride",
       "missing-key-timepoints"
     ],
     "confidenceScore": null,
@@ -3129,8 +3129,8 @@
     "duration": 2366,
     "views": 167351,
     "cover": "https://i1.hdslb.com/bfs/archive/4192a332e02eddb07f860761327235ee31241a33.jpg",
-    "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
+    "videoSource": "season",
     "mapVisible": true
   },
   {
@@ -3275,8 +3275,8 @@
     "duration": 1826,
     "views": 186114,
     "cover": "https://i2.hdslb.com/bfs/archive/755b00137e7cca8c16fba94d0ea3dabf0ce274df.jpg",
-    "videoSource": "season",
-    "coordinateSource": "title/place gazetteer"
+    "coordinateSource": "title/place gazetteer",
+    "videoSource": "season"
   },
   {
     "date": "2026-07-11",
