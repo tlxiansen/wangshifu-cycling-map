@@ -10,7 +10,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: wangshifu-route-update
+  group: wangshifu-data-write
   cancel-in-progress: false
 
 jobs:
@@ -30,6 +30,9 @@ jobs:
         shell: pwsh
         run: ./update_wangshifu_data.ps1
 
+      - name: Validate route data before publishing
+        run: python scripts/validate_route_data.py
+
       - name: Commit route data before optional enrichment
         shell: pwsh
         run: |
@@ -42,51 +45,6 @@ jobs:
             git pull --rebase origin main
             git push
           }
-
-      - name: Check audio enrichment configuration
-        id: audio-config
-        shell: bash
-        env:
-          VOLC_ASR_API_KEY: ${{ secrets.VOLC_API_KEY }}
-          ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
-          ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
-        run: |
-          if [[ -n "${VOLC_ASR_API_KEY:-}" && -n "${ARK_API_KEY:-}" && -n "${ARK_MODEL_ID:-}" ]]; then
-            echo "enabled=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "enabled=false" >> "$GITHUB_OUTPUT"
-            {
-              echo "### Audio enrichment"
-              echo "- Missing one or more required secrets; skipped safely."
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Install audio enrichment dependencies
-        if: steps.audio-config.outputs.enabled == 'true'
-        shell: bash
-        run: |
-          if ! command -v ffmpeg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y ffmpeg
-          fi
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements-audio-enrichment.txt
-
-      - name: Enrich route facts from latest audio
-        if: steps.audio-config.outputs.enabled == 'true'
-        continue-on-error: true
-        timeout-minutes: 15
-        env:
-          ASR_PROVIDER: volcengine
-          TEXT_AI_PROVIDER: volcengine
-          VOLC_ASR_API_KEY: ${{ secrets.VOLC_API_KEY }}
-          VOLC_ASR_RESOURCE_ID: volc.seedasr.auc
-          ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
-          ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
-          BILIBILI_COOKIES_BASE64: ${{ secrets.BILIBILI_COOKIES_BASE64 }}
-          AI_LOOKBACK_EPISODES: "30"
-          MAX_AI_EPISODES: "1"
-        run: python scripts/enrich_latest_video.py
 
       - name: Collect high-like public comment candidates
         shell: pwsh
@@ -108,7 +66,7 @@ jobs:
           git add wangshifu-data.json bilibili-candidates.json
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
-            git commit -m "data: update Bilibili route and audio insights"
+            git commit -m "data: update Bilibili comment candidates"
             git pull --rebase origin main
             git push
           }

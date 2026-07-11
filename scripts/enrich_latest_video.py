@@ -8,6 +8,7 @@ stores structured facts and timestamped evidence in wangshifu-data.json.
 import argparse
 import base64
 import json
+import math
 import os
 import shutil
 import subprocess
@@ -52,6 +53,7 @@ PLACE_GAZETTEER = [
     (("绥和", "绥化", "Tuy Hòa", "Tuy Hoa"), "绥和 Tuy Hòa", 13.0955, 109.3209),
     (("芽庄", "Nha Trang"), "芽庄 Nha Trang", 12.2388, 109.1967),
     (("大叻", "Đà Lạt", "Da Lat"), "大叻 Đà Lạt", 11.9404, 108.4583),
+    (("美奈", "Mũi Né", "Mui Ne"), "美奈 Mũi Né", 10.9330, 108.2870),
     (("潘切", "Phan Thiết", "Phan Thiet"), "潘切 Phan Thiết", 10.9289, 108.1020),
     (("头顿", "Vũng Tàu", "Vung Tau"), "头顿 Vũng Tàu", 10.3460, 107.0840),
     (("胡志明", "西贡", "Hồ Chí Minh", "Ho Chi Minh", "Saigon"), "胡志明市 Hồ Chí Minh", 10.8231, 106.6297),
@@ -126,6 +128,18 @@ def is_auto_managed(entry: dict[str, Any]) -> bool:
     return any(marker in confidence for marker in AUTO_CONFIDENCE_MARKERS)
 
 
+def is_manual_verified(entry: dict[str, Any]) -> bool:
+    if entry.get("manualVerified") is True:
+        return True
+    confidence = str(entry.get("confidence") or "")
+    if any(marker in confidence for marker in ("维护者采纳", "人工核验", "视频确认")):
+        return True
+    return any(
+        isinstance(value, dict) and value.get("acceptedBy")
+        for value in entry.get("evidence") or []
+    )
+
+
 def entry_quality_gaps(entry: dict[str, Any]) -> list[str]:
     gaps: list[str] = []
     confidence = str(entry.get("confidence", "")).lower()
@@ -134,7 +148,16 @@ def entry_quality_gaps(entry: dict[str, Any]) -> list[str]:
         gaps.append("confidence_pending")
     if entry.get("lat") is None or entry.get("lng") is None:
         gaps.append("missing_coordinates")
-    if any("坐标沿用" in value or "地点需自动复核" in value for value in risk_flags):
+    if any(
+        "坐标沿用" in value
+        or "地点需自动复核" in value
+        or value in {
+            "coordinates-copied-from-previous-ride",
+            "place-copied-from-previous",
+            "coordinate-distance-conflict",
+        }
+        for value in risk_flags
+    ):
         gaps.append("coordinate_or_place_risk")
     if bool(entry.get("ride")) and entry.get("distanceKm") is None:
         gaps.append("missing_distance")
@@ -739,11 +762,29 @@ def append_unique(values: list[Any], value: Any) -> None:
         values.append(value)
 
 
+def haversine_km(a: dict[str, Any], b: dict[str, Any]) -> float:
+    earth = 6371.0
+    lat1, lng1 = math.radians(float(a["lat"])), math.radians(float(a["lng"]))
+    lat2, lng2 = math.radians(float(b["lat"])), math.radians(float(b["lng"]))
+    dlat, dlng = lat2 - lat1, lng2 - lng1
+    value = (
+        math.sin(dlat / 2) ** 2
+        + math.cos(lat1) * math.cos(lat2) * math.sin(dlng / 2) ** 2
+    )
+    value = min(1.0, max(0.0, value))
+    return 2 * earth * math.atan2(math.sqrt(value), math.sqrt(1 - value))
+
+
 def rebuild_quality_flags(entries: list[dict[str, Any]]) -> None:
     previous_by_phase: dict[str, dict[str, Any]] = {}
     for entry in entries:
         flags: list[str] = []
         phase = str(entry.get("phase") or "")
+        if is_manual_verified(entry):
+            entry["mapVisible"] = True
+            if entry.get("lat") is not None and entry.get("lng") is not None:
+                previous_by_phase[phase] = entry
+            continue
         previous = previous_by_phase.get(phase)
         if entry.get("lat") is None or entry.get("lng") is None:
             flags.append("坐标缺失")
@@ -752,6 +793,14 @@ def rebuild_quality_flags(entries: list[dict[str, Any]]) -> None:
         if bool(entry.get("ride")) and previous:
             if entry.get("lat") == previous.get("lat") and entry.get("lng") == previous.get("lng"):
                 flags.append("坐标沿用上一骑行日")
+            distance = entry.get("distanceKm")
+            if distance is not None and float(distance) > 0:
+                straight = haversine_km(previous, entry)
+                reported = float(distance)
+                if (straight < 1 and reported > 20) or straight > max(
+                    reported * 2.2, reported + 80
+                ):
+                    flags.append("坐标与里程冲突")
         if not entry.get("highlights"):
             flags.append("关键时间点缺失")
         if bool(entry.get("ride")) and not entry.get("lodgings"):
@@ -759,7 +808,9 @@ def rebuild_quality_flags(entries: list[dict[str, Any]]) -> None:
         if entry_quality_gaps(entry):
             flags.append("需要自动复核")
         entry["riskFlags"] = list(dict.fromkeys(flags))
-        if entry.get("lat") is not None and entry.get("lng") is not None:
+        coordinate_conflict = "坐标与里程冲突" in flags
+        entry["mapVisible"] = not coordinate_conflict
+        if not coordinate_conflict and entry.get("lat") is not None and entry.get("lng") is not None:
             previous_by_phase[phase] = entry
 
 
@@ -778,6 +829,16 @@ def confidence_score_for(entry: dict[str, Any], extraction: dict[str, Any]) -> f
     notes = clean_text(extraction.get("confidence_notes")) or ""
     if any(word in notes for word in ("不确定", "待核验", "无法确认", "未识别")):
         score -= 0.10
+    risks = {str(value) for value in entry.get("riskFlags") or []}
+    if risks.intersection(
+        {
+            "coordinates-copied-from-previous-ride",
+            "coordinate-distance-conflict",
+            "坐标沿用上一骑行日",
+            "坐标与里程冲突",
+        }
+    ):
+        score -= 0.25
     return round(max(0.05, min(0.98, score)), 2)
 
 

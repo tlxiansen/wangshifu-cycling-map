@@ -53,9 +53,29 @@ function distanceFor(message) {
 function hotelFor(message) {
   const text = String(message || "");
   const match =
-    text.match(/(?:酒店叫|入住(?:的)?|住的酒店(?:是|叫)?|名称[:：]?)\s*([A-Za-z\u4e00-\u9fff][A-Za-z\u4e00-\u9fff\s·.'-]{1,32}(?:Hotel|酒店|宾馆|旅馆|民宿))/i) ||
-    text.match(/([A-Za-z\u4e00-\u9fff][A-Za-z\u4e00-\u9fff\s·.'-]{1,24}(?:Hotel|酒店|宾馆|旅馆|民宿))/i);
+    text.match(/(?:酒店(?:为|叫)|入住(?:的)?|住的酒店(?:是|叫)?|名称[:：]?)\s*([A-Za-z\u4e00-\u9fff][A-Za-z\u4e00-\u9fff\s·.'-]{1,32}(?:Hotel|酒店|宾馆|旅馆|民宿))/i) ||
+    text.match(/\b([A-Za-z][A-Za-z\s·.'-]{1,30}Hotel)\b/i);
   return match ? match[1].trim() : "_No response_";
+}
+
+function foodFor(message) {
+  const matches = String(message || "").match(
+    /猪杂粉|牛肉粉|牛肉面|河粉|米粉|烤肉|烧烤|龙虾|肉蟹|海鲜|法棍|春卷|鸡饭|咖啡|Jollibee|蜜雪冰城/gi,
+  );
+  return matches ? [...new Set(matches)].join("、") : "_No response_";
+}
+
+function isActionableCandidate(candidate) {
+  const text = String(candidate.message || "").trim();
+  if (!text) return false;
+  const firstPersonDistance = /(?:比如|例如|我摩旅|我曾经|我之前|我花了|我一天|本人).{0,30}\d+(?:\.\d+)?\s*(?:KM|公里)/i;
+  const episodeDistance = /(?:今日|今天|当天|本期|第\S+天).{0,30}(?:骑行|全程).{0,20}\d+(?:\.\d+)?\s*(?:KM|公里)|(?:骑行全程|全程骑行)\s*\d+(?:\.\d+)?\s*(?:KM|公里)/i;
+  if (firstPersonDistance.test(text) && !episodeDistance.test(text)) return false;
+  const structuredSummary = /(?:^|\n)\s*(?:①|1[.、]|路线图|今日骑行|今天骑行|当天骑行|本期骑行|第\S+天)|\d{1,2}:\d{2}|省流|时间线/i;
+  const explicitLodging = /酒店(?:为|叫)|入住(?:的)?酒店|住的酒店|民宿(?:为|叫)|\b[A-Za-z][A-Za-z\s·.'-]{1,30}Hotel\b/i;
+  const explicitRoute = /(?:今日|今天|当天).{0,20}(?:到达|来到|路线)|从.{1,24}(?:到|→|—).{1,24}|骑行全程|全程骑行/i;
+  const explicitFood = /吃了|早餐店|午餐店|晚餐店|推荐菜|店名|猪杂粉|牛肉粉|牛肉面|河粉|龙虾|肉蟹|海鲜大餐/i;
+  return structuredSummary.test(text) || explicitLodging.test(text) || explicitRoute.test(text) || explicitFood.test(text);
 }
 
 function hotelPriceFor(message) {
@@ -101,7 +121,7 @@ function buildIssueBody(candidate, category, rpid) {
     "",
     "### 视频里吃了什么（如有）",
     "",
-    "_No response_",
+    category === "美食" ? foodFor(candidate.message) : "_No response_",
     "",
     "### 酒店 / 民宿名称（如有）",
     "",
@@ -155,7 +175,8 @@ async function run({ github, context, core }) {
   const rawCandidates = readCandidates();
   const candidates = rawCandidates
     .filter((candidate) => Number(candidate.likes || 0) >= 10)
-    .filter((candidate) => KEYWORDS.test(candidate.message || ""));
+    .filter((candidate) => KEYWORDS.test(candidate.message || ""))
+    .filter(isActionableCandidate);
 
   await ensureLabels({ github, owner, repo });
   const knownRpids = await knownCommentIds({ github, owner, repo });
@@ -181,4 +202,7 @@ async function run({ github, context, core }) {
   core.info(`Created ${created} new Issue(s) from ${candidates.length} candidate(s).`);
 }
 
-module.exports = { run };
+module.exports = {
+  run,
+  _test: { distanceFor, foodFor, hotelFor, isActionableCandidate },
+};

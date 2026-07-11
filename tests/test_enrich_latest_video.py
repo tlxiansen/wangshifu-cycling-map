@@ -238,6 +238,53 @@ class EnrichmentTests(unittest.TestCase):
         self.assertFalse(changed)
         self.assertEqual(entry["summary"], "人工内容")
 
+    def test_mui_ne_is_available_to_coordinate_lookup(self):
+        coordinate = MODULE.coordinate_from_text("骑行到达越南美奈")
+        self.assertEqual(coordinate["place"], "美奈 Mũi Né")
+        self.assertAlmostEqual(coordinate["lat"], 10.9330)
+
+    def test_english_coordinate_risk_is_prioritized(self):
+        entry = {
+            "bvid": "BVRISK",
+            "phase": "Auto-added",
+            "confidence": "Auto-added; pending review",
+            "riskFlags": ["coordinates-copied-from-previous-ride"],
+            "ride": True,
+            "distanceKm": 60,
+            "highlights": [],
+            "foodDetails": [],
+            "food": "Not identified",
+            "lodgings": [],
+        }
+        self.assertIn("coordinate_or_place_risk", MODULE.entry_quality_gaps(entry))
+
+    def test_route_safety_hides_zero_movement_long_ride(self):
+        entries = [
+            {
+                "phase": "第二段",
+                "ride": True,
+                "lat": 11.18,
+                "lng": 108.72,
+                "distanceKm": 20,
+                "highlights": [{}],
+                "lodgings": [{}],
+                "confidence": "AI音频提取",
+            },
+            {
+                "phase": "第二段",
+                "ride": True,
+                "lat": 11.18,
+                "lng": 108.72,
+                "distanceKm": 60,
+                "highlights": [{}],
+                "lodgings": [{}],
+                "confidence": "AI音频提取",
+            },
+        ]
+        MODULE.rebuild_quality_flags(entries)
+        self.assertFalse(entries[1]["mapVisible"])
+        self.assertIn("坐标与里程冲突", entries[1]["riskFlags"])
+
 
 if __name__ == "__main__":
     unittest.main()

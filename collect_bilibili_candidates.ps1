@@ -47,6 +47,18 @@ foreach ($episode in $targets) {
 
 $results = @($results | Sort-Object likes -Descending | Select-Object -First 100)
 if ($successfulVideos -gt 0) {
+    $newItemsJson = $results | ConvertTo-Json -Depth 8 -Compress
+    $oldItemsJson = $null
+    if (Test-Path $outputPath) {
+        try {
+            $oldDocument = Get-Content -Raw -Encoding UTF8 $outputPath | ConvertFrom-Json
+            $oldItemsJson = @($oldDocument.items) | ConvertTo-Json -Depth 8 -Compress
+        } catch {}
+    }
+    if ($newItemsJson -eq $oldItemsJson) {
+        Write-Host "Scanned $successfulVideos video(s); candidate facts are unchanged."
+        return
+    }
     [pscustomobject]@{
         generatedAt = [DateTimeOffset]::UtcNow.ToString("o")
         rule = "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线"

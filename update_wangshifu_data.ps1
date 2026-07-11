@@ -62,10 +62,17 @@ function Invoke-BiliJson([string]$url, [string]$referer) {
 }
 
 function Fetch-SeasonArchives {
-    $url = "https://api.bilibili.com/x/polymer/web-space/seasons_archives_list?mid=$mid&season_id=$seasonId&sort_reverse=false&page_num=1&page_size=100"
-    $response = Invoke-BiliJson $url "https://space.bilibili.com/$mid/lists/$seasonId"
-    if ($response.code -ne 0) { throw "Bilibili season API: $($response.message)" }
-    return @($response.data.archives | ForEach-Object { Normalize-Archive $_ "season" } | Where-Object { $_ })
+    $pageSize = 100
+    $all = @()
+    for ($page = 1; $page -le 20; $page++) {
+        $url = "https://api.bilibili.com/x/polymer/web-space/seasons_archives_list?mid=$mid&season_id=$seasonId&sort_reverse=false&page_num=$page&page_size=$pageSize"
+        $response = Invoke-BiliJson $url "https://space.bilibili.com/$mid/lists/$seasonId"
+        if ($response.code -ne 0) { throw "Bilibili season API: $($response.message)" }
+        $pageItems = @($response.data.archives)
+        $all += @($pageItems | ForEach-Object { Normalize-Archive $_ "season" } | Where-Object { $_ })
+        if ($pageItems.Count -lt $pageSize) { break }
+    }
+    return @($all)
 }
 
 function Fetch-UploadArchives {
@@ -115,6 +122,18 @@ function Get-ReviewFlags($item, $previous) {
     return @($flags | Select-Object -Unique)
 }
 
+function Test-ManualVerified($item) {
+    if ($item.manualVerified -eq $true) { return $true }
+    $accepted = Join-Chars @(0x7EF4, 0x62A4, 0x8005, 0x91C7, 0x7EB3)
+    $manual = Join-Chars @(0x4EBA, 0x5DE5, 0x6838, 0x9A8C)
+    $videoConfirmed = Join-Chars @(0x89C6, 0x9891, 0x786E, 0x8BA4)
+    if ([string]$item.confidence -match "$accepted|$manual|$videoConfirmed") { return $true }
+    foreach ($evidence in @($item.evidence)) {
+        if ($evidence.acceptedBy) { return $true }
+    }
+    return $false
+}
+
 function Resolve-GeoFromText([string]$text) {
     if ([string]::IsNullOrWhiteSpace($text)) { return $null }
 
@@ -128,6 +147,10 @@ function Resolve-GeoFromText([string]$text) {
     $xianGang = Join-Chars @(0x5C98, 0x6E2F)
     $shunHua = Join-Chars @(0x987A, 0x5316)
     $heNei = Join-Chars @(0x6CB3, 0x5185)
+    $meiNai = Join-Chars @(0x7F8E, 0x5948)
+    $panQie = Join-Chars @(0x6F58, 0x5207)
+    $huZhiMing = Join-Chars @(0x80E1, 0x5FD7, 0x660E)
+    $xiGong = Join-Chars @(0x897F, 0x8D21)
     $youYiGuan = Join-Chars @(0x53CB, 0x8C0A, 0x5173)
     $youYiGuanTrad = Join-Chars @(0x53CB, 0x8ABC, 0x95DC)
     $pingXiang = Join-Chars @(0x51ED, 0x7965)
@@ -138,6 +161,9 @@ function Resolve-GeoFromText([string]$text) {
         [pscustomobject]@{ Pattern = "$jinLan|Cam Ranh|Cam Lam"; Lat = 11.9020; Lng = 109.2200; Display = "$jinLan Cam Ranh" },
         [pscustomobject]@{ Pattern = "$yaZhuang|Nha Trang"; Lat = 12.2388; Lng = 109.1967; Display = "$yaZhuang (Nha Trang)" },
         [pscustomobject]@{ Pattern = "$suiHe|Tuy Hoa"; Lat = 13.0955; Lng = 109.3209; Display = "$suiHe (Tuy Hoa)" },
+        [pscustomobject]@{ Pattern = "$meiNai|Mui Ne|Mui Ne"; Lat = 10.9330; Lng = 108.2870; Display = "$meiNai Mui Ne" },
+        [pscustomobject]@{ Pattern = "$panQie|Phan Thiet"; Lat = 10.9289; Lng = 108.1020; Display = "$panQie Phan Thiet" },
+        [pscustomobject]@{ Pattern = "$huZhiMing|$xiGong|Ho Chi Minh|Saigon"; Lat = 10.8231; Lng = 106.6297; Display = "$huZhiMing Ho Chi Minh City" },
         [pscustomobject]@{ Pattern = "$guiRen|Quy Nhon"; Lat = 13.7820; Lng = 109.2190; Display = "$guiRen (Quy Nhon)" },
         [pscustomobject]@{ Pattern = "$huiAn|Hoi An"; Lat = 15.8801; Lng = 108.3380; Display = "$huiAn Hoi An" },
         [pscustomobject]@{ Pattern = "$xianGang|Da Nang"; Lat = 16.0471; Lng = 108.2068; Display = "$xianGang Da Nang" },
@@ -151,9 +177,42 @@ function Resolve-GeoFromText([string]$text) {
     return $null
 }
 
+function Resolve-TitleDestination([string]$title) {
+    if ([string]::IsNullOrWhiteSpace($title)) { return $null }
+    $distance = Join-Chars @(0x8DDD, 0x79BB)
+    $awayFrom = Join-Chars @(0x79BB)
+    $remaining = Join-Chars @(0x8FD8, 0x6709)
+    $only = Join-Chars @(0x53EA, 0x6709)
+    $from = Join-Chars @(0x4ECE)
+    $ride = Join-Chars @(0x9A91, 0x884C)
+    $depart = Join-Chars @(0x51FA, 0x53D1)
+    $cleanTitle = $title -replace "($distance|$awayFrom).{0,24}($remaining|$only).{0,12}", " "
+    $cleanTitle = $cleanTitle -replace "$from.{0,24}($ride|$depart)", " "
+    return Resolve-GeoFromText $cleanTitle
+}
+
+function Resolve-ExcludedDestination([string]$title) {
+    if ([string]::IsNullOrWhiteSpace($title)) { return $null }
+    $distance = Join-Chars @(0x8DDD, 0x79BB)
+    $awayFrom = Join-Chars @(0x79BB)
+    $remaining = Join-Chars @(0x8FD8, 0x6709)
+    $only = Join-Chars @(0x53EA, 0x6709)
+    if ($title -match "($distance|$awayFrom)(.{0,24})($remaining|$only)") {
+        return Resolve-GeoFromText $Matches[2]
+    }
+    return $null
+}
+
 function Apply-GeoHint($item, $archive) {
-    $text = @($item.place, $archive.title) -join " "
-    $geo = Resolve-GeoFromText $text
+    if (Test-ManualVerified $item) { return }
+    $geo = Resolve-TitleDestination ([string]$archive.title)
+    $excluded = Resolve-ExcludedDestination ([string]$archive.title)
+    if ($null -eq $geo) {
+        $placeGeo = Resolve-GeoFromText ([string]$item.place)
+        if ($null -eq $excluded -or $null -eq $placeGeo -or $excluded.Display -ne $placeGeo.Display) {
+            $geo = $placeGeo
+        }
+    }
     if ($null -eq $geo) { return }
 
     $flags = @($item.riskFlags)
@@ -179,6 +238,67 @@ function Apply-GeoHint($item, $archive) {
     }
 }
 
+function Get-HaversineKm($a, $b) {
+    $earth = 6371.0
+    $toRad = [Math]::PI / 180.0
+    $dLat = ([double]$b.lat - [double]$a.lat) * $toRad
+    $dLng = ([double]$b.lng - [double]$a.lng) * $toRad
+    $value = [Math]::Sin($dLat / 2) * [Math]::Sin($dLat / 2) +
+        [Math]::Cos([double]$a.lat * $toRad) * [Math]::Cos([double]$b.lat * $toRad) *
+        [Math]::Sin($dLng / 2) * [Math]::Sin($dLng / 2)
+    return 2 * $earth * [Math]::Atan2([Math]::Sqrt($value), [Math]::Sqrt(1 - $value))
+}
+
+function Apply-RouteSafety([object[]]$routeItems) {
+    $previousByPhase = @{}
+    for ($index = 0; $index -lt $routeItems.Count; $index++) {
+        $item = $routeItems[$index]
+        if (-not $item.ride -or $null -eq $item.lat -or $null -eq $item.lng) { continue }
+        $phase = [string]$item.phase
+        if (Test-ManualVerified $item) {
+            $item | Add-Member -NotePropertyName mapVisible -NotePropertyValue $true -Force
+            $previousByPhase[$phase] = $item
+            continue
+        }
+        $previous = $previousByPhase[$phase]
+        $flags = @($item.riskFlags)
+        $conflict = $false
+        if ($previous -and $null -ne $item.distanceKm -and [double]$item.distanceKm -gt 0) {
+            $straight = Get-HaversineKm $previous $item
+            $reported = [double]$item.distanceKm
+            if (($straight -lt 1 -and $reported -gt 20) -or
+                ($straight -gt [Math]::Max($reported * 2.2, $reported + 80))) {
+                $conflict = $true
+                $flags += "coordinate-distance-conflict"
+                if ($index + 1 -lt $routeItems.Count) {
+                    $next = $routeItems[$index + 1]
+                    if ($null -ne $next.lat -and $null -ne $next.lng -and
+                        [string]$next.phase -eq $phase) {
+                        $candidateDistance = Get-HaversineKm $previous $next
+                        if ($candidateDistance -ge $reported * 0.3 -and
+                            $candidateDistance -le $reported * 1.5) {
+                            $item.lat = [double]$next.lat
+                            $item.lng = [double]$next.lng
+                            $item.place = [string]$next.place
+                            $item | Add-Member -NotePropertyName coordinateSource -NotePropertyValue "next-day route context" -Force
+                            $flags = @($flags | Where-Object { $_ -ne "coordinate-distance-conflict" })
+                            $flags += "coordinate-corrected-from-next-day"
+                            $conflict = $false
+                        }
+                    }
+                }
+            }
+        }
+        $item.riskFlags = @($flags | Select-Object -Unique)
+        $item | Add-Member -NotePropertyName mapVisible -NotePropertyValue (-not $conflict) -Force
+        if ($conflict) {
+            $item | Add-Member -NotePropertyName coordinateStatus -NotePropertyValue "distance conflict; hidden from route" -Force
+        } else {
+            $previousByPhase[$phase] = $item
+        }
+    }
+}
+
 $parsed = Get-Content -Raw -Encoding UTF8 $dataPath | ConvertFrom-Json
 $existing = @()
 foreach ($entry in $parsed) { $existing += $entry }
@@ -187,6 +307,22 @@ foreach ($item in $existing) { $byBvid[$item.bvid] = $item }
 
 $archives = Merge-ArchiveSources
 if ($archives.Count -eq 0) { throw "No Bilibili video source returned archives." }
+
+$archiveIds = @{}
+foreach ($archive in $archives) { $archiveIds[$archive.bvid] = $true }
+foreach ($cached in $existing) {
+    if (-not $cached.bvid -or $archiveIds.ContainsKey([string]$cached.bvid) -or -not $cached.date) { continue }
+    $archives += [pscustomobject]@{
+        bvid = [string]$cached.bvid
+        title = [string]$cached.title
+        pubdate = [DateTimeOffset]::Parse("$($cached.date)T12:00:00+08:00").ToUnixTimeSeconds()
+        duration = $cached.duration
+        views = $cached.views
+        pic = [string]$cached.cover
+        source = "existing-cache"
+    }
+}
+$archives = @($archives | Sort-Object pubdate)
 
 $items = @()
 $previous = $null
@@ -245,15 +381,23 @@ foreach ($archive in $archives) {
     if ([string]$item.phase -eq "Auto-added" -and $previous -and $previous.phase) {
         $item.phase = $previous.phase
     }
-    $item | Add-Member -NotePropertyName duration -NotePropertyValue $archive.duration -Force
-    $item | Add-Member -NotePropertyName views -NotePropertyValue $archive.views -Force
-    $item | Add-Member -NotePropertyName cover -NotePropertyValue ($archive.pic -replace "^http:", "https:") -Force
+    if (-not $item.PSObject.Properties["duration"] -or $null -eq $item.duration) {
+        $item | Add-Member -NotePropertyName duration -NotePropertyValue $archive.duration -Force
+    }
+    if (-not $item.PSObject.Properties["views"] -or $null -eq $item.views) {
+        $item | Add-Member -NotePropertyName views -NotePropertyValue $archive.views -Force
+    }
+    if (-not $item.PSObject.Properties["cover"] -or [string]::IsNullOrWhiteSpace([string]$item.cover)) {
+        $item | Add-Member -NotePropertyName cover -NotePropertyValue ($archive.pic -replace "^http:", "https:") -Force
+    }
     $item | Add-Member -NotePropertyName videoSource -NotePropertyValue $archive.source -Force
     Apply-GeoHint $item $archive
-    $item.riskFlags = Get-ReviewFlags $item $previous
+    $item.riskFlags = @(Get-ReviewFlags $item $previous)
     $items += $item
     $previous = $item
 }
+
+Apply-RouteSafety $items
 
 $items | ConvertTo-Json -Depth 14 | Set-Content -Encoding UTF8 $dataPath
 Write-Host "Updated $($items.Count) episodes from Bilibili sources. Latest: $($items[-1].date) $($items[-1].title)"

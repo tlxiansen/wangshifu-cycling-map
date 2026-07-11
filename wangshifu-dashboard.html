@@ -148,14 +148,16 @@ function bootMap(){
 const isInferred=x=>/推断|沿用|待核对|待核验|pending|auto-added/i.test(x.confidence||"")||(x.riskFlags||[]).length>0;
 const hasFood=x=>x.food&&x.food!=="未明确提到"&&x.food!=="Not identified";
 const splitFoods=x=>x.foods?.length?x.foods:(hasFood(x)?String(x.food).split(/[、，,]/).map(v=>v.trim()).filter(Boolean):[]);
-const normalizeItem=x=>({...x,foods:splitFoods(x),foodDetails:Array.isArray(x.foodDetails)?x.foodDetails:[],lodgings:Array.isArray(x.lodgings)?x.lodgings:[],costs:Array.isArray(x.costs)?x.costs:[],highlights:Array.isArray(x.highlights)?x.highlights:[],evidence:Array.isArray(x.evidence)?x.evidence:[],riskFlags:Array.isArray(x.riskFlags)?x.riskFlags:[]});
+const normalizeItem=x=>({...x,foods:splitFoods(x),foodDetails:Array.isArray(x.foodDetails)?x.foodDetails:[],lodgings:Array.isArray(x.lodgings)?x.lodgings:[],costs:Array.isArray(x.costs)?x.costs:[],highlights:Array.isArray(x.highlights)?x.highlights:[],evidence:Array.isArray(x.evidence)?x.evidence:[],riskFlags:Array.isArray(x.riskFlags)?x.riskFlags:(x.riskFlags?[x.riskFlags]:[])});
 const riskLabel=value=>({
   "place-needs-auto-review":"地点需自动复核",
   "missing-distance":"里程缺失",
   "coordinates-copied-from-previous-ride":"坐标沿用上一骑行日",
   "missing-key-timepoints":"关键时间点缺失",
   "new-video-auto-added":"新视频自动加入",
-  "place-copied-from-previous":"地点沿用上一条"
+  "place-copied-from-previous":"地点沿用上一条",
+  "coordinate-distance-conflict":"坐标与里程矛盾，已暂停上图",
+  "coordinate-corrected-from-next-day":"坐标依据次日落脚点修正"
 }[value]||value);
 const reviewReasons=x=>[
   isInferred(x)?"地点待核验":null,
@@ -192,7 +194,7 @@ async function runRoadQueue(jobs,limit=2){
 }
 function draw(items){
   layers.forEach(x=>map.removeLayer(x));roadLayers.forEach(x=>map.removeLayer(x));layers=[];roadLayers=[];markerByBvid={};activeSegment=null;
-  const route=items.filter(x=>x.ride&&x.lat&&x.lng);
+  const route=items.filter(x=>x.ride&&x.mapVisible!==false&&x.lat&&x.lng);
   const phases=[...new Set(route.map(x=>x.phase))];
   let roadSuccess=0,roadTotal=0,roadJobs=[];
   for(const phase of phases){
@@ -216,7 +218,7 @@ function draw(items){
   document.getElementById("roadStatus").textContent=roadTotal?`正在拟合公路 0/${roadTotal}`:"暂无连续骑行路线";
   runRoadQueue(roadJobs).then(()=>{document.getElementById("roadStatus").textContent=roadSuccess?`已拟合 ${roadSuccess}/${roadTotal} 段公路（驾车道路模型）`:"公路服务暂不可用，显示推断连线"});
   items.forEach((x,i)=>{
-    if(!x.lat||!x.lng)return;
+    if(x.mapVisible===false||!x.lat||!x.lng)return;
     const m=L.circleMarker([x.lat,x.lng],{radius:i===items.length-1?10:6,color:"#fff",weight:2,fillColor:markerColor(x),fillOpacity:.95}).addTo(map);
     m.bindPopup(`<b>${esc(x.date)} · ${esc(x.place)}</b><br>${esc(x.summary)}<br><b>里程：</b>${x.distanceKm===null?"未披露":x.distanceKm+" km"}<br><b>吃：</b>${esc(x.food)}<br><a target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">打开视频</a>`);
     m.on("click",()=>{
@@ -391,8 +393,8 @@ function drawCumulativeChart(){
   c.ctx.fillStyle="#16806c";c.ctx.beginPath();c.ctx.arc(lastX,lastY,3,0,Math.PI*2);c.ctx.fill();
   c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.textAlign="left";c.ctx.fillText(`${routeTargetKm} km`,2,11);c.ctx.fillText(series.rides[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(series.rides.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
   c.ctx.fillStyle="#16806c";c.ctx.textAlign="right";c.ctx.fillText(`估 ${Math.round(lastValue)} km`,c.w-c.right,lastY-4);
-  const disclosed=[...allItems].reverse().find(x=>x.cumulativeKm!=null)?.cumulativeKm||0,percent=Math.min(100,disclosed/routeTargetKm*100);
-  document.getElementById("routeGoalText").textContent=`已披露累计 ${disclosed} / ${routeTargetKm} km`;
+  const disclosed=Math.round(lastValue||0),percent=Math.min(100,disclosed/routeTargetKm*100);
+  document.getElementById("routeGoalText").textContent=`按已披露里程累计 ${disclosed} / ${routeTargetKm} km`;
   document.getElementById("routeGoalPercent").textContent=`${percent.toFixed(1)}%`;
   document.getElementById("routeGoalFill").style.width=`${percent}%`;
 }
@@ -426,7 +428,7 @@ async function load(){
   try{
     const data=await getData();allItems=data.items.map(normalizeItem);
     const latest=allItems[allItems.length-1],known=allItems.reduce((n,x)=>n+(x.distanceKm||0),0);
-    const cumulative=[...allItems].reverse().find(x=>x.cumulativeKm)?.cumulativeKm;
+    const cumulative=Math.round(cumulativeSeries().values.at(-1)||0);
     document.getElementById("sync").textContent=data.status;
     if(data.phoneUrl){
       const phone=document.getElementById("phoneLink");
