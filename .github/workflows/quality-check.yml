@@ -1,0 +1,54 @@
+name: Route automation quality checks
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+      - "scripts/**"
+      - "tests/**"
+      - "update_wangshifu_data.ps1"
+      - "collect_bilibili_candidates.ps1"
+      - "wangshifu-dashboard.html"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-audio-enrichment.txt
+
+      - name: Install test dependencies
+        run: python -m pip install -r requirements-audio-enrichment.txt
+
+      - name: Run Python tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check scripts/create_bilibili_issues.js
+          node tests/test_create_bilibili_issues.js
+
+      - name: Check PowerShell updater syntax and encoding
+        shell: pwsh
+        run: |
+          $errors = $null
+          $tokens = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            (Resolve-Path "update_wangshifu_data.ps1"),
+            [ref]$tokens,
+            [ref]$errors
+          ) | Out-Null
+          if ($errors) { throw ($errors | Out-String) }
+          $bytes = [IO.File]::ReadAllBytes((Resolve-Path "update_wangshifu_data.ps1"))
+          if ($bytes | Where-Object { $_ -gt 127 }) {
+            throw "update_wangshifu_data.ps1 must remain ASCII-only"
+          }

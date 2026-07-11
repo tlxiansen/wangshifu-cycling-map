@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="build" content="travel-details-v2">
-  <title>王师傅骑到哪了？</title>
+  <title>????????</title>
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
@@ -28,7 +28,7 @@
     .topline{display:flex;justify-content:space-between;gap:8px}.date{font-size:12px;color:var(--muted)}.km{font-size:12px;font-weight:800;color:var(--orange)}
     .place{font-size:16px;font-weight:800;margin:4px 0}.summary{font-size:12px;color:#536159;line-height:1.55;margin:5px 0}.food{font-size:12px;background:#f4efe5;border-radius:8px;padding:7px 8px;margin-top:7px}
     .plan-strip{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}.plan-pill{padding:7px 8px;border-radius:8px;background:#fff5e8;color:#6e4c20;font-size:10px;line-height:1.4}.plan-pill b{display:block;color:#9d421f;font-size:11px}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:7px}.detail-box{padding:8px;border-radius:8px;background:#f6f8f5;font-size:11px;color:#536159;min-width:0}.detail-box.full{grid-column:1/-1}.detail-box>b{display:block;color:var(--ink);margin-bottom:5px}.detail-box ul{padding:0;margin:0;list-style:none}.detail-box li{margin:2px 0}.entry{border-top:1px solid #dde5df;padding-top:5px;margin-top:5px;line-height:1.45}.entry:first-of-type{border-top:0;padding-top:0;margin-top:0}.entry strong{display:block;color:var(--ink)}.entry-meta{color:#738079}.entry-note{margin-top:2px}.entry a{color:#16705f;text-decoration:none}.entry-status{display:inline-block;margin-top:3px;padding:1px 5px;border-radius:999px;background:#e6efe9;color:#48665b;font-size:9px}.entry-status.bad{background:#ffe4de;color:#a33b23}.time{color:var(--orange);font-variant-numeric:tabular-nums;margin-right:4px}.missing{color:#9aa39e}.review-reasons{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}.review-reasons span{font-size:9px;padding:2px 6px;border-radius:999px;background:#fff2d8;color:#8a5a00}
-    .evidence{margin-top:7px;padding:7px 8px;border-left:3px solid #78a89a;background:#edf5f1;border-radius:7px;font-size:10px;color:#52665e}.evidence a{color:#16705f;text-decoration:none;font-weight:800}.evidence a+a:before{content:" · ";color:#91a49c}.meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.tag{font-size:10px;color:#6c7771;border:1px solid #dfe1dd;border-radius:999px;padding:3px 7px}.video{font-size:11px;color:#c84d21;text-decoration:none;font-weight:800}
+    .evidence{margin-top:7px;padding:7px 8px;border-left:3px solid #78a89a;background:#edf5f1;border-radius:7px;font-size:10px;color:#52665e}.evidence a{color:#16705f;text-decoration:none;font-weight:800}.evidence a+a:before{content:" ? ";color:#91a49c}.meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.tag{font-size:10px;color:#6c7771;border:1px solid #dfe1dd;border-radius:999px;padding:3px 7px}.video{font-size:11px;color:#c84d21;text-decoration:none;font-weight:800}
     .empty{padding:50px 20px;text-align:center;color:var(--muted)}.leaflet-popup-content{line-height:1.55}.leaflet-popup-content a{color:#c84d21}
     dialog{width:min(620px,calc(100% - 28px));border:0;border-radius:18px;padding:0;box-shadow:0 22px 70px #0005;color:var(--ink)}dialog::backdrop{background:#10251e99;backdrop-filter:blur(3px)}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line)}.modal-head h3{margin:0}.close{border:0;background:#edf0ed;width:30px;height:30px;border-radius:50%;cursor:pointer}.form{padding:16px 20px 20px}.form-note{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:5px}.field.wide{grid-column:1/-1}.field label{font-size:11px;color:#617067}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;font:inherit;background:#fff}.field textarea{min-height:72px;resize:vertical}.conditional-fields{display:none;grid-column:1/-1;padding:12px;border:1px solid #dce6df;border-radius:11px;background:#f6faf7}.conditional-fields.show{display:block}.conditional-title{font-size:12px;font-weight:800;margin-bottom:9px;color:var(--green)}.submit-help{font-size:10px;color:var(--muted);text-align:right;margin-top:8px}.modal-actions{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}.primary,.secondary{border:0;border-radius:9px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:13px}.primary{background:var(--orange);color:white}.secondary{background:#e9eeea;color:var(--ink)}.origin{display:inline-block;margin-top:9px;color:#c84d21;font-size:11px;text-decoration:none}
     @media(max-width:880px){header{height:auto;align-items:flex-start}.head-right{display:grid;justify-items:end}.sync{max-width:170px}.head-actions button{font-size:11px;padding:6px 8px}main{display:block;height:auto}.map-wrap{height:65vh;min-height:480px}aside{border-left:0;border-top:1px solid var(--line)}.hero{top:12px;left:12px}.hero h2{font-size:22px}.stats{grid-template-columns:repeat(2,1fr)}.tabs{overflow-x:auto;padding-bottom:2px}.tabs button{white-space:nowrap}.grid,.detail-grid{grid-template-columns:1fr}.detail-box.full{grid-column:auto}}
@@ -36,90 +36,90 @@
 </head>
 <body>
 <header>
-  <div><div class="eyebrow">PUBLIC VIDEO ROUTE · 东南亚篇</div><h1>王师傅骑到哪了？</h1></div>
+  <div><div class="eyebrow">PUBLIC VIDEO ROUTE ? ????</div><h1>????????</h1></div>
   <div class="head-right">
-    <div class="sync"><div id="sync">正在连接 B 站…</div><a class="phone" id="phoneLink" href="#"></a></div>
-    <div class="head-actions"><button id="shareBtn">分享</button><button id="contributeBtn">补路线点</button></div>
+    <div class="sync"><div id="sync">???? B ??</div><a class="phone" id="phoneLink" href="#"></a></div>
+    <div class="head-actions"><button id="shareBtn">??</button><button id="contributeBtn">????</button></div>
   </div>
 </header>
 <main>
   <section class="map-wrap">
     <div id="map"></div>
     <div class="hero">
-      <div class="label">最新公开视频落脚点</div>
-      <h2 id="latestPlace">载入中…</h2>
+      <div class="label">?????????</div>
+      <h2 id="latestPlace">????</h2>
       <p id="latestText"></p>
       <div class="stats">
-        <div class="stat"><b id="episodeCount">—</b><span>合集期数</span></div>
-        <div class="stat"><b id="cumulative">—</b><span>标题披露累计</span></div>
-        <div class="stat"><b id="knownDistance">—</b><span>已披露日里程</span></div>
-        <div class="stat"><b class="compact" id="reportedBudget">—</b><span>已披露花费</span></div>
+        <div class="stat"><b id="episodeCount">?</b><span>????</span></div>
+        <div class="stat"><b id="cumulative">?</b><span>??????</span></div>
+        <div class="stat"><b id="knownDistance">?</b><span>??????</span></div>
+        <div class="stat"><b class="compact" id="reportedBudget">?</b><span>?????</span></div>
       </div>
     </div>
   </section>
   <aside>
     <div class="controls">
       <div class="tabs">
-        <button class="active" data-filter="all">全部</button>
-        <button data-filter="ride">骑行日</button>
-        <button data-filter="food">吃了什么</button>
-        <button data-filter="highlights">关键时间点 <span id="highlightCount"></span></button>
+        <button class="active" data-filter="all">??</button>
+        <button data-filter="ride">???</button>
+        <button data-filter="food">????</button>
+        <button data-filter="highlights">????? <span id="highlightCount"></span></button>
       </div>
-      <div class="note">地点来自公开视频标题与相邻行程。橙色=标题确认，绿色=路线推断，灰色=休息/支线；不是 GPS 实时定位。道路拟合用于视觉参考，不代表实际骑行 GPS。<br><span id="roadStatus">正在加载公路拟合…</span> · <a href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">项目发起与王师傅回复 ↗</a></div>
+      <div class="note">??????????????????=???????=???????=??/????? GPS ??????????????????????? GPS?<br><span id="roadStatus">?????????</span> ? <a href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">?????????? ?</a></div>
       <div class="analytics">
-        <div class="chart-title">每日公开里程 <span>点柱子或日期可跳转</span></div>
-        <canvas class="chart" id="dailyChart" width="390" height="92" aria-label="每日公开骑行里程，可点击跳转对应日期"></canvas>
-        <div class="mileage-summary"><span id="dailyMileageSummary">正在统计…</span><span>灰色＝待补</span></div>
+        <div class="chart-title">?????? <span>?????????</span></div>
+        <canvas class="chart" id="dailyChart" width="390" height="92" aria-label="??????????????????"></canvas>
+        <div class="mileage-summary"><span id="dailyMileageSummary">?????</span><span>?????</span></div>
         <div class="mileage-links" id="dailyMileageLinks"></div>
-        <div class="chart-title">越南到新加坡目标进度 <span>总目标 4386 km</span></div>
+        <div class="chart-title">?????????? <span>??? 4386 km</span></div>
         <canvas class="chart" id="cumulativeChart" width="390" height="92"></canvas>
-        <div class="route-goal"><div class="goal-line"><span id="routeGoalText">正在计算…</span><b id="routeGoalPercent">—</b></div><div class="goal-track"><div class="goal-fill" id="routeGoalFill"></div></div></div>
+        <div class="route-goal"><div class="goal-line"><span id="routeGoalText">?????</span><b id="routeGoalPercent">?</b></div><div class="goal-track"><div class="goal-fill" id="routeGoalFill"></div></div></div>
       </div>
     </div>
     <section class="community">
-      <div class="community-head"><b>近期关键时间点</b><span>点击直达视频</span></div>
-      <div class="suggestions" id="keyMoments"><div class="community-empty">正在整理关键时间点…</div></div>
+      <div class="community-head"><b>???????</b><span>??????</span></div>
+      <div class="suggestions" id="keyMoments"><div class="community-empty">??????????</div></div>
     </section>
-    <div class="timeline" id="timeline"><div class="empty">正在整理每天的日记…</div></div>
+    <div class="timeline" id="timeline"><div class="empty">??????????</div></div>
   </aside>
 </main>
 <dialog id="contributeDialog">
-  <div class="modal-head"><h3>补充 / 纠正路线点</h3><button class="close" id="closeDialog" aria-label="关闭">×</button></div>
+  <div class="modal-head"><h3>?? / ?????</h3><button class="close" id="closeDialog" aria-label="??">?</button></div>
   <div class="form">
-    <div class="form-note"><b>只填你知道的一项就可以。</b>填写后点“提交建议”，GitHub 会自动带上这些内容；登录后再点一次 <i>Submit new issue</i> 即完成公开提交。</div>
+    <div class="form-note"><b>????????????</b>???????????GitHub ????????????????? <i>Submit new issue</i> ????????</div>
     <div class="grid">
-      <div class="field wide"><label for="contribEpisode">对应视频</label><select id="contribEpisode"></select></div>
-      <div class="field"><label for="contribCategory">内容类型</label><select id="contribCategory"><option>关键内容 / 事件</option><option>美食</option><option>住宿</option><option>预算 / 花费</option><option>骑行 / 全天耗时</option><option>地点 / 路线</option><option>当天里程</option><option>纠正现有信息</option><option>其他</option></select></div>
-      <div class="field"><label for="contribTimepoint">视频时间点（可选）</label><input id="contribTimepoint" placeholder="例如：12:35"></div>
-      <div class="field wide"><label for="contribNote">你发现了什么？</label><textarea id="contribNote" placeholder="例如：视频里说今天骑了40公里；或者这里的城市标错了。"></textarea></div>
-      <div class="field"><label for="contribPlace">地点 / 路段（可选）</label><input id="contribPlace" placeholder="例如：归仁 → 虬江"></div>
-      <div class="field"><label for="contribDistance">当天里程（可选）</label><input id="contribDistance" type="number" min="0" step="0.1"></div>
-      <div class="field wide"><label for="contribFood">吃了什么（可选）</label><input id="contribFood"></div>
+      <div class="field wide"><label for="contribEpisode">????</label><select id="contribEpisode"></select></div>
+      <div class="field"><label for="contribCategory">????</label><select id="contribCategory"><option>???? / ??</option><option>??</option><option>??</option><option>?? / ??</option><option>?? / ????</option><option>?? / ??</option><option>????</option><option>??????</option><option>??</option></select></div>
+      <div class="field"><label for="contribTimepoint">?????????</label><input id="contribTimepoint" placeholder="???12:35"></div>
+      <div class="field wide"><label for="contribNote">???????</label><textarea id="contribNote" placeholder="???????????40??????????????"></textarea></div>
+      <div class="field"><label for="contribPlace">?? / ??????</label><input id="contribPlace" placeholder="????? ? ??"></div>
+      <div class="field"><label for="contribDistance">????????</label><input id="contribDistance" type="number" min="0" step="0.1"></div>
+      <div class="field wide"><label for="contribFood">????????</label><input id="contribFood"></div>
       <div class="conditional-fields" id="lodgingFields">
-        <div class="conditional-title">🏨 住宿信息（知道多少填多少）</div>
+        <div class="conditional-title">?? ?????????????</div>
         <div class="grid">
-          <div class="field"><label for="contribHotelName">酒店 / 民宿名称</label><input id="contribHotelName" placeholder="例如：Tra Linh Hotel"></div>
-          <div class="field"><label for="contribHotelArea">所在区域</label><input id="contribHotelArea" placeholder="城市、区县或附近地标"></div>
-          <div class="field"><label for="contribHotelPrice">价格</label><input id="contribHotelPrice" type="number" min="0" step="1" placeholder="例如：700"></div>
-          <div class="field"><label for="contribHotelCurrency">币种</label><select id="contribHotelCurrency"><option value="CNY">人民币 CNY</option><option value="VND">越南盾 VND</option><option value="">不清楚</option></select></div>
-          <div class="field"><label for="contribHotelBooking">预订方式</label><input id="contribHotelBooking" placeholder="现场、Booking、Agoda…"></div>
-          <div class="field"><label for="contribBikeStorage">能否存自行车</label><select id="contribBikeStorage"><option>待核验</option><option>可以</option><option>不可以</option></select></div>
-          <div class="field"><label for="contribHotelRecommendation">推荐结论</label><select id="contribHotelRecommendation"><option>视频入住</option><option>同区域替代</option><option>不推荐</option><option>待核验</option></select></div>
-          <div class="field"><label for="contribHotelPros">优点</label><input id="contribHotelPros" placeholder="位置、景观、卫生、价格…"></div>
-          <div class="field wide"><label for="contribHotelCons">缺点 / 避坑</label><input id="contribHotelCons" placeholder="虫害、噪音、安全、不能存车…"></div>
+          <div class="field"><label for="contribHotelName">?? / ????</label><input id="contribHotelName" placeholder="???Tra Linh Hotel"></div>
+          <div class="field"><label for="contribHotelArea">????</label><input id="contribHotelArea" placeholder="??????????"></div>
+          <div class="field"><label for="contribHotelPrice">??</label><input id="contribHotelPrice" type="number" min="0" step="1" placeholder="???700"></div>
+          <div class="field"><label for="contribHotelCurrency">??</label><select id="contribHotelCurrency"><option value="CNY">??? CNY</option><option value="VND">??? VND</option><option value="">???</option></select></div>
+          <div class="field"><label for="contribHotelBooking">????</label><input id="contribHotelBooking" placeholder="???Booking?Agoda?"></div>
+          <div class="field"><label for="contribBikeStorage">??????</label><select id="contribBikeStorage"><option>???</option><option>??</option><option>???</option></select></div>
+          <div class="field"><label for="contribHotelRecommendation">????</label><select id="contribHotelRecommendation"><option>????</option><option>?????</option><option>???</option><option>???</option></select></div>
+          <div class="field"><label for="contribHotelPros">??</label><input id="contribHotelPros" placeholder="????????????"></div>
+          <div class="field wide"><label for="contribHotelCons">?? / ??</label><input id="contribHotelCons" placeholder="??????????????"></div>
         </div>
       </div>
-      <details class="field wide"><summary>更多信息：坐标和视频时间点（都可不填）</summary>
+      <details class="field wide"><summary>???????????????????</summary>
         <div class="grid" style="margin-top:10px">
-          <div class="field"><label for="contribLat">纬度</label><input id="contribLat" type="number" step="0.0001"></div>
-          <div class="field"><label for="contribLng">经度</label><input id="contribLng" type="number" step="0.0001"></div>
-          <div class="field wide"><label for="contribSource">视频链接 / 时间点</label><input id="contribSource" placeholder="例如：视频 12:35"></div>
+          <div class="field"><label for="contribLat">??</label><input id="contribLat" type="number" step="0.0001"></div>
+          <div class="field"><label for="contribLng">??</label><input id="contribLng" type="number" step="0.0001"></div>
+          <div class="field wide"><label for="contribSource">???? / ???</label><input id="contribSource" placeholder="????? 12:35"></div>
         </div>
       </details>
     </div>
-    <a class="origin" href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">由 B 站用户“我是马哥老乡”发起，项目在王师傅 6 月 30 日视频评论区获得回应 ↗</a>
-    <div class="submit-help">提交后会公开显示，其他观众可以 👍 投票；3 赞进入优先核验。</div>
-    <div class="modal-actions"><button class="secondary" id="downloadContribution">下载 JSON</button><button class="secondary" id="copyContribution">复制内容</button><a class="primary" id="submitContribution" href="https://github.com/tlxiansen/wangshifu-cycling-map/issues/new" target="_blank">提交建议 ↗</a></div>
+    <a class="origin" href="https://www.bilibili.com/video/BV1PiKd6mEyj/" target="_blank">? B ???????????????????? 6 ? 30 ?????????? ?</a>
+    <div class="submit-help">??????????????? ?? ???3 ????????</div>
+    <div class="modal-actions"><button class="secondary" id="downloadContribution">?? JSON</button><button class="secondary" id="copyContribution">????</button><a class="primary" id="submitContribution" href="https://github.com/tlxiansen/wangshifu-cycling-map/issues/new" target="_blank">???? ?</a></div>
   </div>
 </dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -131,40 +131,42 @@ const fmtDuration=s=>s?`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`:"";
 function bootMap(){
   map=L.map("map",{zoomControl:false}).setView([17.5,106.8],6);
   L.control.zoom({position:"bottomright"}).addTo(map);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(map);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"? OpenStreetMap"}).addTo(map);
   const cities=[
-    ["河内",21.0285,105.8542,5,true],["海防",20.8449,106.6881,6,false],["下龙",20.951,107.08,7,false],
-    ["宁平",20.25,105.974,7,false],["清化",19.807,105.776,7,false],["荣市",18.6796,105.6813,6,false],
-    ["河静",18.3559,105.8877,7,false],["洞海",17.4689,106.6223,6,false],["顺化",16.4637,107.5909,6,true],
-    ["岘港",16.0544,108.2022,5,true],["会安",15.8801,108.338,7,false],["广义",15.12,108.80,6,false],
-    ["蓬山",14.43,109.02,8,false],["归仁",13.782,109.219,5,true],["绥和",13.0955,109.3209,7,false],
-    ["芽庄",12.2388,109.1967,5,true],["大叻",11.9404,108.4583,6,false],["潘切",10.9289,108.102,7,false],
-    ["头顿",10.346,107.084,7,false],["胡志明市",10.8231,106.6297,5,true],["芹苴",10.0452,105.7469,6,false]
+    ["??",21.0285,105.8542,5,true],["??",20.8449,106.6881,6,false],["??",20.951,107.08,7,false],
+    ["??",20.25,105.974,7,false],["??",19.807,105.776,7,false],["??",18.6796,105.6813,6,false],
+    ["??",18.3559,105.8877,7,false],["??",17.4689,106.6223,6,false],["??",16.4637,107.5909,6,true],
+    ["??",16.0544,108.2022,5,true],["??",15.8801,108.338,7,false],["??",15.12,108.80,6,false],
+    ["??",14.43,109.02,8,false],["??",13.782,109.219,5,true],["??",13.0955,109.3209,7,false],
+    ["??",12.2388,109.1967,5,true],["??",11.9404,108.4583,6,false],["??",10.9289,108.102,7,false],
+    ["??",10.346,107.084,7,false],["????",10.8231,106.6297,5,true],["??",10.0452,105.7469,6,false]
   ];
   cityLabelMarkers=cities.map(([name,lat,lng,minZoom,major])=>({minZoom,marker:L.marker([lat,lng],{interactive:false,icon:L.divIcon({className:`city-label${major?" major":""}`,html:name,iconSize:[80,20],iconAnchor:[40,10]})})}));
   const updateLabels=()=>cityLabelMarkers.forEach(x=>{if(map.getZoom()>=x.minZoom){if(!map.hasLayer(x.marker))x.marker.addTo(map)}else if(map.hasLayer(x.marker))map.removeLayer(x.marker)});
   map.on("zoomend",updateLabels);updateLabels();
 }
-const isInferred=x=>/推断|沿用|待核对|待核验|pending|auto-added/i.test(x.confidence||"")||(x.riskFlags||[]).length>0;
-const hasFood=x=>x.food&&x.food!=="未明确提到"&&x.food!=="Not identified";
-const splitFoods=x=>x.foods?.length?x.foods:(hasFood(x)?String(x.food).split(/[、，,]/).map(v=>v.trim()).filter(Boolean):[]);
-const normalizeItem=x=>({...x,foods:splitFoods(x),foodDetails:Array.isArray(x.foodDetails)?x.foodDetails:[],lodgings:Array.isArray(x.lodgings)?x.lodgings:[],costs:Array.isArray(x.costs)?x.costs:[],highlights:Array.isArray(x.highlights)?x.highlights:[],evidence:Array.isArray(x.evidence)?x.evidence:[],riskFlags:Array.isArray(x.riskFlags)?x.riskFlags:[]});
+const isInferred=x=>/??|??|???|???|pending|auto-added/i.test(x.confidence||"")||(x.riskFlags||[]).length>0;
+const hasFood=x=>x.food&&x.food!=="?????"&&x.food!=="Not identified";
+const splitFoods=x=>x.foods?.length?x.foods:(hasFood(x)?String(x.food).split(/[??,]/).map(v=>v.trim()).filter(Boolean):[]);
+const normalizeItem=x=>({...x,foods:splitFoods(x),foodDetails:Array.isArray(x.foodDetails)?x.foodDetails:[],lodgings:Array.isArray(x.lodgings)?x.lodgings:[],costs:Array.isArray(x.costs)?x.costs:[],highlights:Array.isArray(x.highlights)?x.highlights:[],evidence:Array.isArray(x.evidence)?x.evidence:[],riskFlags:Array.isArray(x.riskFlags)?x.riskFlags:(x.riskFlags?[x.riskFlags]:[])});
 const riskLabel=value=>({
-  "place-needs-auto-review":"地点需自动复核",
-  "missing-distance":"里程缺失",
-  "coordinates-copied-from-previous-ride":"坐标沿用上一骑行日",
-  "missing-key-timepoints":"关键时间点缺失",
-  "new-video-auto-added":"新视频自动加入",
-  "place-copied-from-previous":"地点沿用上一条"
+  "place-needs-auto-review":"???????",
+  "missing-distance":"????",
+  "coordinates-copied-from-previous-ride":"?????????",
+  "missing-key-timepoints":"???????",
+  "new-video-auto-added":"???????",
+  "place-copied-from-previous":"???????",
+  "coordinate-distance-conflict":"?????????????",
+  "coordinate-corrected-from-next-day":"???????????"
 }[value]||value);
 const reviewReasons=x=>[
-  isInferred(x)?"地点待核验":null,
-  x.ride&&x.distanceKm==null?"里程待补":null,
-  !x.foods.length?"美食待补":null,
-  x.ride&&!x.lodgings.length?"住宿待补":null,
-  !x.costs.length?"预算待补":null,
-  x.ride&&x.rideTimeHours==null?"耗时待核验":null,
-  !x.highlights.length?"时间点待补":null,
+  isInferred(x)?"?????":null,
+  x.ride&&x.distanceKm==null?"????":null,
+  !x.foods.length?"????":null,
+  x.ride&&!x.lodgings.length?"????":null,
+  !x.costs.length?"????":null,
+  x.ride&&x.rideTimeHours==null?"?????":null,
+  !x.highlights.length?"?????":null,
   ...(x.riskFlags||[]).map(riskLabel)
 ].filter(Boolean);
 const needsReview=x=>reviewReasons(x).length>0;
@@ -192,33 +194,33 @@ async function runRoadQueue(jobs,limit=2){
 }
 function draw(items){
   layers.forEach(x=>map.removeLayer(x));roadLayers.forEach(x=>map.removeLayer(x));layers=[];roadLayers=[];markerByBvid={};activeSegment=null;
-  const route=items.filter(x=>x.ride&&x.lat&&x.lng);
+  const route=items.filter(x=>x.ride&&x.mapVisible!==false&&x.lat&&x.lng);
   const phases=[...new Set(route.map(x=>x.phase))];
   let roadSuccess=0,roadTotal=0,roadJobs=[];
   for(const phase of phases){
     const phaseItems=route.filter(x=>x.phase===phase);
     const pts=phaseItems.map(x=>[x.lat,x.lng]);
     if(pts.length<2)continue;
-    const fallback=L.polyline(pts,{color:phase==="第一段"?"#16806c":"#ee642f",weight:3,opacity:.55,dashArray:"7 7"}).addTo(map);layers.push(fallback);
+    const fallback=L.polyline(pts,{color:phase==="???"?"#16806c":"#ee642f",weight:3,opacity:.55,dashArray:"7 7"}).addTo(map);layers.push(fallback);
     for(let i=0;i<phaseItems.length-1;i+=8){
       const batch=phaseItems.slice(i,Math.min(i+9,phaseItems.length));
       roadTotal++;
       roadJobs.push(async()=>{
         try{
           const geometry=await roadGeometry(batch);
-          const road=L.polyline(geometry,{color:phase==="第一段"?"#16806c":"#ee642f",weight:5,opacity:.78}).addTo(map);
+          const road=L.polyline(geometry,{color:phase==="???"?"#16806c":"#ee642f",weight:5,opacity:.78}).addTo(map);
           roadLayers.push(road);roadSuccess++;
-          document.getElementById("roadStatus").textContent=`正在拟合公路 ${roadSuccess}/${roadTotal}`;
+          document.getElementById("roadStatus").textContent=`?????? ${roadSuccess}/${roadTotal}`;
         }catch(e){}
       });
     }
   }
-  document.getElementById("roadStatus").textContent=roadTotal?`正在拟合公路 0/${roadTotal}`:"暂无连续骑行路线";
-  runRoadQueue(roadJobs).then(()=>{document.getElementById("roadStatus").textContent=roadSuccess?`已拟合 ${roadSuccess}/${roadTotal} 段公路（驾车道路模型）`:"公路服务暂不可用，显示推断连线"});
+  document.getElementById("roadStatus").textContent=roadTotal?`?????? 0/${roadTotal}`:"????????";
+  runRoadQueue(roadJobs).then(()=>{document.getElementById("roadStatus").textContent=roadSuccess?`??? ${roadSuccess}/${roadTotal} ???????????`:"???????????????"});
   items.forEach((x,i)=>{
-    if(!x.lat||!x.lng)return;
+    if(x.mapVisible===false||!x.lat||!x.lng)return;
     const m=L.circleMarker([x.lat,x.lng],{radius:i===items.length-1?10:6,color:"#fff",weight:2,fillColor:markerColor(x),fillOpacity:.95}).addTo(map);
-    m.bindPopup(`<b>${esc(x.date)} · ${esc(x.place)}</b><br>${esc(x.summary)}<br><b>里程：</b>${x.distanceKm===null?"未披露":x.distanceKm+" km"}<br><b>吃：</b>${esc(x.food)}<br><a target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">打开视频</a>`);
+    m.bindPopup(`<b>${esc(x.date)} ? ${esc(x.place)}</b><br>${esc(x.summary)}<br><b>???</b>${x.distanceKm===null?"???":x.distanceKm+" km"}<br><b>??</b>${esc(x.food)}<br><a target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">????</a>`);
     m.on("click",()=>{
       focusItem(x.bvid);
       const el=document.querySelector(`[data-bvid="${x.bvid}"]`);
@@ -276,64 +278,64 @@ function render(filter="all"){
   const filtered=allItems.filter(x=>filter==="all"||(filter==="ride"&&x.ride)||(filter==="food"&&(x.foods.length||x.foodDetails.length))||(filter==="highlights"&&x.highlights.length));
   document.getElementById("timeline").innerHTML=filtered.slice().reverse().map(x=>{
     const cls=!x.ride?"rest":(isInferred(x)?"infer":"");
-    const km=x.distanceKm===null?"里程未披露":x.distanceKm===0?"休息/支线":`${x.distanceKm} km`;
+    const km=x.distanceKm===null?"?????":x.distanceKm===0?"??/??":`${x.distanceKm} km`;
     const foods=renderFoods(x);
     const lodgings=renderLodgings(x);
     const budget=costSummary(x);
     const rideTime=rideTimeSummary(x);
-    const highlights=x.highlights.length?`<ul>${x.highlights.map(v=>`<li><span class="time">${esc(v.time||"时间待补")}</span>${esc(v.text||v.label||"")}</li>`).join("")}</ul>`:'<span class="missing">暂无关键时间点</span>';
+    const highlights=x.highlights.length?`<ul>${x.highlights.map(v=>`<li><span class="time">${esc(v.time||"????")}</span>${esc(v.text||v.label||"")}</li>`).join("")}</ul>`:'<span class="missing">???????</span>';
     const reasons=reviewReasons(x);
-    const evidence=x.evidence.length?`<div class="evidence">核验依据：${x.evidence.map((v,i)=>`<a href="${esc(v.url)}" target="_blank">${esc(v.type==="comment"?`评论${v.likes!=null?` 👍${v.likes}`:""}`:`视频${i+1}`)}</a>`).join("")}</div>`:"";
-    const confidence=x.confidenceScore!=null?`${esc(x.confidence)} · AI置信度 ${Math.round(Number(x.confidenceScore)*100)}%`:esc(x.confidence);
+    const evidence=x.evidence.length?`<div class="evidence">?????${x.evidence.map((v,i)=>`<a href="${esc(v.url)}" target="_blank">${esc(v.type==="comment"?`??${v.likes!=null?` ??${v.likes}`:""}`:`??${i+1}`)}</a>`).join("")}</div>`:"";
+    const confidence=x.confidenceScore!=null?`${esc(x.confidence)} ? AI??? ${Math.round(Number(x.confidenceScore)*100)}%`:esc(x.confidence);
     return `<article class="day ${cls}" data-bvid="${esc(x.bvid)}">
-      <div class="topline"><span class="date">${esc(x.date)} · ${fmtDuration(x.duration)}</span><span class="km">${km}</span></div>
+      <div class="topline"><span class="date">${esc(x.date)} ? ${fmtDuration(x.duration)}</span><span class="km">${km}</span></div>
       <div class="place">${esc(x.place)}</div><div class="summary">${esc(x.summary)}</div>
-      <div class="plan-strip"><div class="plan-pill"><b>预算</b>${budget}</div><div class="plan-pill"><b>时间</b>${rideTime}</div></div>
-      <div class="detail-grid"><div class="detail-box"><b>🍜 美食</b>${foods}</div><div class="detail-box"><b>🏨 住宿</b>${lodgings}</div><div class="detail-box full"><b>⏱ 关键时间点</b>${highlights}</div></div>
+      <div class="plan-strip"><div class="plan-pill"><b>??</b>${budget}</div><div class="plan-pill"><b>??</b>${rideTime}</div></div>
+      <div class="detail-grid"><div class="detail-box"><b>?? ??</b>${foods}</div><div class="detail-box"><b>?? ??</b>${lodgings}</div><div class="detail-box full"><b>? ?????</b>${highlights}</div></div>
       ${evidence}
       ${reasons.length?`<div class="review-reasons">${reasons.map(v=>`<span>${v}</span>`).join("")}</div>`:""}
-      <div class="meta"><span class="tag">${confidence}</span><a class="video" target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">看本期 ↗</a></div>
-    </article>`}).join("")||'<div class="empty">这个分类暂时没有内容</div>';
+      <div class="meta"><span class="tag">${confidence}</span><a class="video" target="_blank" href="https://www.bilibili.com/video/${esc(x.bvid)}/">??? ?</a></div>
+    </article>`}).join("")||'<div class="empty">??????????</div>';
   document.querySelectorAll(".day").forEach(card=>card.addEventListener("click",e=>{
     if(e.target.closest("a"))return;
     focusItem(card.dataset.bvid);
   }));
 }
 function money(amount,currency){
-  if(amount==null)return "价格待补";
-  if(Number(amount)===0)return "免费";
-  if(currency==="CNY")return `约 ¥${Number(amount).toLocaleString("zh-CN")}`;
-  if(currency==="VND")return `约 ₫${Number(amount)>=1000?Math.round(Number(amount)/1000)+"k":Number(amount).toLocaleString("zh-CN")}`;
+  if(amount==null)return "????";
+  if(Number(amount)===0)return "??";
+  if(currency==="CNY")return `? ?${Number(amount).toLocaleString("zh-CN")}`;
+  if(currency==="VND")return `? ?${Number(amount)>=1000?Math.round(Number(amount)/1000)+"k":Number(amount).toLocaleString("zh-CN")}`;
   return `${Number(amount).toLocaleString("zh-CN")} ${currency||""}`.trim();
 }
 function renderFoods(x){
-  if(x.foodDetails.length)return x.foodDetails.map(v=>`<div class="entry"><strong>${esc(v.name)}</strong><div class="entry-meta">${esc(v.venue||"店名待核验")}${v.area?` · ${esc(v.area)}`:""}</div><div>${money(v.price,v.currency)}${v.meal?` · ${esc(v.meal)}`:""}${v.priceNote?` · ${esc(v.priceNote)}`:""}</div>${v.recommendation?`<div class="entry-note">${esc(v.recommendation)}</div>`:""}<span class="entry-status">${esc(v.status||"待核验")}</span>${v.source?` · <a href="${esc(v.source)}" target="_blank">查看依据 ↗</a>`:""}</div>`).join("");
-  if(x.foods.length)return x.foods.map(v=>`<div class="entry"><strong>🍜 ${esc(v)}</strong><div class="entry-meta">店名、地址、价格和推荐菜待补</div><span class="entry-status">仅确认品类</span></div>`).join("");
-  return '<span class="missing">暂无，欢迎补充店名、价格和推荐菜</span>';
+  if(x.foodDetails.length)return x.foodDetails.map(v=>`<div class="entry"><strong>${esc(v.name)}</strong><div class="entry-meta">${esc(v.venue||"?????")}${v.area?` ? ${esc(v.area)}`:""}</div><div>${money(v.price,v.currency)}${v.meal?` ? ${esc(v.meal)}`:""}${v.priceNote?` ? ${esc(v.priceNote)}`:""}</div>${v.recommendation?`<div class="entry-note">${esc(v.recommendation)}</div>`:""}<span class="entry-status">${esc(v.status||"???")}</span>${v.source?` ? <a href="${esc(v.source)}" target="_blank">???? ?</a>`:""}</div>`).join("");
+  if(x.foods.length)return x.foods.map(v=>`<div class="entry"><strong>?? ${esc(v)}</strong><div class="entry-meta">??????????????</div><span class="entry-status">?????</span></div>`).join("");
+  return '<span class="missing">????????????????</span>';
 }
 function renderLodgings(x){
-  if(!x.lodgings.length)return '<span class="missing">住宿名称、区域和价格待补</span>';
-  return x.lodgings.map(v=>`<div class="entry"><strong>${esc(v.name||"名称待核验")}</strong><div class="entry-meta">${esc(v.area||"区域待核验")} · ${money(v.price,v.currency)}</div>${v.booking?`<div>预订：${esc(v.booking)}</div>`:""}${v.bikeStorage?`<div>存车：${esc(v.bikeStorage)}</div>`:""}${v.pros?`<div class="entry-note">优点：${esc(v.pros)}</div>`:""}${v.cons?`<div>注意：${esc(v.cons)}</div>`:""}<span class="entry-status ${v.recommendation==="不推荐"?"bad":""}">${esc(v.recommendation||v.status||"待核验")}</span>${v.source?` · <a href="${esc(v.source)}" target="_blank">查看依据 ↗</a>`:""}</div>`).join("");
+  if(!x.lodgings.length)return '<span class="missing">????????????</span>';
+  return x.lodgings.map(v=>`<div class="entry"><strong>${esc(v.name||"?????")}</strong><div class="entry-meta">${esc(v.area||"?????")} ? ${money(v.price,v.currency)}</div>${v.booking?`<div>???${esc(v.booking)}</div>`:""}${v.bikeStorage?`<div>???${esc(v.bikeStorage)}</div>`:""}${v.pros?`<div class="entry-note">???${esc(v.pros)}</div>`:""}${v.cons?`<div>???${esc(v.cons)}</div>`:""}<span class="entry-status ${v.recommendation==="???"?"bad":""}">${esc(v.recommendation||v.status||"???")}</span>${v.source?` ? <a href="${esc(v.source)}" target="_blank">???? ?</a>`:""}</div>`).join("");
 }
 function costSummary(x){
-  if(!x.costs.length)return "当天花费待补";
+  if(!x.costs.length)return "??????";
   const sums={};x.costs.forEach(v=>{if(v.amount!=null)sums[v.currency||""]=(sums[v.currency||""]||0)+Number(v.amount)});
-  const total=Object.entries(sums).map(([currency,amount])=>money(amount,currency)).join(" ＋ ");
-  return `${total||"金额待补"}（仅已披露项目）`;
+  const total=Object.entries(sums).map(([currency,amount])=>money(amount,currency)).join(" ? ");
+  return `${total||"????"}????????`;
 }
 function rideTimeSummary(x){
-  if(!x.ride)return "非骑行日；全天耗时待补";
-  if(x.rideTimeHours!=null)return `骑行 ${x.rideTimeHours} 小时（视频确认）${x.dayTimeHours!=null?`｜全天 ${x.dayTimeHours} 小时`:"｜全天耗时待补"}`;
+  if(!x.ride)return "???????????";
+  if(x.rideTimeHours!=null)return `?? ${x.rideTimeHours} ????????${x.dayTimeHours!=null?`??? ${x.dayTimeHours} ??`:"???????"}`;
   if(x.distanceKm!=null&&x.distanceKm>0){
     const low=Math.max(.5,x.distanceKm/16),high=x.distanceKm/12;
-    return `骑行约 ${low.toFixed(1)}–${high.toFixed(1)} 小时（按12–16 km/h估算，不含休息）`;
+    return `??? ${low.toFixed(1)}?${high.toFixed(1)} ????12?16 km/h????????`;
   }
-  return "骑行及全天耗时待补";
+  return "?????????";
 }
 function totalBudgetSummary(items){
   const sums={};items.flatMap(x=>x.costs||[]).forEach(v=>{if(v.amount!=null)sums[v.currency||""]=(sums[v.currency||""]||0)+Number(v.amount)});
-  const values=Object.entries(sums).filter(([,v])=>v>0).map(([currency,amount])=>money(amount,currency).replace("约 ",""));
-  return values.length?values.join(" / "):"待补";
+  const values=Object.entries(sums).filter(([,v])=>v>0).map(([currency,amount])=>money(amount,currency).replace("? ",""));
+  return values.length?values.join(" / "):"??";
 }
 function chartBase(canvas){
   const ctx=canvas.getContext("2d"),w=canvas.width,h=canvas.height;
@@ -357,8 +359,8 @@ function drawDailyChart(){
   });
   c.ctx.textAlign="left";c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.fillText(`${max} km`,2,11);c.ctx.fillText(items[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(items.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
   const known=items.filter(x=>x.distanceKm!=null&&x.distanceKm>0),missing=items.filter(x=>x.distanceKm==null);
-  document.getElementById("dailyMileageSummary").textContent=`已披露 ${known.length} / ${items.length} 个骑行日`;
-  document.getElementById("dailyMileageLinks").innerHTML=known.map(x=>`<button type="button" data-mileage-bvid="${esc(x.bvid)}">${esc(x.date.slice(5))} <b>${x.distanceKm} km</b></button>`).join("")+`<span class="missing-chip">${missing.length} 天待补</span>`;
+  document.getElementById("dailyMileageSummary").textContent=`??? ${known.length} / ${items.length} ????`;
+  document.getElementById("dailyMileageLinks").innerHTML=known.map(x=>`<button type="button" data-mileage-bvid="${esc(x.bvid)}">${esc(x.date.slice(5))} <b>${x.distanceKm} km</b></button>`).join("")+`<span class="missing-chip">${missing.length} ???</span>`;
   document.querySelectorAll("[data-mileage-bvid]").forEach(button=>button.addEventListener("click",()=>jumpToItem(button.dataset.mileageBvid)));
   canvas.onclick=e=>{
     const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)*canvas.width/rect.width,hit=dailyChartHits.find(v=>x>=v.x0&&x<=v.x1);
@@ -390,9 +392,9 @@ function drawCumulativeChart(){
   const lastValue=vals.at(-1),lastX=c.left+(vals.length-1)*space,lastY=c.h-c.bottom-(c.h-c.top-c.bottom)*(lastValue/max);
   c.ctx.fillStyle="#16806c";c.ctx.beginPath();c.ctx.arc(lastX,lastY,3,0,Math.PI*2);c.ctx.fill();
   c.ctx.fillStyle="#718078";c.ctx.font="9px sans-serif";c.ctx.textAlign="left";c.ctx.fillText(`${routeTargetKm} km`,2,11);c.ctx.fillText(series.rides[0]?.date.slice(5)||"",c.left,c.h-5);c.ctx.fillText(series.rides.at(-1)?.date.slice(5)||"",c.w-35,c.h-5);
-  c.ctx.fillStyle="#16806c";c.ctx.textAlign="right";c.ctx.fillText(`估 ${Math.round(lastValue)} km`,c.w-c.right,lastY-4);
-  const disclosed=[...allItems].reverse().find(x=>x.cumulativeKm!=null)?.cumulativeKm||0,percent=Math.min(100,disclosed/routeTargetKm*100);
-  document.getElementById("routeGoalText").textContent=`已披露累计 ${disclosed} / ${routeTargetKm} km`;
+  c.ctx.fillStyle="#16806c";c.ctx.textAlign="right";c.ctx.fillText(`? ${Math.round(lastValue)} km`,c.w-c.right,lastY-4);
+  const disclosed=Math.round(lastValue||0),percent=Math.min(100,disclosed/routeTargetKm*100);
+  document.getElementById("routeGoalText").textContent=`???????? ${disclosed} / ${routeTargetKm} km`;
   document.getElementById("routeGoalPercent").textContent=`${percent.toFixed(1)}%`;
   document.getElementById("routeGoalFill").style.width=`${percent}%`;
 }
@@ -408,8 +410,8 @@ function loadHighlights(){
   box.innerHTML=moments.slice(0,8).map(v=>{
     const seconds=timeToSeconds(v.time);
     const url=`https://www.bilibili.com/video/${esc(v.item.bvid)}/${seconds?`?t=${seconds}`:""}`;
-    return `<a class="suggestion" href="${url}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(v.item.date)} · ${esc(v.text||v.label||"关键内容")}</span><span class="likes">${esc(v.time||"时间待补")}</span></div><div class="suggestion-meta">${esc(v.item.place)} · ${esc(v.status||"视频内容")}</div></a>`;
-  }).join("")||'<div class="community-empty">当前还没有关键时间点。</div>';
+    return `<a class="suggestion" href="${url}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(v.item.date)} ? ${esc(v.text||v.label||"????")}</span><span class="likes">${esc(v.time||"????")}</span></div><div class="suggestion-meta">${esc(v.item.place)} ? ${esc(v.status||"????")}</div></a>`;
+  }).join("")||'<div class="community-empty">???????????</div>';
 }
 async function getData(){
   try{
@@ -419,35 +421,35 @@ async function getData(){
   }catch(e){
     const r=await fetch("./wangshifu-data.json",{cache:"no-store"});
     if(!r.ok)throw e;
-    return {status:"公开静态版 · 数据快照",items:await r.json()};
+    return {status:"????? ? ????",items:await r.json()};
   }
 }
 async function load(){
   try{
     const data=await getData();allItems=data.items.map(normalizeItem);
     const latest=allItems[allItems.length-1],known=allItems.reduce((n,x)=>n+(x.distanceKm||0),0);
-    const cumulative=[...allItems].reverse().find(x=>x.cumulativeKm)?.cumulativeKm;
+    const cumulative=Math.round(cumulativeSeries().values.at(-1)||0);
     document.getElementById("sync").textContent=data.status;
     if(data.phoneUrl){
       const phone=document.getElementById("phoneLink");
-      phone.textContent=`手机访问：${data.phoneUrl}`;
+      phone.textContent=`?????${data.phoneUrl}`;
       phone.href=data.phoneUrl;
       phone.style.display="inline-block";
     }
     document.getElementById("latestPlace").textContent=latest.place;
-    document.getElementById("latestText").textContent=`${latest.date}：${latest.summary}（${latest.confidence}）`;
+    document.getElementById("latestText").textContent=`${latest.date}?${latest.summary}?${latest.confidence}?`;
     document.getElementById("episodeCount").textContent=allItems.length;
-    document.getElementById("cumulative").textContent=cumulative?`${cumulative} km`:"未披露";
+    document.getElementById("cumulative").textContent=cumulative?`${cumulative} km`:"???";
     document.getElementById("knownDistance").textContent=`${known} km`;
     document.getElementById("reportedBudget").textContent=totalBudgetSummary(allItems);
     document.getElementById("highlightCount").textContent=allItems.filter(x=>x.highlights.length).length;
     render();draw(allItems);drawCharts();loadHighlights();populateContributions();
-  }catch(e){document.getElementById("sync").textContent="数据载入失败";document.getElementById("timeline").innerHTML='<div class="empty">请确认启动窗口仍在运行，然后刷新页面。</div>'}
+  }catch(e){document.getElementById("sync").textContent="??????";document.getElementById("timeline").innerHTML='<div class="empty">???????????????????</div>'}
 }
 const dialog=document.getElementById("contributeDialog");
 function populateContributions(){
   const select=document.getElementById("contribEpisode");
-  select.innerHTML=allItems.slice().reverse().map(x=>`<option value="${esc(x.bvid)}">${esc(x.date)} · ${esc(x.place)}</option>`).join("");
+  select.innerHTML=allItems.slice().reverse().map(x=>`<option value="${esc(x.bvid)}">${esc(x.date)} ? ${esc(x.place)}</option>`).join("");
   select.value=selectedBvid||allItems[allItems.length-1]?.bvid||"";
   fillContribution(select.value);
 }
@@ -455,17 +457,17 @@ function fillContribution(bvid){
   const x=allItems.find(v=>v.bvid===bvid);if(!x)return;
   document.getElementById("contribNote").value="";
   document.getElementById("contribTimepoint").value="";
-  const place=document.getElementById("contribPlace");place.value="";place.placeholder=x.place?`当前：${x.place}`:"例如：归仁 → 虬江";
-  const distance=document.getElementById("contribDistance");distance.value="";distance.placeholder=x.distanceKm!=null?`当前：${x.distanceKm}`:"";
+  const place=document.getElementById("contribPlace");place.value="";place.placeholder=x.place?`???${x.place}`:"????? ? ??";
+  const distance=document.getElementById("contribDistance");distance.value="";distance.placeholder=x.distanceKm!=null?`???${x.distanceKm}`:"";
   document.getElementById("contribLat").value="";
   document.getElementById("contribLng").value="";
-  const food=document.getElementById("contribFood");food.value="";food.placeholder=hasFood(x)?`当前：${x.food}`:"";
+  const food=document.getElementById("contribFood");food.value="";food.placeholder=hasFood(x)?`???${x.food}`:"";
   document.getElementById("contribSource").value=`https://www.bilibili.com/video/${x.bvid}/`;
   ["contribHotelName","contribHotelPrice","contribHotelBooking","contribHotelPros","contribHotelCons"].forEach(id=>document.getElementById(id).value="");
-  const hotelArea=document.getElementById("contribHotelArea");hotelArea.value="";hotelArea.placeholder=x.place?`当前地点：${x.place}`:"城市、区县或附近地标";
+  const hotelArea=document.getElementById("contribHotelArea");hotelArea.value="";hotelArea.placeholder=x.place?`?????${x.place}`:"??????????";
   document.getElementById("contribHotelCurrency").value="CNY";
-  document.getElementById("contribBikeStorage").value="待核验";
-  document.getElementById("contribHotelRecommendation").value="视频入住";
+  document.getElementById("contribBikeStorage").value="???";
+  document.getElementById("contribHotelRecommendation").value="????";
   updateSubmitLink();
 }
 const optionalNumber=id=>{const value=document.getElementById(id).value.trim();return value===""?null:Number(value)};
@@ -473,58 +475,58 @@ const fieldValue=id=>document.getElementById(id).value.trim()||null;
 function contributionData(){
   const bvid=document.getElementById("contribEpisode").value,x=allItems.find(v=>v.bvid===bvid);
   const category=document.getElementById("contribCategory").value;
-  const lodging=category==="住宿"?{name:fieldValue("contribHotelName"),area:fieldValue("contribHotelArea"),price:optionalNumber("contribHotelPrice"),currency:fieldValue("contribHotelCurrency"),booking:fieldValue("contribHotelBooking"),bikeStorage:fieldValue("contribBikeStorage"),recommendation:fieldValue("contribHotelRecommendation"),pros:fieldValue("contribHotelPros"),cons:fieldValue("contribHotelCons")}:null;
-  return {date:x?.date,bvid,category,timepoint:fieldValue("contribTimepoint"),place:fieldValue("contribPlace"),distanceKm:optionalNumber("contribDistance"),lat:optionalNumber("contribLat"),lng:optionalNumber("contribLng"),food:fieldValue("contribFood"),lodging,source:fieldValue("contribSource"),note:fieldValue("contribNote"),voting:"GitHub Issue 👍; 3 likes = priority review",contributor:"待填写"};
+  const lodging=category==="??"?{name:fieldValue("contribHotelName"),area:fieldValue("contribHotelArea"),price:optionalNumber("contribHotelPrice"),currency:fieldValue("contribHotelCurrency"),booking:fieldValue("contribHotelBooking"),bikeStorage:fieldValue("contribBikeStorage"),recommendation:fieldValue("contribHotelRecommendation"),pros:fieldValue("contribHotelPros"),cons:fieldValue("contribHotelCons")}:null;
+  return {date:x?.date,bvid,category,timepoint:fieldValue("contribTimepoint"),place:fieldValue("contribPlace"),distanceKm:optionalNumber("contribDistance"),lat:optionalNumber("contribLat"),lng:optionalNumber("contribLng"),food:fieldValue("contribFood"),lodging,source:fieldValue("contribSource"),note:fieldValue("contribNote"),voting:"GitHub Issue ??; 3 likes = priority review",contributor:"???"};
 }
 function updateCategoryFields(){
   const category=document.getElementById("contribCategory").value;
-  document.getElementById("lodgingFields").classList.toggle("show",category==="住宿");
+  document.getElementById("lodgingFields").classList.toggle("show",category==="??");
   updateSubmitLink();
 }
 function contributionMarkdown(d){
-  const lines=["## 建议内容",`- 日期：${d.date||"待填写"}`,`- BV号：${d.bvid}`,`- 类型：${d.category}`];
-  if(d.timepoint)lines.push(`- 视频时间点：${d.timepoint}`);
-  if(d.place)lines.push(`- 地点 / 路段：${d.place}`);
-  if(d.distanceKm!=null)lines.push(`- 当天里程：${d.distanceKm} km`);
-  if(d.food)lines.push(`- 美食：${d.food}`);
-  if(d.note)lines.push("","### 发现内容",d.note);
+  const lines=["## ????",`- ???${d.date||"???"}`,`- BV??${d.bvid}`,`- ???${d.category}`];
+  if(d.timepoint)lines.push(`- ??????${d.timepoint}`);
+  if(d.place)lines.push(`- ?? / ???${d.place}`);
+  if(d.distanceKm!=null)lines.push(`- ?????${d.distanceKm} km`);
+  if(d.food)lines.push(`- ???${d.food}`);
+  if(d.note)lines.push("","### ????",d.note);
   if(d.lodging){
-    const h=d.lodging;lines.push("","### 住宿信息");
-    if(h.name)lines.push(`- 名称：${h.name}`);
-    if(h.area)lines.push(`- 区域：${h.area}`);
-    if(h.price!=null)lines.push(`- 价格：${h.price} ${h.currency||""}`.trim());
-    if(h.booking)lines.push(`- 预订：${h.booking}`);
-    if(h.bikeStorage)lines.push(`- 存车：${h.bikeStorage}`);
-    if(h.recommendation)lines.push(`- 推荐结论：${h.recommendation}`);
-    if(h.pros)lines.push(`- 优点：${h.pros}`);
-    if(h.cons)lines.push(`- 缺点 / 避坑：${h.cons}`);
+    const h=d.lodging;lines.push("","### ????");
+    if(h.name)lines.push(`- ???${h.name}`);
+    if(h.area)lines.push(`- ???${h.area}`);
+    if(h.price!=null)lines.push(`- ???${h.price} ${h.currency||""}`.trim());
+    if(h.booking)lines.push(`- ???${h.booking}`);
+    if(h.bikeStorage)lines.push(`- ???${h.bikeStorage}`);
+    if(h.recommendation)lines.push(`- ?????${h.recommendation}`);
+    if(h.pros)lines.push(`- ???${h.pros}`);
+    if(h.cons)lines.push(`- ?? / ???${h.cons}`);
   }
-  lines.push("","### 核验依据",`- ${d.source||`https://www.bilibili.com/video/${d.bvid}/`}`);
-  if(d.lat!=null&&d.lng!=null)lines.push(`- 坐标：${d.lat}, ${d.lng}`);
-  lines.push("","> 点赞只决定核验优先级，正式数据仍需核对视频内容。");
+  lines.push("","### ????",`- ${d.source||`https://www.bilibili.com/video/${d.bvid}/`}`);
+  if(d.lat!=null&&d.lng!=null)lines.push(`- ???${d.lat}, ${d.lng}`);
+  lines.push("","> ????????????????????????");
   return lines.join("\n");
 }
 function updateSubmitLink(){
   const d=contributionData(),x=allItems.find(v=>v.bvid===d.bvid);
-  const title=`${d.category}｜${d.date||""}｜${x?.place||d.bvid}`;
+  const title=`${d.category}?${d.date||""}?${x?.place||d.bvid}`;
   document.getElementById("submitContribution").href=`https://github.com/tlxiansen/wangshifu-cycling-map/issues/new?labels=route-data&title=${encodeURIComponent(title)}&body=${encodeURIComponent(contributionMarkdown(d))}`;
 }
 function hasContribution(d){
   const h=d.lodging;
-  const lodgingFilled=h&&(h.name||h.area||h.price!=null||h.booking||h.pros||h.cons||h.bikeStorage!=="待核验"||h.recommendation!=="视频入住");
+  const lodgingFilled=h&&(h.name||h.area||h.price!=null||h.booking||h.pros||h.cons||h.bikeStorage!=="???"||h.recommendation!=="????");
   return !!(d.note||d.timepoint||d.place||d.food||d.distanceKm!=null||d.lat!=null||d.lng!=null||lodgingFilled);
 }
 async function copyText(text){
   try{await navigator.clipboard.writeText(text)}catch(e){const t=document.createElement("textarea");t.value=text;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}
 }
-document.getElementById("shareBtn").addEventListener("click",async e=>{await copyText(location.href);const old=e.target.textContent;e.target.textContent="链接已复制";setTimeout(()=>e.target.textContent=old,1400)});
+document.getElementById("shareBtn").addEventListener("click",async e=>{await copyText(location.href);const old=e.target.textContent;e.target.textContent="?????";setTimeout(()=>e.target.textContent=old,1400)});
 document.getElementById("contributeBtn").addEventListener("click",()=>{populateContributions();updateCategoryFields();dialog.showModal()});
 document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
 document.getElementById("contribEpisode").addEventListener("change",e=>fillContribution(e.target.value));
 document.getElementById("contribCategory").addEventListener("change",updateCategoryFields);
-document.getElementById("copyContribution").addEventListener("click",async e=>{await copyText(contributionMarkdown(contributionData()));e.target.textContent="已复制";setTimeout(()=>e.target.textContent="复制内容",1400)});
+document.getElementById("copyContribution").addEventListener("click",async e=>{await copyText(contributionMarkdown(contributionData()));e.target.textContent="???";setTimeout(()=>e.target.textContent="????",1400)});
 document.getElementById("downloadContribution").addEventListener("click",()=>{const d=contributionData(),a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(d,null,2)],{type:"application/json"}));a.download=`route-${d.date||"suggestion"}-${d.bvid}.json`;a.click();URL.revokeObjectURL(a.href)});
-document.getElementById("submitContribution").addEventListener("click",e=>{const d=contributionData();if(!hasContribution(d)){e.preventDefault();alert("至少填写一项你发现的内容，再提交建议。");return}updateSubmitLink()});
+document.getElementById("submitContribution").addEventListener("click",e=>{const d=contributionData();if(!hasContribution(d)){e.preventDefault();alert("???????????????????");return}updateSubmitLink()});
 document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(b.dataset.filter)}));
 bootMap();load();
 </script>

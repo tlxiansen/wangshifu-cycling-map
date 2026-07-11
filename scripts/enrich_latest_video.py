@@ -8,6 +8,7 @@ stores structured facts and timestamped evidence in wangshifu-data.json.
 import argparse
 import base64
 import json
+import math
 import os
 import shutil
 import subprocess
@@ -23,39 +24,40 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_PATH = ROOT / "wangshifu-data.json"
 VIDEO_URL = "https://www.bilibili.com/video/{bvid}/"
-AUTO_PHASES = {"Auto-added", "自动添加"}
+AUTO_PHASES = {"Auto-added", "????"}
 AUTO_CONFIDENCE_MARKERS = (
     "auto-added",
     "pending review",
-    "待核验",
-    "ai提取",
-    "ai音频提取",
+    "???",
+    "ai??",
+    "ai????",
 )
 AI_ENRICHMENT_VERSION = "route-auto-v2"
 PLACE_GAZETTEER = [
-    (("友谊关", "友誼關", "凭祥", "口岸"), "友谊关口岸（中越边境）", 21.9763498, 106.7121191),
-    (("河内", "Hanoi", "Ha Noi"), "河内 Hanoi", 21.0285, 105.8542),
-    (("海防", "Hải Phòng", "Hai Phong"), "海防 Hải Phòng", 20.8449, 106.6881),
-    (("下龙", "Hạ Long", "Ha Long"), "下龙 Hạ Long", 20.9510, 107.0800),
-    (("宁平", "Ninh Bình", "Ninh Binh"), "宁平 Ninh Bình", 20.2500, 105.9740),
-    (("清化", "Thanh Hóa", "Thanh Hoa"), "清化 Thanh Hóa", 19.8070, 105.7760),
-    (("荣市", "Vinh"), "荣市 Vinh", 18.6796, 105.6813),
-    (("河静", "Hà Tĩnh", "Ha Tinh"), "河静 Hà Tĩnh", 18.3559, 105.8877),
-    (("洞海", "Đồng Hới", "Dong Hoi"), "洞海 Đồng Hới", 17.4689, 106.6223),
-    (("顺化", "Huế", "Hue"), "顺化 Huế", 16.4637, 107.5909),
-    (("岘港", "Đà Nẵng", "Da Nang"), "岘港 Đà Nẵng", 16.0544, 108.2022),
-    (("会安", "Hội An", "Hoi An"), "会安 Hội An", 15.8801, 108.3380),
-    (("广义", "Quảng Ngãi", "Quang Ngai"), "广义 Quảng Ngãi", 15.1200, 108.8000),
-    (("蓬山", "Bồng Sơn", "Bong Son"), "蓬山 Bồng Sơn", 14.4300, 109.0200),
-    (("归仁", "Quy Nhơn", "Quy Nhon"), "归仁 Quy Nhơn", 13.7820, 109.2190),
-    (("虬江", "虬江市社", "Sông Cầu", "Song Cau"), "虬江市社 Sông Cầu", 13.4500, 109.2300),
-    (("绥和", "绥化", "Tuy Hòa", "Tuy Hoa"), "绥和 Tuy Hòa", 13.0955, 109.3209),
-    (("芽庄", "Nha Trang"), "芽庄 Nha Trang", 12.2388, 109.1967),
-    (("大叻", "Đà Lạt", "Da Lat"), "大叻 Đà Lạt", 11.9404, 108.4583),
-    (("潘切", "Phan Thiết", "Phan Thiet"), "潘切 Phan Thiết", 10.9289, 108.1020),
-    (("头顿", "Vũng Tàu", "Vung Tau"), "头顿 Vũng Tàu", 10.3460, 107.0840),
-    (("胡志明", "西贡", "Hồ Chí Minh", "Ho Chi Minh", "Saigon"), "胡志明市 Hồ Chí Minh", 10.8231, 106.6297),
-    (("芹苴", "Cần Thơ", "Can Tho"), "芹苴 Cần Thơ", 10.0452, 105.7469),
+    (("???", "???", "??", "??"), "???????????", 21.9763498, 106.7121191),
+    (("??", "Hanoi", "Ha Noi"), "?? Hanoi", 21.0285, 105.8542),
+    (("??", "H?i Ph?ng", "Hai Phong"), "?? H?i Ph?ng", 20.8449, 106.6881),
+    (("??", "H? Long", "Ha Long"), "?? H? Long", 20.9510, 107.0800),
+    (("??", "Ninh B?nh", "Ninh Binh"), "?? Ninh B?nh", 20.2500, 105.9740),
+    (("??", "Thanh H?a", "Thanh Hoa"), "?? Thanh H?a", 19.8070, 105.7760),
+    (("??", "Vinh"), "?? Vinh", 18.6796, 105.6813),
+    (("??", "H? T?nh", "Ha Tinh"), "?? H? T?nh", 18.3559, 105.8877),
+    (("??", "??ng H?i", "Dong Hoi"), "?? ??ng H?i", 17.4689, 106.6223),
+    (("??", "Hu?", "Hue"), "?? Hu?", 16.4637, 107.5909),
+    (("??", "?? N?ng", "Da Nang"), "?? ?? N?ng", 16.0544, 108.2022),
+    (("??", "H?i An", "Hoi An"), "?? H?i An", 15.8801, 108.3380),
+    (("??", "Qu?ng Ng?i", "Quang Ngai"), "?? Qu?ng Ng?i", 15.1200, 108.8000),
+    (("??", "B?ng S?n", "Bong Son"), "?? B?ng S?n", 14.4300, 109.0200),
+    (("??", "Quy Nh?n", "Quy Nhon"), "?? Quy Nh?n", 13.7820, 109.2190),
+    (("??", "????", "S?ng C?u", "Song Cau"), "???? S?ng C?u", 13.4500, 109.2300),
+    (("??", "??", "Tuy H?a", "Tuy Hoa"), "?? Tuy H?a", 13.0955, 109.3209),
+    (("??", "Nha Trang"), "?? Nha Trang", 12.2388, 109.1967),
+    (("??", "?? L?t", "Da Lat"), "?? ?? L?t", 11.9404, 108.4583),
+    (("??", "M?i N?", "Mui Ne"), "?? M?i N?", 10.9330, 108.2870),
+    (("??", "Phan Thi?t", "Phan Thiet"), "?? Phan Thi?t", 10.9289, 108.1020),
+    (("??", "V?ng T?u", "Vung Tau"), "?? V?ng T?u", 10.3460, 107.0840),
+    (("???", "??", "H? Ch? Minh", "Ho Chi Minh", "Saigon"), "???? H? Ch? Minh", 10.8231, 106.6297),
+    (("??", "C?n Th?", "Can Tho"), "?? C?n Th?", 10.0452, 105.7469),
 ]
 VOLC_ASR_SUBMIT_URL = (
     "https://openspeech.bytedance.com/api/v3/auc/bigmodel/submit"
@@ -126,15 +128,36 @@ def is_auto_managed(entry: dict[str, Any]) -> bool:
     return any(marker in confidence for marker in AUTO_CONFIDENCE_MARKERS)
 
 
+def is_manual_verified(entry: dict[str, Any]) -> bool:
+    if entry.get("manualVerified") is True:
+        return True
+    confidence = str(entry.get("confidence") or "")
+    if any(marker in confidence for marker in ("?????", "????", "????")):
+        return True
+    return any(
+        isinstance(value, dict) and value.get("acceptedBy")
+        for value in entry.get("evidence") or []
+    )
+
+
 def entry_quality_gaps(entry: dict[str, Any]) -> list[str]:
     gaps: list[str] = []
     confidence = str(entry.get("confidence", "")).lower()
     risk_flags = [str(value) for value in entry.get("riskFlags") or []]
-    if any(marker in confidence for marker in ("pending", "auto-added", "待核验", "推断", "沿用")):
+    if any(marker in confidence for marker in ("pending", "auto-added", "???", "??", "??")):
         gaps.append("confidence_pending")
     if entry.get("lat") is None or entry.get("lng") is None:
         gaps.append("missing_coordinates")
-    if any("坐标沿用" in value or "地点需自动复核" in value for value in risk_flags):
+    if any(
+        "????" in value
+        or "???????" in value
+        or value in {
+            "coordinates-copied-from-previous-ride",
+            "place-copied-from-previous",
+            "coordinate-distance-conflict",
+        }
+        for value in risk_flags
+    ):
         gaps.append("coordinate_or_place_risk")
     if bool(entry.get("ride")) and entry.get("distanceKm") is None:
         gaps.append("missing_distance")
@@ -142,7 +165,7 @@ def entry_quality_gaps(entry: dict[str, Any]) -> list[str]:
         gaps.append("missing_highlights")
     if not entry.get("foodDetails") and (
         not clean_text(entry.get("food"))
-        or str(entry.get("food")).lower() in {"not identified", "未明确提到"}
+        or str(entry.get("food")).lower() in {"not identified", "?????"}
     ):
         gaps.append("missing_food")
     if bool(entry.get("ride")) and not entry.get("lodgings"):
@@ -288,8 +311,8 @@ def transcribe_chunks_openai(
 ) -> list[dict[str, Any]]:
     result: list[dict[str, Any]] = []
     prompt = (
-        "这是中国骑行旅行视频，主要使用普通话，涉及越南、马来西亚、新加坡地名，"
-        "以及骑行里程、酒店、餐饮、价格。请忠实转写，不要翻译。"
+        "???????????????????????????????????"
+        "???????????????????????????"
     )
     for index, chunk in enumerate(chunks):
         log(f"Transcribing chunk {index + 1}/{len(chunks)}")
@@ -544,18 +567,18 @@ def extract_structured_episode_openai(
         "title_distance_km": entry.get("distanceKm"),
     }
     instructions = """
-你负责从骑行旅行视频的带时间戳字幕中提取可验证事实，并输出简体中文。
+??????????????????????????????????
 
-规则：
-1. 只使用标题、元数据和字幕明确出现的信息，不依靠常识猜测。
-2. 地名、酒店名、餐厅名、金额、币种和里程不确定时填 null，不要编造。
-3. place 优先写成“起点 → 终点”；只有终点时写终点；休整日注明“（休整）”。
-4. distance_km 是当天实际骑行距离。计划里程、码表中途读数不得当成最终里程。
-5. food_details、lodgings、costs 的 seconds 指该事实首次得到明确支持的时间。
-6. highlights 选择 5～12 个对旅行者最有用的事件，包括出发、到达、路线变化、
-   景点、住宿、饮食、价格、故障、风险和重要提醒。seconds 必须来自字幕时间戳。
-7. summary 用 1～3 句话概括当天做了什么，不写宣传语。
-8. confidence_notes 简述仍需人工核验的内容。
+???
+1. ????????????????????????????
+2. ???????????????????????? null??????
+3. place ??????? ? ?????????????????????????
+4. distance_km ??????????????????????????????
+5. food_details?lodgings?costs ? seconds ????????????????
+6. highlights ?? 5?12 ?????????????????????????
+   ???????????????????????seconds ??????????
+7. summary ? 1?3 ?????????????????
+8. confidence_notes ????????????
 """
     response = client.responses.parse(
         model=os.getenv("OPENAI_EXTRACTION_MODEL", "gpt-5-mini"),
@@ -564,9 +587,9 @@ def extract_structured_episode_openai(
             {
                 "role": "user",
                 "content": (
-                    "视频元数据：\n"
+                    "??????\n"
                     + json.dumps(metadata, ensure_ascii=False, indent=2)
-                    + "\n\n带时间戳字幕：\n"
+                    + "\n\n???????\n"
                     + transcript
                 ),
             },
@@ -638,19 +661,19 @@ def extraction_prompt(entry: dict[str, Any], segments: list[dict[str, Any]]) -> 
         "confidence_notes": "string",
     }
     return (
-        "你负责从骑行旅行视频的带时间戳字幕中提取可验证事实。"
-        "只使用标题、元数据和字幕明确出现的信息；不确定时使用 null 或空数组，绝不编造。"
-        "地点优先写成“起点 → 终点”。distance_km 只填当天实际骑行距离，"
-        "不要把计划距离或码表中途读数当最终里程。"
-        "食物、住宿、花费和关键事件的 seconds 必须取自字幕时间戳。"
-        "highlights 选择 5 至 12 个对旅行者最有用的事件。"
-        "summary 用 1 至 3 句话概括当天。confidence_notes 说明仍需人工核验的内容。"
-        "只返回一个 JSON 对象，不要 Markdown，不要添加 schema 之外的字段。\n\n"
-        "JSON 结构：\n"
+        "??????????????????????????"
+        "?????????????????????????? null ??????????"
+        "????????? ? ????distance_km ???????????"
+        "????????????????????"
+        "?????????????? seconds ??????????"
+        "highlights ?? 5 ? 12 ????????????"
+        "summary ? 1 ? 3 ???????confidence_notes ????????????"
+        "????? JSON ????? Markdown????? schema ??????\n\n"
+        "JSON ???\n"
         + json.dumps(schema, ensure_ascii=False, indent=2)
-        + "\n\n视频元数据：\n"
+        + "\n\n??????\n"
         + json.dumps(metadata, ensure_ascii=False, indent=2)
-        + "\n\n带时间戳字幕：\n"
+        + "\n\n???????\n"
         + transcript_for_model(segments)
     )
 
@@ -663,7 +686,7 @@ def extract_structured_episode_volcengine(
         messages=[
             {
                 "role": "system",
-                "content": "你是严谨的旅行视频信息整理员，只输出有效 JSON。",
+                "content": "???????????????????? JSON?",
             },
             {"role": "user", "content": extraction_prompt(entry, segments)},
         ],
@@ -692,8 +715,8 @@ def extract_structured_episode(
 
 def status_at(seconds: int | float | None) -> str:
     if seconds is None:
-        return "AI音频提取，时间点待核验"
-    return f"AI音频提取 {format_timestamp(seconds)}"
+        return "AI???????????"
+    return f"AI???? {format_timestamp(seconds)}"
 
 
 def clean_text(value: Any) -> str | None:
@@ -707,11 +730,11 @@ def coordinate_from_text(*values: Any) -> dict[str, Any] | None:
     raw_values = [str(value or "").strip() for value in values if str(value or "").strip()]
     if not raw_values:
         return None
-    # Earlier arguments are more authoritative. For route strings like "A → B",
+    # Earlier arguments are more authoritative. For route strings like "A ? B",
     # the day marker should normally land on B.
     search_texts: list[str] = []
     for raw in raw_values:
-        parts = [part.strip() for part in raw.replace("—", "→").replace("->", "→").split("→")]
+        parts = [part.strip() for part in raw.replace("?", "?").replace("->", "?").split("?")]
         search_texts.extend(list(reversed(parts)) if len(parts) > 1 else [raw])
     text = " ".join(raw_values)
     for candidate_text in search_texts:
@@ -739,27 +762,55 @@ def append_unique(values: list[Any], value: Any) -> None:
         values.append(value)
 
 
+def haversine_km(a: dict[str, Any], b: dict[str, Any]) -> float:
+    earth = 6371.0
+    lat1, lng1 = math.radians(float(a["lat"])), math.radians(float(a["lng"]))
+    lat2, lng2 = math.radians(float(b["lat"])), math.radians(float(b["lng"]))
+    dlat, dlng = lat2 - lat1, lng2 - lng1
+    value = (
+        math.sin(dlat / 2) ** 2
+        + math.cos(lat1) * math.cos(lat2) * math.sin(dlng / 2) ** 2
+    )
+    value = min(1.0, max(0.0, value))
+    return 2 * earth * math.atan2(math.sqrt(value), math.sqrt(1 - value))
+
+
 def rebuild_quality_flags(entries: list[dict[str, Any]]) -> None:
     previous_by_phase: dict[str, dict[str, Any]] = {}
     for entry in entries:
         flags: list[str] = []
         phase = str(entry.get("phase") or "")
+        if is_manual_verified(entry):
+            entry["mapVisible"] = True
+            if entry.get("lat") is not None and entry.get("lng") is not None:
+                previous_by_phase[phase] = entry
+            continue
         previous = previous_by_phase.get(phase)
         if entry.get("lat") is None or entry.get("lng") is None:
-            flags.append("坐标缺失")
+            flags.append("????")
         if bool(entry.get("ride")) and entry.get("distanceKm") is None:
-            flags.append("里程缺失")
+            flags.append("????")
         if bool(entry.get("ride")) and previous:
             if entry.get("lat") == previous.get("lat") and entry.get("lng") == previous.get("lng"):
-                flags.append("坐标沿用上一骑行日")
+                flags.append("?????????")
+            distance = entry.get("distanceKm")
+            if distance is not None and float(distance) > 0:
+                straight = haversine_km(previous, entry)
+                reported = float(distance)
+                if (straight < 1 and reported > 20) or straight > max(
+                    reported * 2.2, reported + 80
+                ):
+                    flags.append("???????")
         if not entry.get("highlights"):
-            flags.append("关键时间点缺失")
+            flags.append("???????")
         if bool(entry.get("ride")) and not entry.get("lodgings"):
-            flags.append("住宿缺失")
+            flags.append("????")
         if entry_quality_gaps(entry):
-            flags.append("需要自动复核")
+            flags.append("??????")
         entry["riskFlags"] = list(dict.fromkeys(flags))
-        if entry.get("lat") is not None and entry.get("lng") is not None:
+        coordinate_conflict = "???????" in flags
+        entry["mapVisible"] = not coordinate_conflict
+        if not coordinate_conflict and entry.get("lat") is not None and entry.get("lng") is not None:
             previous_by_phase[phase] = entry
 
 
@@ -776,8 +827,18 @@ def confidence_score_for(entry: dict[str, Any], extraction: dict[str, Any]) -> f
     if extraction.get("food_details") or extraction.get("lodgings") or extraction.get("costs"):
         score += 0.05
     notes = clean_text(extraction.get("confidence_notes")) or ""
-    if any(word in notes for word in ("不确定", "待核验", "无法确认", "未识别")):
+    if any(word in notes for word in ("???", "???", "????", "???")):
         score -= 0.10
+    risks = {str(value) for value in entry.get("riskFlags") or []}
+    if risks.intersection(
+        {
+            "coordinates-copied-from-previous-ride",
+            "coordinate-distance-conflict",
+            "?????????",
+            "???????",
+        }
+    ):
+        score -= 0.25
     return round(max(0.05, min(0.98, score)), 2)
 
 
@@ -832,7 +893,7 @@ def merge_extraction(
         not clean_text(entry.get("food"))
         or str(entry.get("food")).lower() == "not identified"
     ):
-        entry["food"] = "、".join(entry["foods"])
+        entry["food"] = "?".join(entry["foods"])
 
     if not entry.get("foodDetails"):
         entry["foodDetails"] = []
@@ -844,7 +905,7 @@ def merge_extraction(
             entry["foodDetails"].append(
                 {
                     "name": name,
-                    "venue": clean_text(item.get("venue")) or "店名待核验",
+                    "venue": clean_text(item.get("venue")) or "?????",
                     "meal": clean_text(item.get("meal")),
                     "price": item.get("price"),
                     "currency": clean_text(item.get("currency")),
@@ -861,16 +922,16 @@ def merge_extraction(
             seconds = item.get("seconds")
             entry["lodgings"].append(
                 {
-                    "name": clean_text(item.get("name")) or "名称待核验",
-                    "area": clean_text(item.get("area")) or "区域待核验",
+                    "name": clean_text(item.get("name")) or "?????",
+                    "area": clean_text(item.get("area")) or "?????",
                     "price": item.get("price"),
                     "currency": clean_text(item.get("currency")),
-                    "booking": clean_text(item.get("booking")) or "视频未说明",
-                    "bikeStorage": clean_text(item.get("bike_storage")) or "待核验",
+                    "booking": clean_text(item.get("booking")) or "?????",
+                    "bikeStorage": clean_text(item.get("bike_storage")) or "???",
                     "pros": clean_text(item.get("pros")),
                     "cons": clean_text(item.get("cons")),
                     "recommendation": clean_text(item.get("recommendation"))
-                    or "视频入住",
+                    or "????",
                     "status": status_at(seconds),
                     "source": source_link(bvid, seconds),
                 }
@@ -886,8 +947,8 @@ def merge_extraction(
             seconds = item.get("seconds")
             entry["costs"].append(
                 {
-                    "category": clean_text(item.get("category")) or "其他",
-                    "label": clean_text(item.get("label")) or "视频口述花费",
+                    "category": clean_text(item.get("category")) or "??",
+                    "label": clean_text(item.get("label")) or "??????",
                     "amount": amount,
                     "currency": currency,
                     "status": status_at(seconds),
@@ -908,7 +969,7 @@ def merge_extraction(
                 {
                     "time": format_timestamp(seconds),
                     "text": text,
-                    "status": "AI音频提取，待人工核验",
+                    "status": "AI??????????",
                     "source": source_link(bvid, seconds),
                 }
             )
@@ -919,13 +980,13 @@ def merge_extraction(
             "type": "ai-audio-transcript",
             "url": base_source,
             "note": (
-                "音频自动转写并结构化提取；未保存原始音频和完整字幕。"
+                "??????????????????????????"
                 + (clean_text(extraction.get("confidence_notes")) or "")
             ),
         }
     )
     entry["evidence"] = evidence
-    entry["confidence"] = "AI音频提取，待维护者核验"
+    entry["confidence"] = "AI???????????"
     entry["confidenceScore"] = confidence_score_for(entry, extraction)
     entry["automationStatus"] = "AI enriched"
     entry["aiEnrichment"] = {
@@ -939,7 +1000,7 @@ def merge_extraction(
         ),
         "extractionProvider": os.getenv("TEXT_AI_PROVIDER", "openai"),
         "extractionModel": (
-            os.getenv("ARK_MODEL_ID", "未配置")
+            os.getenv("ARK_MODEL_ID", "???")
             if os.getenv("TEXT_AI_PROVIDER", "openai").lower() == "volcengine"
             else os.getenv("OPENAI_EXTRACTION_MODEL", "gpt-5-mini")
         ),
@@ -993,13 +1054,13 @@ def missing_configuration() -> list[str]:
         )
         if not (has_api_key or has_old_credentials):
             missing.append(
-                "VOLC_ASR_API_KEY 或 VOLC_ASR_APP_ID + VOLC_ASR_ACCESS_TOKEN"
+                "VOLC_ASR_API_KEY ? VOLC_ASR_APP_ID + VOLC_ASR_ACCESS_TOKEN"
             )
     elif asr_provider == "openai":
         if not os.getenv("OPENAI_API_KEY", "").strip():
             missing.append("OPENAI_API_KEY")
     else:
-        missing.append(f"不支持的 ASR_PROVIDER={asr_provider}")
+        missing.append(f"???? ASR_PROVIDER={asr_provider}")
 
     if text_provider == "volcengine":
         for name in ("ARK_API_KEY", "ARK_MODEL_ID"):
@@ -1009,7 +1070,7 @@ def missing_configuration() -> list[str]:
         if not os.getenv("OPENAI_API_KEY", "").strip():
             missing.append("OPENAI_API_KEY")
     else:
-        missing.append(f"不支持的 TEXT_AI_PROVIDER={text_provider}")
+        missing.append(f"???? TEXT_AI_PROVIDER={text_provider}")
     return list(dict.fromkeys(missing))
 
 
@@ -1045,17 +1106,17 @@ def main() -> int:
     candidates = select_candidates(entries, args.lookback, args.max_episodes)
     if not candidates:
         log("No new auto-managed episode needs audio enrichment.")
-        append_step_summary(["### 音频信息提取", "- 没有需要处理的新视频。"])
+        append_step_summary(["### ??????", "- ???????????"])
         return 0
 
     missing = [] if args.fixture else missing_configuration()
     if missing:
-        names = "、".join(missing)
+        names = "?".join(missing)
         log(f"Audio enrichment configuration is incomplete: {names}")
         append_step_summary(
             [
-                "### 音频信息提取",
-                f"- 已发现新视频，但缺少配置：`{names}`，本次安全跳过。",
+                "### ??????",
+                f"- ?????????????`{names}`????????",
             ]
         )
         return 0
@@ -1079,10 +1140,10 @@ def main() -> int:
         log(f"Updated {args.data}: {', '.join(changed)}")
         append_step_summary(
             [
-                "### 音频信息提取",
-                f"- 已处理：`{', '.join(changed)}`",
-                "- 原始音频和完整字幕已删除，只提交结构化事实与时间点。",
-                "- 状态：AI 提取，待维护者核验。",
+                "### ??????",
+                f"- ????`{', '.join(changed)}`",
+                "- ??????????????????????????",
+                "- ???AI ??????????",
             ]
         )
     return 0
@@ -1094,6 +1155,6 @@ if __name__ == "__main__":
     except Exception as error:
         log(f"ERROR: {error}")
         append_step_summary(
-            ["### 音频信息提取", f"- 失败：`{type(error).__name__}: {error}`"]
+            ["### ??????", f"- ???`{type(error).__name__}: {error}`"]
         )
         raise

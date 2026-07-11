@@ -9,12 +9,12 @@ permissions:
   issues: write
 
 concurrency:
-  group: apply-accepted-contribution
+  group: wangshifu-data-write
   cancel-in-progress: false
 
 jobs:
   apply:
-    if: github.event.label.name == '已采纳'
+    if: github.event.label.name == '???'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v7
@@ -25,7 +25,7 @@ jobs:
             const maintainer = "tlxiansen";
             const issue = context.payload.issue;
             const issueNumber = issue.number;
-            const acceptedLabel = "已采纳";
+            const acceptedLabel = "???";
 
             if (context.actor !== maintainer) {
               try {
@@ -35,7 +35,7 @@ jobs:
               } catch {}
               await github.rest.issues.createComment({
                 owner, repo, issue_number: issueNumber,
-                body: `“已采纳”只能由项目维护者 @${maintainer} 操作，本次标签已自动移除。`
+                body: `????????????? @${maintainer} ?????????????`
               });
               return;
             }
@@ -52,7 +52,7 @@ jobs:
               return clean(body.match(re)?.[1]);
             };
             const bulletValue = label => {
-              const re = new RegExp(`^-\\s*${escapeRegExp(label)}[：:]\\s*(.+)$`, "m");
+              const re = new RegExp(`^-\\s*${escapeRegExp(label)}[?:]\\s*(.+)$`, "m");
               return clean(body.match(re)?.[1]);
             };
             const field = (...labels) => {
@@ -63,12 +63,12 @@ jobs:
               return null;
             };
 
-            const video = field("BV号", "B站视频链接或 BV 号") || body;
+            const video = field("BV?", "B?????? BV ?") || body;
             const bvid = video.match(/BV[0-9A-Za-z]+/)?.[0];
             if (!bvid) {
               await github.rest.issues.createComment({
                 owner, repo, issue_number: issueNumber,
-                body: "已收到维护者采纳，但没有识别到 BV 号，尚未写入网站。请补充视频链接或 BV 号后重新添加“已采纳”标签。"
+                body: "??????????????? BV ????????????????? BV ??????????????"
               });
               await github.rest.issues.removeLabel({
                 owner, repo, issue_number: issueNumber, name: acceptedLabel
@@ -76,23 +76,23 @@ jobs:
               return;
             }
 
-            const category = field("类型", "内容类型") || "其他";
-            const date = field("日期", "视频日期（可选）");
-            const finding = field("发现内容", "你发现了什么？");
-            const timepoint = field("视频时间点", "视频时间点（可选）");
-            const place = field("地点 / 路段", "地点或路段（可选）");
-            const distanceText = field("当天里程", "当天里程（如有）");
-            const coordinates = field("坐标", "经纬度（如有）");
-            const food = field("美食", "视频里吃了什么（如有）");
-            const evidenceText = field("更多依据（可选）");
-            const hotelName = field("名称", "酒店 / 民宿名称", "酒店 / 民宿名称（如有）");
-            const hotelArea = field("区域", "所在区域", "住宿所在区域（如有）");
-            const hotelPriceText = field("价格", "住宿价格", "住宿价格与币种（如有）");
-            const hotelBooking = field("预订", "预订方式");
-            const bikeStorage = field("存车", "能否存自行车");
-            const hotelRecommendation = field("推荐结论");
-            const hotelPros = field("优点");
-            const hotelCons = field("缺点 / 避坑");
+            const category = field("??", "????") || "??";
+            const date = field("??", "????????");
+            const finding = field("????", "???????");
+            const timepoint = field("?????", "?????????");
+            const place = field("?? / ??", "?????????");
+            const distanceText = field("????", "????????");
+            const coordinates = field("??", "???????");
+            const food = field("??", "???????????");
+            const evidenceText = field("????????");
+            const hotelName = field("??", "?? / ????", "?? / ????????");
+            const hotelArea = field("??", "????", "??????????");
+            const hotelPriceText = field("??", "????", "???????????");
+            const hotelBooking = field("??", "????");
+            const bikeStorage = field("??", "??????");
+            const hotelRecommendation = field("????");
+            const hotelPros = field("??");
+            const hotelCons = field("?? / ??");
 
             const content = await github.rest.repos.getContent({
               owner, repo, path: "wangshifu-data.json", ref: "main"
@@ -102,7 +102,7 @@ jobs:
             if (!item) {
               await github.rest.issues.createComment({
                 owner, repo, issue_number: issueNumber,
-                body: `已收到维护者采纳，但正式数据中没有找到 ${bvid}，尚未更新网站。`
+                body: `??????????????????? ${bvid}????????`
               });
               return;
             }
@@ -110,21 +110,22 @@ jobs:
             for (const key of ["foods", "foodDetails", "lodgings", "costs", "highlights", "evidence"]) {
               if (!Array.isArray(item[key])) item[key] = [];
             }
+            if (!Array.isArray(item.riskFlags)) item.riskFlags = item.riskFlags ? [item.riskFlags] : [];
             const changes = [];
             if (date && /^\d{4}-\d{2}-\d{2}$/.test(date) && item.date !== date) {
               item.date = date;
-              changes.push(`日期：${date}`);
+              changes.push(`???${date}`);
             }
             if (place && item.place !== place) {
               item.place = place;
-              item.confidence = `维护者采纳（GitHub #${issueNumber}）`;
-              changes.push(`地点：${place}`);
+              item.confidence = `??????GitHub #${issueNumber}?`;
+              changes.push(`???${place}`);
             }
             if (distanceText) {
               const distance = Number(distanceText.match(/\d+(?:\.\d+)?/)?.[0]);
               if (Number.isFinite(distance) && item.distanceKm !== distance) {
                 item.distanceKm = distance;
-                changes.push(`里程：${distance} km`);
+                changes.push(`???${distance} km`);
               }
             }
             if (coordinates) {
@@ -132,45 +133,46 @@ jobs:
               if (nums.length >= 2 && Math.abs(nums[0]) <= 90 && Math.abs(nums[1]) <= 180) {
                 item.lat = nums[0];
                 item.lng = nums[1];
-                item.confidence = `维护者采纳（GitHub #${issueNumber}）`;
-                changes.push(`坐标：${nums[0]}, ${nums[1]}`);
+                item.coordinateSource = `??????GitHub #${issueNumber}?`;
+                item.confidence = `??????GitHub #${issueNumber}?`;
+                changes.push(`???${nums[0]}, ${nums[1]}`);
               }
             }
             if (food && !item.foods.includes(food)) {
               item.foods.push(food);
-              if (!item.food || item.food === "未明确提到" || item.food === "Not identified") item.food = food;
+              if (!item.food || item.food === "?????" || item.food === "Not identified") item.food = food;
               item.foodDetails.push({
                 name: food,
-                venue: "店名待核验",
-                status: `维护者采纳（GitHub #${issueNumber}）`,
+                venue: "?????",
+                status: `??????GitHub #${issueNumber}?`,
                 source: issue.html_url
               });
-              changes.push(`美食：${food}`);
+              changes.push(`???${food}`);
             }
 
             if (hotelName || hotelArea || hotelPriceText) {
               const price = hotelPriceText ? Number(hotelPriceText.match(/\d+(?:\.\d+)?/)?.[0]) : null;
-              const currency = /VND|越南盾/i.test(hotelPriceText || "") ? "VND" : /CNY|人民币|元/i.test(hotelPriceText || "") ? "CNY" : null;
+              const currency = /VND|???/i.test(hotelPriceText || "") ? "VND" : /CNY|???|?/i.test(hotelPriceText || "") ? "CNY" : null;
               const lodging = {
-                name: hotelName || "住宿名称待核验",
+                name: hotelName || "???????",
                 area: hotelArea || place || item.place,
                 price: Number.isFinite(price) ? price : null,
                 currency,
-                booking: hotelBooking || "待核验",
-                bikeStorage: bikeStorage || "待核验",
+                booking: hotelBooking || "???",
+                bikeStorage: bikeStorage || "???",
                 pros: hotelPros || null,
                 cons: hotelCons || null,
-                recommendation: hotelRecommendation || "待核验",
-                status: `维护者采纳（GitHub #${issueNumber}）`,
+                recommendation: hotelRecommendation || "???",
+                status: `??????GitHub #${issueNumber}?`,
                 source: issue.html_url
               };
               if (!item.lodgings.some(entry => entry.source === issue.html_url)) {
                 item.lodgings.push(lodging);
-                changes.push(`住宿：${lodging.name}`);
+                changes.push(`???${lodging.name}`);
               }
               if (lodging.price != null && lodging.currency && !item.costs.some(entry => entry.source === issue.html_url)) {
                 item.costs.push({
-                  category: "住宿",
+                  category: "??",
                   label: lodging.name,
                   amount: lodging.price,
                   currency: lodging.currency,
@@ -180,16 +182,16 @@ jobs:
               }
             }
 
-            if (finding && (timepoint || category === "关键内容 / 事件" || category === "纠正现有信息")) {
+            if (finding && (timepoint || category === "???? / ??" || category === "??????")) {
               const highlight = {
-                time: timepoint || "时间待补",
+                time: timepoint || "????",
                 text: finding,
-                status: `维护者采纳（GitHub #${issueNumber}）`,
+                status: `??????GitHub #${issueNumber}?`,
                 source: issue.html_url
               };
               if (!item.highlights.some(entry => entry.source === issue.html_url)) {
                 item.highlights.push(highlight);
-                changes.push(`关键内容：${finding.slice(0, 40)}${finding.length > 40 ? "…" : ""}`);
+                changes.push(`?????${finding.slice(0, 40)}${finding.length > 40 ? "?" : ""}`);
               }
             }
 
@@ -197,12 +199,14 @@ jobs:
               item.evidence.push({
                 type: "github-issue",
                 url: issue.html_url,
-                note: finding || evidenceText || `${category}建议`,
+                note: finding || evidenceText || `${category}??`,
                 acceptedBy: maintainer,
                 acceptedAt: new Date().toISOString()
               });
-              changes.push("核验依据");
+              changes.push("????");
             }
+            item.manualVerified = true;
+            item.confidence = `??????GitHub #${issueNumber}?`;
 
             const updated = JSON.stringify(data, null, 2) + "\n";
             const commit = await github.rest.repos.createOrUpdateFileContents({
@@ -218,8 +222,11 @@ jobs:
             const commitUrl = commit.data.commit.html_url;
             await github.rest.issues.createComment({
               owner, repo, issue_number: issueNumber,
-              body: `✅ 已由 @${maintainer} 采纳并写入正式数据。\n\n更新内容：\n${changes.map(x => `- ${x}`).join("\n")}\n\n[查看数据提交](${commitUrl})。GitHub Pages 通常会在几分钟内自动更新。`
+              body: `? ?? @${maintainer} ??????????\n\n?????\n${changes.map(x => `- ${x}`).join("\n")}\n\n[??????](${commitUrl})?GitHub Pages ?????????????`
             });
             await github.rest.issues.update({
-              owner, repo, issue_number: issueNumber, state: "closed"
+              owner, repo, issue_number: issueNumber, state: "closed",
+              labels: issue.labels
+                .map(label => typeof label === "string" ? label : label.name)
+                .filter(label => label !== "???")
             });

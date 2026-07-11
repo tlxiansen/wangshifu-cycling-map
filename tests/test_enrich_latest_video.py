@@ -44,7 +44,7 @@ class EnrichmentTests(unittest.TestCase):
                         {
                             "start_time": 1500,
                             "end_time": 3200,
-                            "text": "今天骑了四十公里",
+                            "text": "????????",
                         }
                     ]
                 }
@@ -53,7 +53,7 @@ class EnrichmentTests(unittest.TestCase):
         )
         self.assertEqual(segments[0]["start"], 601.5)
         self.assertEqual(segments[0]["end"], 603.2)
-        self.assertEqual(segments[0]["text"], "今天骑了四十公里")
+        self.assertEqual(segments[0]["text"], "????????")
 
     def test_volcengine_ark_json_is_parsed(self):
         fixture = json.loads(
@@ -78,14 +78,14 @@ class EnrichmentTests(unittest.TestCase):
         with patch.dict("os.environ", {"ARK_MODEL_ID": "ep-test"}, clear=False):
             parsed = MODULE.extract_structured_episode_volcengine(
                 client,
-                {"date": "2026-07-05", "bvid": "BVTEST", "title": "测试"},
-                [{"start": 15, "end": 20, "text": "从测试起点出发。"}],
+                {"date": "2026-07-05", "bvid": "BVTEST", "title": "??"},
+                [{"start": 15, "end": 20, "text": "????????"}],
             )
         self.assertEqual(parsed["distance_km"], 42)
 
     def test_candidate_selection_only_uses_recent_auto_entries(self):
         entries = [
-            {"bvid": "manual", "phase": "第一段", "confidence": "人工核验"},
+            {"bvid": "manual", "phase": "???", "confidence": "????"},
             {
                 "bvid": "old-auto",
                 "phase": "Auto-added",
@@ -94,7 +94,7 @@ class EnrichmentTests(unittest.TestCase):
             {
                 "bvid": "done",
                 "phase": "Auto-added",
-                "confidence": "待核验",
+                "confidence": "???",
                 "evidence": [{"type": "ai-audio-transcript"}],
             },
             {
@@ -115,8 +115,8 @@ class EnrichmentTests(unittest.TestCase):
         entry = {
             "date": "2026-07-05",
             "bvid": "BVTEST",
-            "title": "测试视频",
-            "place": "前一站",
+            "title": "????",
+            "place": "???",
             "lat": 1.23,
             "lng": 4.56,
             "confidence": "Auto-added; pending review",
@@ -132,13 +132,13 @@ class EnrichmentTests(unittest.TestCase):
             "evidence": [],
             "rideTimeHours": None,
             "dayTimeHours": None,
-            "summary": "测试视频。",
+            "summary": "?????",
         }
         changed = MODULE.merge_extraction(
             entry, fixture, "2026-07-05T00:00:00+00:00"
         )
         self.assertTrue(changed)
-        self.assertEqual(entry["place"], "测试起点 → 测试终点")
+        self.assertEqual(entry["place"], "???? ? ????")
         self.assertEqual(entry["lat"], 1.23)
         self.assertEqual(entry["lng"], 4.56)
         self.assertEqual(entry["distanceKm"], 42)
@@ -150,12 +150,12 @@ class EnrichmentTests(unittest.TestCase):
         entry = {
             "date": "2026-07-05",
             "bvid": "BVTEST",
-            "title": "挑战单日骑行132公里干到芽庄",
-            "place": "绥和 Tuy Hòa",
+            "title": "??????132??????",
+            "place": "?? Tuy H?a",
             "lat": 13.0955,
             "lng": 109.3209,
             "confidence": "Auto-added; pending review",
-            "phase": "第二段",
+            "phase": "???",
             "ride": True,
             "distanceKm": None,
             "food": "Not identified",
@@ -167,32 +167,32 @@ class EnrichmentTests(unittest.TestCase):
             "evidence": [],
             "rideTimeHours": None,
             "dayTimeHours": None,
-            "summary": "测试视频。",
+            "summary": "?????",
         }
         changed = MODULE.merge_extraction(
             entry,
             {
-                "summary": "从绥和骑行到芽庄。",
+                "summary": "?????????",
                 "ride": True,
                 "distance_km": 132,
-                "start_place": "绥和 Tuy Hòa",
-                "end_place": "芽庄 Nha Trang",
-                "place": "绥和 Tuy Hòa → 芽庄 Nha Trang",
+                "start_place": "?? Tuy H?a",
+                "end_place": "?? Nha Trang",
+                "place": "?? Tuy H?a ? ?? Nha Trang",
                 "foods": [],
                 "food_details": [],
                 "lodgings": [],
                 "costs": [],
-                "highlights": [{"seconds": 60, "text": "出发去芽庄"}],
+                "highlights": [{"seconds": 60, "text": "?????"}],
                 "confidence_notes": "",
             },
             "2026-07-05T00:00:00+00:00",
         )
         self.assertTrue(changed)
-        self.assertEqual(entry["place"], "绥和 Tuy Hòa → 芽庄 Nha Trang")
+        self.assertEqual(entry["place"], "?? Tuy H?a ? ?? Nha Trang")
         self.assertAlmostEqual(entry["lat"], 12.2388)
         self.assertAlmostEqual(entry["lng"], 109.1967)
         self.assertEqual(entry["coordinateSource"], "local-gazetteer")
-        self.assertEqual(entry["phase"], "第二段")
+        self.assertEqual(entry["phase"], "???")
         self.assertEqual(entry["automationStatus"], "AI enriched")
 
     def test_structured_schema_accepts_fixture(self):
@@ -213,11 +213,11 @@ class EnrichmentTests(unittest.TestCase):
             {
                 "date": "2026-07-05",
                 "bvid": "BVTEST",
-                "title": "测试",
-                "place": "前一站",
+                "title": "??",
+                "place": "???",
                 "distanceKm": None,
             },
-            [{"start": 15, "end": 20, "text": "从测试起点出发。"}],
+            [{"start": 15, "end": 20, "text": "????????"}],
         )
         self.assertEqual(parsed["distance_km"], 42)
         self.assertEqual(parsed["highlights"][0]["seconds"], 15)
@@ -225,18 +225,65 @@ class EnrichmentTests(unittest.TestCase):
     def test_manual_entry_is_never_overwritten(self):
         entry = {
             "bvid": "BVKEEP",
-            "phase": "第二段",
-            "confidence": "视频确认",
-            "summary": "人工内容",
+            "phase": "???",
+            "confidence": "????",
+            "summary": "????",
             "evidence": [],
         }
         changed = MODULE.merge_extraction(
             entry,
-            {"summary": "AI 内容", "highlights": []},
+            {"summary": "AI ??", "highlights": []},
             "2026-07-05T00:00:00+00:00",
         )
         self.assertFalse(changed)
-        self.assertEqual(entry["summary"], "人工内容")
+        self.assertEqual(entry["summary"], "????")
+
+    def test_mui_ne_is_available_to_coordinate_lookup(self):
+        coordinate = MODULE.coordinate_from_text("????????")
+        self.assertEqual(coordinate["place"], "?? M?i N?")
+        self.assertAlmostEqual(coordinate["lat"], 10.9330)
+
+    def test_english_coordinate_risk_is_prioritized(self):
+        entry = {
+            "bvid": "BVRISK",
+            "phase": "Auto-added",
+            "confidence": "Auto-added; pending review",
+            "riskFlags": ["coordinates-copied-from-previous-ride"],
+            "ride": True,
+            "distanceKm": 60,
+            "highlights": [],
+            "foodDetails": [],
+            "food": "Not identified",
+            "lodgings": [],
+        }
+        self.assertIn("coordinate_or_place_risk", MODULE.entry_quality_gaps(entry))
+
+    def test_route_safety_hides_zero_movement_long_ride(self):
+        entries = [
+            {
+                "phase": "???",
+                "ride": True,
+                "lat": 11.18,
+                "lng": 108.72,
+                "distanceKm": 20,
+                "highlights": [{}],
+                "lodgings": [{}],
+                "confidence": "AI????",
+            },
+            {
+                "phase": "???",
+                "ride": True,
+                "lat": 11.18,
+                "lng": 108.72,
+                "distanceKm": 60,
+                "highlights": [{}],
+                "lodgings": [{}],
+                "confidence": "AI????",
+            },
+        ]
+        MODULE.rebuild_quality_flags(entries)
+        self.assertFalse(entries[1]["mapVisible"])
+        self.assertIn("???????", entries[1]["riskFlags"])
 
 
 if __name__ == "__main__":

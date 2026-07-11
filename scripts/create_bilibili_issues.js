@@ -1,29 +1,29 @@
 const fs = require("fs");
 
 const ROUTE_LABEL = "route-data";
-const REVIEW_LABEL = "待核验";
+const REVIEW_LABEL = "???";
 const AUTO_LABEL = "auto-bilibili";
 
 const LABELS = [
   {
     name: ROUTE_LABEL,
     color: "16806c",
-    description: "路线、里程、饮食、住宿等数据建议",
+    description: "????????????????",
   },
   {
     name: REVIEW_LABEL,
     color: "d4a72c",
-    description: "尚未由维护者核对视频内容",
+    description: "????????????",
   },
   {
     name: AUTO_LABEL,
     color: "6f42c1",
-    description: "由 B 站公开视频评论自动生成",
+    description: "? B ???????????",
   },
 ];
 
 const KEYWORDS =
-  /路线图|路线|路书|骑行|地址|位置|友谊关|友誼關|凭祥|口岸|海关|起点|终点|出发|到达|公里|里程|\bKM\b|酒店|住宿|入住|民宿|旅馆|宾馆|Hotel|早餐|午餐|晚餐|餐厅|餐馆|小吃|猪杂粉|海鲜|烤肉|烧烤|咖啡店|茶馆|\d+(?:\.\d+)?\s*(?:元|人民币|CNY|万?越南盾|VND)/i;
+  /???|??|??|??|??|??|???|???|??|??|??|??|??|??|??|??|??|\bKM\b|??|??|??|??|??|??|Hotel|??|??|??|??|??|??|???|??|??|??|???|??|\d+(?:\.\d+)?\s*(?:?|???|CNY|?????|VND)/i;
 
 function readCandidates(path = "bilibili-candidates.json") {
   if (!fs.existsSync(path)) return [];
@@ -33,91 +33,111 @@ function readCandidates(path = "bilibili-candidates.json") {
 
 function short(text, max = 46) {
   const value = String(text || "").trim();
-  return value.length > max ? `${value.slice(0, max)}…` : value;
+  return value.length > max ? `${value.slice(0, max)}?` : value;
 }
 
 function categoryFor(message) {
   const text = String(message || "");
-  if (/酒店|住宿|入住|民宿|旅馆|宾馆|Hotel/i.test(text)) return "住宿";
-  if (/公里|里程|\bKM\b/i.test(text)) return "当天里程";
-  if (/吃|早餐|午餐|晚餐|粉|饭|餐厅|餐馆|小吃|水果|茶|咖啡|烧烤|烤肉|海鲜/i.test(text)) return "美食";
-  if (/起点|终点|出发|到达|口岸|海关|路线|路书|位置|地点|城市|村|县|省/i.test(text)) return "地点 / 路线";
-  return "关键内容 / 事件";
+  if (/??|??|??|??|??|??|Hotel/i.test(text)) return "??";
+  if (/??|??|\bKM\b/i.test(text)) return "????";
+  if (/?|??|??|??|?|?|??|??|??|??|?|??|??|??|??/i.test(text)) return "??";
+  if (/??|??|??|??|??|??|??|??|??|??|??|?|?|?/i.test(text)) return "?? / ??";
+  return "???? / ??";
 }
 
 function distanceFor(message) {
-  const match = String(message || "").match(/(\d+(?:\.\d+)?)\s*(?:KM|公里)/i);
+  const match = String(message || "").match(/(\d+(?:\.\d+)?)\s*(?:KM|??)/i);
   return match ? `${match[1]} km` : "_No response_";
 }
 
 function hotelFor(message) {
   const text = String(message || "");
   const match =
-    text.match(/(?:酒店叫|入住(?:的)?|住的酒店(?:是|叫)?|名称[:：]?)\s*([A-Za-z\u4e00-\u9fff][A-Za-z\u4e00-\u9fff\s·.'-]{1,32}(?:Hotel|酒店|宾馆|旅馆|民宿))/i) ||
-    text.match(/([A-Za-z\u4e00-\u9fff][A-Za-z\u4e00-\u9fff\s·.'-]{1,24}(?:Hotel|酒店|宾馆|旅馆|民宿))/i);
+    text.match(/(?:??(?:?|?)|??(?:?)?|????(?:?|?)?|??[:?]?)\s*([A-Za-z\u4e00-\u9fff][A-Za-z\u4e00-\u9fff\s?.'-]{1,32}(?:Hotel|??|??|??|??))/i) ||
+    text.match(/\b([A-Za-z][A-Za-z\s?.'-]{1,30}Hotel)\b/i);
   return match ? match[1].trim() : "_No response_";
 }
 
+function foodFor(message) {
+  const matches = String(message || "").match(
+    /???|???|???|??|??|??|??|??|??|??|??|??|??|??|Jollibee|????/gi,
+  );
+  return matches ? [...new Set(matches)].join("?") : "_No response_";
+}
+
+function isActionableCandidate(candidate) {
+  const text = String(candidate.message || "").trim();
+  if (!text) return false;
+  const firstPersonDistance = /(?:??|??|???|???|???|???|???|??).{0,30}\d+(?:\.\d+)?\s*(?:KM|??)/i;
+  const episodeDistance = /(?:??|??|??|??|?\S+?).{0,30}(?:??|??).{0,20}\d+(?:\.\d+)?\s*(?:KM|??)|(?:????|????)\s*\d+(?:\.\d+)?\s*(?:KM|??)/i;
+  if (firstPersonDistance.test(text) && !episodeDistance.test(text)) return false;
+  const structuredSummary = /(?:^|\n)\s*(?:?|1[.?]|???|????|????|????|????|?\S+?)|\d{1,2}:\d{2}|??|???/i;
+  const explicitLodging = /??(?:?|?)|??(?:?)???|????|??(?:?|?)|\b[A-Za-z][A-Za-z\s?.'-]{1,30}Hotel\b/i;
+  const explicitRoute = /(?:??|??|??).{0,20}(?:??|??|??)|?.{1,24}(?:?|?|?).{1,24}|????|????/i;
+  const explicitFood = /??|???|???|???|???|??|???|???|???|??|??|??|????/i;
+  return structuredSummary.test(text) || explicitLodging.test(text) || explicitRoute.test(text) || explicitFood.test(text);
+}
+
 function hotelPriceFor(message) {
-  const match = String(message || "").match(/(\d+(?:\.\d+)?)\s*(CNY|人民币|元|万?越南盾|VND)/i);
+  const match = String(message || "").match(/(\d+(?:\.\d+)?)\s*(CNY|???|?|?????|VND)/i);
   return match ? `${match[1]} ${match[2]}` : "_No response_";
 }
 
 function buildIssueBody(candidate, category, rpid) {
   return [
-    "> 此建议由系统从公开视频下方的高赞评论自动整理。请维护者核对视频后再添加“已采纳”；需要时可先编辑 Issue，补全结构化字段。",
+    "> ???????????????????????????????????????????????? Issue?????????",
     "",
-    "### B站视频链接或 BV 号",
+    "### B?????? BV ?",
     "",
     `https://www.bilibili.com/video/${candidate.bvid}/`,
     "",
-    "### 内容类型",
+    "### ????",
     "",
     category,
     "",
-    "### 视频日期（可选）",
+    "### ????????",
     "",
     candidate.date || "_No response_",
     "",
-    "### 你发现了什么？",
+    "### ???????",
     "",
     candidate.message || "_No response_",
     "",
-    "### 视频时间点（可选）",
+    "### ?????????",
     "",
     "_No response_",
     "",
-    "### 地点或路段（可选）",
+    "### ?????????",
     "",
     "_No response_",
     "",
-    "### 当天里程（如有）",
+    "### ????????",
     "",
     distanceFor(candidate.message),
     "",
-    "### 经纬度（如有）",
+    "### ???????",
     "",
     "_No response_",
     "",
-    "### 视频里吃了什么（如有）",
+    "### ???????????",
     "",
-    "_No response_",
+    category === "??" ? foodFor(candidate.message) : "_No response_",
     "",
-    "### 酒店 / 民宿名称（如有）",
+    "### ?? / ????????",
     "",
-    category === "住宿" ? hotelFor(candidate.message) : "_No response_",
+    category === "??" ? hotelFor(candidate.message) : "_No response_",
     "",
-    "### 住宿所在区域（如有）",
+    "### ??????????",
     "",
-    category === "住宿" ? candidate.place || "_No response_" : "_No response_",
+    category === "??" ? candidate.place || "_No response_" : "_No response_",
     "",
-    "### 住宿价格与币种（如有）",
+    "### ???????????",
     "",
-    category === "住宿" ? hotelPriceFor(candidate.message) : "_No response_",
+    category === "??" ? hotelPriceFor(candidate.message) : "_No response_",
     "",
-    "### 更多依据（可选）",
+    "### ????????",
     "",
-    `B站评论作者：${candidate.user || "未知"}\n\nB站点赞：${candidate.likes || 0}\n\n原评论：${candidate.url}`,
+    `B??????${candidate.user || "??"}\n\nB????${candidate.likes || 0}\n\n????${candidate.url}`,
     "",
     `<!-- bili-rpid:${rpid} -->`,
   ].join("\n");
@@ -155,7 +175,8 @@ async function run({ github, context, core }) {
   const rawCandidates = readCandidates();
   const candidates = rawCandidates
     .filter((candidate) => Number(candidate.likes || 0) >= 10)
-    .filter((candidate) => KEYWORDS.test(candidate.message || ""));
+    .filter((candidate) => KEYWORDS.test(candidate.message || ""))
+    .filter(isActionableCandidate);
 
   await ensureLabels({ github, owner, repo });
   const knownRpids = await knownCommentIds({ github, owner, repo });
@@ -170,7 +191,7 @@ async function run({ github, context, core }) {
     await github.rest.issues.create({
       owner,
       repo,
-      title: `[B站评论 👍${candidate.likes || 0}] ${candidate.date || ""} · ${short(candidate.message || candidate.bvid)}`,
+      title: `[B??? ??${candidate.likes || 0}] ${candidate.date || ""} ? ${short(candidate.message || candidate.bvid)}`,
       body: buildIssueBody(candidate, category, rpid),
       labels: [ROUTE_LABEL, REVIEW_LABEL, AUTO_LABEL],
     });
@@ -181,4 +202,7 @@ async function run({ github, context, core }) {
   core.info(`Created ${created} new Issue(s) from ${candidates.length} candidate(s).`);
 }
 
-module.exports = { run };
+module.exports = {
+  run,
+  _test: { distanceFor, foodFor, hotelFor, isActionableCandidate },
+};
