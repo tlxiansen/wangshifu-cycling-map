@@ -47,7 +47,8 @@
     "duration": 3249,
     "views": 695004,
     "cover": "https://i1.hdslb.com/bfs/archive/f552a8216d768d22dd2b1ba97353bb59a190e7c4.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-22",
@@ -152,7 +153,8 @@
     "duration": 2606,
     "views": 334000,
     "cover": "https://i1.hdslb.com/bfs/archive/3115b12e85cf82a51963c79888e3a9633a9318dd.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-23",
@@ -185,7 +187,8 @@
     "duration": 3414,
     "views": 1261423,
     "cover": "https://i2.hdslb.com/bfs/archive/bc6bbf3344d7f0eb96efb6025f341700d7dec42d.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-24",
@@ -239,7 +242,8 @@
     "duration": 3329,
     "views": 331987,
     "cover": "https://i2.hdslb.com/bfs/archive/89d53262a438d51893bb30f1aeb255a8ea4535bd.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-25",
@@ -262,7 +266,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3441,
@@ -291,7 +297,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1699,
@@ -330,7 +338,8 @@
     "duration": 3169,
     "views": 449192,
     "cover": "https://i2.hdslb.com/bfs/archive/8de1006c5309f86004997487f5f7b1448ef3ddbc.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-28",
@@ -367,13 +376,16 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2938,
     "views": 480161,
     "cover": "https://i0.hdslb.com/bfs/archive/f42dce7d0279e6b4035d95362cd051e073941cff.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-29",
@@ -405,7 +417,8 @@
     "duration": 9485,
     "views": 358259,
     "cover": "https://i2.hdslb.com/bfs/archive/2d625888c311ea1c5271b3805775742ab0a7f16b.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-30",
@@ -437,7 +450,8 @@
     "duration": 2923,
     "views": 288623,
     "cover": "https://i2.hdslb.com/bfs/archive/ecce05a51f9e43962b534e55cbf28c090214b5cf.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-05-31",
@@ -469,7 +483,8 @@
     "duration": 4158,
     "views": 300551,
     "cover": "https://i0.hdslb.com/bfs/archive/fa7160aec553c0fd5eaafd68484fbffb0dc371cd.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-01",
@@ -501,7 +516,8 @@
     "duration": 3063,
     "views": 179954,
     "cover": "https://i2.hdslb.com/bfs/archive/75b45291980984176d111b4e54d2b8c8c2ddbaad.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-02",
@@ -538,7 +554,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4183,
@@ -567,7 +585,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2266,
@@ -596,7 +616,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1262,
@@ -625,7 +647,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 691,
@@ -654,7 +678,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1002,
@@ -683,7 +709,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1542,
@@ -712,7 +740,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1043,
@@ -741,7 +771,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1142,
@@ -770,7 +802,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
@@ -799,7 +833,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2507,
@@ -828,7 +864,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3024,
@@ -866,7 +904,8 @@
     "duration": 3589,
     "views": 427331,
     "cover": "https://i2.hdslb.com/bfs/archive/f8a3cb43e0647ae16985a269d7afddad38d797b0.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-15",
@@ -889,7 +928,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 697,
@@ -927,7 +968,8 @@
     "duration": 2870,
     "views": 411990,
     "cover": "https://i2.hdslb.com/bfs/archive/6373c6771d20f5bc16f7818d6d3a7e48f12f03a4.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-17",
@@ -959,7 +1001,8 @@
     "duration": 2278,
     "views": 398552,
     "cover": "https://i0.hdslb.com/bfs/archive/a9ec4aa9bbe99347e1b16328489f4ac439a69702.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-18",
@@ -991,7 +1034,8 @@
     "duration": 3116,
     "views": 454209,
     "cover": "https://i1.hdslb.com/bfs/archive/ff335c02fc994e6eddb5b2d5d0f8dddcaa9668fb.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-19",
@@ -1065,7 +1109,8 @@
     "duration": 2770,
     "views": 495585,
     "cover": "https://i0.hdslb.com/bfs/archive/386031fc923c82f8cd036c265ee5b0514209330c.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-20",
@@ -1088,7 +1133,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4841,
@@ -1117,13 +1164,16 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2777,
     "views": 479541,
     "cover": "https://i1.hdslb.com/bfs/archive/155138ef7097e356a333353f8dc68530dc80f80f.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-22",
@@ -1146,7 +1196,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 128,
@@ -1175,7 +1227,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3662,
@@ -1204,7 +1258,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
@@ -1233,7 +1289,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3157,
@@ -1271,15 +1329,16 @@
     "duration": 3468,
     "views": 300040,
     "cover": "https://i0.hdslb.com/bfs/archive/6357bdcecf4014ef3ef9ef782ff05f32cb26c6a6.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-27",
     "bvid": "BV1Q47E6EEHz",
     "title": "早起沿海一路暴晒骑行113公里到天黑！！中途和史师傅红脸…距离芽庄还有？？？公里",
-    "place": "芽庄 (Nha Trang)",
-    "lat": 12.2388,
-    "lng": 109.1967,
+    "place": "广义 Quảng Ngãi",
+    "lat": 15.12,
+    "lng": 108.8,
     "confidence": "路线推断",
     "phase": "第二段",
     "ride": true,
@@ -1294,14 +1353,18 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints",
+      "coordinate-corrected-from-next-day"
+    ],
     "confidenceScore": 0.45,
     "automation": {},
-    "coordinateSource": "title/place gazetteer",
     "duration": 3397,
     "views": 288727,
     "cover": "https://i0.hdslb.com/bfs/archive/d5ef795a4180db03b209301636003dd296bb5e8c.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "next-day route context",
+    "mapVisible": true
   },
   {
     "date": "2026-06-28",
@@ -1334,7 +1397,8 @@
     "duration": 3015,
     "views": 310238,
     "cover": "https://i2.hdslb.com/bfs/archive/e1e1e27dec729fa5f335f2c261859af080e20225.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-29",
@@ -1380,7 +1444,8 @@
     "duration": 2615,
     "views": 276244,
     "cover": "https://i2.hdslb.com/bfs/archive/bbf0a44816a60a76b92746e37aa06b77c71b26b3.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-06-30",
@@ -1403,7 +1468,9 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2483,
@@ -1432,14 +1499,19 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "evidence": [],
-    "riskFlags": "missing-key-timepoints",
+    "riskFlags": [
+      "missing-key-timepoints",
+      "coordinate-distance-conflict"
+    ],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
     "duration": 4522,
     "views": 338249,
     "cover": "https://i0.hdslb.com/bfs/archive/9cd6cd132082669f09285af77febaa4fc32265b1.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": false,
+    "coordinateStatus": "distance conflict; hidden from route"
   },
   {
     "date": "2026-07-02",
@@ -1675,7 +1747,7 @@
     "rideTimeHours": 0,
     "dayTimeHours": null,
     "summary": "2026年7月2日，骑行者因归仁海边风景宜人，决定在当地海边民宿休整一日，当日未安排骑行。期间经历海边突发阵雨、下海游泳、无人机在海面上方断连后成功回收等事件，晚间在民宿用餐时围绕旅行意义、个人成长等话题深度交流，计划接下来两天骑行前往芽庄。",
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.85,
     "automation": {},
     "coordinateSource": "local-gazetteer",
@@ -1835,13 +1907,17 @@
         "source": "https://www.bilibili.com/video/BV1vpTp63EwN/"
       }
     ],
-    "riskFlags": null,
+    "riskFlags": [
+      "coordinate-distance-conflict"
+    ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2822,
     "views": 343929,
     "cover": "https://i2.hdslb.com/bfs/archive/caa04dee39d0ffe1a205b7bdb9df4779252b9667.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": false,
+    "coordinateStatus": "distance conflict; hidden from route"
   },
   {
     "date": "2026-07-04",
@@ -1961,7 +2037,7 @@
         "source": "https://www.bilibili.com/video/BV1P4TZ6xEya/"
       }
     ],
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.95,
     "automation": {},
     "coordinateSource": "local-gazetteer",
@@ -2116,14 +2192,15 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
     "duration": 2303,
     "views": 227520,
     "cover": "https://i2.hdslb.com/bfs/archive/916a082fdd2786ea774d401089e6d11255bf98d4.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-07-06",
@@ -2399,7 +2476,7 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
@@ -2629,14 +2706,15 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
     "duration": 2870,
     "views": 249323,
     "cover": "https://i1.hdslb.com/bfs/archive/cb971b543512f9072b34af73e28672a2ac18373a.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-07-08",
@@ -2809,25 +2887,26 @@
       "extractionModel": "doubao-seed-evolving",
       "status": "待核验"
     },
-    "riskFlags": null,
+    "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
     "coordinateSource": "title/place gazetteer",
     "duration": 2507,
     "views": 201812,
     "cover": "https://i1.hdslb.com/bfs/archive/83f2cddb57eb2816c28295bbee2c6f74047ed44d.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "mapVisible": true
   },
   {
     "date": "2026-07-09",
     "bvid": "BV1JxM56cER7",
     "title": "骑行60公里到达越南美奈小渔村，这个地方居然一半沙漠，一半大海？？？",
-    "place": "和多 Hoa Da (Binh Thuan)",
-    "lat": 11.18,
-    "lng": 108.72,
+    "place": "美奈 Mui Ne",
+    "lat": 10.933,
+    "lng": 108.287,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.95,
-    "riskFlags": "coordinates-copied-from-previous-ride",
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": true,
     "distanceKm": 60.0,
@@ -3051,18 +3130,19 @@
     "views": 167351,
     "cover": "https://i1.hdslb.com/bfs/archive/4192a332e02eddb07f860761327235ee31241a33.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer"
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   },
   {
     "date": "2026-07-10",
     "bvid": "BV16cMp6JEsN",
     "title": "如果只在越南本地只看一场球的话，我会选择。。。。",
-    "place": "越南美奈",
-    "lat": 11.18,
-    "lng": 108.72,
+    "place": "美奈 Mui Ne",
+    "lat": 10.933,
+    "lng": 108.287,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.85,
-    "riskFlags": null,
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3182,7 +3262,6 @@
     "dayTimeHours": null,
     "summary": "2026年7月10日，作者在越南美奈旅行时遭遇强降雨，原计划的美奈户外游玩行程无法开展，便临时决定骑摩托车在当地寻找体育酒吧，观看美加墨世界杯阿根廷对阵埃及的比赛。作者辗转找到当地唯一有观赛人群的体育酒吧，发现美奈周中外出观赛的群体以外籍常住居民为主，本地居民极少外出看球，整体户外观赛氛围较为平淡。当日因降雨未开展计划中的长途骑行，作者期待次日天气转好后继续骑行旅程。",
     "automation": {},
-    "coordinateSource": "title/place gazetteer",
     "automationStatus": "AI enriched",
     "aiEnrichment": {
       "version": "route-auto-v2",
@@ -3196,20 +3275,20 @@
     "duration": 1826,
     "views": 186114,
     "cover": "https://i2.hdslb.com/bfs/archive/755b00137e7cca8c16fba94d0ea3dabf0ce274df.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer"
   },
   {
     "date": "2026-07-11",
     "bvid": "BV1aDNn64EVP",
     "title": "我用了24小时通宵骑了200公里，到了胡志明。",
-    "place": "越南美奈",
-    "lat": 11.18,
-    "lng": 108.72,
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
     "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.25,
+    "confidenceScore": 0.45,
     "riskFlags": [
       "place-needs-auto-review",
-      "coordinates-copied-from-previous-ride",
       "missing-key-timepoints"
     ],
     "phase": "AI enriched",
@@ -3229,6 +3308,8 @@
     "duration": 6390,
     "views": 74080,
     "cover": "https://i2.hdslb.com/bfs/archive/3d5960b9c5ea519b4453c82f77a2c2af9e277d18.jpg",
-    "videoSource": "season"
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
