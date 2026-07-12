@@ -3344,7 +3344,7 @@
     "duration": 307,
     "views": 226383,
     "cover": "https://i2.hdslb.com/bfs/archive/8e0594e9fb38f96a2f92a8267149ea67fff59316.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
   }
