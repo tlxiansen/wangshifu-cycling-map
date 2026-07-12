@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T17:16:13.2634106+00:00",
+  "generatedAt": "2026-07-12T21:06:08.8109307+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
@@ -25,14 +25,14 @@
       "status": "待核验"
     },
     {
-      "bvid": "BV1HVGv6eEU7",
-      "date": "2026-05-23",
-      "place": "河内 Ha Noi",
+      "bvid": "BV1RQ7Z6eEWV",
+      "date": "2026-06-04",
+      "place": "越南中北部",
       "user": "福州陈奕迅丶",
-      "likes": 125,
-      "message": "第三天加上中间在美电村绕路应该有60KM。\n①全程\n②③早餐店\n④奶茶店\n⑤⑥躲雨的房子\n⑦王师傅口中的“华强北”美电村\n⑧⑨丽枫酒店",
-      "rpid": "300363838801",
-      "url": "https://www.bilibili.com/video/BV1HVGv6eEU7/#reply300363838801",
+      "likes": 53,
+      "message": "番外篇：史师傅の日记\n①游玩路线图\n②健身房\n③晚饭店\n④⑤荣市古城介绍",
+      "rpid": "301614956385",
+      "url": "https://www.bilibili.com/video/BV1RQ7Z6eEWV/#reply301614956385",
       "status": "待核验"
     }
   ]
