@@ -3311,5 +3311,41 @@
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-12",
+    "bvid": "BV178NN6dEBs",
+    "title": "昨日过于操劳，故摆。",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "昨日过于操劳，故摆。.",
+    "automation": {},
+    "duration": 307,
+    "views": 226383,
+    "cover": "https://i2.hdslb.com/bfs/archive/8e0594e9fb38f96a2f92a8267149ea67fff59316.jpg",
+    "videoSource": "upload",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
