@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T13:55:02.0809876+00:00",
+  "generatedAt": "2026-07-12T17:16:13.2634106+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
@@ -22,6 +22,17 @@
       "message": "出发这天才看到自己的瓜[doge]，所以前几期标题都是巧合啦\n【视频标记点 09:48】 https://b23.tv/qBNnF7c",
       "rpid": "305362660752",
       "url": "https://www.bilibili.com/video/BV1LvEY6PEMZ/#reply305362660752",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1HVGv6eEU7",
+      "date": "2026-05-23",
+      "place": "河内 Ha Noi",
+      "user": "福州陈奕迅丶",
+      "likes": 125,
+      "message": "第三天加上中间在美电村绕路应该有60KM。\n①全程\n②③早餐店\n④奶茶店\n⑤⑥躲雨的房子\n⑦王师傅口中的“华强北”美电村\n⑧⑨丽枫酒店",
+      "rpid": "300363838801",
+      "url": "https://www.bilibili.com/video/BV1HVGv6eEU7/#reply300363838801",
       "status": "待核验"
     }
   ]
