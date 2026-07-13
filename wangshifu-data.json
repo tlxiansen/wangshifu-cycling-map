@@ -3347,5 +3347,41 @@
     "videoSource": "existing-cache",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-13",
+    "bvid": "BV1BENy6iEYa",
+    "title": "越南胡志明之——中国特辑！看看都有哪些大家耳熟能详的品牌",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "越南胡志明之——中国特辑！看看都有哪些大家耳熟能详的品牌.",
+    "automation": {},
+    "duration": 2520,
+    "views": 31442,
+    "cover": "https://i1.hdslb.com/bfs/archive/d16f480bd24e0c06c53439e3615ff094bf291772.jpg",
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
