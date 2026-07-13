@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T18:05:46.6651187+00:00",
+  "generatedAt": "2026-07-13T21:12:34.0031053+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
@@ -14,6 +14,17 @@
       "status": "待核验"
     },
     {
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "慕容孤傲",
+      "likes": 290,
+      "message": "我又来了，今天王师傅住的酒店Tra Linh Hotel在越南谅山省Hữu Lũng(有陇)县Ngọc thành(玉城)村，是一家三星级酒店",
+      "rpid": "303215412416",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply303215412416",
+      "status": "待核验"
+    },
+    {
       "bvid": "BV1LvEY6PEMZ",
       "date": "2026-06-11",
       "place": "返回越南途中",
@@ -22,6 +33,127 @@
       "message": "出发这天才看到自己的瓜[doge]，所以前几期标题都是巧合啦\n【视频标记点 09:48】 https://b23.tv/qBNnF7c",
       "rpid": "305362660752",
       "url": "https://www.bilibili.com/video/BV1LvEY6PEMZ/#reply305362660752",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1k2Vq6CEsW",
+      "date": "2026-06-02",
+      "place": "越南中北部海岸",
+      "user": "福州陈奕迅丶",
+      "likes": 192,
+      "message": "第十三天（骑行第十一天），骑行全程26.1KM\n①②路线图\n③④午餐店\n⑤⑥午餐店对面的游乐园缆车到的岛简介（机翻），缆车价格是25万越南盾\n⑦跨海大桥简介（机翻）\n⑧咖啡店\n⑨酒店",
+      "rpid": "301398052465",
+      "url": "https://www.bilibili.com/video/BV1k2Vq6CEsW/#reply301398052465",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "福州陈奕迅丶",
+      "likes": 177,
+      "message": "当日骑行67.2KM\n①路线图\n②第一天酒店和摩托车店铺位置\n③摩托车店谷歌街景\n④第二天酒店卫星图",
+      "rpid": "300211595105",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply300211595105",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "一顿狂炫十碗饭",
+      "likes": 87,
+      "message": "多年后，众多骑行博主想破脑袋也不明白，自己怎么热度还不如一个破计算器",
+      "rpid": "303193161008",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply303193161008",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1k2Vq6CEsW",
+      "date": "2026-06-02",
+      "place": "越南中北部海岸",
+      "user": "杀意波动-Oni",
+      "likes": 82,
+      "message": "说一件很恐怖的事情兄弟们：我之前关注了王师傅但都是有一搭没一搭的看的，后面王师傅出了东南亚高强度（一休息就看）看了三期发现不对劲，太上头了，这么看下去很快就追上了进度了。所以我回去看了广西骑行到昆明那一季，好家伙又给我赶上进度了[大哭]现在怎么办？还往前倒吗？倒到两百多斤的脏鼎时期好割裂啊",
+      "rpid": "304479439616",
+      "url": "https://www.bilibili.com/video/BV1k2Vq6CEsW/#reply304479439616",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "InteAMD",
+      "likes": 79,
+      "message": "今天不报天气了，今天给大家看我2w越南盾买到的早餐-猪杂粉和1w买到的红毛丹[吃瓜]",
+      "rpid": "300197028081",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply300197028081",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1k2Vq6CEsW",
+      "date": "2026-06-02",
+      "place": "越南中北部海岸",
+      "user": "空空娃儿",
+      "likes": 55,
+      "message": "今日到达~如图~[25年度表情包_赞个点][25年度表情包_不太冷][25年度表情包_点个赞]",
+      "rpid": "304425773104",
+      "url": "https://www.bilibili.com/video/BV1k2Vq6CEsW/#reply304425773104",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1k2Vq6CEsW",
+      "date": "2026-06-02",
+      "place": "越南中北部海岸",
+      "user": "豆子大爷",
+      "likes": 45,
+      "message": "笑死，作为一个干酒店marcom的。首先这个酒店作为一个所谓的“五星级”酒店，他门外落客区那么脏，到了没有人礼宾来迎接；房间里面玻璃上还有那么多油漆；有老鼠等等一系列问题~有没有可能不是这家酒店全都满了，是因为他其他房间都是3O房没法卖[笑哭]",
+      "rpid": "304483822832",
+      "url": "https://www.bilibili.com/video/BV1k2Vq6CEsW/#reply304483822832",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1k2Vq6CEsW",
+      "date": "2026-06-02",
+      "place": "越南中北部海岸",
+      "user": "醒目不醒目",
+      "likes": 38,
+      "message": "看到29分钟，弹幕很多人说财富自由啥的。你真财富自由了，你还有心思去拍视频拍节目？怕不是早就躲哪里享受去了。比如我摩旅，平时都躺着，花了一天来回骑了600公里，这也是踏出一步。我花了一天把家里的网络重新搞了一下，这也是走出了一步。这件事最核心的就是要让你动起来，走出去。不是整天躺着，留在自己舒适区。",
+      "rpid": "301394614241",
+      "url": "https://www.bilibili.com/video/BV1k2Vq6CEsW/#reply301394614241",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1LijF6iE4r",
+      "date": "2026-06-18",
+      "place": "洞海 Đồng Hới",
+      "user": "乐喜想喝茶",
+      "likes": 28,
+      "message": "越南的美食主要集中在河内，顺化，岘港，西贡，各个地方口味还有些差异。除了越南出名的越南米粉（Pho）， 还有虾卷米饼和越南法棍等。（我自己不是很喜欢牛肉，所以吃不惯pho，还是透明米纸包着虾卷对我来说比较好吃）。越南河内本地人都爱吃的蜗牛螺肉面（对，是蜗牛，很特别），越南顺化最出名的小碗糕（这个真的巨好吃，我每次去越南餐馆是必点的，每次都吃至少5小碗，餐馆老板老婆是越南人，自己做的），岘港的鱼酱米粉配猪肉也很好吃，不过海滨城市都有那种“海鲜味”，不喜欢海鲜的可能会觉得很腥，很不喜欢。西贡的pho和北部河内的pho口味不太一样，我没吃过西贡的pho，所以我这里推荐西贡黄金煎饼，还不错吃~~",
+      "rpid": "306127473216",
+      "url": "https://www.bilibili.com/video/BV1LijF6iE4r/#reply306127473216",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1LRLi6TEkS",
+      "date": "2026-05-22",
+      "place": "越南北部",
+      "user": "峰仓亚夜",
+      "likes": 23,
+      "message": "第二天60多公里，按弯路山路可能有70",
+      "rpid": "300220949185",
+      "url": "https://www.bilibili.com/video/BV1LRLi6TEkS/#reply300220949185",
+      "status": "待核验"
+    },
+    {
+      "bvid": "BV1k2Vq6CEsW",
+      "date": "2026-06-02",
+      "place": "越南中北部海岸",
+      "user": "肥肥柴2000",
+      "likes": 21,
+      "message": "开饭！\n真*老王母校边上。隋500打卡过的姐妹餐厅[doge]",
+      "rpid": "304423165600",
+      "url": "https://www.bilibili.com/video/BV1k2Vq6CEsW/#reply304423165600",
       "status": "待核验"
     }
   ]
