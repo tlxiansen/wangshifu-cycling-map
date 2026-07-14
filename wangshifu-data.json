@@ -3383,5 +3383,41 @@
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-14",
+    "bvid": "BV1c2NQ6hEBi",
+    "title": "花了17年建造的越南胡志明地铁长啥样？？？全程居然只有？？公里",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "花了17年建造的越南胡志明地铁长啥样？？？全程居然只有？？公里.",
+    "automation": {},
+    "duration": 2043,
+    "views": 61501,
+    "cover": "https://i0.hdslb.com/bfs/archive/ce8a2150d08ce4b92fab3022a53a2e12b4438a95.jpg",
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
