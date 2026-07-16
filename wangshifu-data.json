@@ -3455,5 +3455,41 @@
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-16",
+    "bvid": "BV1eLNB65Edz",
+    "title": "越南最好的网吧 长啥样？？？",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "越南最好的网吧 长啥样？？？.",
+    "automation": {},
+    "duration": 995,
+    "views": 22065,
+    "cover": "https://i0.hdslb.com/bfs/archive/57343befc104fbcae39c3d94898e3ced35424ced.jpg",
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
