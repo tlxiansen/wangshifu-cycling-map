@@ -3491,5 +3491,41 @@
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-17",
+    "bvid": "BV1NjKV6hE2L",
+    "title": "探秘越南《帝王洗头》，四手连按，是什么体验？",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "探秘越南《帝王洗头》，四手连按，是什么体验？.",
+    "automation": {},
+    "duration": 1603,
+    "views": 20514,
+    "cover": "https://i2.hdslb.com/bfs/archive/367defd0e7239ec24bbf7e8e679d827eb49f2d3c.jpg",
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
