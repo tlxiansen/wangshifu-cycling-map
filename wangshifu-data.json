@@ -3527,5 +3527,41 @@
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-18",
+    "bvid": "BV1xyNd6EExd",
+    "title": "胡志明美食指南，到底哪些值得吃？鼎力推荐",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "胡志明美食指南，到底哪些值得吃？鼎力推荐.",
+    "automation": {},
+    "duration": 2637,
+    "views": 25371,
+    "cover": "https://i1.hdslb.com/bfs/archive/502d8c3addaa966eadbc317538553d3476087e05.jpg",
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
