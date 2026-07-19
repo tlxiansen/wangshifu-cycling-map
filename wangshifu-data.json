@@ -3563,5 +3563,41 @@
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-19",
+    "bvid": "BV1PPKN6qE1z",
+    "title": "我有个朋友 来越南找我了！",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "我有个朋友 来越南找我了！.",
+    "automation": {},
+    "duration": 3475,
+    "views": 45779,
+    "cover": "https://i1.hdslb.com/bfs/archive/6fe0576eea5885f4da7e91946867a6582a76242b.jpg",
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
   }
 ]
