@@ -1,29 +1,7 @@
 {
-  "generatedAt": "2026-07-19T13:52:11.9187524+00:00",
+  "generatedAt": "2026-07-19T17:14:54.1775804+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
-    {
-      "bvid": "BV1LvEY6PEMZ",
-      "date": "2026-06-11",
-      "place": "返回越南途中",
-      "user": "zjlinlinlin",
-      "likes": 557,
-      "message": "我来大概梳理下：\n1、王开始骑行，大号探店还需要出行、成本上升。\n2、A伴对于A频繁跑过去找王有意见。\n3、A妥协A伴，反要求王需要配合\n4、王不肯，掀桌（谁掀不评估）\n5、王回沪摊牌。\n6、等各位补充[doge_金箍]",
-      "rpid": "305362448208",
-      "url": "https://www.bilibili.com/video/BV1LvEY6PEMZ/#reply305362448208",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV1LvEY6PEMZ",
-      "date": "2026-06-11",
-      "place": "返回越南途中",
-      "user": "南门的稻草",
-      "likes": 289,
-      "message": "出发这天才看到自己的瓜[doge]，所以前几期标题都是巧合啦\n【视频标记点 09:48】 https://b23.tv/qBNnF7c",
-      "rpid": "305362660752",
-      "url": "https://www.bilibili.com/video/BV1LvEY6PEMZ/#reply305362660752",
-      "status": "待核验"
-    },
     {
       "bvid": "BV1F5E76aEfD",
       "date": "2026-06-09",
@@ -55,50 +33,6 @@
       "message": "新的起点，新的开始。",
       "rpid": "305210469856",
       "url": "https://www.bilibili.com/video/BV1F5E76aEfD/#reply305210469856",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV159GL6vEpd",
-      "date": "2026-05-24",
-      "place": "河内 Hanoi",
-      "user": "福州陈奕迅丶",
-      "likes": 93,
-      "message": "第四天40KM左右\n①路线 ②③早餐店Jolibee，旁边就是华莱士 ④⑤蜜雪 ⑥当天入住酒店河内西湖洲际酒店 ⑦后面去的商城Lotte Mall",
-      "rpid": "300445560401",
-      "url": "https://www.bilibili.com/video/BV159GL6vEpd/#reply300445560401",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV159GL6vEpd",
-      "date": "2026-05-24",
-      "place": "河内 Hanoi",
-      "user": "慕容孤傲",
-      "likes": 58,
-      "message": "各位晚上好，今天王师傅入住的酒店为河内西湖洲际酒店，官网价格的话，水上湖景双人房不含早餐的价格会在231🔪一晚，折合人民币1570元，非会员价格为243🔪，折合1651，以上价格均不含早。",
-      "rpid": "303516266512",
-      "url": "https://www.bilibili.com/video/BV159GL6vEpd/#reply303516266512",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV159GL6vEpd",
-      "date": "2026-05-24",
-      "place": "河内 Hanoi",
-      "user": "发飙的鸵鸟",
-      "likes": 40,
-      "message": "强烈建议不要背背包，你看那些重装骑行的都是车上挂很多自己都不背的，影响散热还会对身体造成严重的负担",
-      "rpid": "300461762769",
-      "url": "https://www.bilibili.com/video/BV159GL6vEpd/#reply300461762769",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV159GL6vEpd",
-      "date": "2026-05-24",
-      "place": "河内 Hanoi",
-      "user": "奥尔梅斯",
-      "likes": 36,
-      "message": "[鸭科夫_干嘛鸭]话说他们这骑的路线上哪个地方治安最差啊，弹幕评论都说第一天就丢车看下来感觉越南人民挺好的啊？哪有弹幕说的那么吓人又是园区又是偷车的……",
-      "rpid": "303444627088",
-      "url": "https://www.bilibili.com/video/BV159GL6vEpd/#reply303444627088",
       "status": "待核验"
     }
   ]
