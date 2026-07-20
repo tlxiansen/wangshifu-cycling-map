@@ -7,6 +7,7 @@ on:
       - ".github/workflows/**"
       - "scripts/**"
       - "tests/**"
+      - "requirements-audio-enrichment.txt"
       - "update_wangshifu_data.ps1"
       - "collect_bilibili_candidates.ps1"
       - "wangshifu-dashboard.html"

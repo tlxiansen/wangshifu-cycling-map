@@ -43,4 +43,14 @@
 
 DeepSeek 使用官方兼容接口 `https://api.deepseek.com` 和 `deepseek-chat` 模型，不需要填写模型端点 ID。原来的 `ARK_API_KEY`、`ARK_MODEL_ID` 不再被这个工作流使用，可以在确认 DeepSeek 连续运行成功后删除。
 
+### 下载自己的字幕副本
+
+1. 打开 `Actions → Export encrypted transcripts → Run workflow`。
+2. `bvid` 留空会导出全部字幕；填写 BV 号则只导出该期。
+3. 运行完成后，在页面底部 `Artifacts` 下载 `wangshifu-transcripts-*`。
+4. 下载的 ZIP 中包含 `transcript-export.7z`；使用 7-Zip 打开，并输入你创建 `TRANSCRIPT_ENCRYPTION_KEY` 时保存的原始密码。
+5. 解压后每期包括 JSON、带时间点的 TXT 和可供播放器加载的 VTT 字幕。
+
+导出包只保留 1 天，而且内部仍使用密码加密。GitHub 不允许重新查看 Secret 的值，所以创建 `TRANSCRIPT_ENCRYPTION_KEY` 时必须另外保存在本地密码管理器中。
+
 自动结果会显示为“AI音频提取，待维护者核验”，不会覆盖已经人工核验的行程。

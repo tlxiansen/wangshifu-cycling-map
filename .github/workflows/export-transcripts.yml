@@ -1,0 +1,67 @@
+name: Export encrypted transcripts
+
+on:
+  workflow_dispatch:
+    inputs:
+      bvid:
+        description: "可选：只导出一个 BV 号；留空则导出全部"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check export configuration
+        shell: bash
+        env:
+          TRANSCRIPT_ENCRYPTION_KEY: ${{ secrets.TRANSCRIPT_ENCRYPTION_KEY }}
+        run: test -n "${TRANSCRIPT_ENCRYPTION_KEY:-}"
+
+      - name: Install decryption dependency
+        run: python -m pip install "cryptography>=44,<46"
+
+      - name: Export subtitle files
+        shell: bash
+        env:
+          TRANSCRIPT_ENCRYPTION_KEY: ${{ secrets.TRANSCRIPT_ENCRYPTION_KEY }}
+          BVID: ${{ inputs.bvid }}
+        run: |
+          args=()
+          if [[ -n "${BVID:-}" ]]; then
+            args+=(--bvid "$BVID")
+          fi
+          python scripts/export_transcripts.py \
+            --input-dir transcripts \
+            --output-dir exported-transcripts \
+            "${args[@]}"
+
+      - name: Create password-protected archive
+        shell: bash
+        env:
+          TRANSCRIPT_ENCRYPTION_KEY: ${{ secrets.TRANSCRIPT_ENCRYPTION_KEY }}
+        run: |
+          if ! command -v 7z >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y p7zip-full
+          fi
+          7z a -t7z -mhe=on -p"$TRANSCRIPT_ENCRYPTION_KEY" \
+            transcript-export.7z ./exported-transcripts/*
+
+      - name: Upload encrypted download
+        uses: actions/upload-artifact@v4
+        with:
+          name: wangshifu-transcripts-${{ github.run_number }}
+          path: transcript-export.7z
+          if-no-files-found: error
+          retention-days: 1
