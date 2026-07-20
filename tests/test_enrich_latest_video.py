@@ -83,6 +83,108 @@ class EnrichmentTests(unittest.TestCase):
             )
         self.assertEqual(parsed["distance_km"], 42)
 
+    def test_deepseek_json_is_parsed(self):
+        fixture = json.loads(
+            (ROOT / "tests" / "fixtures" / "episode-extraction.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        response = SimpleNamespace(
+            choices=[
+                SimpleNamespace(
+                    message=SimpleNamespace(
+                        content=json.dumps(fixture, ensure_ascii=False)
+                    )
+                )
+            ]
+        )
+        captured = {}
+
+        def create(**kwargs):
+            captured.update(kwargs)
+            return response
+
+        client = SimpleNamespace(
+            chat=SimpleNamespace(
+                completions=SimpleNamespace(create=create)
+            )
+        )
+        with patch.dict(
+            "os.environ",
+            {"TEXT_AI_PROVIDER": "deepseek", "DEEPSEEK_MODEL": "deepseek-chat"},
+            clear=False,
+        ):
+            parsed = MODULE.extract_structured_episode(
+                client,
+                {"date": "2026-07-20", "bvid": "BVTEST", "title": "测试"},
+                [{"start": 15, "end": 20, "text": "今天没有骑行。"}],
+            )
+        self.assertEqual(parsed["distance_km"], 42)
+        self.assertEqual(captured["model"], "deepseek-chat")
+        self.assertEqual(captured["response_format"], {"type": "json_object"})
+
+    def test_encrypted_transcript_cache_roundtrip(self):
+        entry = {
+            "date": "2026-07-20",
+            "bvid": "BVTEST123",
+            "title": "测试视频",
+        }
+        segments = [
+            {"start": 12.5, "end": 18.0, "text": "今天骑了四十公里。"}
+        ]
+        with tempfile.TemporaryDirectory() as temporary:
+            with patch.dict(
+                "os.environ",
+                {
+                    "TRANSCRIPT_CACHE_DIR": temporary,
+                    "TRANSCRIPT_ENCRYPTION_KEY": "unit-test-secret",
+                    "ASR_PROVIDER": "volcengine",
+                },
+                clear=False,
+            ):
+                path = MODULE.save_transcript_cache(entry, segments)
+                contents = path.read_bytes()
+                loaded = MODULE.load_transcript_cache(entry)
+        self.assertNotIn("今天骑了四十公里".encode("utf-8"), contents)
+        self.assertEqual(loaded, segments)
+
+    def test_wrong_transcript_key_is_rejected(self):
+        entry = {"bvid": "BVTEST456", "title": "测试视频"}
+        segments = [{"start": 0, "end": 1, "text": "测试字幕"}]
+        with tempfile.TemporaryDirectory() as temporary:
+            with patch.dict(
+                "os.environ",
+                {
+                    "TRANSCRIPT_CACHE_DIR": temporary,
+                    "TRANSCRIPT_ENCRYPTION_KEY": "correct-key",
+                },
+                clear=False,
+            ):
+                MODULE.save_transcript_cache(entry, segments)
+            with patch.dict(
+                "os.environ",
+                {
+                    "TRANSCRIPT_CACHE_DIR": temporary,
+                    "TRANSCRIPT_ENCRYPTION_KEY": "wrong-key",
+                },
+                clear=False,
+            ):
+                with self.assertRaisesRegex(RuntimeError, "TRANSCRIPT_ENCRYPTION_KEY"):
+                    MODULE.load_transcript_cache(entry)
+
+    def test_deepseek_configuration_is_required(self):
+        with patch.dict(
+            "os.environ",
+            {
+                "ASR_PROVIDER": "volcengine",
+                "VOLC_ASR_API_KEY": "asr-key",
+                "TEXT_AI_PROVIDER": "deepseek",
+                "TRANSCRIPT_ENCRYPTION_KEY": "cache-key",
+            },
+            clear=True,
+        ):
+            self.assertEqual(MODULE.missing_configuration(), ["DEEPSEEK_API_KEY"])
+
     def test_candidate_selection_only_uses_recent_auto_entries(self):
         entries = [
             {"bvid": "manual", "phase": "第一段", "confidence": "人工核验"},
