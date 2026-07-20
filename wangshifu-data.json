@@ -39,10 +39,8 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -147,9 +145,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -181,10 +178,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -239,9 +234,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -273,16 +267,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3441,
     "views": 367868,
     "cover": "https://i1.hdslb.com/bfs/archive/e3f2b54b99153b97e36c6daa140334ea2d1d3e63.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-05-26",
@@ -306,16 +299,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1699,
     "views": 282220,
     "cover": "https://i2.hdslb.com/bfs/archive/4c87a53ded30a08e36d340a9905e21cf9ebcf0b1.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-05-27",
@@ -339,10 +331,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -389,8 +379,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -422,10 +411,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -457,10 +444,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -492,10 +477,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -527,10 +510,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -576,16 +557,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4183,
     "views": 273757,
     "cover": "https://i0.hdslb.com/bfs/archive/bbaf10e86ef5da36c4a9c3c53c9074c013a5ba35.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-03",
@@ -609,16 +589,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2266,
     "views": 198912,
     "cover": "https://i2.hdslb.com/bfs/archive/63b9e5ba5e012b82a15b564d08cbd527e9d6767b.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-04",
@@ -642,16 +621,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1262,
     "views": 298194,
     "cover": "https://i0.hdslb.com/bfs/archive/fb7beb6461974a1a0b1b3dcbbebef8d4c7774001.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-05",
@@ -675,16 +653,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 691,
     "views": 262657,
     "cover": "https://i2.hdslb.com/bfs/archive/180492a0648a564d200e8564e76c0b9ceeda7db2.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-06",
@@ -708,16 +685,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1002,
     "views": 294519,
     "cover": "https://i1.hdslb.com/bfs/archive/ddb080894ae2c33d4d198f1fbc45db85be3d1ded.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-08",
@@ -741,16 +717,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1542,
     "views": 378722,
     "cover": "https://i2.hdslb.com/bfs/archive/3e887155e248770b93a8d17a59b35bfb729ad96f.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-09",
@@ -774,16 +749,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1043,
     "views": 340363,
     "cover": "https://i0.hdslb.com/bfs/archive/65d8f80e67fee465485229e5de0d9f7f973cdd63.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-10",
@@ -807,16 +781,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1142,
     "views": 1461290,
     "cover": "https://i2.hdslb.com/bfs/archive/2d2d5f9d06dcc33f77dd6ed8cac82113ae7a4d5e.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-11",
@@ -840,16 +813,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
     "views": 627096,
     "cover": "https://i2.hdslb.com/bfs/archive/8fdff851d550ef3e54dca819798d512a39e5efee.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-12",
@@ -873,16 +845,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2507,
     "views": 493477,
     "cover": "https://i0.hdslb.com/bfs/archive/8ec4aa5dd6026d04b71dc69fe388617a942a728d.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-13",
@@ -906,16 +877,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3024,
     "views": 417226,
     "cover": "https://i2.hdslb.com/bfs/archive/9a15b2d8f428fa6c9c9d8c80e8504341048cf7c2.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-14",
@@ -939,10 +909,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -974,16 +942,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 697,
     "views": 289413,
     "cover": "https://i0.hdslb.com/bfs/archive/4940835a96b24cf0f9f29cf1d6dfe5d584c6a7bb.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-16",
@@ -1007,10 +974,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1042,10 +1007,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1077,10 +1040,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1154,9 +1115,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1188,16 +1148,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 4841,
     "views": 413801,
     "cover": "https://i0.hdslb.com/bfs/archive/35188de29df3e5a8b636b84fc7a739f7b48e9195.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-21",
@@ -1221,9 +1180,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1255,16 +1212,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 128,
     "views": 200177,
     "cover": "https://i1.hdslb.com/bfs/archive/20920759c455bd37e116cba7fe4743273aea50ab.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-23",
@@ -1288,16 +1244,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3662,
     "views": 793101,
     "cover": "https://i0.hdslb.com/bfs/archive/9b5f2b9a77ff4f177f9aba2fccba01bb503d4109.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-24",
@@ -1321,16 +1276,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 1316,
     "views": 324460,
     "cover": "https://i1.hdslb.com/bfs/archive/9c99025485aabadb4592ef574ad54780ef555b1f.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-25",
@@ -1354,16 +1308,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 3157,
     "views": 289394,
     "cover": "https://i2.hdslb.com/bfs/archive/95bc7186a79a625998bdad69a8d77e51de10dbc8.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-06-26",
@@ -1387,10 +1340,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1422,9 +1373,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1458,11 +1407,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1508,9 +1455,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1542,16 +1488,15 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
     "duration": 2483,
     "views": 294329,
     "cover": "https://i1.hdslb.com/bfs/archive/6ea9b178790a488516d9fe15d56454749867209d.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-07-01",
@@ -1575,10 +1520,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "坐标与里程冲突",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-key-timepoints",
+      "coordinate-distance-conflict"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1841,8 +1784,8 @@
     "duration": 3788,
     "views": 331797,
     "cover": "https://i2.hdslb.com/bfs/archive/4d333fa716f6bd4e1af616d485ca390ed23ef93f.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-07-03",
@@ -1986,7 +1929,7 @@
       }
     ],
     "riskFlags": [
-      "坐标与里程冲突"
+      "coordinate-distance-conflict"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -2132,8 +2075,8 @@
     "duration": 741,
     "views": 211156,
     "cover": "https://i2.hdslb.com/bfs/archive/1dff9e1045abf24ad9cbd6c71960c6e651f1beea.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-07-05",
@@ -2562,8 +2505,8 @@
     "duration": 2825,
     "views": 323180,
     "cover": "https://i1.hdslb.com/bfs/archive/85e336638605b18448be8b8bae54fa06d03aa8a8.jpg",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-07-07",
@@ -3356,8 +3299,8 @@
     "views": 186114,
     "cover": "https://i2.hdslb.com/bfs/archive/755b00137e7cca8c16fba94d0ea3dabf0ce274df.jpg",
     "coordinateSource": "title/place gazetteer",
-    "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "videoSource": "season"
   },
   {
     "date": "2026-07-11",
@@ -3369,9 +3312,8 @@
     "confidence": "Auto-added; pending review",
     "confidenceScore": 0.45,
     "riskFlags": [
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "place-needs-auto-review",
+      "missing-key-timepoints"
     ],
     "phase": "AI enriched",
     "ride": true,
@@ -3403,9 +3345,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.55,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3478,7 +3418,6 @@
     "duration": 307,
     "views": 226383,
     "cover": "https://i2.hdslb.com/bfs/archive/8e0594e9fb38f96a2f92a8267149ea67fff59316.jpg",
-    "videoSource": "existing-cache",
     "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "automationStatus": "AI enriched",
@@ -3490,7 +3429,8 @@
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-13",
@@ -3627,7 +3567,6 @@
     "duration": 2520,
     "views": 31442,
     "cover": "https://i1.hdslb.com/bfs/archive/d16f480bd24e0c06c53439e3615ff094bf291772.jpg",
-    "videoSource": "season",
     "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "automationStatus": "AI enriched",
@@ -3639,7 +3578,8 @@
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "season"
   },
   {
     "date": "2026-07-14",
@@ -3650,9 +3590,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3758,7 +3696,6 @@
     "duration": 2043,
     "views": 61501,
     "cover": "https://i0.hdslb.com/bfs/archive/ce8a2150d08ce4b92fab3022a53a2e12b4438a95.jpg",
-    "videoSource": "season",
     "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "automationStatus": "AI enriched",
@@ -3770,7 +3707,8 @@
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "season"
   },
   {
     "date": "2026-07-15",
@@ -3781,9 +3719,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3877,7 +3813,6 @@
     "duration": 1640,
     "views": 41728,
     "cover": "https://i2.hdslb.com/bfs/archive/11b35e5047961faa1f42f6e113e3d446dea80d09.jpg",
-    "videoSource": "season",
     "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "automationStatus": "AI enriched",
@@ -3889,7 +3824,8 @@
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "season"
   },
   {
     "date": "2026-07-16",
@@ -3900,9 +3836,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -4008,7 +3942,6 @@
     "duration": 995,
     "views": 22065,
     "cover": "https://i0.hdslb.com/bfs/archive/57343befc104fbcae39c3d94898e3ced35424ced.jpg",
-    "videoSource": "season",
     "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "automationStatus": "AI enriched",
@@ -4020,7 +3953,8 @@
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "season"
   },
   {
     "date": "2026-07-17",
@@ -4031,9 +3965,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -4139,19 +4071,19 @@
     "duration": 1603,
     "views": 20514,
     "cover": "https://i2.hdslb.com/bfs/archive/367defd0e7239ec24bbf7e8e679d827eb49f2d3c.jpg",
-    "videoSource": "season",
     "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "automationStatus": "AI enriched",
     "aiEnrichment": {
       "version": "route-auto-v2",
-      "processedAt": "2026-07-20T15:27:52.335420+00:00",
+      "processedAt": "2026-07-20T15:27:52.33542+00:00",
       "transcriptionProvider": "volcengine",
       "transcriptionModel": "volc.seedasr.auc",
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "season"
   },
   {
     "date": "2026-07-18",
@@ -4162,9 +4094,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -4316,7 +4246,6 @@
     "duration": 2637,
     "views": 25371,
     "cover": "https://i1.hdslb.com/bfs/archive/502d8c3addaa966eadbc317538553d3476087e05.jpg",
-    "videoSource": "season",
     "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "automationStatus": "AI enriched",
@@ -4328,7 +4257,8 @@
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "season"
   },
   {
     "date": "2026-07-19",
@@ -4340,11 +4270,10 @@
     "confidence": "Auto-added; pending review",
     "confidenceScore": 0.45,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
     ],
     "phase": "AI enriched",
     "ride": true,
@@ -4377,11 +4306,10 @@
     "confidence": "Auto-added; pending review",
     "confidenceScore": 0.45,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
     ],
     "phase": "AI enriched",
     "ride": true,
