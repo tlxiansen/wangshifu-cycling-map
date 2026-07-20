@@ -1986,8 +1986,7 @@
       }
     ],
     "riskFlags": [
-      "坐标与里程冲突",
-      "需要自动复核"
+      "坐标与里程冲突"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -3500,35 +3499,149 @@
     "place": "胡志明 Ho Chi Minh City",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.6,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
       "需要自动复核"
     ],
     "phase": "AI enriched",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
+    "food": "海底捞、横滨酱油拉面",
+    "foods": [
+      "海底捞",
+      "横滨酱油拉面"
+    ],
+    "foodDetails": [
+      {
+        "name": "海底捞",
+        "venue": "海底捞（胡志明市）",
+        "meal": "晚餐",
+        "price": 3100000,
+        "currency": "VND",
+        "priceNote": "总价310万越南盾（约合人民币880元）",
+        "recommendation": "还原度120%，但番茄锅和香菜锅偏甜",
+        "status": "AI音频提取 00:00",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=0"
+      },
+      {
+        "name": "横滨酱油拉面",
+        "venue": "商场内拉面店",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "未提及具体价格",
+        "recommendation": "酱油豚骨汤好吃",
+        "status": "AI音频提取 01:05:20",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=3920"
+      }
+    ],
     "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "costs": [
+      {
+        "category": "购物",
+        "label": "李宁裤子",
+        "amount": 238,
+        "currency": "CNY",
+        "status": "AI音频提取 02:30",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=150"
+      },
+      {
+        "category": "餐饮",
+        "label": "海底捞",
+        "amount": 3100000,
+        "currency": "VND",
+        "status": "AI音频提取 09:06",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=546"
+      },
+      {
+        "category": "餐饮",
+        "label": "霸王茶姬伯牙绝弦两杯",
+        "amount": 150000,
+        "currency": "VND",
+        "status": "AI音频提取 13:01",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=781"
+      },
+      {
+        "category": "购物",
+        "label": "泡泡玛特盲盒三个",
+        "amount": 990000,
+        "currency": "VND",
+        "status": "AI音频提取 28:00",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=1680"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:00",
+        "text": "在胡志明市的海底捞体验生日庆祝，发现与国内相似但番茄锅和香菜锅偏甜",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=0"
+      },
+      {
+        "time": "02:30",
+        "text": "在李宁店购买裤子，花费238元人民币",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=150"
+      },
+      {
+        "time": "10:43",
+        "text": "探访霸王茶姬无声门店，所有员工为听障人士，使用手语交流",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=643"
+      },
+      {
+        "time": "13:01",
+        "text": "霸王茶姬伯牙绝弦两杯共15万越南盾（约合人民币40元），比国内便宜且甜度较低",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=781"
+      },
+      {
+        "time": "18:30",
+        "text": "在小米之家发现手机价格比国内贵很多，但生态链产品价格相近",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=1110"
+      },
+      {
+        "time": "28:00",
+        "text": "在泡泡玛特购买盲盒，发现价格与国内相近，抽到隐藏款",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=1680"
+      },
+      {
+        "time": "41:00",
+        "text": "在商场内吃横滨酱油拉面，推荐酱油豚骨汤",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1BENy6iEYa/?t=2460"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1BENy6iEYa/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。所有信息均来自字幕，无骑行相关数据；海底捞总价310万越南盾为字幕中提及，但未说明是否含税或小费；霸王茶姬无声门店的国内首家信息来自字幕中提及的搜索，需人工核实。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "越南胡志明之——中国特辑！看看都有哪些大家耳熟能详的品牌.",
+    "summary": "在胡志明市探索中国品牌，包括海底捞、李宁、霸王茶姬无声门店、小米、泡泡玛特等，并体验了当地的海底捞生日庆祝和霸王茶姬手语店。",
     "automation": {},
     "duration": 2520,
     "views": 31442,
     "cover": "https://i1.hdslb.com/bfs/archive/d16f480bd24e0c06c53439e3615ff094bf291772.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-20T14:56:50.609375+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-14",
