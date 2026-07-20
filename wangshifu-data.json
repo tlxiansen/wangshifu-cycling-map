@@ -3779,35 +3779,117 @@
     "place": "胡志明 Ho Chi Minh City",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.6,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
       "需要自动复核"
     ],
     "phase": "AI enriched",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
     "food": "Not identified",
     "foods": [],
     "foodDetails": [],
     "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "costs": [
+      {
+        "category": "entertainment",
+        "label": "MSI决赛观赛门票（两人）",
+        "amount": 400000,
+        "currency": "VND",
+        "status": "AI音频提取 04:01",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=241"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:01",
+        "text": "在越南胡志明的电影院里看MSI决赛",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=1"
+      },
+      {
+        "time": "00:46",
+        "text": "来到CGV电影院，有MSI决赛观赛活动",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=46"
+      },
+      {
+        "time": "04:01",
+        "text": "门票40万越南盾，包含爆米花和饮料",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=241"
+      },
+      {
+        "time": "10:08",
+        "text": "现场大屏幕，有越南官方解说和女主持",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=608"
+      },
+      {
+        "time": "12:13",
+        "text": "门票50块钱一个人，很值",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=733"
+      },
+      {
+        "time": "25:22",
+        "text": "比赛结束，BLG被让一追三，粉丝离场",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=1522"
+      },
+      {
+        "time": "30:35",
+        "text": "观赛氛围很好，但最后一把喂了一坨大的",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=1835"
+      },
+      {
+        "time": "42:14",
+        "text": "从中午12点待到晚上7点",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=2534"
+      },
+      {
+        "time": "43:45",
+        "text": "越南观赛氛围好，支持韩国队",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=2625"
+      },
+      {
+        "time": "44:17",
+        "text": "越南主持人打摩的回家，很接地气",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1wgNY6VECM/?t=2657"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1wgNY6VECM/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。当天日期为2026年7月15日，但视频中未明确提及日期，仅从元数据获取。距离、骑行时间等未提及。食物、住宿未提及。花费仅门票40万越南盾，其他未提及。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "越南的MSI居然是在电影院里看的——还有官方解说和女主持，花了40万越南盾结果被喂了一坨大的！.",
+    "summary": "在胡志明市CGV电影院观看MSI决赛，体验越南本地观赛氛围，最终BLG被让一追三，花费40万越南盾门票，赛后去吃饭。",
     "automation": {},
     "duration": 1640,
     "views": 41728,
     "cover": "https://i2.hdslb.com/bfs/archive/11b35e5047961faa1f42f6e113e3d446dea80d09.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-20T15:08:29.899812+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-16",
