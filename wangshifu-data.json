@@ -4029,35 +4029,129 @@
     "place": "胡志明 Ho Chi Minh City",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.6,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
       "需要自动复核"
     ],
     "phase": "AI enriched",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
     "food": "Not identified",
     "foods": [],
     "foodDetails": [],
     "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "costs": [
+      {
+        "category": "service",
+        "label": "帝王洗头100分钟套餐",
+        "amount": 380000,
+        "currency": "VND",
+        "status": "AI音频提取 01:41",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=101"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:06",
+        "text": "王师傅决定体验越南最火的“帝王洗头”项目。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=6"
+      },
+      {
+        "time": "00:27",
+        "text": "店家介绍三个套餐：60分钟、100分钟、120分钟，推荐120分钟。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=27"
+      },
+      {
+        "time": "00:42",
+        "text": "100分钟套餐价格为380,000越南盾。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=42"
+      },
+      {
+        "time": "01:41",
+        "text": "王师傅选择100分钟套餐，花费380,000越南盾。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=101"
+      },
+      {
+        "time": "06:43",
+        "text": "开始洗脚环节，用温水加沐浴露洗脚，再用盐搓。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=403"
+      },
+      {
+        "time": "07:24",
+        "text": "上二楼，选择服务项目，王师傅勾掉刮胡子。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=444"
+      },
+      {
+        "time": "09:06",
+        "text": "开始脸部按摩和腿部松解，王师傅感觉手法专业。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=546"
+      },
+      {
+        "time": "13:32",
+        "text": "王师傅刚辞职第一天，感觉按摩很爽。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=812"
+      },
+      {
+        "time": "18:28",
+        "text": "开始掏耳朵环节，王师傅觉得疼但专业。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=1108"
+      },
+      {
+        "time": "22:04",
+        "text": "进行手部和手臂按摩，王师傅解释因为骑车手累。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=1324"
+      },
+      {
+        "time": "30:03",
+        "text": "开始洗头，使用若野洗发水，王师傅介绍产品。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=1803"
+      },
+      {
+        "time": "39:10",
+        "text": "王师傅总结体验：服务专业，远超预期，推荐双人套餐。",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1NjKV6hE2L/?t=2350"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1NjKV6hE2L/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。所有信息均来自字幕，无骑行相关数据。费用为100分钟套餐价格，但字幕中未明确说明是否包含所有服务。洗发水广告部分为赞助内容，需人工确认是否影响客观性。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "探秘越南《帝王洗头》，四手连按，是什么体验？.",
+    "summary": "王师傅在胡志明市体验了越南特色的“帝王洗头”项目，包括洗脚、按摩、掏耳朵、敷面膜、洗头等全套服务，由两位技师同时服务100分钟，花费380,000越南盾。他认为服务专业且超值，推荐选择双人套餐。",
     "automation": {},
     "duration": 1603,
     "views": 20514,
     "cover": "https://i2.hdslb.com/bfs/archive/367defd0e7239ec24bbf7e8e679d827eb49f2d3c.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-20T15:27:52.335420+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-18",
