@@ -50,6 +50,7 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Enrich one route episode
+        id: enrich
         timeout-minutes: 45
         env:
           ASR_PROVIDER: volcengine
@@ -66,32 +67,69 @@ jobs:
           MAX_AI_EPISODES: "1"
         run: python scripts/enrich_latest_video.py
 
-      - name: Commit encrypted subtitle cache
-        if: ${{ always() }}
-        shell: pwsh
-        run: |
-          git config user.name "route-update-bot"
-          git config user.email "route-update-bot@users.noreply.github.com"
-          git add -A -- transcripts
-          git diff --cached --quiet
-          if ($LASTEXITCODE -ne 0) {
-            git commit -m "data: cache encrypted Bilibili transcript"
-            git pull --rebase origin main
-            git push
-          }
-
       - name: Validate enriched route data
+        id: validate
+        if: ${{ steps.enrich.outcome == 'success' }}
         run: python scripts/validate_route_data.py
 
-      - name: Commit enriched facts
+      - name: Commit enriched facts and encrypted transcript
+        if: ${{ steps.enrich.outcome == 'success' && steps.validate.outcome == 'success' }}
         shell: pwsh
         run: |
           git config user.name "route-update-bot"
           git config user.email "route-update-bot@users.noreply.github.com"
           git add wangshifu-data.json
+          git add -A -- transcripts
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m "data: enrich latest Bilibili route video"
-            git pull --rebase origin main
-            git push
+            $pushed = $false
+            for ($attempt = 1; $attempt -le 3; $attempt++) {
+              git push
+              if ($LASTEXITCODE -eq 0) {
+                $pushed = $true
+                break
+              }
+              if ($attempt -lt 3) {
+                Start-Sleep -Seconds (5 * $attempt)
+                git pull --rebase origin main
+                if ($LASTEXITCODE -ne 0) {
+                  throw "Unable to synchronize main before retrying the push."
+                }
+              }
+            }
+            if (-not $pushed) {
+              throw "Unable to push enriched route data after 3 attempts."
+            }
+          }
+
+      - name: Preserve encrypted transcript after enrichment failure
+        if: ${{ always() && (steps.enrich.outcome == 'failure' || steps.validate.outcome == 'failure') }}
+        shell: pwsh
+        run: |
+          git config user.name "route-update-bot"
+          git config user.email "route-update-bot@users.noreply.github.com"
+          git restore --source=HEAD --staged --worktree -- wangshifu-data.json
+          git add -A -- transcripts
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "data: cache encrypted Bilibili transcript"
+            $pushed = $false
+            for ($attempt = 1; $attempt -le 3; $attempt++) {
+              git push
+              if ($LASTEXITCODE -eq 0) {
+                $pushed = $true
+                break
+              }
+              if ($attempt -lt 3) {
+                Start-Sleep -Seconds (5 * $attempt)
+                git pull --rebase origin main
+                if ($LASTEXITCODE -ne 0) {
+                  throw "Unable to synchronize main before retrying the transcript push."
+                }
+              }
+            }
+            if (-not $pushed) {
+              throw "Unable to push encrypted transcript after 3 attempts."
+            }
           }
