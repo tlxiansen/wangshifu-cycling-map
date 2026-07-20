@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Enrich the newest auto-added Bilibili episode from its audio.
 
-Raw audio and full transcripts live only in a temporary directory. The script
-stores structured facts and timestamped evidence in wangshifu-data.json.
+Raw audio lives only in a temporary directory. Timestamped transcripts are
+encrypted before they are cached in the repository, while only structured
+facts and timestamped evidence are published in wangshifu-data.json.
 """
 
 import argparse
@@ -23,6 +24,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_PATH = ROOT / "wangshifu-data.json"
+DEFAULT_TRANSCRIPT_DIR = ROOT / "transcripts"
 VIDEO_URL = "https://www.bilibili.com/video/{bvid}/"
 AUTO_PHASES = {"Auto-added", "自动添加"}
 AUTO_CONFIDENCE_MARKERS = (
@@ -107,6 +109,141 @@ def write_json(path: Path, value: list[dict[str, Any]]) -> None:
         json.dump(value, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
     temporary.replace(path)
+
+
+def transcript_cache_dir() -> Path:
+    configured = os.getenv("TRANSCRIPT_CACHE_DIR", "").strip()
+    if not configured:
+        return DEFAULT_TRANSCRIPT_DIR
+    path = Path(configured)
+    return path if path.is_absolute() else ROOT / path
+
+
+def transcript_cache_path(entry: dict[str, Any]) -> Path:
+    bvid = str(entry.get("bvid") or "").strip()
+    if not bvid or not all(character.isalnum() for character in bvid):
+        raise ValueError(f"Invalid Bilibili BV id for transcript cache: {bvid!r}")
+    return transcript_cache_dir() / f"{bvid}.json.enc"
+
+
+def transcript_encryption_key(secret: str, salt: bytes) -> bytes:
+    try:
+        from cryptography.hazmat.primitives import hashes
+        from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+    except ImportError as exc:
+        raise RuntimeError("cryptography is not installed") from exc
+
+    key_derivation = PBKDF2HMAC(
+        algorithm=hashes.SHA256(),
+        length=32,
+        salt=salt,
+        iterations=480_000,
+    )
+    return base64.urlsafe_b64encode(key_derivation.derive(secret.encode("utf-8")))
+
+
+def encrypt_transcript_payload(payload: dict[str, Any], secret: str) -> bytes:
+    try:
+        from cryptography.fernet import Fernet
+    except ImportError as exc:
+        raise RuntimeError("cryptography is not installed") from exc
+
+    salt = os.urandom(16)
+    plaintext = json.dumps(
+        payload, ensure_ascii=False, separators=(",", ":")
+    ).encode("utf-8")
+    token = Fernet(transcript_encryption_key(secret, salt)).encrypt(plaintext)
+    envelope = {
+        "format": "fernet-pbkdf2-sha256-v1",
+        "salt": base64.b64encode(salt).decode("ascii"),
+        "token": token.decode("ascii"),
+    }
+    return (
+        json.dumps(envelope, ensure_ascii=True, indent=2) + "\n"
+    ).encode("ascii")
+
+
+def decrypt_transcript_payload(contents: bytes, secret: str) -> dict[str, Any]:
+    try:
+        from cryptography.fernet import Fernet, InvalidToken
+    except ImportError as exc:
+        raise RuntimeError("cryptography is not installed") from exc
+
+    try:
+        envelope = json.loads(contents.decode("ascii"))
+        if envelope.get("format") != "fernet-pbkdf2-sha256-v1":
+            raise ValueError("Unsupported transcript cache format")
+        salt = base64.b64decode(envelope["salt"], validate=True)
+        token = str(envelope["token"]).encode("ascii")
+        plaintext = Fernet(transcript_encryption_key(secret, salt)).decrypt(token)
+        payload = json.loads(plaintext.decode("utf-8"))
+    except InvalidToken as exc:
+        raise RuntimeError(
+            "Unable to decrypt transcript cache. Check TRANSCRIPT_ENCRYPTION_KEY."
+        ) from exc
+    except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+        raise RuntimeError("Encrypted transcript cache is invalid") from exc
+    if not isinstance(payload, dict):
+        raise RuntimeError("Decrypted transcript cache is not a JSON object")
+    return payload
+
+
+def save_transcript_cache(
+    entry: dict[str, Any], segments: list[dict[str, Any]]
+) -> Path:
+    secret = os.environ["TRANSCRIPT_ENCRYPTION_KEY"]
+    path = transcript_cache_path(entry)
+    if path.exists():
+        return path
+    payload = {
+        "schemaVersion": 1,
+        "bvid": str(entry["bvid"]),
+        "date": entry.get("date"),
+        "title": entry.get("title"),
+        "videoUrl": source_link(str(entry["bvid"])),
+        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "transcriptionProvider": os.getenv("ASR_PROVIDER", "openai"),
+        "transcriptionModel": (
+            os.getenv("VOLC_ASR_RESOURCE_ID", "volc.seedasr.auc")
+            if os.getenv("ASR_PROVIDER", "openai").lower() == "volcengine"
+            else os.getenv("OPENAI_TRANSCRIPTION_MODEL", "whisper-1")
+        ),
+        "segments": segments,
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_bytes(encrypt_transcript_payload(payload, secret))
+    temporary.replace(path)
+    log(f"Saved encrypted transcript cache for {entry['bvid']}")
+    return path
+
+
+def load_transcript_cache(entry: dict[str, Any]) -> list[dict[str, Any]] | None:
+    path = transcript_cache_path(entry)
+    if not path.exists():
+        return None
+    secret = os.environ["TRANSCRIPT_ENCRYPTION_KEY"]
+    payload = decrypt_transcript_payload(path.read_bytes(), secret)
+    if str(payload.get("bvid") or "") != str(entry.get("bvid") or ""):
+        raise RuntimeError(f"Transcript cache BV id mismatch: {path}")
+    segments = payload.get("segments")
+    if not isinstance(segments, list) or not segments:
+        raise RuntimeError(f"Transcript cache contains no segments: {path}")
+    cleaned: list[dict[str, Any]] = []
+    for segment in segments:
+        if not isinstance(segment, dict) or not clean_text(segment.get("text")):
+            continue
+        cleaned.append(
+            {
+                "start": float(segment.get("start") or 0),
+                "end": float(segment.get("end") or segment.get("start") or 0),
+                "text": str(segment["text"]).strip(),
+            }
+        )
+    if not cleaned:
+        raise RuntimeError(f"Transcript cache contains no usable segments: {path}")
+    log(f"Loaded encrypted transcript cache for {entry['bvid']}")
+    return cleaned
 
 
 def has_audio_evidence(entry: dict[str, Any]) -> bool:
@@ -678,11 +815,22 @@ def extraction_prompt(entry: dict[str, Any], segments: list[dict[str, Any]]) -> 
     )
 
 
-def extract_structured_episode_volcengine(
-    client: Any, entry: dict[str, Any], segments: list[dict[str, Any]]
+def chat_extraction_model(provider: str) -> str:
+    if provider == "volcengine":
+        return os.environ["ARK_MODEL_ID"]
+    if provider == "deepseek":
+        return os.getenv("DEEPSEEK_MODEL", "deepseek-chat").strip()
+    raise ValueError(f"Unsupported chat extraction provider: {provider}")
+
+
+def extract_structured_episode_chat(
+    client: Any,
+    entry: dict[str, Any],
+    segments: list[dict[str, Any]],
+    provider: str,
 ) -> dict[str, Any]:
     response = client.chat.completions.create(
-        model=os.environ["ARK_MODEL_ID"],
+        model=chat_extraction_model(provider),
         messages=[
             {
                 "role": "system",
@@ -695,11 +843,23 @@ def extract_structured_episode_volcengine(
     )
     content = response.choices[0].message.content
     if not content:
-        raise RuntimeError("Volcengine Ark returned no structured output")
+        raise RuntimeError(f"{provider} returned no structured output")
     parsed = json.loads(content)
     if not isinstance(parsed, dict):
-        raise RuntimeError("Volcengine Ark output is not a JSON object")
+        raise RuntimeError(f"{provider} output is not a JSON object")
     return parsed
+
+
+def extract_structured_episode_volcengine(
+    client: Any, entry: dict[str, Any], segments: list[dict[str, Any]]
+) -> dict[str, Any]:
+    return extract_structured_episode_chat(client, entry, segments, "volcengine")
+
+
+def extract_structured_episode_deepseek(
+    client: Any, entry: dict[str, Any], segments: list[dict[str, Any]]
+) -> dict[str, Any]:
+    return extract_structured_episode_chat(client, entry, segments, "deepseek")
 
 
 def extract_structured_episode(
@@ -708,6 +868,8 @@ def extract_structured_episode(
     provider = os.getenv("TEXT_AI_PROVIDER", "openai").strip().lower()
     if provider == "volcengine":
         return extract_structured_episode_volcengine(client, entry, segments)
+    if provider == "deepseek":
+        return extract_structured_episode_deepseek(client, entry, segments)
     if provider == "openai":
         return extract_structured_episode_openai(client, entry, segments)
     raise ValueError(f"Unsupported TEXT_AI_PROVIDER: {provider}")
@@ -980,7 +1142,7 @@ def merge_extraction(
             "type": "ai-audio-transcript",
             "url": base_source,
             "note": (
-                "音频自动转写并结构化提取；未保存原始音频和完整字幕。"
+                "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。"
                 + (clean_text(extraction.get("confidence_notes")) or "")
             ),
         }
@@ -999,14 +1161,19 @@ def merge_extraction(
             else os.getenv("OPENAI_TRANSCRIPTION_MODEL", "whisper-1")
         ),
         "extractionProvider": os.getenv("TEXT_AI_PROVIDER", "openai"),
-        "extractionModel": (
-            os.getenv("ARK_MODEL_ID", "未配置")
-            if os.getenv("TEXT_AI_PROVIDER", "openai").lower() == "volcengine"
-            else os.getenv("OPENAI_EXTRACTION_MODEL", "gpt-5-mini")
-        ),
+        "extractionModel": extraction_model_for_metadata(),
         "status": "auto-extracted",
     }
     return True
+
+
+def extraction_model_for_metadata() -> str:
+    provider = os.getenv("TEXT_AI_PROVIDER", "openai").strip().lower()
+    if provider == "volcengine":
+        return os.getenv("ARK_MODEL_ID", "未配置")
+    if provider == "deepseek":
+        return os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+    return os.getenv("OPENAI_EXTRACTION_MODEL", "gpt-5-mini")
 
 
 def process_entry(entry: dict[str, Any], chunk_seconds: int) -> dict[str, Any]:
@@ -1028,17 +1195,25 @@ def process_entry(entry: dict[str, Any], chunk_seconds: int) -> dict[str, Any]:
                 "ARK_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3"
             ),
         )
+    elif text_provider == "deepseek":
+        extraction_client = OpenAI(
+            api_key=os.environ["DEEPSEEK_API_KEY"],
+            base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
+        )
     if extraction_client is None:
         raise RuntimeError("No text extraction client is configured")
 
-    with tempfile.TemporaryDirectory(prefix="wangshifu-audio-") as temporary:
-        work_dir = Path(temporary)
-        audio_path = download_audio(entry, work_dir)
-        chunks = split_audio(audio_path, work_dir, chunk_seconds)
-        segments = transcribe_chunks(openai_client, chunks, chunk_seconds)
-        if not segments:
-            raise RuntimeError("Transcription returned no timestamped text")
-        return extract_structured_episode(extraction_client, entry, segments)
+    segments = load_transcript_cache(entry)
+    if segments is None:
+        with tempfile.TemporaryDirectory(prefix="wangshifu-audio-") as temporary:
+            work_dir = Path(temporary)
+            audio_path = download_audio(entry, work_dir)
+            chunks = split_audio(audio_path, work_dir, chunk_seconds)
+            segments = transcribe_chunks(openai_client, chunks, chunk_seconds)
+            if not segments:
+                raise RuntimeError("Transcription returned no timestamped text")
+            save_transcript_cache(entry, segments)
+    return extract_structured_episode(extraction_client, entry, segments)
 
 
 def missing_configuration() -> list[str]:
@@ -1062,6 +1237,9 @@ def missing_configuration() -> list[str]:
     else:
         missing.append(f"不支持的 ASR_PROVIDER={asr_provider}")
 
+    if not os.getenv("TRANSCRIPT_ENCRYPTION_KEY", "").strip():
+        missing.append("TRANSCRIPT_ENCRYPTION_KEY")
+
     if text_provider == "volcengine":
         for name in ("ARK_API_KEY", "ARK_MODEL_ID"):
             if not os.getenv(name, "").strip():
@@ -1069,6 +1247,9 @@ def missing_configuration() -> list[str]:
     elif text_provider == "openai":
         if not os.getenv("OPENAI_API_KEY", "").strip():
             missing.append("OPENAI_API_KEY")
+    elif text_provider == "deepseek":
+        if not os.getenv("DEEPSEEK_API_KEY", "").strip():
+            missing.append("DEEPSEEK_API_KEY")
     else:
         missing.append(f"不支持的 TEXT_AI_PROVIDER={text_provider}")
     return list(dict.fromkeys(missing))
@@ -1142,7 +1323,7 @@ def main() -> int:
             [
                 "### 音频信息提取",
                 f"- 已处理：`{', '.join(changed)}`",
-                "- 原始音频和完整字幕已删除，只提交结构化事实与时间点。",
+                "- 原始音频已删除；完整字幕已加密缓存，不在网页公开。",
                 "- 状态：AI 提取，待维护者核验。",
             ]
         )

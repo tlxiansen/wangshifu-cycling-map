@@ -1,0 +1,56 @@
+# 王师傅骑到哪了？
+
+基于 B 站 UP 主“王师傅の日记”公开合集制作的骑行路线地图，展示公开视频可确认或推断的落脚点、每日里程、饮食与每期摘要。
+
+在线地图：<https://tlxiansen.github.io/wangshifu-cycling-map/>
+
+## 当前功能
+
+- 越南主要城市中文标签与贴合公路的路线拟合；
+- 地图节点和右侧行程双向联动；
+- 每日里程柱状图与累计里程估算曲线；
+- 每期美食、住宿、花费、预算与关键时间点；
+- 每四小时自动检查 B 站合集，每小时统计贡献点赞。
+- 发现新视频后可自动转写音频，提取路线、里程、饮食、住宿、花费和关键时间点。
+
+## 数据原则
+
+- 橙色节点：视频标题或内容可以确认。
+- 绿色节点：根据前后行程推断。
+- 未公开的每日里程显示“未披露”，不使用直线距离冒充实际骑行里程。
+- 这不是 GPS 实时定位，最新位置以公开视频为准。
+
+## 参与维护
+
+网页右上角“补路线点”允许观众提交美食、关键事件、地点、里程或视频时间点。贡献门槛只有“视频链接 + 一条有用信息”，其余格式由维护者整理。
+
+建议通过 GitHub Issue 提交，观众使用 👍 投票；达到 3 个赞会自动标记为优先核验。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+## 自动音频提取
+
+路线工作流每四小时检查一次合集，音频工作流每天运行两次、每次最多处理一条尚未分析的视频：没有积压时通常只处理当天新增的一条，存在积压时额外追赶一条。豆包录音文件识别模型负责生成带时间点的字幕，DeepSeek 负责从字幕中提取路线、里程、饮食、住宿、花费、摘要和关键时间点。
+
+原始音频在任务结束后删除。完整字幕使用独立密码加密后保存到 `transcripts/*.json.enc`，不会显示在网页中，也不能在公开仓库中直接阅读。DeepSeek 暂时失败时，加密字幕仍会保存；下次运行直接重试分析，不再重复调用语音识别。
+
+启用方法：
+
+1. 打开仓库 `Settings → Secrets and variables → Actions`。
+2. 保留已有的 `VOLC_API_KEY`，豆包语音识别继续使用它。
+3. 新建 Repository secret：`DEEPSEEK_API_KEY`，值为 DeepSeek 控制台创建的 API Key。
+4. 新建 Repository secret：`TRANSCRIPT_ENCRYPTION_KEY`，值为一段只使用一次并长期保存的随机密码。不要更换或删除，否则已有字幕缓存无法解密。
+5. 如果 B 站限制公开音频下载，保留 `BILIBILI_COOKIES_BASE64`，内容为 Netscape cookies 文件的 Base64。
+6. 打开 `Actions → Enrich latest route video from audio → Run workflow` 手动测试；之后每天北京时间约 02:47 和 14:47 自动运行。
+
+DeepSeek 使用官方兼容接口 `https://api.deepseek.com` 和 `deepseek-chat` 模型，不需要填写模型端点 ID。原来的 `ARK_API_KEY`、`ARK_MODEL_ID` 不再被这个工作流使用，可以在确认 DeepSeek 连续运行成功后删除。
+
+### 下载自己的字幕副本
+
+1. 打开 `Actions → Export encrypted transcripts → Run workflow`。
+2. `bvid` 留空会导出全部字幕；填写 BV 号则只导出该期。
+3. 运行完成后，在页面底部 `Artifacts` 下载 `wangshifu-transcripts-*`。
+4. 下载的 ZIP 中包含 `transcript-export.7z`；使用 7-Zip 打开，并输入你创建 `TRANSCRIPT_ENCRYPTION_KEY` 时保存的原始密码。
+5. 解压后每期包括 JSON、带时间点的 TXT 和可供播放器加载的 VTT 字幕。
+
+导出包只保留 1 天，而且内部仍使用密码加密。GitHub 不允许重新查看 Secret 的值，所以创建 `TRANSCRIPT_ENCRYPTION_KEY` 时必须另外保存在本地密码管理器中。
+
+自动结果会显示为“AI音频提取，待维护者核验”，不会覆盖已经人工核验的行程。

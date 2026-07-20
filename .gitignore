@@ -1,0 +1,5 @@
+transcripts/*.json
+transcripts/*.txt
+transcripts/*.vtt
+transcripts/*.srt
+transcripts/*.tmp

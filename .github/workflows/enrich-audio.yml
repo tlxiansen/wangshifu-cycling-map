@@ -3,7 +3,7 @@ name: Enrich latest route video from audio
 on:
   workflow_dispatch:
   schedule:
-    - cron: "47 18 * * *"
+    - cron: "47 6,18 * * *"
 
 permissions:
   contents: write
@@ -29,12 +29,12 @@ jobs:
         shell: bash
         env:
           VOLC_ASR_API_KEY: ${{ secrets.VOLC_API_KEY }}
-          ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
-          ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TRANSCRIPT_ENCRYPTION_KEY: ${{ secrets.TRANSCRIPT_ENCRYPTION_KEY }}
         run: |
           test -n "${VOLC_ASR_API_KEY:-}"
-          test -n "${ARK_API_KEY:-}"
-          test -n "${ARK_MODEL_ID:-}"
+          test -n "${DEEPSEEK_API_KEY:-}"
+          test -n "${TRANSCRIPT_ENCRYPTION_KEY:-}"
 
       - name: Install audio enrichment dependencies
         shell: bash
@@ -53,15 +53,32 @@ jobs:
         timeout-minutes: 45
         env:
           ASR_PROVIDER: volcengine
-          TEXT_AI_PROVIDER: volcengine
+          TEXT_AI_PROVIDER: deepseek
           VOLC_ASR_API_KEY: ${{ secrets.VOLC_API_KEY }}
           VOLC_ASR_RESOURCE_ID: volc.seedasr.auc
-          ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
-          ARK_MODEL_ID: ${{ secrets.ARK_MODEL_ID }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_BASE_URL: https://api.deepseek.com
+          DEEPSEEK_MODEL: deepseek-chat
+          TRANSCRIPT_ENCRYPTION_KEY: ${{ secrets.TRANSCRIPT_ENCRYPTION_KEY }}
+          TRANSCRIPT_CACHE_DIR: transcripts
           BILIBILI_COOKIES_BASE64: ${{ secrets.BILIBILI_COOKIES_BASE64 }}
           AI_LOOKBACK_EPISODES: "30"
           MAX_AI_EPISODES: "1"
         run: python scripts/enrich_latest_video.py
+
+      - name: Commit encrypted subtitle cache
+        if: ${{ always() }}
+        shell: pwsh
+        run: |
+          git config user.name "route-update-bot"
+          git config user.email "route-update-bot@users.noreply.github.com"
+          git add -A -- transcripts
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "data: cache encrypted Bilibili transcript"
+            git pull --rebase origin main
+            git push
+          }
 
       - name: Validate enriched route data
         run: python scripts/validate_route_data.py
