@@ -3898,35 +3898,129 @@
     "place": "胡志明 Ho Chi Minh City",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.6,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
       "需要自动复核"
     ],
     "phase": "AI enriched",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
     "food": "Not identified",
     "foods": [],
     "foodDetails": [],
     "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "costs": [
+      {
+        "category": "entertainment",
+        "label": "网吧充值",
+        "amount": 100000,
+        "currency": "VND",
+        "status": "AI音频提取 05:55",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=355"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:00",
+        "text": "前往胡志明最高端网吧",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=0"
+      },
+      {
+        "time": "00:46",
+        "text": "网吧位于城中村，门面低调",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=46"
+      },
+      {
+        "time": "01:41",
+        "text": "网吧规定：不能赌博、18岁以上、不能喷香水、不能吃喝",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=101"
+      },
+      {
+        "time": "02:05",
+        "text": "网吧很大、干净、无烟味",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=125"
+      },
+      {
+        "time": "05:36",
+        "text": "最贵17.9万越南盾/小时（约4-5元人民币）",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=336"
+      },
+      {
+        "time": "06:40",
+        "text": "有双人包间、卓威专区、电竞主播包间、五对五对战台",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=400"
+      },
+      {
+        "time": "07:30",
+        "text": "网吧内瓦罗兰特最火，英雄联盟不多",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=450"
+      },
+      {
+        "time": "08:42",
+        "text": "开卡需护照和电话号码，管理严格",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=522"
+      },
+      {
+        "time": "12:27",
+        "text": "网吧共139台电脑",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=747"
+      },
+      {
+        "time": "13:29",
+        "text": "鼠标键盘一般，本地杂牌",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=809"
+      },
+      {
+        "time": "20:43",
+        "text": "主管赠送饮料",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=1243"
+      },
+      {
+        "time": "25:29",
+        "text": "计划明天修自行车和拍胡志明美食攻略",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1eLNB65Edz/?t=1529"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1eLNB65Edz/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。所有信息均来自字幕，无骑行相关数据；网吧价格17.9万越南盾/小时，充值20万越南盾（每人10万），但未明确说明是否实际消费；主管赠送饮料未提及价格；无住宿、食物细节。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "越南最好的网吧 长啥样？？？.",
+    "summary": "在胡志明市，博主前往越南最高端网吧体验，展示了开卡流程、环境、设备及游戏情况，并计划后续修车和拍摄美食攻略。",
     "automation": {},
     "duration": 995,
     "views": 22065,
     "cover": "https://i0.hdslb.com/bfs/archive/57343befc104fbcae39c3d94898e3ced35424ced.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-20T15:12:24.946566+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-17",
