@@ -4157,38 +4157,178 @@
     "date": "2026-07-18",
     "bvid": "BV1xyNd6EExd",
     "title": "胡志明美食指南，到底哪些值得吃？鼎力推荐",
-    "place": "胡志明 Ho Chi Minh City",
+    "place": "胡志明市",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.6,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
       "需要自动复核"
     ],
     "phase": "AI enriched",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
-    "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "food": "转季粤菜、烧鸟、牛排粉",
+    "foods": [
+      "转季粤菜",
+      "烧鸟",
+      "牛排粉"
+    ],
+    "foodDetails": [
+      {
+        "name": "转季粤菜",
+        "venue": "转季",
+        "meal": "午餐",
+        "price": 600000,
+        "currency": "VND",
+        "priceNote": "约154人民币",
+        "recommendation": "有锅气，但偏甜，综合6分",
+        "status": "AI音频提取 14:03",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=843"
+      },
+      {
+        "name": "烧鸟",
+        "venue": "日本街某烧鸟店",
+        "meal": "晚餐",
+        "price": null,
+        "currency": "VND",
+        "priceNote": "总消费500多人民币，含酒水",
+        "recommendation": "串好吃，其他一般，酒水贵",
+        "status": "AI音频提取 25:55",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=1555"
+      },
+      {
+        "name": "牛排粉",
+        "venue": "Beep Beeper On Call",
+        "meal": "夜宵",
+        "price": 500000,
+        "currency": "VND",
+        "priceNote": "约100人民币，四人",
+        "recommendation": "强烈推荐，吃肉很爽",
+        "status": "AI音频提取 01:06:57",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=4017"
+      }
+    ],
+    "lodgings": [
+      {
+        "name": "日本街附近酒店",
+        "area": "日本街",
+        "price": 300,
+        "currency": "CNY",
+        "booking": "视频未说明",
+        "bikeStorage": "待核验",
+        "pros": "隔音好，价格适中",
+        "cons": "楼下晚上吵但隔音好",
+        "recommendation": "视频入住",
+        "status": "AI音频提取 25:21",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=1521"
+      }
+    ],
+    "costs": [
+      {
+        "category": "food",
+        "label": "转季午餐",
+        "amount": 600000,
+        "currency": "VND",
+        "status": "AI音频提取 14:03",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=843"
+      },
+      {
+        "category": "food",
+        "label": "烧鸟晚餐",
+        "amount": 500,
+        "currency": "CNY",
+        "status": "AI音频提取 25:55",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=1555"
+      },
+      {
+        "category": "food",
+        "label": "调酒",
+        "amount": 900000,
+        "currency": "VND",
+        "status": "AI音频提取 52:11",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=3131"
+      },
+      {
+        "category": "food",
+        "label": "牛排粉夜宵",
+        "amount": 500000,
+        "currency": "VND",
+        "status": "AI音频提取 01:06:57",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=4017"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:23",
+        "text": "第一家店是开了77年的中餐店，1948年开始，2024年入选米其林",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=23"
+      },
+      {
+        "time": "14:03",
+        "text": "转季最终消费600K越南盾，约154人民币",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=843"
+      },
+      {
+        "time": "25:21",
+        "text": "酒店一天300多人民币，隔音好",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=1521"
+      },
+      {
+        "time": "25:55",
+        "text": "烧鸟店消费500多人民币，串好吃但酒贵",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=1555"
+      },
+      {
+        "time": "52:11",
+        "text": "调酒吧两杯酒900K越南盾，口味奇怪",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=3131"
+      },
+      {
+        "time": "01:06:57",
+        "text": "牛排粉店三人消费500K越南盾，约100人民币，强烈推荐",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=4017"
+      },
+      {
+        "time": "01:08:24",
+        "text": "凌晨2点去机场接神秘嘉宾",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1xyNd6EExd/?t=4104"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1xyNd6EExd/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。所有信息均来自字幕，无骑行数据；酒店价格和烧鸟总消费为近似值；调酒吧具体店名未提及；牛排粉店名拼写可能不准确。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "胡志明美食指南，到底哪些值得吃？鼎力推荐.",
+    "summary": "在胡志明市进行美食探店，品尝了77年老字号粤菜馆、日本街烧鸟店、创意调酒吧和牛排粉店，总花费约154+500+900+500K越南盾，并预告即将离开越南前往新加坡。",
     "automation": {},
     "duration": 2637,
     "views": 25371,
     "cover": "https://i1.hdslb.com/bfs/archive/502d8c3addaa966eadbc317538553d3476087e05.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-20T15:33:35.083296+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-19",
