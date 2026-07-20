@@ -3501,9 +3501,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3647,38 +3645,132 @@
     "date": "2026-07-14",
     "bvid": "BV1c2NQ6hEBi",
     "title": "花了17年建造的越南胡志明地铁长啥样？？？全程居然只有？？公里",
-    "place": "胡志明 Ho Chi Minh City",
+    "place": "胡志明市",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.6,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
       "需要自动复核"
     ],
     "phase": "AI enriched",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
     "food": "Not identified",
     "foods": [],
     "foodDetails": [],
     "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "costs": [
+      {
+        "category": "交通",
+        "label": "地铁往返票（两人）",
+        "amount": 76000,
+        "currency": "VND",
+        "status": "AI音频提取 02:25",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=145"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:00",
+        "text": "在胡志明市，介绍越南唯一的地铁1号线",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=0"
+      },
+      {
+        "time": "00:57",
+        "text": "地铁1号线全长19.7公里，地下2.6公里，地上17公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=57"
+      },
+      {
+        "time": "02:25",
+        "text": "往返票共76,000越南盾（约18元人民币），单人9元",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=145"
+      },
+      {
+        "time": "04:09",
+        "text": "地铁由日本建造，2007年批准，2012年开工，2024年通车，历时17年",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=249"
+      },
+      {
+        "time": "05:09",
+        "text": "14站项目花费18亿美元，83%资金来自日本政府优惠贷款",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=309"
+      },
+      {
+        "time": "10:10",
+        "text": "第三站巴山站是地下段最后一站，之后上高架",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=610"
+      },
+      {
+        "time": "12:13",
+        "text": "第四站文盛公园站，周边有公园",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=733"
+      },
+      {
+        "time": "12:57",
+        "text": "第五站新港站是越南房价最贵的地方，普通楼栋3-4.5万/平",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=777"
+      },
+      {
+        "time": "14:18",
+        "text": "第六站草田站，很多外国人居住",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=858"
+      },
+      {
+        "time": "18:53",
+        "text": "第十一站西贡高科技园，英特尔、三星等企业设厂",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=1133"
+      },
+      {
+        "time": "21:00",
+        "text": "第十三站大学城站，有胡志明城市科学大学等多所大学",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=1260"
+      },
+      {
+        "time": "21:50",
+        "text": "到达终点站，全程约1小时，共14站",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1c2NQ6hEBi/?t=1310"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1c2NQ6hEBi/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。所有信息均来自字幕，无骑行内容。距离、时间等数据需人工核实。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "花了17年建造的越南胡志明地铁长啥样？？？全程居然只有？？公里.",
+    "summary": "视频展示了越南胡志明市唯一的地铁1号线，全长19.7公里，其中地下段仅2.6公里，共14站。作者从起点槟城站坐到终点站，体验了这条耗时17年建成的地铁，并介绍了沿线站点和周边情况。",
     "automation": {},
     "duration": 2043,
     "views": 61501,
     "cover": "https://i0.hdslb.com/bfs/archive/ce8a2150d08ce4b92fab3022a53a2e12b4438a95.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-20T15:03:32.482421+00:00",
+      "transcriptionProvider": "volcengine",
+      "transcriptionModel": "volc.seedasr.auc",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-15",
