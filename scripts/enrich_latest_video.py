@@ -944,7 +944,11 @@ def rebuild_quality_flags(entries: list[dict[str, Any]]) -> None:
         phase = str(entry.get("phase") or "")
         if is_manual_verified(entry):
             entry["mapVisible"] = True
-            if entry.get("lat") is not None and entry.get("lng") is not None:
+            if (
+                bool(entry.get("ride"))
+                and entry.get("lat") is not None
+                and entry.get("lng") is not None
+            ):
                 previous_by_phase[phase] = entry
             continue
         previous = previous_by_phase.get(phase)
@@ -972,7 +976,12 @@ def rebuild_quality_flags(entries: list[dict[str, Any]]) -> None:
         entry["riskFlags"] = list(dict.fromkeys(flags))
         coordinate_conflict = "坐标与里程冲突" in flags
         entry["mapVisible"] = not coordinate_conflict
-        if not coordinate_conflict and entry.get("lat") is not None and entry.get("lng") is not None:
+        if (
+            not coordinate_conflict
+            and bool(entry.get("ride"))
+            and entry.get("lat") is not None
+            and entry.get("lng") is not None
+        ):
             previous_by_phase[phase] = entry
 
 

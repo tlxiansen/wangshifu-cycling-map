@@ -387,6 +387,43 @@ class EnrichmentTests(unittest.TestCase):
         self.assertFalse(entries[1]["mapVisible"])
         self.assertIn("坐标与里程冲突", entries[1]["riskFlags"])
 
+    def test_non_ride_day_does_not_replace_previous_route_node(self):
+        entries = [
+            {
+                "phase": "第二段",
+                "ride": True,
+                "lat": 15.0,
+                "lng": 108.0,
+                "distanceKm": 40,
+                "highlights": [{}],
+                "lodgings": [{}],
+                "confidence": "AI音频提取",
+            },
+            {
+                "phase": "第二段",
+                "ride": False,
+                "lat": 13.0,
+                "lng": 109.0,
+                "distanceKm": 0,
+                "highlights": [{}],
+                "lodgings": [],
+                "confidence": "AI音频提取",
+            },
+            {
+                "phase": "第二段",
+                "ride": True,
+                "lat": 13.1,
+                "lng": 109.1,
+                "distanceKm": 40,
+                "highlights": [{}],
+                "lodgings": [{}],
+                "confidence": "AI音频提取",
+            },
+        ]
+        MODULE.rebuild_quality_flags(entries)
+        self.assertFalse(entries[2]["mapVisible"])
+        self.assertIn("坐标与里程冲突", entries[2]["riskFlags"])
+
 
 if __name__ == "__main__":
     unittest.main()
