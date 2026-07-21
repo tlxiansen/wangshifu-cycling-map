@@ -65,6 +65,8 @@ VOLC_ASR_SUBMIT_URL = (
     "https://openspeech.bytedance.com/api/v3/auc/bigmodel/submit"
 )
 VOLC_ASR_QUERY_URL = "https://openspeech.bytedance.com/api/v3/auc/bigmodel/query"
+VOLC_SUBTITLE_SUBMIT_URL = "https://openspeech.bytedance.com/api/v1/vc/submit"
+VOLC_SUBTITLE_QUERY_URL = "https://openspeech.bytedance.com/api/v1/vc/query"
 
 
 def log(message: str) -> None:
@@ -203,11 +205,7 @@ def save_transcript_cache(
         "videoUrl": source_link(str(entry["bvid"])),
         "createdAt": datetime.now(timezone.utc).isoformat(),
         "transcriptionProvider": os.getenv("ASR_PROVIDER", "openai"),
-        "transcriptionModel": (
-            os.getenv("VOLC_ASR_RESOURCE_ID", "volc.seedasr.auc")
-            if os.getenv("ASR_PROVIDER", "openai").lower() == "volcengine"
-            else os.getenv("OPENAI_TRANSCRIPTION_MODEL", "whisper-1")
-        ),
+        "transcriptionModel": transcription_model_for_metadata(),
         "segments": segments,
     }
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -617,12 +615,107 @@ def transcribe_chunks_volcengine(
     return result
 
 
+def volcengine_subtitle_headers(content_type: str | None = None) -> dict[str, str]:
+    access_token = os.getenv("VOLC_ASR_ACCESS_TOKEN", "").strip()
+    headers = {
+        "Accept": "*/*",
+        "Authorization": f"Bearer; {access_token}",
+        "User-Agent": "wangshifu-cycling-map/1.0",
+    }
+    if content_type:
+        headers["Content-Type"] = content_type
+    return headers
+
+
+def volcengine_subtitle_json(response: Any, stage: str) -> dict[str, Any]:
+    try:
+        payload = response.json()
+    except (TypeError, ValueError) as exc:
+        raise RuntimeError(
+            f"Doubao subtitle {stage} returned invalid JSON"
+        ) from exc
+    if not isinstance(payload, dict):
+        raise RuntimeError(f"Doubao subtitle {stage} returned a non-object response")
+    code = str(payload.get("code", ""))
+    if code != "0":
+        raise RuntimeError(
+            f"Doubao subtitle {stage} failed: {code or 'unknown'} "
+            f"{clean_text(payload.get('message'))}"
+        )
+    return payload
+
+
+def transcribe_chunks_volcengine_subtitle(
+    chunks: list[Path], chunk_seconds: int, session: Any | None = None
+) -> list[dict[str, Any]]:
+    app_id = os.getenv("VOLC_ASR_APP_ID", "").strip()
+    if session is None:
+        try:
+            import requests
+            from requests.adapters import HTTPAdapter
+            from urllib3.util.retry import Retry
+        except ImportError as exc:
+            raise RuntimeError("requests is not installed") from exc
+
+        session = requests.Session()
+        retries = Retry(
+            total=4,
+            connect=4,
+            read=4,
+            status=4,
+            backoff_factor=2,
+            status_forcelist=(408, 429, 500, 502, 503, 504),
+            allowed_methods=frozenset({"GET", "POST"}),
+            raise_on_status=False,
+        )
+        session.mount("https://", HTTPAdapter(max_retries=retries))
+
+    result: list[dict[str, Any]] = []
+    for index, chunk in enumerate(chunks):
+        log(f"Submitting Doubao subtitle chunk {index + 1}/{len(chunks)}")
+        submit = session.post(
+            VOLC_SUBTITLE_SUBMIT_URL,
+            params={
+                "appid": app_id,
+                "language": os.getenv("VOLC_SUBTITLE_LANGUAGE", "zh-CN"),
+                "use_itn": "True",
+                "caption_type": "speech",
+                "max_lines": "1",
+                "words_per_line": "46",
+            },
+            headers=volcengine_subtitle_headers("audio/mp3"),
+            data=chunk.read_bytes(),
+            timeout=(30, 300),
+        )
+        submit.raise_for_status()
+        submit_payload = volcengine_subtitle_json(submit, "submit")
+        task_id = clean_text(submit_payload.get("id"))
+        if not task_id:
+            raise RuntimeError("Doubao subtitle submit returned no task id")
+
+        log(f"Waiting for Doubao subtitle chunk {index + 1}/{len(chunks)}")
+        query = session.get(
+            VOLC_SUBTITLE_QUERY_URL,
+            params={"appid": app_id, "id": task_id, "blocking": "1"},
+            headers=volcengine_subtitle_headers(),
+            timeout=(30, 900),
+        )
+        query.raise_for_status()
+        query_payload = volcengine_subtitle_json(query, "query")
+        result.extend(
+            volcengine_result_segments(query_payload, index * chunk_seconds)
+        )
+    return result
+
+
 def transcribe_chunks(
     client: Any | None, chunks: list[Path], chunk_seconds: int
 ) -> list[dict[str, Any]]:
     provider = os.getenv("ASR_PROVIDER", "openai").strip().lower()
     if provider == "volcengine":
         return transcribe_chunks_volcengine(chunks, chunk_seconds)
+    if provider == "volcengine_subtitle":
+        return transcribe_chunks_volcengine_subtitle(chunks, chunk_seconds)
     if provider == "openai":
         if client is None:
             raise RuntimeError("OpenAI client is required for OpenAI transcription")
@@ -1164,11 +1257,7 @@ def merge_extraction(
         "version": AI_ENRICHMENT_VERSION,
         "processedAt": processed_at,
         "transcriptionProvider": os.getenv("ASR_PROVIDER", "openai"),
-        "transcriptionModel": (
-            os.getenv("VOLC_ASR_RESOURCE_ID", "volc.seedasr.auc")
-            if os.getenv("ASR_PROVIDER", "openai").lower() == "volcengine"
-            else os.getenv("OPENAI_TRANSCRIPTION_MODEL", "whisper-1")
-        ),
+        "transcriptionModel": transcription_model_for_metadata(),
         "extractionProvider": os.getenv("TEXT_AI_PROVIDER", "openai"),
         "extractionModel": extraction_model_for_metadata(),
         "status": "auto-extracted",
@@ -1183,6 +1272,15 @@ def extraction_model_for_metadata() -> str:
     if provider == "deepseek":
         return os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
     return os.getenv("OPENAI_EXTRACTION_MODEL", "gpt-5-mini")
+
+
+def transcription_model_for_metadata() -> str:
+    provider = os.getenv("ASR_PROVIDER", "openai").strip().lower()
+    if provider == "volcengine_subtitle":
+        return "volcengine-video-subtitle"
+    if provider == "volcengine":
+        return os.getenv("VOLC_ASR_RESOURCE_ID", "volc.seedasr.auc")
+    return os.getenv("OPENAI_TRANSCRIPTION_MODEL", "whisper-1")
 
 
 def process_entry(entry: dict[str, Any], chunk_seconds: int) -> dict[str, Any]:
@@ -1230,7 +1328,11 @@ def missing_configuration() -> list[str]:
     asr_provider = os.getenv("ASR_PROVIDER", "openai").strip().lower()
     text_provider = os.getenv("TEXT_AI_PROVIDER", "openai").strip().lower()
 
-    if asr_provider == "volcengine":
+    if asr_provider == "volcengine_subtitle":
+        for name in ("VOLC_ASR_APP_ID", "VOLC_ASR_ACCESS_TOKEN"):
+            if not os.getenv(name, "").strip():
+                missing.append(name)
+    elif asr_provider == "volcengine":
         has_api_key = bool(os.getenv("VOLC_ASR_API_KEY", "").strip())
         has_old_credentials = bool(
             os.getenv("VOLC_ASR_APP_ID", "").strip()
