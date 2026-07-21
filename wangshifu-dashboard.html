@@ -21,7 +21,6 @@
     aside{background:var(--card);border-left:1px solid var(--line);overflow:auto}.controls{position:sticky;top:0;z-index:5;padding:14px 16px 11px;background:rgba(255,253,248,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
     .timeline{padding:14px 14px 30px}
     .analytics{margin-top:11px;border-top:1px solid var(--line);padding-top:10px}.controls>.analytics{margin-top:0;border-top:0;padding-top:0}.chart-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;margin:7px 0 3px}.chart-title span{font-weight:400;color:var(--muted)}.chart{display:block;width:100%;height:92px;border-radius:8px;background:#faf8f2}.mileage-summary{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:5px 0;font-size:10px;color:var(--muted)}.mileage-links{display:flex;align-items:center;gap:5px;overflow-x:auto;padding:1px 0 5px}.mileage-links button{border:1px solid #ded8cb;background:#fff;border-radius:999px;padding:4px 7px;white-space:nowrap;font-size:9px;color:#58665f;cursor:pointer}.mileage-links button b{color:var(--orange)}.mileage-links .missing-chip{border:1px dashed #d7b77b;border-radius:999px;padding:4px 7px;white-space:nowrap;font-size:9px;color:#9a6a20;background:#fff9ed}.route-goal{margin:5px 0 2px}.goal-line{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#58665f}.goal-line b{color:var(--green)}.goal-track{height:7px;background:#e0e5e1;border-radius:999px;overflow:hidden;margin-top:4px}.goal-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),#45a68e);border-radius:999px;transition:.4s}
-    .community{margin:14px 14px 0;border:1px solid var(--line);border-radius:13px;background:#f8fbf9;overflow:hidden}.community-head{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-bottom:1px solid var(--line)}.community-head b{font-size:13px}.community-head a{font-size:11px;color:#c84d21;text-decoration:none}.suggestions{padding:8px}.suggestion{display:block;padding:9px 10px;margin-bottom:6px;border-radius:9px;background:white;color:var(--ink);text-decoration:none;border:1px solid #e6e9e5}.suggestion:last-child{margin-bottom:0}.suggestion-top{display:flex;justify-content:space-between;gap:8px;font-size:11px}.suggestion-title{font-weight:800}.likes{color:#c84d21;white-space:nowrap}.suggestion-meta{font-size:10px;color:var(--muted);margin-top:4px}.community-empty{padding:12px;color:var(--muted);font-size:11px;line-height:1.5}
     .day{position:relative;margin:0 0 10px;padding:13px 13px 12px 18px;border:1px solid var(--line);border-radius:13px;background:#fff;transition:.18s}.day:hover,.day.active{border-color:#f2a287;box-shadow:0 7px 18px #382d2412;transform:translateY(-1px)}.day.active{background:#fff8ed;box-shadow:0 0 0 2px #f3a66e,0 8px 22px #382d2420}
     .day:before{content:"";position:absolute;left:0;top:13px;bottom:13px;width:4px;border-radius:0 4px 4px 0;background:var(--orange)}.day.infer:before{background:var(--green)}.day.rest:before{background:#a9b0ac}
     .topline{display:flex;justify-content:space-between;gap:8px}.date{font-size:12px;color:var(--muted)}.km{font-size:12px;font-weight:800;color:var(--orange)}
@@ -68,10 +67,6 @@
         <div class="route-goal"><div class="goal-line"><span id="routeGoalText">正在计算…</span><b id="routeGoalPercent">—</b></div><div class="goal-track"><div class="goal-fill" id="routeGoalFill"></div></div></div>
       </div>
     </div>
-    <section class="community">
-      <div class="community-head"><b>近期关键时间点</b><span>点击直达视频</span></div>
-      <div class="suggestions" id="keyMoments"><div class="community-empty">正在整理关键时间点…</div></div>
-    </section>
     <div class="timeline" id="timeline"><div class="empty">正在整理每天的日记…</div></div>
   </aside>
 </main>
@@ -415,20 +410,6 @@ function drawCumulativeChart(){
   document.getElementById("routeGoalFill").style.width=`${percent}%`;
 }
 function drawCharts(){drawDailyChart();drawCumulativeChart()}
-function timeToSeconds(value){
-  const parts=String(value||"").split(":").map(Number);
-  if(parts.some(Number.isNaN))return 0;
-  return parts.length===3?parts[0]*3600+parts[1]*60+parts[2]:parts.length===2?parts[0]*60+parts[1]:parts[0]||0;
-}
-function loadHighlights(){
-  const box=document.getElementById("keyMoments");
-  const moments=allItems.slice().reverse().flatMap(item=>(item.highlights||[]).slice().reverse().map(v=>({item,...v})));
-  box.innerHTML=moments.slice(0,8).map(v=>{
-    const seconds=timeToSeconds(v.time);
-    const url=`https://www.bilibili.com/video/${esc(v.item.bvid)}/${seconds?`?t=${seconds}`:""}`;
-    return `<a class="suggestion" href="${url}" target="_blank"><div class="suggestion-top"><span class="suggestion-title">${esc(v.item.date)} · ${esc(v.text||v.label||"关键内容")}</span><span class="likes">${esc(v.time||"时间待补")}</span></div><div class="suggestion-meta">${esc(v.item.place)} · ${esc(v.status||"视频内容")}</div></a>`;
-  }).join("")||'<div class="community-empty">当前还没有关键时间点。</div>';
-}
 async function getData(){
   try{
     const r=await fetch("/api/data",{cache:"no-store"});
@@ -458,7 +439,7 @@ async function load(){
     document.getElementById("cumulative").textContent=cumulative?`${cumulative} km`:"未披露";
     document.getElementById("knownDistance").textContent=`${known} km`;
     document.getElementById("reportedBudget").textContent=totalBudgetSummary(allItems);
-    render();draw(allItems);drawCharts();loadHighlights();populateContributions();
+    render();draw(allItems);drawCharts();populateContributions();
   }catch(e){document.getElementById("sync").textContent="数据载入失败";document.getElementById("timeline").innerHTML='<div class="empty">请确认启动窗口仍在运行，然后刷新页面。</div>'}
 }
 const dialog=document.getElementById("contributeDialog");
