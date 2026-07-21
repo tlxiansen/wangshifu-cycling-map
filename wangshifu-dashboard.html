@@ -185,6 +185,7 @@ const reviewReasons=x=>[
 ].filter(Boolean);
 const needsReview=x=>reviewReasons(x).length>0;
 function markerColor(x){return !x.ride?"#9ba49f":isInferred(x)?"#16806c":"#ee642f"}
+const logicalPhase=x=>["auto-added","自动添加","ai enriched"].includes(String(x?.phase||"").trim().toLowerCase())?"第二段":(x?.phase||"第二段");
 async function roadGeometry(points){
   const coords=points.map(x=>`${x.lng},${x.lat}`).join(";");
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
@@ -209,10 +210,10 @@ async function runRoadQueue(jobs,limit=2){
 function draw(items){
   layers.forEach(x=>map.removeLayer(x));roadLayers.forEach(x=>map.removeLayer(x));layers=[];roadLayers=[];markerByBvid={};activeSegment=null;
   const route=items.filter(x=>x.ride&&x.mapVisible!==false&&x.lat&&x.lng);
-  const phases=[...new Set(route.map(x=>x.phase))];
+  const phases=[...new Set(route.map(logicalPhase))];
   let roadSuccess=0,roadTotal=0,roadJobs=[];
   for(const phase of phases){
-    const phaseItems=route.filter(x=>x.phase===phase);
+    const phaseItems=route.filter(x=>logicalPhase(x)===phase);
     const pts=phaseItems.map(x=>[x.lat,x.lng]);
     if(pts.length<2)continue;
     const fallback=L.polyline(pts,{color:phase==="第一段"?"#16806c":"#ee642f",weight:3,opacity:.55,dashArray:"7 7"}).addTo(map);layers.push(fallback);
@@ -265,7 +266,7 @@ function focusItem(bvid){
   });
   if(activeSegment){map.removeLayer(activeSegment);activeSegment=null}
   if(item.ride){
-    const rides=allItems.filter(x=>x.ride&&x.phase===item.phase);
+    const rides=allItems.filter(x=>x.ride&&logicalPhase(x)===logicalPhase(item));
     const index=rides.findIndex(x=>x.bvid===bvid);
     if(index>0){
       activeSegment=L.polyline([[rides[index-1].lat,rides[index-1].lng],[item.lat,item.lng]],{color:"#ffd43b",weight:10,opacity:.72}).addTo(map);
