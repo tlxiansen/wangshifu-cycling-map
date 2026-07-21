@@ -1986,8 +1986,7 @@
       }
     ],
     "riskFlags": [
-      "坐标与里程冲突",
-      "需要自动复核"
+      "坐标与里程冲突"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -2275,7 +2274,7 @@
     "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "duration": 2303,
     "views": 227520,
     "cover": "https://i2.hdslb.com/bfs/archive/916a082fdd2786ea774d401089e6d11255bf98d4.jpg",
@@ -2559,7 +2558,7 @@
     "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "duration": 2825,
     "views": 323180,
     "cover": "https://i1.hdslb.com/bfs/archive/85e336638605b18448be8b8bae54fa06d03aa8a8.jpg",
@@ -3210,7 +3209,7 @@
     "duration": 2366,
     "views": 167351,
     "cover": "https://i1.hdslb.com/bfs/archive/4192a332e02eddb07f860761327235ee31241a33.jpg",
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
     "mapVisible": true
   },
@@ -3356,7 +3355,7 @@
     "duration": 1826,
     "views": 186114,
     "cover": "https://i2.hdslb.com/bfs/archive/755b00137e7cca8c16fba94d0ea3dabf0ce274df.jpg",
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "videoSource": "season"
   },
@@ -3364,36 +3363,229 @@
     "date": "2026-07-11",
     "bvid": "BV1aDNn64EVP",
     "title": "我用了24小时通宵骑了200公里，到了胡志明。",
-    "place": "胡志明 Ho Chi Minh City",
+    "place": "潘切 → 胡志明市",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
-    "riskFlags": [
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
-    ],
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.95,
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": true,
     "distanceKm": 200.0,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
-    "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "food": "海鲜炒面、烤虾配蛋炒饭、海鲜炒方便面、甘蔗汁、猪肉粉",
+    "foods": [
+      "海鲜炒面",
+      "烤虾配蛋炒饭",
+      "海鲜炒方便面",
+      "甘蔗汁",
+      "猪肉粉"
+    ],
+    "foodDetails": [
+      {
+        "name": "海鲜炒面",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "烤虾配蛋炒饭",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "甘蔗汁",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "两杯，包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "猪肉粉",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "海鲜炒方便面",
+        "venue": "店名待核验",
+        "meal": "夜宵",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价400K中",
+        "recommendation": null,
+        "status": "AI音频提取 01:10:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4200"
+      },
+      {
+        "name": "烤虾",
+        "venue": "店名待核验",
+        "meal": "夜宵",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价400K中",
+        "recommendation": null,
+        "status": "AI音频提取 01:10:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4200"
+      }
+    ],
+    "lodgings": [
+      {
+        "name": "Happy Song Hotel",
+        "area": "隆庆",
+        "price": null,
+        "currency": null,
+        "booking": "视频未说明",
+        "bikeStorage": "待核验",
+        "pros": null,
+        "cons": "满房",
+        "recommendation": "视频入住",
+        "status": "AI音频提取 01:11:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4260"
+      }
+    ],
+    "costs": [
+      {
+        "category": "food",
+        "label": "晚餐（海鲜炒面、烤虾配蛋炒饭、甘蔗汁、猪肉粉）",
+        "amount": 100,
+        "currency": "K越南盾",
+        "status": "AI音频提取 52:06",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=3126"
+      },
+      {
+        "category": "food",
+        "label": "夜宵（海鲜炒方便面、烤虾）",
+        "amount": 400,
+        "currency": "K越南盾",
+        "status": "AI音频提取 01:10:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4200"
+      },
+      {
+        "category": "food",
+        "label": "火龙果",
+        "amount": 40,
+        "currency": "K越南盾",
+        "status": "AI音频提取 32:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1920"
+      },
+      {
+        "category": "food",
+        "label": "水（两瓶）",
+        "amount": 20,
+        "currency": "K越南盾",
+        "status": "AI音频提取 32:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1920"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "02:40",
+        "text": "摩托车低转速震动大，找修车店",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=160"
+      },
+      {
+        "time": "09:40",
+        "text": "修车师傅说轮子歪了，避震断了，报价200万越南盾",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=580"
+      },
+      {
+        "time": "18:40",
+        "text": "在乐天商场吃饭，停电",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1120"
+      },
+      {
+        "time": "28:00",
+        "text": "决定通宵骑到胡志明，剩余80公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1680"
+      },
+      {
+        "time": "38:00",
+        "text": "夜骑遇到大雾，像寂静岭",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=2280"
+      },
+      {
+        "time": "48:00",
+        "text": "隆庆酒店全满，决定继续骑到胡志明",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=2880"
+      },
+      {
+        "time": "58:00",
+        "text": "凌晨1点半开始最后80公里冲刺",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=3480"
+      },
+      {
+        "time": "01:08:00",
+        "text": "凌晨4点进入胡志明郊区，均速19km/h",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4080"
+      },
+      {
+        "time": "01:18:00",
+        "text": "凌晨5点看到很多骑友锻炼，感叹大城市",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4680"
+      },
+      {
+        "time": "01:28:00",
+        "text": "到达胡志明，总骑行约200公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=5280"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1aDNn64EVP/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。距离200公里来自标题，字幕中未明确确认最终里程；具体住宿价格和名称未提及；部分食物价格来自字幕估算。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "我用了24小时通宵骑了200公里，到了胡志明。.",
+    "summary": "骑行者在暴雨中从潘切出发，经历修车、停电、夜骑等波折，最终通宵骑行约200公里抵达胡志明市。",
     "automation": {},
     "duration": 6390,
     "views": 74080,
     "cover": "https://i2.hdslb.com/bfs/archive/3d5960b9c5ea519b4453c82f77a2c2af9e277d18.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-21T12:23:07.533400+00:00",
+      "transcriptionProvider": "volcengine_subtitle",
+      "transcriptionModel": "volcengine-video-subtitle",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-12",
@@ -4785,13 +4977,11 @@
     "bvid": "BV15xKt6DEuT",
     "title": "《勇闯柬埔寨》——第一期",
     "place": "胡志明 → 巴域",
-    "lat": 10.8231,
-    "lng": 106.6297,
+    "lat": 11.063175,
+    "lng": 106.13557,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "坐标沿用上一骑行日",
-      "坐标与里程冲突",
       "需要自动复核"
     ],
     "phase": "AI enriched",
@@ -5049,7 +5239,7 @@
     "cover": "https://i2.hdslb.com/bfs/archive/9fe437d17ce2c57001c6c54055fef8df93d646e5.jpg",
     "videoSource": "season",
     "coordinateSource": "local-gazetteer",
-    "mapVisible": false,
+    "mapVisible": true,
     "automationStatus": "AI enriched",
     "aiEnrichment": {
       "version": "route-auto-v2",
