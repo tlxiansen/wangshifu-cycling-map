@@ -39,10 +39,8 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -147,9 +145,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -181,10 +178,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -239,9 +234,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -273,8 +267,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -306,8 +299,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -339,10 +331,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -389,8 +379,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -422,10 +411,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -457,10 +444,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -492,10 +477,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -527,10 +510,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -576,8 +557,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -609,8 +589,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -642,8 +621,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -675,8 +653,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -708,8 +685,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -741,8 +717,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -774,8 +749,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -807,8 +781,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -840,8 +813,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -873,8 +845,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -906,8 +877,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -939,10 +909,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -974,8 +942,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1007,10 +974,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1042,10 +1007,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1077,10 +1040,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1154,9 +1115,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1188,8 +1148,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1221,9 +1180,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1255,8 +1212,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1288,8 +1244,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1321,8 +1276,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1354,8 +1308,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1387,10 +1340,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1422,9 +1373,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1458,11 +1407,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1508,9 +1455,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "里程缺失",
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-distance",
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1542,8 +1488,7 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "关键时间点缺失",
-      "需要自动复核"
+      "missing-key-timepoints"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1575,10 +1520,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "坐标与里程冲突",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "missing-key-timepoints",
+      "coordinate-distance-conflict"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1986,8 +1929,7 @@
       }
     ],
     "riskFlags": [
-      "坐标与里程冲突",
-      "需要自动复核"
+      "coordinate-distance-conflict"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -3370,9 +3312,8 @@
     "confidence": "Auto-added; pending review",
     "confidenceScore": 0.45,
     "riskFlags": [
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "place-needs-auto-review",
+      "missing-key-timepoints"
     ],
     "phase": "AI enriched",
     "ride": true,
@@ -3404,9 +3345,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.55,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3651,9 +3590,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3782,9 +3719,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3901,9 +3836,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -4032,9 +3965,7 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [
-      "需要自动复核"
-    ],
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -4576,9 +4507,8 @@
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "坐标沿用上一骑行日",
-      "坐标与里程冲突",
-      "需要自动复核"
+      "coordinates-copied-from-previous-ride",
+      "coordinate-distance-conflict"
     ],
     "phase": "AI enriched",
     "ride": true,
@@ -4765,9 +4695,7 @@
     "duration": 3189,
     "views": 36592,
     "cover": "https://i2.hdslb.com/bfs/archive/eecb66b940812fdc72481708aafc4b144b8df91c.jpg",
-    "videoSource": "season",
     "coordinateSource": "local-gazetteer",
-    "mapVisible": false,
     "automationStatus": "AI enriched",
     "aiEnrichment": {
       "version": "route-auto-v2",
@@ -4777,7 +4705,10 @@
       "extractionProvider": "deepseek",
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
-    }
+    },
+    "videoSource": "season",
+    "mapVisible": false,
+    "coordinateStatus": "distance conflict; hidden from route"
   },
   {
     "date": "2026-07-21",
@@ -4789,11 +4720,10 @@
     "confidence": "Auto-added; pending review",
     "confidenceScore": 0.45,
     "riskFlags": [
-      "里程缺失",
-      "坐标沿用上一骑行日",
-      "关键时间点缺失",
-      "住宿缺失",
-      "需要自动复核"
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
     ],
     "phase": "AI enriched",
     "ride": true,
