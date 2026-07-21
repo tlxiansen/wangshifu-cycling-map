@@ -133,15 +133,29 @@ function bootMap(){
   L.control.zoom({position:"bottomright"}).addTo(map);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(map);
   const cities=[
-    ["河内",21.0285,105.8542,5,true],["海防",20.8449,106.6881,6,false],["下龙",20.951,107.08,7,false],
+    // 越南
+    ["河内",21.0285,105.8542,4,true],["海防",20.8449,106.6881,6,false],["下龙",20.951,107.08,7,false],
     ["宁平",20.25,105.974,7,false],["清化",19.807,105.776,7,false],["荣市",18.6796,105.6813,6,false],
     ["河静",18.3559,105.8877,7,false],["洞海",17.4689,106.6223,6,false],["顺化",16.4637,107.5909,6,true],
     ["岘港",16.0544,108.2022,5,true],["会安",15.8801,108.338,7,false],["广义",15.12,108.80,6,false],
     ["蓬山",14.43,109.02,8,false],["归仁",13.782,109.219,5,true],["绥和",13.0955,109.3209,7,false],
     ["芽庄",12.2388,109.1967,5,true],["大叻",11.9404,108.4583,6,false],["潘切",10.9289,108.102,7,false],
-    ["头顿",10.346,107.084,7,false],["胡志明市",10.8231,106.6297,5,true],["芹苴",10.0452,105.7469,6,false]
+    ["头顿",10.346,107.084,7,false],["胡志明市",10.8231,106.6297,4,true,35,0],["芹苴",10.0452,105.7469,6,false],
+    // 柬埔寨
+    ["巴域",11.0632,106.1356,7,false],["金边",11.5564,104.9282,4,true,-35,-2],["西哈努克市",10.6253,103.5234,7,false],
+    ["暹粒",13.3671,103.8448,6,true],["马德望",13.0957,103.2022,7,false],["波贝",13.6561,102.5625,7,false],
+    // 泰国
+    ["曼谷",13.7563,100.5018,4,true],["芭提雅",12.9236,100.8825,7,false],["华欣",12.5684,99.9577,7,false],
+    ["春蓬",10.493,99.18,7,false],["素叻他尼",9.1382,99.3215,6,true],["普吉",7.8804,98.3923,6,true],
+    ["合艾",7.0084,100.4747,6,true],["清迈",18.7883,98.9853,5,true],
+    // 马来西亚
+    ["槟城",5.4141,100.3288,5,true],["怡保",4.5975,101.0901,6,false],["吉隆坡",3.139,101.6869,4,true,-12,-4],
+    ["马六甲",2.1896,102.2501,6,true],["新山",1.4927,103.7414,8,false],["哥打巴鲁",6.1254,102.2381,7,false],
+    ["瓜拉丁加奴",5.3296,103.137,7,false],["关丹",3.8077,103.326,6,false],
+    // 新加坡
+    ["新加坡",1.3521,103.8198,4,true,12,5]
   ];
-  cityLabelMarkers=cities.map(([name,lat,lng,minZoom,major])=>({minZoom,marker:L.marker([lat,lng],{interactive:false,icon:L.divIcon({className:`city-label${major?" major":""}`,html:name,iconSize:[80,20],iconAnchor:[40,10]})})}));
+  cityLabelMarkers=cities.map(([name,lat,lng,minZoom,major,dx=0,dy=0])=>({minZoom,marker:L.marker([lat,lng],{interactive:false,icon:L.divIcon({className:`city-label${major?" major":""}`,html:name,iconSize:[80,20],iconAnchor:[40-dx,10-dy]})})}));
   const updateLabels=()=>cityLabelMarkers.forEach(x=>{if(map.getZoom()>=x.minZoom){if(!map.hasLayer(x.marker))x.marker.addTo(map)}else if(map.hasLayer(x.marker))map.removeLayer(x.marker)});
   map.on("zoomend",updateLabels);updateLabels();
 }
