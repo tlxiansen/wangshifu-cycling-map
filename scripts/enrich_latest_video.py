@@ -616,7 +616,12 @@ def transcribe_chunks_volcengine(
 
 
 def volcengine_subtitle_headers(content_type: str | None = None) -> dict[str, str]:
-    access_token = os.getenv("VOLC_ASR_ACCESS_TOKEN", "").strip()
+    # GitHub's secret editor can preserve an accidental line break from the
+    # clipboard. Access tokens never contain whitespace, so normalize it before
+    # constructing the HTTP header.
+    access_token = "".join(
+        os.getenv("VOLC_ASR_ACCESS_TOKEN", "").split()
+    )
     headers = {
         "Accept": "*/*",
         "Authorization": f"Bearer; {access_token}",
