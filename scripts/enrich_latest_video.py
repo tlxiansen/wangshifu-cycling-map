@@ -59,6 +59,7 @@ PLACE_GAZETTEER = [
     (("潘切", "Phan Thiết", "Phan Thiet"), "潘切 Phan Thiết", 10.9289, 108.1020),
     (("头顿", "Vũng Tàu", "Vung Tau"), "头顿 Vũng Tàu", 10.3460, 107.0840),
     (("胡志明", "西贡", "Hồ Chí Minh", "Ho Chi Minh", "Saigon"), "胡志明市 Hồ Chí Minh", 10.8231, 106.6297),
+    (("巴域", "巴韦", "巴维", "Bavet", "Krong Bavet"), "巴域 Bavet（柬埔寨）", 11.063175, 106.13557),
     (("芹苴", "Cần Thơ", "Can Tho"), "芹苴 Cần Thơ", 10.0452, 105.7469),
 ]
 VOLC_ASR_SUBMIT_URL = (
@@ -1017,6 +1018,30 @@ def coordinate_from_text(*values: Any) -> dict[str, Any] | None:
     return None
 
 
+def refresh_ai_coordinates(entries: list[dict[str, Any]]) -> list[str]:
+    """Apply newer gazetteer matches to prior AI-enriched route entries."""
+    refreshed: list[str] = []
+    for entry in entries:
+        if is_manual_verified(entry):
+            continue
+        if not entry.get("aiEnrichment") and entry.get("automationStatus") != "AI enriched":
+            continue
+        coordinate = coordinate_from_text(entry.get("place"), entry.get("title"))
+        if not coordinate:
+            continue
+        if (
+            entry.get("lat") == coordinate["lat"]
+            and entry.get("lng") == coordinate["lng"]
+            and entry.get("coordinateSource") == coordinate["source"]
+        ):
+            continue
+        entry["lat"] = coordinate["lat"]
+        entry["lng"] = coordinate["lng"]
+        entry["coordinateSource"] = coordinate["source"]
+        refreshed.append(str(entry.get("bvid") or entry.get("date") or "unknown"))
+    return refreshed
+
+
 def append_unique(values: list[Any], value: Any) -> None:
     if value and value not in values:
         values.append(value)
@@ -1400,10 +1425,26 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     entries = read_json(args.data)
+    coordinate_changes = refresh_ai_coordinates(entries)
     candidates = select_candidates(entries, args.lookback, args.max_episodes)
     if not candidates:
-        log("No new auto-managed episode needs audio enrichment.")
-        append_step_summary(["### 音频信息提取", "- 没有需要处理的新视频。"])
+        if coordinate_changes:
+            rebuild_quality_flags(entries)
+            write_json(args.data, entries)
+            log(
+                "Refreshed AI route coordinates: "
+                + ", ".join(coordinate_changes)
+            )
+            append_step_summary(
+                [
+                    "### 音频信息提取",
+                    "- 没有需要转写的新视频。",
+                    f"- 已更新历史 AI 路线坐标：`{', '.join(coordinate_changes)}`。",
+                ]
+            )
+        else:
+            log("No new auto-managed episode needs audio enrichment.")
+            append_step_summary(["### 音频信息提取", "- 没有需要处理的新视频。"])
         return 0
 
     missing = [] if args.fixture else missing_configuration()
@@ -1431,14 +1472,15 @@ def main() -> int:
         if merge_extraction(entry, extraction, processed_at):
             changed.append(bvid)
 
-    if changed:
+    if changed or coordinate_changes:
         rebuild_quality_flags(entries)
         write_json(args.data, entries)
-        log(f"Updated {args.data}: {', '.join(changed)}")
+        updated = list(dict.fromkeys(coordinate_changes + changed))
+        log(f"Updated {args.data}: {', '.join(updated)}")
         append_step_summary(
             [
                 "### 音频信息提取",
-                f"- 已处理：`{', '.join(changed)}`",
+                f"- 已处理：`{', '.join(updated)}`",
                 "- 原始音频已删除；完整字幕已加密缓存，不在网页公开。",
                 "- 状态：AI 提取，待维护者核验。",
             ]
