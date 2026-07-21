@@ -397,6 +397,30 @@ class EnrichmentTests(unittest.TestCase):
         self.assertEqual(coordinate["place"], "美奈 Mũi Né")
         self.assertAlmostEqual(coordinate["lat"], 10.9330)
 
+    def test_bavet_is_available_to_coordinate_lookup(self):
+        coordinate = MODULE.coordinate_from_text("胡志明 → 巴域")
+        self.assertEqual(coordinate["place"], "巴域 Bavet（柬埔寨）")
+        self.assertAlmostEqual(coordinate["lat"], 11.063175)
+
+    def test_refresh_ai_coordinates_repairs_previous_destination(self):
+        entries = [
+            {
+                "bvid": "BVBAVET",
+                "phase": "AI enriched",
+                "automationStatus": "AI enriched",
+                "aiEnrichment": {"status": "auto-extracted"},
+                "place": "胡志明 → 巴域",
+                "lat": 10.8231,
+                "lng": 106.6297,
+                "coordinateSource": "local-gazetteer",
+                "confidence": "AI音频提取，待维护者核验",
+            }
+        ]
+        changed = MODULE.refresh_ai_coordinates(entries)
+        self.assertEqual(changed, ["BVBAVET"])
+        self.assertAlmostEqual(entries[0]["lat"], 11.063175)
+        self.assertAlmostEqual(entries[0]["lng"], 106.13557)
+
     def test_english_coordinate_risk_is_prioritized(self):
         entry = {
             "bvid": "BVRISK",
