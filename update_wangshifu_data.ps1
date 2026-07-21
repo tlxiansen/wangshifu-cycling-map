@@ -134,6 +134,11 @@ function Test-ManualVerified($item) {
     return $false
 }
 
+function Test-AutomationPhase([string]$phase) {
+    $autoAddedChinese = Join-Chars @(0x81EA, 0x52A8, 0x6DFB, 0x52A0)
+    return $phase -in @("Auto-added", "AI enriched", $autoAddedChinese)
+}
+
 function Resolve-GeoFromText([string]$text) {
     if ([string]::IsNullOrWhiteSpace($text)) { return $null }
 
@@ -378,8 +383,12 @@ foreach ($archive in $archives) {
 
     $item.title = $archive.title
     $item.date = $date
-    if ([string]$item.phase -eq "Auto-added" -and $previous -and $previous.phase) {
-        $item.phase = $previous.phase
+    if (Test-AutomationPhase ([string]$item.phase)) {
+        if ($previous -and $previous.phase) {
+            $item.phase = $previous.phase
+        } else {
+            $item.phase = Join-Chars @(0x7B2C, 0x4E8C, 0x6BB5)
+        }
     }
     if (-not $item.PSObject.Properties["duration"] -or $null -eq $item.duration) {
         $item | Add-Member -NotePropertyName duration -NotePropertyValue $archive.duration -Force
