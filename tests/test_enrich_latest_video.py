@@ -39,7 +39,7 @@ class EnrichmentTests(unittest.TestCase):
     def test_volcengine_subtitle_headers_use_bearer_token(self):
         with patch.dict(
             "os.environ",
-            {"VOLC_ASR_ACCESS_TOKEN": "test-token"},
+            {"VOLC_ASR_ACCESS_TOKEN": "  test-\r\ntoken  "},
             clear=True,
         ):
             headers = MODULE.volcengine_subtitle_headers("audio/mp3")
