@@ -3430,7 +3430,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-13",
@@ -4529,6 +4529,42 @@
     "duration": 3189,
     "views": 36592,
     "cover": "https://i2.hdslb.com/bfs/archive/eecb66b940812fdc72481708aafc4b144b8df91c.jpg",
+    "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
+    "mapVisible": true
+  },
+  {
+    "date": "2026-07-21",
+    "bvid": "BV15xKt6DEuT",
+    "title": "《勇闯柬埔寨》——第一期",
+    "place": "胡志明 Ho Chi Minh City",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.45,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "AI enriched",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "《勇闯柬埔寨》——第一期.",
+    "automation": {},
+    "duration": 3488,
+    "views": 17851,
+    "cover": "https://i2.hdslb.com/bfs/archive/9fe437d17ce2c57001c6c54055fef8df93d646e5.jpg",
     "videoSource": "season",
     "coordinateSource": "title/place gazetteer",
     "mapVisible": true
