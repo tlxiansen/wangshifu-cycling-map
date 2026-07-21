@@ -436,6 +436,16 @@ class EnrichmentTests(unittest.TestCase):
         }
         self.assertIn("coordinate_or_place_risk", MODULE.entry_quality_gaps(entry))
 
+    def test_legacy_automation_phase_inherits_previous_route_segment(self):
+        entries = [
+            {"bvid": "BVTUYHOA", "phase": "第二段"},
+            {"bvid": "BVNHATRANG", "phase": "AI enriched"},
+            {"bvid": "BVCAMRANH", "phase": "Auto-added"},
+        ]
+        changed = MODULE.normalize_route_phases(entries)
+        self.assertEqual(changed, ["BVNHATRANG", "BVCAMRANH"])
+        self.assertEqual([entry["phase"] for entry in entries], ["第二段"] * 3)
+
     def test_route_safety_hides_zero_movement_long_ride(self):
         entries = [
             {
