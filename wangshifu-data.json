@@ -3430,7 +3430,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "upload"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-13",
