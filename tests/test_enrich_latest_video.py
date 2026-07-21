@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +35,58 @@ class EnrichmentTests(unittest.TestCase):
         self.assertEqual(headers["X-Api-Access-Key"], "test-token")
         self.assertEqual(headers["X-Api-Resource-Id"], "volc.seedasr.auc")
         self.assertEqual(headers["X-Api-Sequence"], "-1")
+
+    def test_volcengine_subtitle_headers_use_bearer_token(self):
+        with patch.dict(
+            "os.environ",
+            {"VOLC_ASR_ACCESS_TOKEN": "  test-\r\ntoken  "},
+            clear=True,
+        ):
+            headers = MODULE.volcengine_subtitle_headers("audio/mp3")
+        self.assertEqual(headers["Authorization"], "Bearer; test-token")
+        self.assertEqual(headers["Content-Type"], "audio/mp3")
+
+    def test_volcengine_subtitle_uploads_binary_and_queries_timestamps(self):
+        submit = Mock()
+        submit.json.return_value = {
+            "code": "0",
+            "message": "Success",
+            "id": "task-123",
+        }
+        query = Mock()
+        query.json.return_value = {
+            "code": 0,
+            "message": "Success",
+            "utterances": [
+                {"start_time": 1500, "end_time": 3200, "text": "今天骑了40公里"}
+            ],
+        }
+        session = Mock()
+        session.post.return_value = submit
+        session.get.return_value = query
+
+        with tempfile.TemporaryDirectory() as temporary:
+            chunk = Path(temporary) / "chunk-000.mp3"
+            chunk.write_bytes(b"fake-mp3")
+            with patch.dict(
+                "os.environ",
+                {
+                    "VOLC_ASR_APP_ID": "test-app",
+                    "VOLC_ASR_ACCESS_TOKEN": "test-token",
+                },
+                clear=False,
+            ):
+                segments = MODULE.transcribe_chunks_volcengine_subtitle(
+                    [chunk], 600, session=session
+                )
+
+        self.assertEqual(segments[0]["start"], 1.5)
+        self.assertEqual(segments[0]["end"], 3.2)
+        submit_kwargs = session.post.call_args.kwargs
+        self.assertEqual(submit_kwargs["data"], b"fake-mp3")
+        self.assertEqual(submit_kwargs["params"]["appid"], "test-app")
+        self.assertEqual(submit_kwargs["headers"]["Content-Type"], "audio/mp3")
+        self.assertEqual(session.get.call_args.kwargs["params"]["id"], "task-123")
 
     def test_volcengine_utterance_timestamps_include_chunk_offset(self):
         segments = MODULE.volcengine_result_segments(
@@ -344,6 +396,30 @@ class EnrichmentTests(unittest.TestCase):
         coordinate = MODULE.coordinate_from_text("骑行到达越南美奈")
         self.assertEqual(coordinate["place"], "美奈 Mũi Né")
         self.assertAlmostEqual(coordinate["lat"], 10.9330)
+
+    def test_bavet_is_available_to_coordinate_lookup(self):
+        coordinate = MODULE.coordinate_from_text("胡志明 → 巴域")
+        self.assertEqual(coordinate["place"], "巴域 Bavet（柬埔寨）")
+        self.assertAlmostEqual(coordinate["lat"], 11.063175)
+
+    def test_refresh_ai_coordinates_repairs_previous_destination(self):
+        entries = [
+            {
+                "bvid": "BVBAVET",
+                "phase": "AI enriched",
+                "automationStatus": "AI enriched",
+                "aiEnrichment": {"status": "auto-extracted"},
+                "place": "胡志明 → 巴域",
+                "lat": 10.8231,
+                "lng": 106.6297,
+                "coordinateSource": "local-gazetteer",
+                "confidence": "AI音频提取，待维护者核验",
+            }
+        ]
+        changed = MODULE.refresh_ai_coordinates(entries)
+        self.assertEqual(changed, ["BVBAVET"])
+        self.assertAlmostEqual(entries[0]["lat"], 11.063175)
+        self.assertAlmostEqual(entries[0]["lng"], 106.13557)
 
     def test_english_coordinate_risk_is_prioritized(self):
         entry = {

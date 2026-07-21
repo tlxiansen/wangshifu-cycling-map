@@ -39,8 +39,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -145,8 +147,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -178,8 +181,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -234,8 +239,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -267,7 +273,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -299,7 +306,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -331,8 +339,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -379,7 +389,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -411,8 +422,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -444,8 +457,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -477,8 +492,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -510,8 +527,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -557,7 +576,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -589,7 +609,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -621,7 +642,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -653,7 +675,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -685,7 +708,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -717,7 +741,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -749,7 +774,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -781,7 +807,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -813,7 +840,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -845,7 +873,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -877,7 +906,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -909,8 +939,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -942,7 +974,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -974,8 +1007,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1007,8 +1042,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1040,8 +1077,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1115,8 +1154,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1148,7 +1188,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1180,7 +1221,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1212,7 +1255,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1244,7 +1288,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1276,7 +1321,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1308,7 +1354,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1340,8 +1387,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1373,7 +1422,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1407,9 +1458,11 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "coordinates-copied-from-previous-ride",
-      "missing-key-timepoints"
+      "里程缺失",
+      "坐标沿用上一骑行日",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1455,8 +1508,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1488,7 +1542,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1520,8 +1575,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints",
-      "coordinate-distance-conflict"
+      "坐标与里程冲突",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1929,7 +1986,7 @@
       }
     ],
     "riskFlags": [
-      "coordinate-distance-conflict"
+      "坐标与里程冲突"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -2217,7 +2274,7 @@
     "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "duration": 2303,
     "views": 227520,
     "cover": "https://i2.hdslb.com/bfs/archive/916a082fdd2786ea774d401089e6d11255bf98d4.jpg",
@@ -2501,7 +2558,7 @@
     "riskFlags": [],
     "confidenceScore": 0.45,
     "automation": {},
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "duration": 2825,
     "views": 323180,
     "cover": "https://i1.hdslb.com/bfs/archive/85e336638605b18448be8b8bae54fa06d03aa8a8.jpg",
@@ -3152,7 +3209,7 @@
     "duration": 2366,
     "views": 167351,
     "cover": "https://i1.hdslb.com/bfs/archive/4192a332e02eddb07f860761327235ee31241a33.jpg",
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
     "mapVisible": true
   },
@@ -3298,7 +3355,7 @@
     "duration": 1826,
     "views": 186114,
     "cover": "https://i2.hdslb.com/bfs/archive/755b00137e7cca8c16fba94d0ea3dabf0ce274df.jpg",
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "mapVisible": true,
     "videoSource": "season"
   },
@@ -3306,35 +3363,229 @@
     "date": "2026-07-11",
     "bvid": "BV1aDNn64EVP",
     "title": "我用了24小时通宵骑了200公里，到了胡志明。",
-    "place": "胡志明 Ho Chi Minh City",
+    "place": "潘切 → 胡志明市",
     "lat": 10.8231,
     "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
-    "riskFlags": [
-      "place-needs-auto-review",
-      "missing-key-timepoints"
-    ],
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.95,
+    "riskFlags": [],
     "phase": "AI enriched",
     "ride": true,
     "distanceKm": 200.0,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
-    "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "food": "海鲜炒面、烤虾配蛋炒饭、海鲜炒方便面、甘蔗汁、猪肉粉",
+    "foods": [
+      "海鲜炒面",
+      "烤虾配蛋炒饭",
+      "海鲜炒方便面",
+      "甘蔗汁",
+      "猪肉粉"
+    ],
+    "foodDetails": [
+      {
+        "name": "海鲜炒面",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "烤虾配蛋炒饭",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "甘蔗汁",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "两杯，包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "猪肉粉",
+        "venue": "店名待核验",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价100K中",
+        "recommendation": null,
+        "status": "AI音频提取 20:46",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1246"
+      },
+      {
+        "name": "海鲜炒方便面",
+        "venue": "店名待核验",
+        "meal": "夜宵",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价400K中",
+        "recommendation": null,
+        "status": "AI音频提取 01:10:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4200"
+      },
+      {
+        "name": "烤虾",
+        "venue": "店名待核验",
+        "meal": "夜宵",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在总价400K中",
+        "recommendation": null,
+        "status": "AI音频提取 01:10:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4200"
+      }
+    ],
+    "lodgings": [
+      {
+        "name": "Happy Song Hotel",
+        "area": "隆庆",
+        "price": null,
+        "currency": null,
+        "booking": "视频未说明",
+        "bikeStorage": "待核验",
+        "pros": null,
+        "cons": "满房",
+        "recommendation": "视频入住",
+        "status": "AI音频提取 01:11:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4260"
+      }
+    ],
+    "costs": [
+      {
+        "category": "food",
+        "label": "晚餐（海鲜炒面、烤虾配蛋炒饭、甘蔗汁、猪肉粉）",
+        "amount": 100,
+        "currency": "K越南盾",
+        "status": "AI音频提取 52:06",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=3126"
+      },
+      {
+        "category": "food",
+        "label": "夜宵（海鲜炒方便面、烤虾）",
+        "amount": 400,
+        "currency": "K越南盾",
+        "status": "AI音频提取 01:10:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4200"
+      },
+      {
+        "category": "food",
+        "label": "火龙果",
+        "amount": 40,
+        "currency": "K越南盾",
+        "status": "AI音频提取 32:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1920"
+      },
+      {
+        "category": "food",
+        "label": "水（两瓶）",
+        "amount": 20,
+        "currency": "K越南盾",
+        "status": "AI音频提取 32:00",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1920"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "02:40",
+        "text": "摩托车低转速震动大，找修车店",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=160"
+      },
+      {
+        "time": "09:40",
+        "text": "修车师傅说轮子歪了，避震断了，报价200万越南盾",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=580"
+      },
+      {
+        "time": "18:40",
+        "text": "在乐天商场吃饭，停电",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1120"
+      },
+      {
+        "time": "28:00",
+        "text": "决定通宵骑到胡志明，剩余80公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=1680"
+      },
+      {
+        "time": "38:00",
+        "text": "夜骑遇到大雾，像寂静岭",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=2280"
+      },
+      {
+        "time": "48:00",
+        "text": "隆庆酒店全满，决定继续骑到胡志明",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=2880"
+      },
+      {
+        "time": "58:00",
+        "text": "凌晨1点半开始最后80公里冲刺",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=3480"
+      },
+      {
+        "time": "01:08:00",
+        "text": "凌晨4点进入胡志明郊区，均速19km/h",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4080"
+      },
+      {
+        "time": "01:18:00",
+        "text": "凌晨5点看到很多骑友锻炼，感叹大城市",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=4680"
+      },
+      {
+        "time": "01:28:00",
+        "text": "到达胡志明，总骑行约200公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1aDNn64EVP/?t=5280"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1aDNn64EVP/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。距离200公里来自标题，字幕中未明确确认最终里程；具体住宿价格和名称未提及；部分食物价格来自字幕估算。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "我用了24小时通宵骑了200公里，到了胡志明。.",
+    "summary": "骑行者在暴雨中从潘切出发，经历修车、停电、夜骑等波折，最终通宵骑行约200公里抵达胡志明市。",
     "automation": {},
     "duration": 6390,
     "views": 74080,
     "cover": "https://i2.hdslb.com/bfs/archive/3d5960b9c5ea519b4453c82f77a2c2af9e277d18.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-21T12:23:07.533400+00:00",
+      "transcriptionProvider": "volcengine_subtitle",
+      "transcriptionModel": "volcengine-video-subtitle",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   },
   {
     "date": "2026-07-12",
@@ -3345,7 +3596,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.55,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3590,7 +3843,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3719,7 +3974,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3836,7 +4093,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -3965,7 +4224,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "AI enriched",
     "ride": false,
     "distanceKm": null,
@@ -4507,8 +4768,9 @@
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "coordinates-copied-from-previous-ride",
-      "coordinate-distance-conflict"
+      "坐标沿用上一骑行日",
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "phase": "AI enriched",
     "ride": true,
@@ -4714,36 +4976,279 @@
     "date": "2026-07-21",
     "bvid": "BV15xKt6DEuT",
     "title": "《勇闯柬埔寨》——第一期",
-    "place": "胡志明 Ho Chi Minh City",
-    "lat": 10.8231,
-    "lng": 106.6297,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.45,
+    "place": "胡志明 → 巴域",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.7,
     "riskFlags": [
-      "place-needs-auto-review",
-      "missing-distance",
-      "coordinates-copied-from-previous-ride",
-      "missing-key-timepoints"
+      "需要自动复核"
     ],
     "phase": "AI enriched",
     "ride": true,
-    "distanceKm": null,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
-    "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "distanceKm": 50,
+    "food": "牛肉粉、咖啡、红牛、矿泉水、重庆小面、红油抄手、肥肠米线、手工饺子、卤蛋",
+    "foods": [
+      "牛肉粉",
+      "咖啡",
+      "红牛",
+      "矿泉水",
+      "重庆小面",
+      "红油抄手",
+      "肥肠米线",
+      "手工饺子",
+      "卤蛋"
+    ],
+    "foodDetails": [
+      {
+        "name": "牛肉粉",
+        "venue": "店名待核验",
+        "meal": "早餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 06:40",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=400"
+      },
+      {
+        "name": "咖啡",
+        "venue": "店名待核验",
+        "meal": "休息",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 12:38",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=758"
+      },
+      {
+        "name": "红牛",
+        "venue": "店名待核验",
+        "meal": "休息",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 30:41",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=1841"
+      },
+      {
+        "name": "矿泉水",
+        "venue": "店名待核验",
+        "meal": "休息",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 30:30",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=1830"
+      },
+      {
+        "name": "重庆小面",
+        "venue": "重庆小面店",
+        "meal": "晚餐",
+        "price": 350,
+        "currency": "THB",
+        "priceNote": "总花费350泰铢（约10美元）",
+        "recommendation": "强烈推荐",
+        "status": "AI音频提取 01:20:50",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4850"
+      },
+      {
+        "name": "红油抄手",
+        "venue": "重庆小面店",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": "强烈推荐",
+        "status": "AI音频提取 01:20:50",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4850"
+      },
+      {
+        "name": "肥肠米线",
+        "venue": "重庆小面店",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": "强烈推荐",
+        "status": "AI音频提取 01:25:50",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=5150"
+      },
+      {
+        "name": "手工饺子",
+        "venue": "重庆小面店",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": "强烈推荐",
+        "status": "AI音频提取 01:25:10",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=5110"
+      },
+      {
+        "name": "卤蛋",
+        "venue": "重庆小面店",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 01:27:30",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=5250"
+      }
+    ],
+    "lodgings": [
+      {
+        "name": "新威尼斯酒店（疑似亚朵）",
+        "area": "巴域 Bavet",
+        "price": 100,
+        "currency": "USD",
+        "booking": "现场议价",
+        "bikeStorage": "可放门口",
+        "pros": "便宜、老板友好、提供洗衣服务",
+        "cons": "周边环境诡异",
+        "recommendation": "推荐",
+        "status": "AI音频提取 01:10:00",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4200"
+      }
+    ],
+    "costs": [
+      {
+        "category": "住宿",
+        "label": "新威尼斯酒店两间房",
+        "amount": 100,
+        "currency": "USD",
+        "status": "AI音频提取 01:10:42",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4242"
+      },
+      {
+        "category": "餐饮",
+        "label": "重庆小面店晚餐",
+        "amount": 350,
+        "currency": "THB",
+        "status": "AI音频提取 01:30:43",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=5443"
+      },
+      {
+        "category": "小费",
+        "label": "越南海关小费",
+        "amount": 5,
+        "currency": "USD",
+        "status": "AI音频提取 53:20",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=3200"
+      },
+      {
+        "category": "通讯",
+        "label": "手机卡（黄卡）",
+        "amount": 5,
+        "currency": "USD",
+        "status": "AI音频提取 01:18:47",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4727"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:53",
+        "text": "宣布今日目标：骑行50公里到木牌口岸，入境柬埔寨",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=53"
+      },
+      {
+        "time": "08:53",
+        "text": "距离柬埔寨还有48公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=533"
+      },
+      {
+        "time": "20:40",
+        "text": "距离口岸还有24公里，骑行过半",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=1240"
+      },
+      {
+        "time": "28:39",
+        "text": "距离口岸还有15公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=1719"
+      },
+      {
+        "time": "37:16",
+        "text": "距离口岸还有9.2公里，时间17:11，口岸20:00关门",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=2236"
+      },
+      {
+        "time": "41:44",
+        "text": "距离口岸还有5公里",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=2504"
+      },
+      {
+        "time": "47:33",
+        "text": "抵达越南木牌口岸，耗时半小时出关，不丝滑",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=2853"
+      },
+      {
+        "time": "49:07",
+        "text": "柬埔寨海关办理入境，耗时一个多小时，被索要5美元小费",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=2947"
+      },
+      {
+        "time": "53:20",
+        "text": "支付5美元小费后顺利入境柬埔寨",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=3200"
+      },
+      {
+        "time": "01:10:00",
+        "text": "入住新威尼斯酒店，两间房共100美元，比携程便宜",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4200"
+      },
+      {
+        "time": "01:18:47",
+        "text": "购买手机卡，黄卡5美元，但两张绿卡无法注册",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4727"
+      },
+      {
+        "time": "01:20:50",
+        "text": "在重庆小面店吃晚餐，花费350泰铢，味道正宗",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV15xKt6DEuT/?t=4850"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV15xKt6DEuT/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。距离为字幕中提到的50公里，但实际骑行距离可能略有出入；费用中晚餐货币为泰铢，但柬埔寨通用美元，需确认；住宿名称和价格来自对话，需核实；手机卡价格和类型需确认。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "《勇闯柬埔寨》——第一期.",
+    "summary": "从越南胡志明市骑行至柬埔寨木牌口岸，全程约50公里，经历暴雨、边境小费风波后抵达巴域市，入住亚朵风格酒店，品尝正宗重庆小面。",
     "automation": {},
     "duration": 3488,
     "views": 17851,
     "cover": "https://i2.hdslb.com/bfs/archive/9fe437d17ce2c57001c6c54055fef8df93d646e5.jpg",
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
-    "mapVisible": true
+    "coordinateSource": "local-gazetteer",
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-21T12:15:27.396722+00:00",
+      "transcriptionProvider": "volcengine_subtitle",
+      "transcriptionModel": "volcengine-video-subtitle",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   }
 ]
