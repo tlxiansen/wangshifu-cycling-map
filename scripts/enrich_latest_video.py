@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_PATH = ROOT / "wangshifu-data.json"
 DEFAULT_TRANSCRIPT_DIR = ROOT / "transcripts"
 VIDEO_URL = "https://www.bilibili.com/video/{bvid}/"
-AUTO_PHASES = {"Auto-added", "自动添加"}
+AUTO_PHASES = {"Auto-added", "自动添加", "AI enriched"}
 AUTO_CONFIDENCE_MARKERS = (
     "auto-added",
     "pending review",
@@ -274,6 +274,24 @@ def is_manual_verified(entry: dict[str, Any]) -> bool:
         isinstance(value, dict) and value.get("acceptedBy")
         for value in entry.get("evidence") or []
     )
+
+
+def normalize_route_phases(entries: list[dict[str, Any]]) -> list[str]:
+    """Migrate legacy automation status values out of the route phase field."""
+    auto_phases = {value.lower() for value in AUTO_PHASES}
+    previous_phase = ""
+    changed: list[str] = []
+    for entry in entries:
+        phase = str(entry.get("phase") or "").strip()
+        if phase.lower() in auto_phases:
+            replacement = previous_phase or "第二段"
+            if phase != replacement:
+                entry["phase"] = replacement
+                changed.append(str(entry.get("bvid") or entry.get("date") or "?"))
+            phase = replacement
+        if phase:
+            previous_phase = phase
+    return changed
 
 
 def entry_quality_gaps(entry: dict[str, Any]) -> list[str]:
@@ -1425,21 +1443,23 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     entries = read_json(args.data)
+    phase_changes = normalize_route_phases(entries)
     coordinate_changes = refresh_ai_coordinates(entries)
     candidates = select_candidates(entries, args.lookback, args.max_episodes)
     if not candidates:
-        if coordinate_changes:
+        if phase_changes or coordinate_changes:
             rebuild_quality_flags(entries)
             write_json(args.data, entries)
+            updated = list(dict.fromkeys(phase_changes + coordinate_changes))
             log(
-                "Refreshed AI route coordinates: "
-                + ", ".join(coordinate_changes)
+                "Refreshed AI route metadata: "
+                + ", ".join(updated)
             )
             append_step_summary(
                 [
                     "### 音频信息提取",
                     "- 没有需要转写的新视频。",
-                    f"- 已更新历史 AI 路线坐标：`{', '.join(coordinate_changes)}`。",
+                    f"- 已更新历史 AI 路线元数据：`{', '.join(updated)}`。",
                 ]
             )
         else:
@@ -1472,10 +1492,10 @@ def main() -> int:
         if merge_extraction(entry, extraction, processed_at):
             changed.append(bvid)
 
-    if changed or coordinate_changes:
+    if changed or phase_changes or coordinate_changes:
         rebuild_quality_flags(entries)
         write_json(args.data, entries)
-        updated = list(dict.fromkeys(coordinate_changes + changed))
+        updated = list(dict.fromkeys(phase_changes + coordinate_changes + changed))
         log(f"Updated {args.data}: {', '.join(updated)}")
         append_step_summary(
             [
