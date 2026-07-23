@@ -5395,5 +5395,41 @@
       "status": "auto-extracted"
     },
     "videoSource": "season"
+  },
+  {
+    "date": "2026-07-23",
+    "bvid": "BV1GsgD6sEMC",
+    "title": "100公里狂蹬！逃离巴域——《勇闯柬埔寨》第三集",
+    "place": "巴韦市 Bavet",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints",
+      "coordinate-distance-conflict"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": 100.0,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "100公里狂蹬！逃离巴域——《勇闯柬埔寨》第三集.",
+    "automation": {},
+    "duration": 2510,
+    "views": 91044,
+    "cover": "https://i0.hdslb.com/bfs/archive/f9e87c8c4a921d66f74f72daa9111ccc4801d77f.jpg",
+    "videoSource": "season",
+    "mapVisible": false,
+    "coordinateStatus": "distance conflict; hidden from route"
   }
 ]
