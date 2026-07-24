@@ -4899,8 +4899,8 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -5683,6 +5683,42 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
+    "videoSource": "season",
+    "mapVisible": false,
+    "coordinateStatus": "distance conflict; hidden from route"
+  },
+  {
+    "date": "2026-07-24",
+    "bvid": "BV1vsga6kEQX",
+    "title": "两天170公里，直接从边境干到金边！我感觉我们安全了。。。——《勇闯柬埔寨》第四集",
+    "place": "巴韦市 → 柴桢附近",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints",
+      "coordinate-distance-conflict"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": 170.0,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "两天170公里，直接从边境干到金边！我感觉我们安全了。。。——《勇闯柬埔寨》第四集.",
+    "automation": {},
+    "duration": 4040,
+    "views": 28940,
+    "cover": "https://i0.hdslb.com/bfs/archive/0c0641b3520d97ea0b6241873dfd00256d1985c3.jpg",
     "videoSource": "season",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
