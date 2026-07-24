@@ -39,8 +39,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -145,8 +147,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -178,8 +181,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -234,8 +239,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -267,7 +273,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -299,7 +306,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -331,8 +339,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -379,7 +389,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -411,8 +422,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -444,8 +457,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -477,8 +492,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -510,8 +527,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -557,7 +576,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -589,7 +609,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -621,7 +642,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -653,7 +675,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -685,7 +708,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -717,7 +741,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -749,7 +774,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -781,7 +807,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -813,7 +840,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -845,7 +873,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -877,7 +906,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -909,8 +939,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -942,7 +974,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -974,8 +1007,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1007,8 +1042,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1040,8 +1077,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1115,8 +1154,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1148,7 +1188,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1180,7 +1221,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1212,7 +1255,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1244,7 +1288,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1276,7 +1321,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1308,7 +1354,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1340,8 +1387,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1373,7 +1422,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1407,9 +1458,11 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "coordinates-copied-from-previous-ride",
-      "missing-key-timepoints"
+      "里程缺失",
+      "坐标沿用上一骑行日",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1455,8 +1508,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1488,7 +1542,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1520,8 +1575,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints",
-      "coordinate-distance-conflict"
+      "坐标与里程冲突",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1929,7 +1986,8 @@
       }
     ],
     "riskFlags": [
-      "coordinate-distance-conflict"
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -3539,7 +3597,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.55,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -3784,7 +3844,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -3913,7 +3975,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -4030,7 +4094,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -4159,7 +4225,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -4701,8 +4769,9 @@
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "coordinates-copied-from-previous-ride",
-      "coordinate-distance-conflict"
+      "坐标沿用上一骑行日",
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "phase": "第二段",
     "ride": true,
@@ -4900,7 +4969,7 @@
       "status": "auto-extracted"
     },
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -5406,8 +5475,9 @@
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "coordinates-copied-from-previous-ride",
-      "coordinate-distance-conflict"
+      "坐标沿用上一骑行日",
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "phase": "第二段",
     "ride": true,
@@ -5691,36 +5761,214 @@
     "date": "2026-07-24",
     "bvid": "BV1vsga6kEQX",
     "title": "两天170公里，直接从边境干到金边！我感觉我们安全了。。。——《勇闯柬埔寨》第四集",
-    "place": "巴韦市 → 柴桢附近",
+    "place": "巴韦市 → 金边",
     "lat": 11.063175,
     "lng": 106.13557,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.25,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.7,
     "riskFlags": [
-      "place-needs-auto-review",
-      "coordinates-copied-from-previous-ride",
-      "missing-key-timepoints",
-      "coordinate-distance-conflict"
+      "坐标沿用上一骑行日",
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "phase": "第二段",
     "ride": true,
     "distanceKm": 170.0,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
-    "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "food": "冰淇淋、汉堡、鸡肉卷、麻辣烫、土豆饭、豆腐饭",
+    "foods": [
+      "冰淇淋",
+      "汉堡",
+      "鸡肉卷",
+      "麻辣烫",
+      "土豆饭",
+      "豆腐饭"
+    ],
+    "foodDetails": [
+      {
+        "name": "冰淇淋",
+        "venue": "兵哥",
+        "meal": "零食",
+        "price": null,
+        "currency": null,
+        "priceNote": null,
+        "recommendation": null,
+        "status": "AI音频提取 00:44",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=44"
+      },
+      {
+        "name": "汉堡",
+        "venue": "兵哥",
+        "meal": "午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "早上买的汉堡，内容奇怪",
+        "recommendation": null,
+        "status": "AI音频提取 10:30",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=630"
+      },
+      {
+        "name": "汉堡套餐",
+        "venue": "Nice Burger",
+        "meal": "午餐",
+        "price": 15,
+        "currency": "美元",
+        "priceNote": "4号、7号、13号套餐共15美元",
+        "recommendation": "好吃",
+        "status": "AI音频提取 01:00:56",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=3656"
+      },
+      {
+        "name": "老柬埔寨鸡肉卷",
+        "venue": "Nice Burger",
+        "meal": "午餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "包含在套餐内",
+        "recommendation": "比老北京鸡肉卷好吃",
+        "status": "AI音频提取 01:01:43",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=3703"
+      },
+      {
+        "name": "麻辣烫",
+        "venue": "金边中餐馆",
+        "meal": "晚餐",
+        "price": null,
+        "currency": null,
+        "priceNote": "为了吃青菜",
+        "recommendation": null,
+        "status": "AI音频提取 01:38:50",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=5930"
+      },
+      {
+        "name": "土豆饭和豆腐饭",
+        "venue": "金边中餐馆",
+        "meal": "晚餐",
+        "price": 15,
+        "currency": "美元",
+        "priceNote": "两份土豆饭加一份豆腐饭共15美元",
+        "recommendation": null,
+        "status": "AI音频提取 01:40:04",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=6004"
+      }
+    ],
+    "lodgings": [
+      {
+        "name": "金边某酒店",
+        "area": "金边市中心",
+        "price": null,
+        "currency": null,
+        "booking": "视频未说明",
+        "bikeStorage": "可停靠墙",
+        "pros": "豪华，有浴缸、咖啡机、饮水机、吹风机、备用枕头、浴衣、拖鞋",
+        "cons": "房间内有蟑螂",
+        "recommendation": "推荐",
+        "status": "AI音频提取 01:26:50",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=5210"
+      }
+    ],
+    "costs": [
+      {
+        "category": "餐饮",
+        "label": "Nice Burger套餐",
+        "amount": 15,
+        "currency": "USD",
+        "status": "AI音频提取 01:00:56",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=3656"
+      },
+      {
+        "category": "餐饮",
+        "label": "晚餐土豆饭和豆腐饭",
+        "amount": 15,
+        "currency": "USD",
+        "status": "AI音频提取 01:40:04",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=6004"
+      },
+      {
+        "category": "餐饮",
+        "label": "水、可乐和冰块",
+        "amount": 5500,
+        "currency": "KHR",
+        "status": "AI音频提取 32:02",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=1922"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "00:44",
+        "text": "在兵哥吃冰淇淋，味道像蜜雪冰城",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=44"
+      },
+      {
+        "time": "10:30",
+        "text": "史蒂文通过小姐姐点外卖汉堡，汉堡内容奇怪",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=630"
+      },
+      {
+        "time": "23:29",
+        "text": "经过湄公河，河水昏黄，与黄河相似",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=1409"
+      },
+      {
+        "time": "38:42",
+        "text": "遭遇牛群，差点被牛顶撞",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=2322"
+      },
+      {
+        "time": "01:00:56",
+        "text": "在Nice Burger吃午餐，15美元套餐，评价好吃",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=3656"
+      },
+      {
+        "time": "01:08:20",
+        "text": "金边日落，景色金色，被称为日落大道",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=4100"
+      },
+      {
+        "time": "01:26:50",
+        "text": "入住金边豪华酒店，设施齐全但有蟑螂",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=5210"
+      },
+      {
+        "time": "01:38:50",
+        "text": "晚餐吃麻辣烫和土豆饭、豆腐饭，共15美元",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1vsga6kEQX/?t=5930"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1vsga6kEQX/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。距离来自字幕中提到的'60公里'，但标题说两天170公里，实际当天骑行距离需核实。住宿名称和价格未明确，需人工确认。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "两天170公里，直接从边境干到金边！我感觉我们安全了。。。——《勇闯柬埔寨》第四集.",
+    "summary": "骑行队伍从巴韦市出发，目标金边，实际骑行约60公里。途中在兵哥休息、吃冰淇淋和汉堡，经过湄公河，遭遇牛群和越野路段，傍晚抵达金边入住豪华酒店。",
     "automation": {},
     "duration": 4040,
     "views": 28940,
     "cover": "https://i0.hdslb.com/bfs/archive/0c0641b3520d97ea0b6241873dfd00256d1985c3.jpg",
     "videoSource": "season",
     "mapVisible": false,
-    "coordinateStatus": "distance conflict; hidden from route"
+    "coordinateStatus": "distance conflict; hidden from route",
+    "coordinateSource": "local-gazetteer",
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-24T09:11:03.579666+00:00",
+      "transcriptionProvider": "volcengine_subtitle",
+      "transcriptionModel": "volcengine-video-subtitle",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   }
 ]
