@@ -5934,5 +5934,40 @@
     "cover": "https://i1.hdslb.com/bfs/archive/56e955795e3827d08b8554a4499f6695cf6453fa.jpg",
     "videoSource": "season",
     "mapVisible": true
+  },
+  {
+    "date": "2026-07-26",
+    "bvid": "BV1w43563EnM",
+    "title": "让我看看金边是怎么个事儿？？——《勇闯柬埔寨》第六集",
+    "place": "巴韦市 → 金边",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "让我看看金边是怎么个事儿？？——《勇闯柬埔寨》第六集.",
+    "automation": {},
+    "duration": 3214,
+    "views": 33130,
+    "cover": "https://i1.hdslb.com/bfs/archive/554938cd9e1fea7b6d788ca6d322eac21f4365f8.jpg",
+    "videoSource": "season",
+    "mapVisible": true
   }
 ]
