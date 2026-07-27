@@ -4899,8 +4899,8 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -6142,6 +6142,41 @@
     "duration": 3214,
     "views": 33130,
     "cover": "https://i1.hdslb.com/bfs/archive/554938cd9e1fea7b6d788ca6d322eac21f4365f8.jpg",
+    "videoSource": "season",
+    "mapVisible": true
+  },
+  {
+    "date": "2026-07-27",
+    "bvid": "BV1cngf6cEZ4",
+    "title": "生病 已老实——《勇闯柬埔寨》摆烂篇",
+    "place": "巴韦市 → 金边",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "生病 已老实——《勇闯柬埔寨》摆烂篇.",
+    "automation": {},
+    "duration": 1837,
+    "views": 44848,
+    "cover": "https://i1.hdslb.com/bfs/archive/d73fe9b76de3ee386cae3d1df37b089ed3302ded.jpg",
     "videoSource": "season",
     "mapVisible": true
   }
