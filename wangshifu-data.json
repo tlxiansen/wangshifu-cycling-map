@@ -39,8 +39,10 @@
     "rideTimeHours": null,
     "dayTimeHours": null,
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -145,8 +147,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -178,8 +181,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -234,8 +239,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -267,7 +273,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -299,7 +306,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -331,8 +339,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -379,7 +389,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -411,8 +422,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -444,8 +457,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -477,8 +492,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -510,8 +527,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -557,7 +576,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -589,7 +609,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -621,7 +642,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -653,7 +675,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -685,7 +708,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -717,7 +741,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -749,7 +774,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -781,7 +807,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -813,7 +840,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -845,7 +873,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -877,7 +906,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -909,8 +939,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -942,7 +974,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -974,8 +1007,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1007,8 +1042,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1040,8 +1077,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1115,8 +1154,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1148,7 +1188,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1180,7 +1221,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1212,7 +1255,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1244,7 +1288,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1276,7 +1321,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1308,7 +1354,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1340,8 +1387,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1373,7 +1422,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1407,9 +1458,11 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "coordinates-copied-from-previous-ride",
-      "missing-key-timepoints"
+      "里程缺失",
+      "坐标沿用上一骑行日",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1455,8 +1508,9 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-distance",
-      "missing-key-timepoints"
+      "里程缺失",
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1488,7 +1542,8 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints"
+      "关键时间点缺失",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -1520,8 +1575,10 @@
     "dayTimeHours": null,
     "evidence": [],
     "riskFlags": [
-      "missing-key-timepoints",
-      "coordinate-distance-conflict"
+      "坐标与里程冲突",
+      "关键时间点缺失",
+      "住宿缺失",
+      "需要自动复核"
     ],
     "confidenceScore": 0.45,
     "automation": {},
@@ -1929,7 +1986,8 @@
       }
     ],
     "riskFlags": [
-      "coordinate-distance-conflict"
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "confidenceScore": null,
     "automation": {},
@@ -3539,7 +3597,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.55,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -3784,7 +3844,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -3913,7 +3975,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -4030,7 +4094,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -4159,7 +4225,9 @@
     "lng": 106.6297,
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.6,
-    "riskFlags": [],
+    "riskFlags": [
+      "需要自动复核"
+    ],
     "phase": "第二段",
     "ride": false,
     "distanceKm": null,
@@ -4701,8 +4769,9 @@
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "coordinates-copied-from-previous-ride",
-      "coordinate-distance-conflict"
+      "坐标沿用上一骑行日",
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "phase": "第二段",
     "ride": true,
@@ -4900,7 +4969,7 @@
       "status": "auto-extracted"
     },
     "videoSource": "season",
-    "coordinateSource": "title/place gazetteer",
+    "coordinateSource": "local-gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -5406,8 +5475,9 @@
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "coordinates-copied-from-previous-ride",
-      "coordinate-distance-conflict"
+      "坐标沿用上一骑行日",
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "phase": "第二段",
     "ride": true,
@@ -5697,8 +5767,9 @@
     "confidence": "AI音频提取，待维护者核验",
     "confidenceScore": 0.7,
     "riskFlags": [
-      "coordinates-copied-from-previous-ride",
-      "coordinate-distance-conflict"
+      "坐标沿用上一骑行日",
+      "坐标与里程冲突",
+      "需要自动复核"
     ],
     "phase": "第二段",
     "ride": true,
@@ -6274,35 +6345,124 @@
     "date": "2026-07-27",
     "bvid": "BV1cngf6cEZ4",
     "title": "生病 已老实——《勇闯柬埔寨》摆烂篇",
-    "place": "巴韦市 → 金边",
+    "place": "金边",
     "lat": 11.063175,
     "lng": 106.13557,
-    "confidence": "Auto-added; pending review",
-    "confidenceScore": 0.25,
+    "confidence": "AI音频提取，待维护者核验",
+    "confidenceScore": 0.6,
     "riskFlags": [
-      "place-needs-auto-review",
-      "missing-distance",
-      "coordinates-copied-from-previous-ride",
-      "missing-key-timepoints"
+      "需要自动复核"
     ],
     "phase": "第二段",
-    "ride": true,
+    "ride": false,
     "distanceKm": null,
-    "food": "Not identified",
-    "foods": [],
-    "foodDetails": [],
+    "food": "老北京火锅",
+    "foods": [
+      "老北京火锅"
+    ],
+    "foodDetails": [
+      {
+        "name": "老北京火锅",
+        "venue": "老北京火锅店（金边）",
+        "meal": "晚餐",
+        "price": 75,
+        "currency": "USD",
+        "priceNote": "四人套餐58刀，加上锅底等共75刀",
+        "recommendation": "推荐，适合生病时吃",
+        "status": "AI音频提取 24:18",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=1458"
+      }
+    ],
     "lodgings": [],
-    "costs": [],
-    "highlights": [],
-    "evidence": [],
+    "costs": [
+      {
+        "category": "food",
+        "label": "老北京火锅",
+        "amount": 75,
+        "currency": "USD",
+        "status": "AI音频提取 42:21",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=2541"
+      },
+      {
+        "category": "income",
+        "label": "卖自行车（小粉）",
+        "amount": 70,
+        "currency": "USD",
+        "status": "AI音频提取 08:45",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=525"
+      },
+      {
+        "category": "transport",
+        "label": "摩托车维修（仪表壳）",
+        "amount": 15,
+        "currency": "USD",
+        "status": "AI音频提取 45:32",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=2732"
+      }
+    ],
+    "highlights": [
+      {
+        "time": "03:22",
+        "text": "老王生病（咽喉疼、头疼、发烧前兆），无法骑行",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=202"
+      },
+      {
+        "time": "08:45",
+        "text": "邱大志在自行车一条街以70美元卖掉自行车（小粉）",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=525"
+      },
+      {
+        "time": "45:32",
+        "text": "摩托车维修：仪表壳更换15美元，电启动和转向灯问题待修",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=2732"
+      },
+      {
+        "time": "24:18",
+        "text": "三人到老北京火锅店吃晚餐，四人套餐58美元，总花费75美元",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=1458"
+      },
+      {
+        "time": "18:46",
+        "text": "邱大志骑自行车约10公里去卖车",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=1126"
+      },
+      {
+        "time": "42:21",
+        "text": "使用优惠券可减120美元但未使用，实际花费75美元",
+        "status": "AI音频提取，待人工核验",
+        "source": "https://www.bilibili.com/video/BV1cngf6cEZ4/?t=2541"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "ai-audio-transcript",
+        "url": "https://www.bilibili.com/video/BV1cngf6cEZ4/",
+        "note": "音频自动转写并结构化提取；完整字幕已加密缓存，不在网页公开。距离、骑行时间等未明确提及；摩托车维修具体项目及费用仅部分明确；火锅店名称未明确，根据描述推断。"
+      }
+    ],
     "rideTimeHours": null,
     "dayTimeHours": null,
-    "summary": "生病 已老实——《勇闯柬埔寨》摆烂篇.",
+    "summary": "老王生病卧床，邱大志和史蒂文在巴韦市（金边）处理杂务：卖掉自行车、维修摩托车，并吃了一顿老北京火锅。",
     "automation": {},
     "duration": 1837,
     "views": 44848,
     "cover": "https://i1.hdslb.com/bfs/archive/d73fe9b76de3ee386cae3d1df37b089ed3302ded.jpg",
     "videoSource": "season",
-    "mapVisible": true
+    "mapVisible": true,
+    "automationStatus": "AI enriched",
+    "aiEnrichment": {
+      "version": "route-auto-v2",
+      "processedAt": "2026-07-27T20:09:36.237778+00:00",
+      "transcriptionProvider": "volcengine_subtitle",
+      "transcriptionModel": "volcengine-video-subtitle",
+      "extractionProvider": "deepseek",
+      "extractionModel": "deepseek-chat",
+      "status": "auto-extracted"
+    }
   }
 ]
