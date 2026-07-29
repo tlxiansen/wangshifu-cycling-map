@@ -4899,8 +4899,8 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -6655,6 +6655,41 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
+    "videoSource": "season",
+    "mapVisible": true
+  },
+  {
+    "date": "2026-07-29",
+    "bvid": "BV1rE3k6EEhk",
+    "title": "暴雨被困金边，三人泳池赤裸相见——《勇闯柬埔寨》第八集",
+    "place": "金边",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "暴雨被困金边，三人泳池赤裸相见——《勇闯柬埔寨》第八集.",
+    "automation": {},
+    "duration": 3315,
+    "views": 6387,
+    "cover": "https://i1.hdslb.com/bfs/archive/aaa44e611b538e4a4420fa89c77ec9bede8a54b8.jpg",
     "videoSource": "season",
     "mapVisible": true
   }
