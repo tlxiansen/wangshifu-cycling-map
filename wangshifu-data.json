@@ -6855,5 +6855,41 @@
       "status": "auto-extracted"
     },
     "videoSource": "season"
+  },
+  {
+    "date": "2026-07-30",
+    "bvid": "BV1Bq3x6AEjC",
+    "title": "迎着小雨狂骑100公里，囚大初骑幼兽——《勇闯柬埔寨》第九集",
+    "place": "金边",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints",
+      "coordinate-distance-conflict"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": 100.0,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "迎着小雨狂骑100公里，囚大初骑幼兽——《勇闯柬埔寨》第九集.",
+    "automation": {},
+    "duration": 2952,
+    "views": 82875,
+    "cover": "https://i2.hdslb.com/bfs/archive/5e54742a456d6a3d3811065d76e9aaaef472be91.jpg",
+    "videoSource": "season",
+    "mapVisible": false,
+    "coordinateStatus": "distance conflict; hidden from route"
   }
 ]
