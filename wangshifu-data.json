@@ -3624,7 +3624,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-13",
@@ -6993,5 +6993,40 @@
     "videoSource": "season",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
+  },
+  {
+    "date": "2026-07-31",
+    "bvid": "BV11PGc6kEzz",
+    "title": "生病加重!大鼎子带病骑行50KM入住豪华酒店！——《勇闯柬埔寨》第十集",
+    "place": "金边 → 铜湖",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "生病加重!大鼎子带病骑行50KM入住豪华酒店！——《勇闯柬埔寨》第十集.",
+    "automation": {},
+    "duration": 2987,
+    "views": 67622,
+    "cover": "https://i0.hdslb.com/bfs/archive/bf5978bf2b0142336033af67d7f5291b5ba33adc.jpg",
+    "videoSource": "season",
+    "mapVisible": true
   }
 ]
