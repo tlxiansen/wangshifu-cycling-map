@@ -4899,8 +4899,8 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7686,5 +7686,40 @@
       "status": "auto-extracted"
     },
     "videoSource": "season"
+  },
+  {
+    "date": "2026-08-03",
+    "bvid": "BV1KrMQ61Eyy",
+    "title": "吴哥窟到底怎么个事儿？？——《勇闯柬埔寨》第十三集",
+    "place": "金边 → 暹粒",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "吴哥窟到底怎么个事儿？？——《勇闯柬埔寨》第十三集.",
+    "automation": {},
+    "duration": 4364,
+    "views": 3823,
+    "cover": "https://i0.hdslb.com/bfs/archive/88e0570a31c1df956e68b0a4dce1575f9c342abc.jpg",
+    "videoSource": "season",
+    "mapVisible": true
   }
 ]
