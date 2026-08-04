@@ -4899,8 +4899,8 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7934,5 +7934,40 @@
       "status": "auto-extracted"
     },
     "videoSource": "season"
+  },
+  {
+    "date": "2026-08-04",
+    "bvid": "BV1rAMf69Ee1",
+    "title": "告别柬埔寨系列！到达曼谷开启新系列——《勇闯泰国》第一集",
+    "place": "暹粒",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "告别柬埔寨系列！到达曼谷开启新系列——《勇闯泰国》第一集.",
+    "automation": {},
+    "duration": 3861,
+    "views": 28662,
+    "cover": "https://i2.hdslb.com/bfs/archive/5f2bfc248b5d96b68fb8f7f86c45644f68b0a269.jpg",
+    "videoSource": "season",
+    "mapVisible": true
   }
 ]
