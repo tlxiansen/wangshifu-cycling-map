@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T10:49:53.8341179+00:00",
+  "generatedAt": "2026-08-04T14:38:35.3658222+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
@@ -7,7 +7,7 @@
       "date": "2026-06-11",
       "place": "返回越南途中",
       "user": "zjlinlinlin",
-      "likes": 560,
+      "likes": 561,
       "message": "我来大概梳理下：\n1、王开始骑行，大号探店还需要出行、成本上升。\n2、A伴对于A频繁跑过去找王有意见。\n3、A妥协A伴，反要求王需要配合\n4、王不肯，掀桌（谁掀不评估）\n5、王回沪摊牌。\n6、等各位补充[doge_金箍]",
       "rpid": "305362448208",
       "url": "https://www.bilibili.com/video/BV1LvEY6PEMZ/#reply305362448208",
@@ -25,25 +25,14 @@
       "status": "待核验"
     },
     {
-      "bvid": "BV1xdVw6SEF1",
-      "date": "2026-05-26",
-      "place": "河内 Hanoi",
-      "user": "JosEvil",
-      "likes": 97,
-      "message": "有一点一定要提醒大家，户外的综合强度运动，一定是冷容易克服、热不容易克服。\n因为散热是最困难的，远远难于保温。\n这也是为什么，长跑和骑行都非常的注重热适应训练[doge]",
-      "rpid": "300660489153",
-      "url": "https://www.bilibili.com/video/BV1xdVw6SEF1/#reply300660489153",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV1xdVw6SEF1",
-      "date": "2026-05-26",
-      "place": "河内 Hanoi",
-      "user": "Louiszheng87",
-      "likes": 52,
-      "message": "史蒂夫夫妻两人带着王师傅宝宝👶去东南亚骑行🚲旅行✈️，目的地新加坡🇸🇬",
-      "rpid": "300665399153",
-      "url": "https://www.bilibili.com/video/BV1xdVw6SEF1/#reply300665399153",
+      "bvid": "BV1RQ7Z6eEWV",
+      "date": "2026-06-04",
+      "place": "越南中北部",
+      "user": "福州陈奕迅丶",
+      "likes": 54,
+      "message": "番外篇：史师傅の日记\n①游玩路线图\n②健身房\n③晚饭店\n④⑤荣市古城介绍",
+      "rpid": "301614956385",
+      "url": "https://www.bilibili.com/video/BV1RQ7Z6eEWV/#reply301614956385",
       "status": "待核验"
     }
   ]
