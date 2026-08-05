@@ -3624,7 +3624,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "upload"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-13",
@@ -8147,7 +8147,7 @@
     "duration": 947,
     "views": 167246,
     "cover": "https://i1.hdslb.com/bfs/archive/b9e59ca15f9ae348e206d916f2f9b324f5eafcee.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "mapVisible": true
   }
 ]
