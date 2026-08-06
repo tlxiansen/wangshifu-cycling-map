@@ -3624,7 +3624,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-13",
@@ -4899,8 +4899,8 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -8295,6 +8295,41 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
+  },
+  {
+    "date": "2026-08-06",
+    "bvid": "BV1PwMS6eEc7",
+    "title": "梦幻开局，pocket被盗?被迫变短的一天",
+    "place": "曼谷",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "梦幻开局，pocket被盗?被迫变短的一天.",
+    "automation": {},
+    "duration": 283,
+    "views": 4031,
+    "cover": "https://i1.hdslb.com/bfs/archive/923625f7f10ff4db8716cb84a4458dfeddf2a556.jpg",
+    "videoSource": "season",
+    "mapVisible": true
   }
 ]
