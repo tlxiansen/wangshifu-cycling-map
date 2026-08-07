@@ -4899,8 +4899,8 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "coordinateSource": "local-gazetteer",
     "videoSource": "season",
+    "coordinateSource": "title/place gazetteer",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -8380,6 +8380,41 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
+    "videoSource": "season",
+    "mapVisible": true
+  },
+  {
+    "date": "2026-08-07",
+    "bvid": "BV1cvu46qEhh",
+    "title": "电子小王送来一段回国视频实录~~",
+    "place": "曼谷",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "电子小王送来一段回国视频实录~~.",
+    "automation": {},
+    "duration": 278,
+    "views": 77866,
+    "cover": "https://i0.hdslb.com/bfs/archive/b2349a8ffda514f7ec8dead6be968f621116e23b.jpg",
     "videoSource": "season",
     "mapVisible": true
   }
