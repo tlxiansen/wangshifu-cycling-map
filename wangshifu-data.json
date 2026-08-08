@@ -8494,5 +8494,40 @@
       "status": "auto-extracted"
     },
     "videoSource": "season"
+  },
+  {
+    "date": "2026-08-08",
+    "bvid": "BV1i3uM6gEsb",
+    "title": "今天是新频道？小文文和？？的日记",
+    "place": "曼谷",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "今天是新频道？小文文和？？的日记.",
+    "automation": {},
+    "duration": 415,
+    "views": 63409,
+    "cover": "https://i0.hdslb.com/bfs/archive/e695ab440833038b804ea3cba1655605d0d77f90.jpg",
+    "videoSource": "season",
+    "mapVisible": true
   }
 ]
