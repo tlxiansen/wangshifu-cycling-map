@@ -8675,5 +8675,40 @@
       "status": "auto-extracted"
     },
     "videoSource": "season"
+  },
+  {
+    "date": "2026-08-10",
+    "bvid": "BV1nxuR6jEsN",
+    "title": "电子小王发来一条日记！查收喵",
+    "place": "青岛",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "电子小王发来一条日记！查收喵.",
+    "automation": {},
+    "duration": 427,
+    "views": 63088,
+    "cover": "https://i1.hdslb.com/bfs/archive/30450cf55a89d9a8fc9279af6754e358ffbb6f54.jpg",
+    "videoSource": "season",
+    "mapVisible": true
   }
 ]
