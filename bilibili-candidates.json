@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T21:02:06.4689735+00:00",
+  "generatedAt": "2026-08-13T02:46:04.6924119+00:00",
   "rule": "公开评论含路线/里程/饮食关键词且至少 10 赞；仅作为候选，不自动覆盖正式路线",
   "items": [
     {
@@ -22,39 +22,6 @@
       "message": "出发这天才看到自己的瓜[doge]，所以前几期标题都是巧合啦\n【视频标记点 09:48】 https://b23.tv/qBNnF7c",
       "rpid": "305362660752",
       "url": "https://www.bilibili.com/video/BV1LvEY6PEMZ/#reply305362660752",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV1F5E76aEfD",
-      "date": "2026-06-09",
-      "place": "回国支线",
-      "user": "zimoab",
-      "likes": 284,
-      "message": "王哥……兄弟们现在知道你为什么突然中断骑行从越南飞回来了[大哭][大哭][大哭]太痛了……呜呜呜[doge_金箍][doge_金箍][doge_金箍]",
-      "rpid": "302117043697",
-      "url": "https://www.bilibili.com/video/BV1F5E76aEfD/#reply302117043697",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV1F5E76aEfD",
-      "date": "2026-06-09",
-      "place": "回国支线",
-      "user": "土味老王",
-      "likes": 266,
-      "message": "我只有一个问题，事情已经到了这一步了，王师傅到底准备什么时候开启加拿大骑行，现在应该不介意了吧，顺便一提，我只是顺便一提，我看了慧文的ins，慧文还是单身",
-      "rpid": "305225844464",
-      "url": "https://www.bilibili.com/video/BV1F5E76aEfD/#reply305225844464",
-      "status": "待核验"
-    },
-    {
-      "bvid": "BV1F5E76aEfD",
-      "date": "2026-06-09",
-      "place": "回国支线",
-      "user": "一切刚刚好666",
-      "likes": 104,
-      "message": "新的起点，新的开始。",
-      "rpid": "305210469856",
-      "url": "https://www.bilibili.com/video/BV1F5E76aEfD/#reply305210469856",
       "status": "待核验"
     }
   ]
