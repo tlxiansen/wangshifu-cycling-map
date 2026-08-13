@@ -8745,5 +8745,41 @@
     "cover": "https://i0.hdslb.com/bfs/archive/8593bc34aeae48b7261e41edcbf94a59f24638d4.jpg",
     "videoSource": "season",
     "mapVisible": true
+  },
+  {
+    "date": "2026-08-13",
+    "bvid": "BV1wmgE6JE7y",
+    "title": "30公里，我能到东方明珠吗？？——《徒步上海》第二集",
+    "place": "青岛",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints",
+      "coordinate-distance-conflict"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": 30.0,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "30公里，我能到东方明珠吗？？——《徒步上海》第二集.",
+    "automation": {},
+    "duration": 5328,
+    "views": 57846,
+    "cover": "https://i2.hdslb.com/bfs/archive/4637977e4278ef3d177a009d087e6c0a484e1291.jpg",
+    "videoSource": "season",
+    "mapVisible": false,
+    "coordinateStatus": "distance conflict; hidden from route"
   }
 ]
