@@ -5179,7 +5179,7 @@
     },
     "coordinateStatus": "distance conflict; hidden from route",
     "coordinateSource": "local-gazetteer",
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -5394,7 +5394,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-23",
@@ -5683,7 +5683,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -5896,7 +5896,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -6108,7 +6108,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-26",
@@ -6268,7 +6268,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-27",
@@ -6390,7 +6390,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-28",
@@ -6655,7 +6655,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -6854,7 +6854,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-07-30",
@@ -6990,7 +6990,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7230,7 +7230,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7487,7 +7487,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7685,7 +7685,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-08-03",
@@ -7933,7 +7933,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-08-04",
@@ -8113,7 +8113,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-08-05",
@@ -8380,7 +8380,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -8493,7 +8493,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-08-08",
@@ -8674,7 +8674,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "season"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-08-09",
@@ -8743,7 +8743,7 @@
     "duration": 427,
     "views": 63088,
     "cover": "https://i1.hdslb.com/bfs/archive/30450cf55a89d9a8fc9279af6754e358ffbb6f54.jpg",
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -8813,7 +8813,7 @@
     "duration": 3642,
     "views": 91481,
     "cover": "https://i0.hdslb.com/bfs/archive/8593bc34aeae48b7261e41edcbf94a59f24638d4.jpg",
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -8848,7 +8848,7 @@
     "duration": 5328,
     "views": 57846,
     "cover": "https://i2.hdslb.com/bfs/archive/4637977e4278ef3d177a009d087e6c0a484e1291.jpg",
-    "videoSource": "season",
+    "videoSource": "existing-cache",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
