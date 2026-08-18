@@ -8295,7 +8295,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "upload"
+    "videoSource": "existing-cache"
   },
   {
     "date": "2026-08-06",
@@ -8708,7 +8708,7 @@
     "duration": 825,
     "views": 236231,
     "cover": "https://i0.hdslb.com/bfs/archive/f5c28361eaf9037ff0131a15491d77433b4ced64.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -8778,7 +8778,7 @@
     "duration": 1226,
     "views": 260231,
     "cover": "https://i2.hdslb.com/bfs/archive/80a5a4c1f8285473da1c63cde0bc15d2c4fe35af.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -8884,7 +8884,7 @@
     "duration": 4480,
     "views": 316313,
     "cover": "https://i2.hdslb.com/bfs/archive/7ac56bb787d2e93bc0ad13fe9e114d3b9aecaa97.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -8920,7 +8920,7 @@
     "duration": 2012,
     "views": 344983,
     "cover": "https://i0.hdslb.com/bfs/archive/ece355567ad31d93b92afb76962d4f73f99f5b6f.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -8955,7 +8955,7 @@
     "duration": 897,
     "views": 566270,
     "cover": "https://i2.hdslb.com/bfs/archive/9a7625513c5d0ff363f15feba699129015b77450.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "mapVisible": true
   },
   {
@@ -8990,7 +8990,7 @@
     "duration": 1773,
     "views": 185844,
     "cover": "https://i2.hdslb.com/bfs/archive/e6ac9001de3f82e3f4af322672d3e583ff6f282b.jpg",
-    "videoSource": "upload",
+    "videoSource": "existing-cache",
     "mapVisible": true
   }
 ]
