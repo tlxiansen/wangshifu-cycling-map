@@ -5394,7 +5394,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-23",
@@ -5683,7 +5683,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -5896,7 +5896,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -6108,7 +6108,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-26",
@@ -6268,7 +6268,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-27",
@@ -6390,7 +6390,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-28",
@@ -6655,7 +6655,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -6854,7 +6854,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-07-30",
@@ -6990,7 +6990,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7230,7 +7230,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7487,7 +7487,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -7685,7 +7685,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-08-03",
@@ -7933,7 +7933,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-08-04",
@@ -8113,7 +8113,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-08-05",
@@ -8295,7 +8295,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-08-06",
@@ -8380,7 +8380,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -8493,7 +8493,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-08-08",
@@ -8674,7 +8674,7 @@
       "extractionModel": "deepseek-chat",
       "status": "auto-extracted"
     },
-    "videoSource": "existing-cache"
+    "videoSource": "upload"
   },
   {
     "date": "2026-08-09",
@@ -8708,7 +8708,7 @@
     "duration": 825,
     "views": 236231,
     "cover": "https://i0.hdslb.com/bfs/archive/f5c28361eaf9037ff0131a15491d77433b4ced64.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -8743,7 +8743,7 @@
     "duration": 427,
     "views": 63088,
     "cover": "https://i1.hdslb.com/bfs/archive/30450cf55a89d9a8fc9279af6754e358ffbb6f54.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -8778,7 +8778,7 @@
     "duration": 1226,
     "views": 260231,
     "cover": "https://i2.hdslb.com/bfs/archive/80a5a4c1f8285473da1c63cde0bc15d2c4fe35af.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -8813,7 +8813,7 @@
     "duration": 3642,
     "views": 91481,
     "cover": "https://i0.hdslb.com/bfs/archive/8593bc34aeae48b7261e41edcbf94a59f24638d4.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -8848,7 +8848,7 @@
     "duration": 5328,
     "views": 57846,
     "cover": "https://i2.hdslb.com/bfs/archive/4637977e4278ef3d177a009d087e6c0a484e1291.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -8884,7 +8884,7 @@
     "duration": 4480,
     "views": 316313,
     "cover": "https://i2.hdslb.com/bfs/archive/7ac56bb787d2e93bc0ad13fe9e114d3b9aecaa97.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": false,
     "coordinateStatus": "distance conflict; hidden from route"
   },
@@ -8920,7 +8920,7 @@
     "duration": 2012,
     "views": 344983,
     "cover": "https://i0.hdslb.com/bfs/archive/ece355567ad31d93b92afb76962d4f73f99f5b6f.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -8955,7 +8955,7 @@
     "duration": 897,
     "views": 566270,
     "cover": "https://i2.hdslb.com/bfs/archive/9a7625513c5d0ff363f15feba699129015b77450.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
     "mapVisible": true
   },
   {
@@ -8990,7 +8990,112 @@
     "duration": 1773,
     "views": 185844,
     "cover": "https://i2.hdslb.com/bfs/archive/e6ac9001de3f82e3f4af322672d3e583ff6f282b.jpg",
-    "videoSource": "existing-cache",
+    "videoSource": "upload",
+    "mapVisible": true
+  },
+  {
+    "date": "2026-08-18",
+    "bvid": "BV1Fkbr6oEMX",
+    "title": "上海最后一舞————小分队即将集合！！！",
+    "place": "青岛",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "上海最后一舞————小分队即将集合！！！.",
+    "automation": {},
+    "duration": 2222,
+    "views": 206060,
+    "cover": "https://i1.hdslb.com/bfs/archive/ade2c098d8c8f8407032ada495b7d4fa4dfc23ee.jpg",
+    "videoSource": "upload",
+    "mapVisible": true
+  },
+  {
+    "date": "2026-08-19",
+    "bvid": "BV1Es8567ETU",
+    "title": "小分队集合体——————中国人能飞！！",
+    "place": "青岛",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "小分队集合体——————中国人能飞！！.",
+    "automation": {},
+    "duration": 1833,
+    "views": 231832,
+    "cover": "https://i0.hdslb.com/bfs/archive/04e8a4e5bd4332192c47f421949b33778f1e9345.jpg",
+    "videoSource": "upload",
+    "mapVisible": true
+  },
+  {
+    "date": "2026-08-20",
+    "bvid": "BV1rhbZ6uE59",
+    "title": "从上海飞3000公里，就为了带囚大来吃这一口？？",
+    "place": "青岛",
+    "lat": 11.063175,
+    "lng": 106.13557,
+    "confidence": "Auto-added; pending review",
+    "confidenceScore": 0.25,
+    "riskFlags": [
+      "place-needs-auto-review",
+      "missing-distance",
+      "coordinates-copied-from-previous-ride",
+      "missing-key-timepoints"
+    ],
+    "phase": "第二段",
+    "ride": true,
+    "distanceKm": null,
+    "food": "Not identified",
+    "foods": [],
+    "foodDetails": [],
+    "lodgings": [],
+    "costs": [],
+    "highlights": [],
+    "evidence": [],
+    "rideTimeHours": null,
+    "dayTimeHours": null,
+    "summary": "从上海飞3000公里，就为了带囚大来吃这一口？？.",
+    "automation": {},
+    "duration": 1458,
+    "views": 63127,
+    "cover": "https://i1.hdslb.com/bfs/archive/e70294c4783853d130fc7f654abdfe51b3c50d6e.jpg",
+    "videoSource": "upload",
     "mapVisible": true
   }
 ]
